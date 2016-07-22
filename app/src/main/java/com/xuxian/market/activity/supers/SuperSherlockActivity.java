@@ -1,6 +1,7 @@
 package com.xuxian.market.activity.supers;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.ab.view.AbLoadingDialog;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.xuxian.market.R;
 import com.xuxian.market.presentation.application.MyApplication;
@@ -71,8 +73,41 @@ public abstract class SuperSherlockActivity  extends SherlockActivity{
         this.ll_title_bar_right_click = (LinearLayout) this.title_bar.findViewById(R.id.ll_title_bar_right_click);
         this.iv_title_bar_right_icon = (ImageView) this.title_bar.findViewById(R.id.iv_title_bar_right_icon);
         this.tv_title_bar_right_text = (TextView) this.title_bar.findViewById(R.id.tv_title_bar_right_text);
-        this.ll_title_bar_left_click.setOnClickListener(new C08862());
+        this.ll_title_bar_left_click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
         setCustomView(this.title_bar);
-
     }
+
+    public void setCustomView(View title_bar) {
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setDisplayOptions(16);
+        getSupportActionBar().setCustomView(title_bar);
+    }
+
+    public View getTitle_bar() {
+        return this.title_bar;
+    }
+
+    public TextView getTv_title_bar_right_text() {
+        return this.tv_title_bar_right_text;
+    }
+
+    public void setTitleBarBg(int color) {
+        this.rl_title_bar.setBackgroundColor(Color.parseColor(getString(color)));
+    }
+
+    public void setTitleLeftViewBg(int resid) {
+        this.ll_title_bar_left_click.setBackgroundResource(resid);
+    }
+
+    public void setTitleLeftIcon(int resid) {
+        this.iv_title_bar_left_icon.setBackgroundResource(resid);
+    }
+
+
+
 }

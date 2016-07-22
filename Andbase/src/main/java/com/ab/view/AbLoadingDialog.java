@@ -31,16 +31,36 @@ public class AbLoadingDialog extends Dialog {
     private TextView tv;
     private TextView tv_point;
 
+    class MyHandler extends Handler{
+        private  int num;
+
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what==CHANGE_TITLE_WHAT){
+                StringBuilder sb = new StringBuilder();
+                if (num>=MAX_SUFFIX_NUMBER){
+                    num=0;
+                }
+                num++;
+                for (int i = 0 ; i < num; i ++){
+                    sb.append(SUFFIX);
+                }
+                tv_point.setText(sb.toString());
+                if (isShowing()){
+                    sendEmptyMessageDelayed(CHANGE_TITLE_WHAT,300);
+                }
+                else{
+                    num=0;
+                }
+            }
+        }
+    }
 
     public AbLoadingDialog(Context context) {
         super(context);
         this.cancelable = true;
-        this.handler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-                super.handleMessage(msg);
-            }
-        };
+        this.handler = new MyHandler();
         this.mContext = context;
         init();
     }
@@ -60,7 +80,46 @@ public class AbLoadingDialog extends Dialog {
     }
 
     private void initAnim() {
-        this.mAnim = new RotateAnimation(360f,0.0f, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-
+        mAnim = new RotateAnimation(360f, 0.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        mAnim.setDuration(2000);
+        mAnim.setRepeatCount(-1);
+        mAnim.setRepeatMode(Animation.RESTART);
+        mAnim.setStartTime(Animation.START_ON_FIRST_FRAME);
     }
+
+    @Override
+    public void show(){
+        iv_route.startAnimation(mAnim);
+        handler.sendEmptyMessage(CHANGE_TITLE_WHAT);
+        super.show();
+    }
+
+    @Override
+    public void dismiss() {
+        this.mAnim.cancel();
+        super.dismiss();
+    }
+
+    @Override
+    public void setCancelable(boolean flag) {
+        this.cancelable = flag;
+        super.setCancelable(flag);
+    }
+
+    @Override
+    public void setTitle(CharSequence title) {
+        this.tv.setText(title);
+        if (!isShowing()) {
+            show();
+        }
+    }
+
+    @Override
+    public void setTitle(int titleId) {
+        setTitle(this.mContext.getString(titleId));
+        if (!isShowing()) {
+            show();
+        }
+    }
+
 }
