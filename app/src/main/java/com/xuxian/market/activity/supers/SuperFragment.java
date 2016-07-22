@@ -33,7 +33,7 @@ public abstract class SuperFragment extends SherlockFragment {
     private View title_bar;
 
     public SuperFragment() {
-        this.loadingStatus =0;
+        this.loadingStatus =View.VISIBLE;
     }
 
     @Nullable
@@ -103,9 +103,99 @@ public abstract class SuperFragment extends SherlockFragment {
         this.iv_title_bar_left_icon.setBackgroundResource(resid);
     }
 
+
     public void setTitleLeftIcon(int resid, int width, int height) {
         this.iv_title_bar_left_icon.setBackgroundResource(resid);
         AbViewUtil.setViewWH(this.iv_title_bar_left_icon, width, height);
+    }
+
+    public void setTitleLeftText(String text) {
+        this.tv_title_bar_left_text.setText(text);
+    }
+
+    public void setTitleLeftTextColor(int color) {
+        this.tv_title_bar_left_text.setTextColor(Color.parseColor(getString(color)));
+    }
+
+    public void setTitle(String title) {
+        this.tv_title_bar_center_title.setText(title);
+    }
+
+    public void setTitle(int title) {
+        this.tv_title_bar_center_title.setText(getString(title));
+    }
+
+    public void setTitleColor(int color) {
+        this.tv_title_bar_center_title.setTextColor(Color.parseColor(getString(color)));
+    }
+
+    public void setTitleRightViewBg(int resid) {
+        this.ll_title_bar_right_click.setBackgroundResource(resid);
+    }
+
+    public void setTitleRightIcon(int resid) {
+        this.iv_title_bar_right_icon.setBackgroundResource(resid);
+    }
+
+    public void setTitleRightIcon(int resid, int width, int height) {
+        this.iv_title_bar_right_icon.setBackgroundResource(resid);
+        AbViewUtil.setViewWH(this.iv_title_bar_left_icon, width, height);
+    }
+
+    public void setTitleRightText(String text) {
+        this.tv_title_bar_right_text.setText(text);
+    }
+
+    public void setTitleRightTextColor(int color) {
+        this.tv_title_bar_right_text.setTextColor(Color.parseColor(getString(color)));
+    }
+
+    public void setTitleLeftViewShow(boolean boo) {
+        if (boo) {
+            this.ll_title_bar_left_click.setVisibility(View.VISIBLE);
+        } else {
+            this.ll_title_bar_left_click.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    public void setTitleLeftTextShow(boolean boo) {
+        if (boo) {
+            this.tv_title_bar_left_text.setVisibility(View.VISIBLE);
+        } else {
+            this.tv_title_bar_left_text.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    public void setTitleRightViewShow(boolean boo) {
+        if (boo) {
+            this.ll_title_bar_right_click.setVisibility(View.VISIBLE);
+        } else {
+            this.ll_title_bar_right_click.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    public void setTitleRightIconShow(boolean boo) {
+        if (boo) {
+            this.iv_title_bar_right_icon.setVisibility(View.VISIBLE);
+        } else {
+            this.iv_title_bar_right_icon.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    public void setTitleRightTextShow(boolean boo) {
+        if (boo) {
+            this.tv_title_bar_right_text.setVisibility(View.VISIBLE);
+        } else {
+            this.tv_title_bar_right_text.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    public LinearLayout getTitleLeftClick() {
+        return this.ll_title_bar_left_click;
+    }
+
+    public LinearLayout getTitleRightClick() {
+        return this.ll_title_bar_right_click;
     }
 
 
