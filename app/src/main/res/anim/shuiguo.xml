@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="100" android:drawable="@drawable/ningmeng" />
+    <item android:duration="100" android:drawable="@drawable/caomei" />
+    <item android:duration="100" android:drawable="@drawable/pingguo" />
+    <item android:duration="100" android:drawable="@drawable/chengzi" />
+    <item android:duration="100" android:drawable="@drawable/xiangjiao" />
+</animation-list>
