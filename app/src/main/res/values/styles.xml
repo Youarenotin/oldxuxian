@@ -478,7 +478,7 @@
         <item name="actionBarWidgetTheme">@style/Theme.Sherlock</item>
         <item name="actionBarDivider">@drawable/abs__list_divider_holo_dark</item>
         <item name="actionBarItemBackground">@drawable/abs__item_background_holo_dark</item>
-        <item name="actionMenuTextColor">?subtitleTextColor</item>
+        <item name="actionMenuTextColor">?android:subtitleTextColor</item>
         <item name="actionModeStyle">@style/Widget.Sherlock.Light.ActionMode.Inverse</item>
         <item name="actionModeCloseButtonStyle">@style/Widget.Sherlock.ActionButton.CloseMode</item>
         <item name="actionModeBackground">@drawable/abs__cab_background_top_holo_dark</item>

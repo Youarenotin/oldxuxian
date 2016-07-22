@@ -7,7 +7,7 @@
              android:orientation="vertical">
 
     <com.xuxian.market.presentation.view.widgets.ShimmerFrameLayout
-        android:id="@id/shimmer_view_container"
+        android:id="@+id/shimmer_view_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -20,7 +20,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@id/iv_app_start"
+                android:id="@+id/iv_app_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/splash_03"/>
