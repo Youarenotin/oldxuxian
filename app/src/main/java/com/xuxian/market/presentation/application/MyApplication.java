@@ -1,14 +1,20 @@
 package com.xuxian.market.presentation.application;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * 作者：lubo on 7/22 0022 10:30
@@ -18,6 +24,7 @@ public class MyApplication extends Application {
     public static String currentUserNick = "";
     public String localVersion;
     public DisplayImageOptions.Builder displayBuilder = null;
+    public static ArrayList<Activity> mActivitys;
 
     public MyApplication() {
     }
@@ -45,12 +52,21 @@ public class MyApplication extends Application {
         );
     }
 
+    /**
+     * 每一张图的配置
+     * @param drawbleId
+     * @return
+     */
     public DisplayImageOptions getSampleOptions(int drawbleId) {
         DisplayImageOptions.Builder options = getSampleOptions();
         options.showImageOnFail(drawbleId);
         options.showImageOnLoading(drawbleId);
         options.showImageForEmptyUri(drawbleId);
         options.cacheInMemory(true);
+        options.cacheOnDisk(true);
+        options.imageScaleType(ImageScaleType.EXACTLY);
+        options.bitmapConfig(Bitmap.Config.RGB_565);
+        options.resetViewBeforeLoading(true);
         return options.build();
 
     }
@@ -65,5 +81,22 @@ public class MyApplication extends Application {
             }
         }
         return builder;
+    }
+
+    public static void addActivity(Activity  activity){
+        if (!mActivitys.contains(activity)){
+            mActivitys.add(activity);
+        }
+    }
+
+    public void exit(){
+        ImageLoader.getInstance().stop();
+        Iterator<Activity> iterator = mActivitys.iterator();
+        while(iterator.hasNext()){
+            Activity next = iterator.next();
+            if (next!= null){
+                next.finish();
+            }
+        }
     }
 }
