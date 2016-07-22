@@ -4,6 +4,9 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
 
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+
     defaultConfig {
         applicationId "com.xuxian.market"
         minSdkVersion 14
@@ -22,7 +25,6 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.1.1'
     compile files('libs/actionbarsherlock.jar')
     compile project(':Andbase')
     compile files('libs/universal-image-loader-1.9.3.jar')
