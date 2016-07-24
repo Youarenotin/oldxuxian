@@ -22,7 +22,7 @@ public class FirstStartActivity extends Activity {
         super.onCreate(savedInstanceState);
         MyApplication.addActivity(this);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_app_start);
+        setContentView(R.layout.textlayout);
         int width = AbScreenUtils.getScreenHeight(this);
         int height = AbScreenUtils.getScreenWidth(this);
         GaoDeLocationLibraries.getInstance(getApplicationContext()).startLocation(true, monitor.GaoDeLocationEnum.LOCATION_ADDRESS);

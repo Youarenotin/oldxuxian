@@ -24,7 +24,7 @@ public class MyApplication extends Application {
     public static String currentUserNick = "";
     public String localVersion;
     public DisplayImageOptions.Builder displayBuilder = null;
-    public static ArrayList<Activity> mActivitys;
+    public static ArrayList<Activity> mActivitys =new ArrayList<Activity>();
 
     public MyApplication() {
     }
