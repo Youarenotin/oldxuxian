@@ -3,7 +3,6 @@ package com.xuxian.market.activity.supers;
 import android.app.ActionBar;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,11 +35,6 @@ public abstract class SuperFragment extends SherlockFragment {
         this.loadingStatus =View.VISIBLE;
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
 
     protected abstract void  init();
     protected abstract void  initTitleBar();
@@ -78,9 +72,9 @@ public abstract class SuperFragment extends SherlockFragment {
     }
 
     public void setCustomView(View view){
-        getSherlockActivity().getActionBar().setDisplayShowTitleEnabled(true);
-        getSherlockActivity().getActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-        getSherlockActivity().getActionBar().setCustomView(view);
+        getSherlockActivity().getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSherlockActivity().getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSherlockActivity().getSupportActionBar().setCustomView(view);
     }
 
     public View getTitle_bar() {
@@ -92,7 +86,7 @@ public abstract class SuperFragment extends SherlockFragment {
     }
 
     public void setTitleBarBg(int color) {
-        this.rl_title_bar.setBackgroundColor(Color.parseColor(getString(color)));
+        this.rl_title_bar.setBackgroundColor(Color.parseColor(String.valueOf(color)));
     }
 
     public void setTitleLeftViewBg(int resid) {
@@ -114,7 +108,7 @@ public abstract class SuperFragment extends SherlockFragment {
     }
 
     public void setTitleLeftTextColor(int color) {
-        this.tv_title_bar_left_text.setTextColor(Color.parseColor(getString(color)));
+        this.tv_title_bar_left_text.setTextColor(Color.parseColor(String.valueOf(color)));
     }
 
     public void setTitle(String title) {
@@ -122,11 +116,11 @@ public abstract class SuperFragment extends SherlockFragment {
     }
 
     public void setTitle(int title) {
-        this.tv_title_bar_center_title.setText(getString(title));
+        this.tv_title_bar_center_title.setText(String.valueOf(title));
     }
 
     public void setTitleColor(int color) {
-        this.tv_title_bar_center_title.setTextColor(Color.parseColor(getString(color)));
+        this.tv_title_bar_center_title.setTextColor(Color.parseColor(String.valueOf(color)));
     }
 
     public void setTitleRightViewBg(int resid) {
@@ -147,7 +141,7 @@ public abstract class SuperFragment extends SherlockFragment {
     }
 
     public void setTitleRightTextColor(int color) {
-        this.tv_title_bar_right_text.setTextColor(Color.parseColor(getString(color)));
+        this.tv_title_bar_right_text.setTextColor(Color.parseColor(String.valueOf(color)));
     }
 
     public void setTitleLeftViewShow(boolean boo) {

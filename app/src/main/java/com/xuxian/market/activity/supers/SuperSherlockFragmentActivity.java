@@ -20,7 +20,7 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.xuxian.market.R;
 
 /**
- * 作者：lubo on 7/22 0022 14:53
+ * 作者：lubo on 7/22 View.VISIBLEView.VISIBLE22 1View.INVISIBLE:53
  * 邮箱：lubo_wen@126.com
  */
 public abstract class SuperSherlockFragmentActivity extends SherlockFragmentActivity {
@@ -50,13 +50,14 @@ public abstract class SuperSherlockFragmentActivity extends SherlockFragmentActi
         return this.abLoadingDialog;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-        titleBar();
-        initLoadingDialog();
+//    @Override
+//    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+//        super.onCreate(savedInstanceState, persistentState);
+//        titleBar();
+//        initLoadingDialog();
+//
+//    }
 
-    }
     public void initLoadingDialog() {
         this.abLoadingDialog = new AbLoadingDialog(getActivity());
         this.abLoadingDialog.setCancelable(true);
@@ -106,7 +107,7 @@ public abstract class SuperSherlockFragmentActivity extends SherlockFragmentActi
     }
 
     public void setTitleBarBg(int color) {
-        this.rl_title_bar.setBackgroundColor(Color.parseColor(getString(color)));
+        this.rl_title_bar.setBackgroundColor(Color.parseColor(String.valueOf(color)));
     }
 
     public void setTitleLeftViewBg(int resid) {
@@ -127,7 +128,7 @@ public abstract class SuperSherlockFragmentActivity extends SherlockFragmentActi
     }
 
     public void setTitleLeftTextColor(int color) {
-        this.tv_title_bar_left_text.setTextColor(Color.parseColor(getString(color)));
+        this.tv_title_bar_left_text.setTextColor(Color.parseColor(String.valueOf(color)));
     }
 
     public void setTitle(String title) {
@@ -135,11 +136,11 @@ public abstract class SuperSherlockFragmentActivity extends SherlockFragmentActi
     }
 
     public void setTitle(int title) {
-        this.tv_title_bar_center_title.setText(getString(title));
+        this.tv_title_bar_center_title.setText(String.valueOf(title));
     }
 
     public void setTitleColor(int color) {
-        this.tv_title_bar_center_title.setTextColor(Color.parseColor(getString(color)));
+        this.tv_title_bar_center_title.setTextColor(Color.parseColor(String.valueOf(color)));
     }
 
     public void setTitleRightViewBg(int resid) {
@@ -160,46 +161,46 @@ public abstract class SuperSherlockFragmentActivity extends SherlockFragmentActi
     }
 
     public void setTitleRightTextColor(int color) {
-        this.tv_title_bar_right_text.setTextColor(Color.parseColor(getString(color)));
+        this.tv_title_bar_right_text.setTextColor(Color.parseColor(String.valueOf(color)));
     }
 
     public void setTitleLeftViewShow(boolean boo) {
         if (boo) {
-            this.ll_title_bar_left_click.setVisibility(0);
+            this.ll_title_bar_left_click.setVisibility(View.VISIBLE);
         } else {
-            this.ll_title_bar_left_click.setVisibility(4);
+            this.ll_title_bar_left_click.setVisibility(View.INVISIBLE);
         }
     }
 
     public void setTitleLeftTextShow(boolean boo) {
         if (boo) {
-            this.tv_title_bar_left_text.setVisibility(0);
+            this.tv_title_bar_left_text.setVisibility(View.VISIBLE);
         } else {
-            this.tv_title_bar_left_text.setVisibility(4);
+            this.tv_title_bar_left_text.setVisibility(View.INVISIBLE);
         }
     }
 
     public void setTitleRightViewShow(boolean boo) {
         if (boo) {
-            this.ll_title_bar_right_click.setVisibility(0);
+            this.ll_title_bar_right_click.setVisibility(View.VISIBLE);
         } else {
-            this.ll_title_bar_right_click.setVisibility(4);
+            this.ll_title_bar_right_click.setVisibility(View.INVISIBLE);
         }
     }
 
     public void setTitleRightIconShow(boolean boo) {
         if (boo) {
-            this.iv_title_bar_right_icon.setVisibility(0);
+            this.iv_title_bar_right_icon.setVisibility(View.VISIBLE);
         } else {
-            this.iv_title_bar_right_icon.setVisibility(4);
+            this.iv_title_bar_right_icon.setVisibility(View.INVISIBLE);
         }
     }
 
     public void setTitleRightTextShow(boolean boo) {
         if (boo) {
-            this.tv_title_bar_right_text.setVisibility(0);
+            this.tv_title_bar_right_text.setVisibility(View.VISIBLE);
         } else {
-            this.tv_title_bar_right_text.setVisibility(4);
+            this.tv_title_bar_right_text.setVisibility(View.INVISIBLE);
         }
     }
 

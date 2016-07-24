@@ -6,6 +6,8 @@ import android.view.WindowManager;
 
 import com.ab.util.AbScreenUtils;
 import com.xuxian.market.R;
+import com.xuxian.market.libraries.gaodemap.GaoDeLocationLibraries;
+import com.xuxian.market.libraries.util.monitor;
 import com.xuxian.market.presentation.application.MyApplication;
 
 /**
@@ -23,6 +25,6 @@ public class FirstStartActivity extends Activity {
         setContentView(R.layout.activity_app_start);
         int width = AbScreenUtils.getScreenHeight(this);
         int height = AbScreenUtils.getScreenWidth(this);
-
+        GaoDeLocationLibraries.getInstance(getApplicationContext()).startLocation(true, monitor.GaoDeLocationEnum.LOCATION_ADDRESS);
     }
 }

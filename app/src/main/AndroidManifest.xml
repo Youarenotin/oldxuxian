@@ -83,6 +83,9 @@
                 <data android:scheme="wxbe553a84b2d8aa92"/>
             </intent-filter>
         </activity>
+        <!--高德-->
+        <service android:name="com.amap.api.location.APSService"></service>
+        <!--高德-->
     </application>
 
 </manifest>
