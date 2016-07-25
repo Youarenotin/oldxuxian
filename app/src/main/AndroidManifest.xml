@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.xuxian.market"
+<manifest package="com.xuxian.marketpro"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
@@ -12,7 +12,7 @@
     <uses-permission android:name="getui.permission.GetuiService.com.xuxian.market"/>
 
     <permission
-        android:name="getui.permission.GetuiService.com.xuxian.market"
+        android:name="getui.permission.GetuiService.com.xuxian.marketpro"
         android:protectionLevel="normal"/>
 
     <uses-permission android:name="android.permission.GET_TASKS"/>
@@ -55,7 +55,7 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
 
     <application
-        android:name=".presentation.application.MyApplication"
+        android:name="com.xuxian.marketpro.presentation.application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -64,11 +64,14 @@
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="4f96859a7490d32877f657433b5521ad"/>
+
+            android:value="d236edd7e2ee19712358c5137d785a4f"/>
+        <!--android:value="4f96859a7490d32877f657433b5521ad"-->
+
         <!--<activity android:name="com.umeng.fb.ConversationActivity" />-->
         <!--<activity android:name="com.umeng.fb.ContactActivity" />-->
         <activity
-            android:name="com.xuxian.market.activity.FirstStartActivity"
+            android:name="com.xuxian.marketpro.activity.FirstStartActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
