@@ -16,8 +16,8 @@ import java.util.List;
 public class CityListActivity extends SuperSherlockActivity
 {
     private List<CityEntity.DataEntity.CityInfoEntity> cityList;
-//    public ActivityStateView emptyview_state;
-//    private CityListAdapter mCityListAdapter;
+    public ActivityStateView emptyview_state;
+    private CityListAdapter mCityListAdapter;
     private ListView mListView;
     private ProgressBar pb_load;
     private TextView tv_location_city;

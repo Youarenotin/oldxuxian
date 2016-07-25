@@ -53,7 +53,6 @@ public class GaoDeLocationLibraries implements AMapLocationListener,Runnable{
         aMapLocationClient.setLocationOption(option);
         aMapLocationClient.setLocationListener(this);
         aMapLocationClient.startLocation();
-
 //        aMapLocManager =LocationManagerProxy.getInstance(mContext);
 //        aMapLocManager.setGpsEnable(true);
 //       aMapLocManager.requestLocationData(LocationManagerProxy.NETWORK_PROVIDER,2000,10.0f,this);
