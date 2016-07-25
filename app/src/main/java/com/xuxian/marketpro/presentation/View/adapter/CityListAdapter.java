@@ -68,20 +68,31 @@ public class CityListAdapter extends BaseAdapter implements SectionIndexer{
         return view;
     }
 
+    public void setData(List<CityEntity.DataEntity.CityInfoEntity> list){
+        this.cityList=list;
+        notifyDataSetChanged();
+    }
+
+
+
     @Override
     public Object[] getSections() {
         return new Object[0];
     }
 
     @Override
-    public int getPositionForSection(int i) {
-
-        return 0;
+    public int getPositionForSection(int section) {
+        for (int i=0; i<cityList.size();i++){
+            if (section == cityList.get(i).getFirstLetter().toUpperCase().charAt(0)){
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
     public int getSectionForPosition(int i) {
-        return cityList.get(i).getFirstLetter().toUpperCase()
+        return cityList.get(i).getFirstLetter().toUpperCase().charAt(0);
     }
 
     private static class ViewHolder{

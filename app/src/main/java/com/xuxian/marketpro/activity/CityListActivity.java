@@ -6,6 +6,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
+import com.xuxian.marketpro.presentation.View.adapter.CityListAdapter;
 import com.xuxian.marketpro.presentation.entity.CityEntity;
 
 import java.util.List;
@@ -24,7 +25,7 @@ public class CityListActivity extends SuperSherlockActivity
 
     @Override
     protected Activity getActivity() {
-        return null;
+        return this;
     }
 
     @Override
