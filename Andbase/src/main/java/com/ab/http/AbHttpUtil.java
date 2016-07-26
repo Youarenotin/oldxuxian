@@ -350,7 +350,6 @@ public class AbHttpUtil {
 			this.clazz = clazz;
 			this.callBack = callBack;
 		}
-
 		@Override
 		public void onStart() {
 
