@@ -8,7 +8,8 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
-import com.xuxian.marketpro.libraries.util.monitor;
+import com.xuxian.marketpro.libraries.util.monitor.GaoDeLocationMonitor;
+import com.xuxian.marketpro.libraries.util.monitor.monitor;
 
 /**
  * Created by youarenotin on 16/7/24.
@@ -58,18 +59,26 @@ public class GaoDeLocationLibraries implements AMapLocationListener,Runnable{
 //       aMapLocManager.requestLocationData(LocationManagerProxy.NETWORK_PROVIDER,2000,10.0f,this);
 //        aMapLocManager.requestLocationData(LocationProviderProxy.AMapNetwork,2000,10.0f,this);
     }
-
+    public void stopLocation(){
+        if (aMapLocationClient!=null){
+            aMapLocationClient.stopLocation();
+            aMapLocationClient.onDestroy();
+            aMapLocationClient=null;
+        }
+    }
 
     @Override
     public void onLocationChanged(AMapLocation aMapLocation) {
         Log.d("gaode","11");
         if (aMapLocation!=null){
             if (aMapLocation.getErrorCode()==0){
-                aMapLocation.getAddress();
-                aMapLocation.getCityCode();
-                aMapLocation.getProvince();
-               String location = aMapLocation.getLocationDetail();
-                String str=aMapLocation.getCity();
+//                aMapLocation.getAddress();
+//                aMapLocation.getCityCode();
+//                aMapLocation.getProvince();
+//               String location = aMapLocation.getLocationDetail();
+//                String str=aMapLocation.getCity();
+                GaoDeLocationMonitor.getInstance().IssuedMonitor(gaoDeLocationEnum,aMapLocation);
+                stopLocation();
             }
 
         }

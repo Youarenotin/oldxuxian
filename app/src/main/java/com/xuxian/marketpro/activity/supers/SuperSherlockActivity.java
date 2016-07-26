@@ -54,10 +54,16 @@ public abstract class SuperSherlockActivity  extends SherlockActivity{
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        titleBar();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MyApplication.addActivity(this);
-        titleBar();
+
         initLoadingDialog();
     }
 
@@ -123,7 +129,7 @@ public abstract class SuperSherlockActivity  extends SherlockActivity{
     }
 
     public void setTitle(String title) {
-        this.tv_title_bar_center_title.setText(title);
+        //this.tv_title_bar_center_title.setText(title);
     }
 
     public void setTitle(int title) {

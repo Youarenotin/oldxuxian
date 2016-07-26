@@ -23,7 +23,7 @@ public class ActivityStateView extends LinearLayout {
     public static final int ACTIVITY_STATE_NODATA = 3;
     private AnimationDrawable animationDrawable;
     private int currentState;
-    private OnClickListener onClickListener;
+    private OnClickListener listener;
     private String loadingPromt = "";
     private String netErrorText = "";
     private String nodataText = "";
@@ -36,6 +36,14 @@ public class ActivityStateView extends LinearLayout {
     public ActivityStateView(Context context, AttributeSet attrs) {
         super(context, attrs);
         setGravity(Gravity.CENTER);
+    }
+
+    public void setClickListener(OnClickListener listener) {
+        this.listener = listener;
+        if (this.currentState == ACTIVITY_STATE_NETWORK_ERROR) {
+            setClickable(true);
+            setOnClickListener(this.listener);
+        }
     }
 
     public void setState(int state) {
@@ -54,6 +62,7 @@ public class ActivityStateView extends LinearLayout {
         }
     }
 
+
     public void setState(int state, String msg) {
         this.currentState = state;
         removeAllViews();
@@ -71,7 +80,34 @@ public class ActivityStateView extends LinearLayout {
     }
 
     private void addOtherView(int state) {
-
+        setOrientation(HORIZONTAL);
+        TextView loadingText;
+        LayoutParams textParams;
+        setOrientation(VERTICAL);
+        ImageView loadingImage = new ImageView(getContext());
+        LayoutParams imgParams = new LayoutParams(-2, -2);
+        if (state == ACTIVITY_STATE_NODATA) {
+            loadingImage.setImageResource(R.drawable.mzw_neterror_iamge);
+            loadingImage.setLayoutParams(imgParams);
+            addView(loadingImage);
+            loadingText = new TextView(getContext());
+            textParams = new LayoutParams(-2, -2);
+            textParams.topMargin = 10;
+        } else {
+            loadingImage.setImageResource(R.drawable.mzw_neterror_iamge);
+            loadingImage.setLayoutParams(imgParams);
+            addView(loadingImage);
+            loadingText = new TextView(getContext());
+            textParams = new LayoutParams(-2, -2);
+            textParams.topMargin = 10;
+        }
+        String text = state == ACTIVITY_STATE_NODATA ? this.nodataText.equals("") ? "即将开店" : this.nodataText : this.netErrorText.equals("") ? "网络异常\n点击屏幕重试" : this.nodataText;
+        loadingText.setText(text);
+        loadingText.setTextColor(Color.parseColor("#ff6600"));
+        loadingText.setTextSize(18.0f);
+        loadingText.setGravity(ACTIVITY_STATE_LOADING);
+        loadingText.setLayoutParams(textParams);
+        addView(loadingText);
     }
 
 
@@ -95,6 +131,23 @@ public class ActivityStateView extends LinearLayout {
     }
 
     private void addOtherView(int state, String msg) {
+        setOrientation(VERTICAL);
+        ImageView loadingImage = new ImageView(getContext());
+        LayoutParams imgParams = new LayoutParams(-2, -2);
+        loadingImage.setImageResource(state == ACTIVITY_STATE_NODATA ? R.drawable.mzw_nodata_image : R.drawable.mzw_neterror_iamge);
+        loadingImage.setLayoutParams(imgParams);
+        loadingImage.setVisibility(GONE);
+        addView(loadingImage);
+        TextView loadingText = new TextView(getContext());
+        LayoutParams textParams = new LayoutParams(-2, -2);
+        textParams.topMargin = 10;
+        String text = state == ACTIVITY_STATE_NODATA ? this.nodataText.equals("") ? "即将开店" : this.nodataText : this.netErrorText.equals("") ? msg : this.nodataText;
+        loadingText.setText(text);
+        loadingText.setTextColor(Color.parseColor("#ff6600"));
+        loadingText.setTextSize(18.0f);
+        loadingText.setGravity(Gravity.CENTER_HORIZONTAL);
+        loadingText.setLayoutParams(textParams);
+        addView(loadingText);
 
     }
     public void setNetErrorText(String netErrorText) {

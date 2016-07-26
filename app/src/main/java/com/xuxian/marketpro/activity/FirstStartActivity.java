@@ -7,7 +7,7 @@ import android.view.WindowManager;
 import com.ab.util.AbScreenUtils;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.libraries.gaodemap.GaoDeLocationLibraries;
-import com.xuxian.marketpro.libraries.util.monitor;
+import com.xuxian.marketpro.libraries.util.monitor.monitor;
 import com.xuxian.marketpro.presentation.application.MyApplication;
 
 /**
