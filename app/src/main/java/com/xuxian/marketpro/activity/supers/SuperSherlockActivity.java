@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.ab.util.AbViewUtil;
 import com.ab.view.AbLoadingDialog;
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.presentation.application.MyApplication;
@@ -53,17 +54,12 @@ public abstract class SuperSherlockActivity  extends SherlockActivity{
 
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        titleBar();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MyApplication.addActivity(this);
-
+        titleBar();
         initLoadingDialog();
     }
 
@@ -91,7 +87,7 @@ public abstract class SuperSherlockActivity  extends SherlockActivity{
 
     public void setCustomView(View title_bar) {
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setDisplayOptions(16);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(title_bar);
     }
 

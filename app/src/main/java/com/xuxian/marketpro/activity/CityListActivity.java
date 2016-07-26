@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.ab.http.AbHttpUtil;
 import com.ab.util.AbAppUtil;
 import com.ab.util.AbStrUtil;
 import com.amap.api.location.AMapLocation;
@@ -41,12 +42,12 @@ public class CityListActivity extends SuperSherlockActivity implements CityMonit
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.city_list);
-        MyApplication.addActivity(this);
         initTitleBar();
         initFindViewById();
         setListener();
         init();
     }
+
 
     @Override
     protected Activity getActivity() {
@@ -55,8 +56,9 @@ public class CityListActivity extends SuperSherlockActivity implements CityMonit
 
     @Override
     protected void init() {
-        GaoDeLocationLibraries.getInstance(getActivity()).startLocation(true, monitor.GaoDeLocationEnum.LOCATION_ADDRESS);
-        mListView.setAdapter(mCityListAdapter);
+//        GaoDeLocationLibraries.getInstance(getActivity()).startLocation(true, monitor.GaoDeLocationEnum.LOCATION_ADDRESS);
+//        mListView.setAdapter(mCityListAdapter);
+        getCity();
     }
 
     @Override
@@ -126,5 +128,9 @@ public class CityListActivity extends SuperSherlockActivity implements CityMonit
                 break;
         }
         pb_load.setVisibility(View.GONE);
+    }
+
+    public void getCity() {
+        AbHttpUtil.getInstance(getActivity())
     }
 }
