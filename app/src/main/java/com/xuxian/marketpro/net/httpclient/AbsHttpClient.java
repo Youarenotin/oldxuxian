@@ -1,6 +1,7 @@
 package com.xuxian.marketpro.net.httpclient;
 
 import android.os.SystemClock;
+import android.util.Log;
 
 /**
  * Created by youarenotin on 16/7/26.
