@@ -253,7 +253,7 @@ public class AbHttpUtil {
 	}
 
 	private <T> void getAndParse(String url, AbRequestParams params, Class<T> clazz, IHttpResponseCallBack callBack) {
-		mClient.get(url,params,);
+		mClient.get(url,params,new MyGetHttpResponseListener<T>(clazz,callBack);
 	}
 
 
@@ -381,26 +381,31 @@ public class AbHttpUtil {
 
 	public class MyGetHttpResponseListener<T> extends AbStringHttpResponseListener{
 		private Class<T> clazz;
-		private
+		private IHttpResponseCallBack callBack;
+
+		public MyGetHttpResponseListener(Class<T> clazz, IHttpResponseCallBack callBack) {
+			this.clazz = clazz;
+			this.callBack = callBack;
+		}
 
 		@Override
 		public void onSuccess(int statusCode, String content) {
-
+			callBack.SucceedParseBean(JsonHelper.parseObjectByJsonStr(content,clazz));
 		}
 
 		@Override
 		public void onStart() {
-
+			callBack.StartToParse();
 		}
 
 		@Override
 		public void onFinish() {
-
+			callBack.EndToParse();
 		}
 
 		@Override
 		public void onFailure(int statusCode, String content, Throwable error) {
-
+			callBack.FailedParseBean(content);
 		}
 	}
 }
