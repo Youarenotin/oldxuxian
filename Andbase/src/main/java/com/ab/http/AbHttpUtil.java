@@ -333,7 +333,6 @@ public class AbHttpUtil {
 		return mClient.getCacheMaxAge();
 	}
 
-
 	/**
 	 * 
 	 * 获取缓存的最大时间.
