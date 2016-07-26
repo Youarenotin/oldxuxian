@@ -244,8 +244,8 @@ public class AbHttpUtil {
 		postAndParse(url,null,clazz,callBack);
 	}
 
-	private <T> void postAndParse(String url, AbRequestParams params, Class<T> clazz, IHttpResponseCallBack<T> callBack) {
-		mClient.post(url, params, new MyPostHttpResponseListener<T>(clazz,callBack));
+	public <T> void postAndParse(String url, AbRequestParams params, Class<T> clazz, IHttpResponseCallBack<T> callBack) {
+    	mClient.post(url, params, new MyPostHttpResponseListener<T>(clazz,callBack));
 	}
 
 	public<T> void getAndParse(String url ,Class<T> clazz ,IHttpResponseCallBack callBack){
@@ -253,7 +253,7 @@ public class AbHttpUtil {
 	}
 
 	private <T> void getAndParse(String url, AbRequestParams params, Class<T> clazz, IHttpResponseCallBack callBack) {
-		mClient.get(url,params,new MyGetHttpResponseListener<T>(clazz,callBack);
+		mClient.get(url,params,new MyGetHttpResponseListener<T>(clazz,callBack));
 	}
 
 

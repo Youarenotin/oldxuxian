@@ -11,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.ab.http.AbHttpUtil;
+import com.ab.http.IHttpResponseCallBack;
 import com.ab.util.AbAppUtil;
 import com.ab.util.AbStrUtil;
 import com.amap.api.location.AMapLocation;
@@ -20,6 +21,8 @@ import com.xuxian.marketpro.libraries.gaodemap.GaoDeLocationLibraries;
 import com.xuxian.marketpro.libraries.util.monitor.CityMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.GaoDeLocationMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor;
+import com.xuxian.marketpro.net.NewIssRequest;
+import com.xuxian.marketpro.net.RequestParamsNet;
 import com.xuxian.marketpro.presentation.View.adapter.CityListAdapter;
 import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
 import com.xuxian.marketpro.presentation.application.MyApplication;
@@ -56,8 +59,6 @@ public class CityListActivity extends SuperSherlockActivity implements CityMonit
 
     @Override
     protected void init() {
-//        GaoDeLocationLibraries.getInstance(getActivity()).startLocation(true, monitor.GaoDeLocationEnum.LOCATION_ADDRESS);
-//        mListView.setAdapter(mCityListAdapter);
         getCity();
     }
 
@@ -131,6 +132,43 @@ public class CityListActivity extends SuperSherlockActivity implements CityMonit
     }
 
     public void getCity() {
-        AbHttpUtil.getInstance(getActivity())
+        AbHttpUtil.getInstance(getActivity()).postAndParse(
+                NewIssRequest.GETSTORE,
+                RequestParamsNet.getInstance(getActivity()).getStoreInfo("","",""),
+                CityEntity.class,
+                new IHttpResponseCallBack<CityEntity>(){
+
+                    @Override
+                    public void EndToParse() {
+
+                    }
+
+                    @Override
+                    public void FailedParseBean(String str) {
+
+                    }
+
+                    @Override
+                    public void StartToParse() {
+
+                    }
+
+                    @Override
+                    public void SucceedParseBean(CityEntity cityEntity) {
+                        emptyview_state.setVisibility(View.GONE);
+                        if (cityEntity!=null && cityEntity.getData()!=null){
+                            GaoDeLocationLibraries.getInstance(getActivity()).startLocation(true, monitor.GaoDeLocationEnum.LOCATION_ADDRESS);
+                            pb_load.setVisibility(View.VISIBLE);
+                            tv_location_city.setText("正在定位...");
+                            List<CityEntity.DataEntity.CityInfoEntity> cityList = cityEntity.getData().getCity_info();
+                            if (cityList!=null && !cityList.isEmpty()){
+                                mCityListAdapter= new CityListAdapter(getActivity());
+                                mListView.setAdapter(mCityListAdapter);
+                                mCityListAdapter.setData(cityList);
+                            }
+                        }
+                    }
+                }
+                );
     }
 }

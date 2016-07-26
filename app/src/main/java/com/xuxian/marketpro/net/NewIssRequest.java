@@ -4,6 +4,9 @@ import android.content.Context;
 
 import com.ab.http.AbHttpClient;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
+import com.xuxian.marketpro.net.httpclient.HttpRequestException;
+import com.xuxian.marketpro.net.httpclient.NormalHttpClient;
+import com.xuxian.marketpro.net.httpclient.ParameterList;
 
 /**
  * Created by youarenotin on 16/7/26.
@@ -204,9 +207,9 @@ public class NewIssRequest {
     }
 
     private NewIssRequest(Context context) {
-        this.mClient = new NormalHttpClient();
-        this.mClient.setConnectionTimeout(BaseImageDownloader.DEFAULT_HTTP_READ_TIMEOUT);
-        this.mClient.setReadTimeout(AbHttpClient.DEFAULT_SOCKET_TIMEOUT);
+//        this.mClient = new NormalHttpClient();
+//        this.mClient.setConnectionTimeout(BaseImageDownloader.DEFAULT_HTTP_READ_TIMEOUT);
+//        this.mClient.setReadTimeout(AbHttpClient.DEFAULT_SOCKET_TIMEOUT);
     }
 
     public static synchronized NewIssRequest getInstance(Context context) {
@@ -220,23 +223,23 @@ public class NewIssRequest {
         return newIssRequest;
     }
 
-    public void newParams() {
-        this.parameterList = this.mClient.newParams();
-    }
-
-    public void putParams(String name, String value) {
-        this.parameterList.add(new StringParameter(name, value));
-    }
-
-    public ParameterList getParameterList() {
-        return this.parameterList;
-    }
-
-    public String get(String url) throws HttpRequestException {
-        return this.mClient.get(url, this.parameterList).getBodyAsString();
-    }
-
-    public String post(String url) throws HttpRequestException {
-        return this.mClient.post(url, this.parameterList).getBodyAsString();
-    }
+//    public void newParams() {
+//        this.parameterList = this.mClient.newParams();
+//    }
+//
+//    public void putParams(String name, String value) {
+//        this.parameterList.add(new ParameterList.StringParameter(name, value));
+//    }
+//
+//    public ParameterList getParameterList() {
+//        return this.parameterList;
+//    }
+//
+//    public String get(String url) throws HttpRequestException {
+//        return this.mClient.get(url, this.parameterList).getBodyAsString();
+//    }
+//
+//    public String post(String url) throws HttpRequestException {
+//        return this.mClient.post(url, this.parameterList).getBodyAsString();
+//    }
 }

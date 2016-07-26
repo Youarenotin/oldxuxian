@@ -125,7 +125,7 @@ public abstract class SuperSherlockActivity  extends SherlockActivity{
     }
 
     public void setTitle(String title) {
-        //this.tv_title_bar_center_title.setText(title);
+        this.tv_title_bar_center_title.setText(title);
     }
 
     public void setTitle(int title) {

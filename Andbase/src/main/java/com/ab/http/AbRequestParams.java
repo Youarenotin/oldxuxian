@@ -18,8 +18,12 @@ package com.ab.http;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -35,6 +39,7 @@ import com.ab.http.entity.mine.content.ByteArrayBody;
 import com.ab.http.entity.mine.content.ContentBody;
 import com.ab.http.entity.mine.content.FileBody;
 import com.ab.http.entity.mine.content.StringBody;
+import com.ab.util.AbMd5;
 
 //TODO: Auto-generated Javadoc
 /**
@@ -262,4 +267,22 @@ public class AbRequestParams {
 		return fileParams;
 	}
 
+	public String getMd5() {
+		StringBuilder sb = new StringBuilder();
+		List<String> list = new ArrayList();
+		Map<String, Object> map = new LinkedHashMap();
+		for (Map.Entry<String, String> entry : this.urlParams.entrySet()) {
+			list.add(entry.getKey());
+			map.put(entry.getKey(), entry.getValue());
+		}
+		Collections.sort(list);
+		for (int i = 0; i < list.size(); i++) {
+			String key = (String) list.get(i);
+			sb.append(key + "=" + map.get(key) + "&");
+		}
+		String md5 = AbMd5.MD5(sb.toString() + "key=SU9TX09T");
+		list.clear();
+		map.clear();
+		return md5;
+	}
 }
