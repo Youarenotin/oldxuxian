@@ -280,7 +280,7 @@ public class AbRequestParams {
 			String key = (String) list.get(i);
 			sb.append(key + "=" + map.get(key) + "&");
 		}
-		String md5 = AbMd5.MD5(sb.toString() + "key=SU9TX09T");
+		String md5 = AbMd5.MD5(sb.toString() + "key=SU9TX09T").toLowerCase();
 		list.clear();
 		map.clear();
 		return md5;

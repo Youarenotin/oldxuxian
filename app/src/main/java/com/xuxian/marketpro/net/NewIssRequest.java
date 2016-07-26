@@ -2,9 +2,6 @@ package com.xuxian.marketpro.net;
 
 import android.content.Context;
 
-import com.ab.http.AbHttpClient;
-import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
-import com.xuxian.marketpro.net.httpclient.HttpRequestException;
 import com.xuxian.marketpro.net.httpclient.NormalHttpClient;
 import com.xuxian.marketpro.net.httpclient.ParameterList;
 
@@ -97,7 +94,7 @@ public class NewIssRequest {
     private ParameterList parameterList;
 
     static {
-        VAR = "?ver=2015112001&__t=" + System.currentTimeMillis();
+        VAR = "?ver=2015121401&__t=" + System.currentTimeMillis();
         MOBILE_XUXIAN_COM = "http://mobile.xuxian.com";
         ALIPAY = MOBILE_XUXIAN_COM + "/alipay/notifyAlipay";
         WEIXIN = MOBILE_XUXIAN_COM + "/wxpay/logicHandel/" + VAR;
