@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_title_bar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/green"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/ll_title_bar_left_click"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/btn_store_selector"
+            android:gravity="center"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip">
+
+            <ImageView
+                android:id="@+id/iv_title_bar_left_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/public_back_btn_white" />
+
+            <TextView
+                android:id="@+id/tv_title_bar_left_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5.0dip"
+                android:text="返回"
+                android:textColor="@color/white"
+                android:textSize="14.0sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_store_fragment_options"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="5.0dip"
+            android:paddingRight="5.0dip">
+
+            <Button
+                android:id="@+id/btn_store_fragment_courier"
+                android:layout_width="wrap_content"
+                android:layout_height="30.0dip"
+                android:background="@drawable/peisong_button_release"
+                android:onClick="onTopClicked"
+                android:text="送货上门"
+                android:textColor="@drawable/selector_shopchoose_tv_color"
+                android:textSize="12.0sp" />
+
+            <Button
+                android:id="@+id/btn_store_fragment_store"
+                android:layout_width="wrap_content"
+                android:layout_height="30.0dip"
+                android:background="@drawable/ziti_button_release"
+                android:onClick="onTopClicked"
+                android:text="自提点自提"
+                android:textColor="@drawable/selector_shopchoose_tv_color"
+                android:textSize="12.0sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_title_bar_right_click"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_store_selector"
+            android:gravity="center"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip">
+
+            <ImageView
+                android:id="@+id/iv_title_bar_right_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/location_icon" />
+
+            <TextView
+                android:id="@+id/tv_title_bar_right_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5.0dip"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

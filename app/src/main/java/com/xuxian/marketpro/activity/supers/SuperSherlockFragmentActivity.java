@@ -3,6 +3,8 @@ package com.xuxian.marketpro.activity.supers;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,13 +50,12 @@ public abstract class SuperSherlockFragmentActivity extends SherlockFragmentActi
         return this.abLoadingDialog;
     }
 
-//    @Override
-//    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-//        super.onCreate(savedInstanceState, persistentState);
-//        titleBar();
-//        initLoadingDialog();
-//
-//    }
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        titleBar();
+        initLoadingDialog();
+    }
 
     public void initLoadingDialog() {
         this.abLoadingDialog = new AbLoadingDialog(getActivity());
@@ -92,7 +93,7 @@ public abstract class SuperSherlockFragmentActivity extends SherlockFragmentActi
 
     public void setCustomView(View title_bar) {
         getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setDisplayOptions(16);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(title_bar);
     }
 
