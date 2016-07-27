@@ -1,46 +1,1 @@
-package com.xuxian.marketpro.presentation.View.adapter;
-
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-
-import com.xuxian.marketpro.presentation.db.ShoppingCartGoodsDb;
-import com.xuxian.marketpro.presentation.entity.StoreEntity;
-
-import java.util.List;
-
-/**
- * Created by youarenotin on 16/7/27.
- */
-public class StoreAdapter extends BaseAdapter {
-    private ShoppingCartGoodsDb detailsDb;
-    private Context mContext;
-    private List<StoreEntity> mListData;
-    private OnShopItemListener onShopItemListener;
-    private int store_id;
-
-    public interface OnShopItemListener {
-        void showOverLayPop(StoreEntity storeEntity);
-    }
-
-    @Override
-    public int getCount() {
-        return 0;
-    }
-
-    @Override
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        return null;
-    }
-}
+package com.xuxian.marketpro.presentation.View.adapter;import android.content.Context;import android.view.View;import android.view.ViewGroup;import android.widget.BaseAdapter;import android.widget.ImageView;import android.widget.LinearLayout;import android.widget.TextView;import com.xuxian.marketpro.R;import com.xuxian.marketpro.presentation.db.ShoppingCartGoodsDb;import com.xuxian.marketpro.presentation.entity.StoreEntity;import java.util.List;/** * Created by youarenotin on 16/7/27. */public class StoreAdapter extends BaseAdapter {    private ShoppingCartGoodsDb detailsDb;        private Context mContext;    private List<StoreEntity> mListData;    private OnShopItemListener onShopItemListener;    private int store_id;    public StoreAdapter(Context mContext) {        this.mContext = mContext;    }    public interface OnShopItemListener {        void showOverLayPop(StoreEntity storeEntity);    }    class LaunchHolder {        ImageView iv_shop_details;        ImageView iv_store_status;        LinearLayout ll_enter_shop;        LinearLayout ll_enter_shop_detail;        TextView mLaunchDistanceItemTitle;        TextView mLaunchTitleItemSite;        LaunchHolder() {        }    }    class ViewHolder {        LinearLayout mMainMoreClick;        TextView title;        ViewHolder() {        }    }    public void setData(List<StoreEntity> list){        this.mListData=list;        notifyDataSetChanged();    }    @Override    public int getCount() {        if (mListData.isEmpty() || mListData==null){            return 0;        }        return mListData.size();    }    @Override    public Object getItem(int i) {        return mListData.get(i);    }    @Override    public long getItemId(int i) {        return i;    }    @Override    public View getView(int i, View view, ViewGroup viewGroup) {        LaunchHolder holder;        if (view==null)        {            view=View.inflate(mContext, R.layout.launch_shop_site_item_03,null);            holder=new LaunchHolder();            holder.mLaunchTitleItemSite= (TextView) view.findViewById(R.id.launch_title_item_site);            holder.iv_shop_details= (ImageView) view.findViewById(R.id.iv_shop_details);            holder.iv_store_status= (ImageView) view.findViewById(R.id.iv_store_status);            holder.ll_enter_shop_detail= (LinearLayout) view.findViewById(R.id.ll_enter_shop_detail);            holder.ll_enter_shop= (LinearLayout) view.findViewById(R.id.ll_enter_shop);            holder.mLaunchDistanceItemTitle= (TextView) view.findViewById(R.id.launch_distance_item_title);            view.setTag(holder);        }else{        }        return null;    }}
