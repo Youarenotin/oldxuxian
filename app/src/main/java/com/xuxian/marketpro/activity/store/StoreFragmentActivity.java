@@ -16,6 +16,9 @@ import com.ab.util.AbViewUtil;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockFragmentActivity;
 import com.xuxian.marketpro.libraries.util.ActivityUtil;
+import com.xuxian.marketpro.libraries.util.monitor.CityMonitor;
+import com.xuxian.marketpro.libraries.util.monitor.monitor;
+import com.xuxian.marketpro.presentation.entity.CityEntity;
 
 /**
  * Created by youarenotin on 16/7/27.
@@ -107,11 +110,17 @@ public class StoreFragmentActivity extends SuperSherlockFragmentActivity {
 
     @Override
     protected void setListener() {
-        ll_title_bar_right_click.setOnClickListener(new BarOnClickListener());
+        ll_title_bar_right_click.setOnClickListener(new BarOnClickListener());//选择城市
+        CityMonitor.getInstance().register(StoreFragmentActivity.class.getSimpleName(), new CityMonitor.CityMomitorCallback() {
+            @Override
+            public void appOpration(monitor.CityEnum cityEnum, CityEntity.DataEntity.CityInfoEntity cityEntity) {
+
+            }
+        });
+
     }
 
     class BarOnClickListener implements View.OnClickListener{
-
         @Override
         public void onClick(View view) {
             ActivityUtil.startCityListActivity(getActivity());
