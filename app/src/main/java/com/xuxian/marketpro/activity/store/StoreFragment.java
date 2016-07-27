@@ -11,6 +11,7 @@ import com.amap.api.maps2d.MapView;
 import com.amap.api.maps2d.model.LatLng;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.presentation.View.adapter.AreaAdapter;
+import com.xuxian.marketpro.presentation.View.adapter.StoreAdapter;
 import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
 import com.xuxian.marketpro.presentation.db.ShoppingCartGoodsDb;
 import com.xuxian.marketpro.presentation.db.StoreDb;
