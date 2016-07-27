@@ -10,8 +10,15 @@ import com.amap.api.maps2d.AMap;
 import com.amap.api.maps2d.MapView;
 import com.amap.api.maps2d.model.LatLng;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
+import com.xuxian.marketpro.presentation.View.adapter.AreaAdapter;
 import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
+import com.xuxian.marketpro.presentation.db.ShoppingCartGoodsDb;
+import com.xuxian.marketpro.presentation.db.StoreDb;
 import com.xuxian.marketpro.presentation.entity.CityEntity;
+import com.xuxian.marketpro.presentation.entity.GetStoreEntity;
+import com.xuxian.marketpro.presentation.entity.StoreEntity;
+
+import java.util.List;
 
 /**
  * Created by youarenotin on 16/7/27.
@@ -39,7 +46,7 @@ public class StoreFragment extends SuperFragment {
     private StoreAdapter storeAdapter;
     private StoreDb storeDb;
     private StoreEntity storeEntity;
-    private List<StoreInfoEntity> storeInfoEntities;
+    private List<GetStoreEntity.DataEntity.StoreInfoEntity> storeInfoEntities;
     private List<StoreEntity> storeList;
     public View view_layout;
     @Override
