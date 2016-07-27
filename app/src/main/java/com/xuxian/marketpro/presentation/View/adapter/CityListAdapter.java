@@ -57,13 +57,13 @@ public class CityListAdapter extends BaseAdapter implements SectionIndexer{
         else{
             holder= (ViewHolder) view.getTag();
         }
-//        if (position ==getPositionForSection(getSectionForPosition(position))){
-//            holder.cityLetter.setVisibility(View.VISIBLE);
-//            holder.cityLetter.setText(cityInfoEntity.getFirstLetter());
-//        }
-//        else {
+        if (position ==getPositionForSection(getSectionForPosition(position))){
+            holder.cityLetter.setVisibility(View.VISIBLE);
+            holder.cityLetter.setText(cityInfoEntity.getFirstLetter());
+        }
+        else {
             holder.cityLetter.setVisibility(View.GONE);
-//        }
+        }
         holder.cityName.setText(cityInfoEntity.getCity_name());
         return view;
     }
