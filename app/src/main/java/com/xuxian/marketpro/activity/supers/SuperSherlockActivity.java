@@ -1,8 +1,10 @@
 package com.xuxian.marketpro.activity.supers;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.ab.util.AbLogUtil;
 import com.ab.util.AbViewUtil;
 import com.ab.view.AbLoadingDialog;
 import com.actionbarsherlock.app.ActionBar;
@@ -64,6 +67,19 @@ public abstract class SuperSherlockActivity  extends SherlockActivity{
     }
 
     private void initLoadingDialog() {
+        abLoadingDialog = new AbLoadingDialog(getActivity());
+        abLoadingDialog.setCancelable(true);
+        abLoadingDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialogInterface, int keyCode, KeyEvent keyEvent) {
+                    if (keyCode==keyEvent.KEYCODE_BACK){
+                        abLoadingDialog.dismiss();
+                        finish();
+                        return true;
+                    }
+                return false;
+            }
+        });
     }
 
     protected  void titleBar(){

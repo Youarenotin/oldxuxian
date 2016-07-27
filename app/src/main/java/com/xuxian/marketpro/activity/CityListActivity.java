@@ -83,9 +83,17 @@ public class CityListActivity extends SuperSherlockActivity implements CityMonit
         GaoDeLocationMonitor.getInstance().register(CityListActivity.class.getSimpleName(),this);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//                OnItemClick((int) id);
+                OnItemClick((int) id);
             }
         });
+    }
+
+    private void OnItemClick(int position) {
+        if (position==-1){
+            if (this.tv_location_city.getText().toString().trim().equals("正在定位...")){
+                
+            }
+        }
     }
 
     @Override
@@ -145,12 +153,20 @@ public class CityListActivity extends SuperSherlockActivity implements CityMonit
 
                     @Override
                     public void FailedParseBean(String str) {
-
+                        emptyview_state.setVisibility(View.VISIBLE);
+                        emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_NODATA);
+                        emptyview_state.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                getCity();
+                            }
+                        });
                     }
 
                     @Override
                     public void StartToParse() {
-
+                        emptyview_state.setVisibility(View.VISIBLE);
+                        emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_LOADING);
                     }
 
                     @Override
