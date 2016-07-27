@@ -109,7 +109,7 @@ public class CityListActivity extends SuperSherlockActivity implements CityMonit
                 if (!boo){
                     AbToastUtil.showToast(getActivity(),"当前城市没有店面");
                 }else {
-
+                    //// TODO: 16/7/27  
                 }
             }
         } else {
