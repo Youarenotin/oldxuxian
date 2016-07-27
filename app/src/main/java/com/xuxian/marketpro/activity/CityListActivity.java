@@ -14,6 +14,7 @@ import com.ab.http.AbHttpUtil;
 import com.ab.http.IHttpResponseCallBack;
 import com.ab.util.AbAppUtil;
 import com.ab.util.AbStrUtil;
+import com.ab.util.AbToastUtil;
 import com.amap.api.location.AMapLocation;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
@@ -79,8 +80,8 @@ public class CityListActivity extends SuperSherlockActivity implements CityMonit
 
     @Override
     protected void setListener() {
-        CityMonitor.getInstance().register(CityListActivity.class.getSimpleName(),this);
-        GaoDeLocationMonitor.getInstance().register(CityListActivity.class.getSimpleName(),this);
+        CityMonitor.getInstance().register(CityListActivity.class.getSimpleName(), this);
+        GaoDeLocationMonitor.getInstance().register(CityListActivity.class.getSimpleName(), this);
         this.mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 OnItemClick((int) id);
@@ -89,16 +90,36 @@ public class CityListActivity extends SuperSherlockActivity implements CityMonit
     }
 
     private void OnItemClick(int position) {
-        if (position==-1){
-            if (this.tv_location_city.getText().toString().trim().equals("正在定位...")){
-                
+        CityEntity.DataEntity.CityInfoEntity cityInfoEntity=null;
+        if (position == -1) {
+            if (this.tv_location_city.getText().toString().trim().equals("正在定位...")) {
+                AbToastUtil.showToast(getActivity(), "正在定位...");
+            } else if (this.tv_location_city.getText().toString().trim().equals("定位失败,请点击重试")) {
+                this.pb_load.setVisibility(View.VISIBLE);
+                GaoDeLocationLibraries.getInstance(getActivity()).startLocation(true, monitor.GaoDeLocationEnum.LOCATING_CITY);
+            }else if (cityList!=null && !cityList.isEmpty()){
+                boolean boo=false;
+                for (int i=0;i<cityList.size();i++){
+                    if (cityList.get(i).getCity_name().equals(this.tv_location_city.getText().toString().trim())){
+                        boo=true;
+                        cityInfoEntity=cityList.get(i);
+                        break;
+                    }
+                }
+                if (!boo){
+                    AbToastUtil.showToast(getActivity(),"当前城市没有店面");
+                }else {
+
+                }
             }
+        } else {
+
         }
     }
 
     @Override
     public void appOpration(monitor.CityEnum cityEnum, CityEntity.DataEntity.CityInfoEntity cityEntity) {
-        switch (cityEnum){
+        switch (cityEnum) {
             case SWITCH_CITY:
 
                 break;
@@ -109,22 +130,22 @@ public class CityListActivity extends SuperSherlockActivity implements CityMonit
 
     /**
      * 定位
+     *
      * @param gaoDeLocationEnum
      * @param aMapLocation
      */
     @Override
     public void appOperation(monitor.GaoDeLocationEnum gaoDeLocationEnum, AMapLocation aMapLocation) {
-        switch (gaoDeLocationEnum){
+        switch (gaoDeLocationEnum) {
             case LOCATING_CITY:
 
                 break;
             case LOCATION_ADDRESS:
-                if (aMapLocation!=null){
-                    if (!AbStrUtil.isEmpty(aMapLocation.getCity())){
+                if (aMapLocation != null) {
+                    if (!AbStrUtil.isEmpty(aMapLocation.getCity())) {
                         tv_location_city.setText(aMapLocation.getCity());
                         break;
-                    }
-                    else{
+                    } else {
                         tv_location_city.setText("定位失败,请点击重试");
                         break;
                     }
@@ -142,9 +163,9 @@ public class CityListActivity extends SuperSherlockActivity implements CityMonit
     public void getCity() {
         AbHttpUtil.getInstance(getActivity()).postAndParse(
                 NewIssRequest.GETSTORE,
-                RequestParamsNet.getInstance(getActivity()).getStoreInfo("","",""),
+                RequestParamsNet.getInstance(getActivity()).getStoreInfo("", "", ""),
                 CityEntity.class,
-                new IHttpResponseCallBack<CityEntity>(){
+                new IHttpResponseCallBack<CityEntity>() {
 
                     @Override
                     public void EndToParse() {
@@ -172,19 +193,19 @@ public class CityListActivity extends SuperSherlockActivity implements CityMonit
                     @Override
                     public void SucceedParseBean(CityEntity cityEntity) {
                         emptyview_state.setVisibility(View.GONE);
-                        if (cityEntity!=null && cityEntity.getData()!=null){
+                        if (cityEntity != null && cityEntity.getData() != null) {
                             GaoDeLocationLibraries.getInstance(getActivity()).startLocation(true, monitor.GaoDeLocationEnum.LOCATION_ADDRESS);
                             pb_load.setVisibility(View.VISIBLE);
                             tv_location_city.setText("正在定位...");
                             List<CityEntity.DataEntity.CityInfoEntity> cityList = cityEntity.getData().getCity_info();
-                            if (cityList!=null && !cityList.isEmpty()){
-                                mCityListAdapter= new CityListAdapter(getActivity());
+                            if (cityList != null && !cityList.isEmpty()) {
+                                mCityListAdapter = new CityListAdapter(getActivity());
                                 mListView.setAdapter(mCityListAdapter);
                                 mCityListAdapter.setData(cityList);
                             }
                         }
                     }
                 }
-                );
+        );
     }
 }
