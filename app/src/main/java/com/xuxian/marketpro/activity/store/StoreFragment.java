@@ -13,8 +13,11 @@ import com.ab.util.AbPreferenceUtils;
 import com.actionbarsherlock.app.SherlockFragment;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.maps2d.AMap;
+import com.amap.api.maps2d.CameraUpdate;
+import com.amap.api.maps2d.CameraUpdateFactory;
 import com.amap.api.maps2d.MapView;
 import com.amap.api.maps2d.UiSettings;
+import com.amap.api.maps2d.model.CameraPosition;
 import com.amap.api.maps2d.model.LatLng;
 import com.amap.api.maps2d.model.Marker;
 import com.xuxian.marketpro.R;
@@ -38,7 +41,7 @@ import java.util.List;
 /**
  * Created by youarenotin on 16/7/27.
  */
-public class StoreFragment extends SuperFragment implements AMap.OnMarkerDragListener {
+public class StoreFragment extends SuperFragment  {
     private AMap aMap;
     private AreaAdapter areaAdapter;
     private LatLng cenpt;
@@ -184,7 +187,15 @@ public class StoreFragment extends SuperFragment implements AMap.OnMarkerDragLis
             if (store_id>0 && !isSwitchArea && !isSwitchCity){
                 //TODO
             }else{
+                this.cenpt=new LatLng(storeList.get(0).getLat().doubleValue(),storeList.get(0).getLng().doubleValue());
+                this.isSwitchCity=false;
+            }
+            changeCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(cenpt,15.0f,30.0f,0.0f)),null);
         }
 
+    }
+
+    private void changeCamera(CameraUpdate cameraUpdate, AMap.CancelableCallback callback) {
+        this.aMap.animateCamera(cameraUpdate,callback);
     }
 }

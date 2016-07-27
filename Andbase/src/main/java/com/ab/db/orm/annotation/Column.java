@@ -39,7 +39,7 @@ public @interface Column {
 	 *
 	 * @return the string
 	 */
-	public abstract String value();
+	public abstract String name();
 
 	/**
 	 * 列类型.

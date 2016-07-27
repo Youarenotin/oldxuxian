@@ -48,7 +48,7 @@ public class StoreFragmentActivity extends SuperSherlockFragmentActivity {
     private Fragment mContent;
     private Button[] mTabs;
     private int screenWidth;
-//    private StoreFragment storeFragment;
+    private StoreFragment storeFragment;
     private int titleBarHeight;
     private TextView tv_title_bar_center_title;
     private TextView tv_title_bar_left_text;
@@ -56,7 +56,7 @@ public class StoreFragmentActivity extends SuperSherlockFragmentActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        getWindow().setFormat(PixelFormat.TRANSLUCENT);
+       // getWindow().setFormat(PixelFormat.TRANSLUCENT);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.store_fragment_layout);
         initTitleBar();

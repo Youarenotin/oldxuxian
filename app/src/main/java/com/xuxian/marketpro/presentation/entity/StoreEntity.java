@@ -7,36 +7,36 @@ import com.ab.db.orm.annotation.Table;
 /**
  * Created by youarenotin on 16/7/27.
  */
-@Table("Store")
+@Table(name ="Store")
 public class StoreEntity extends BaseEntity {
-    @Column( "area")
+    @Column(name="area")
     private String area;
-    @Column( "area_id")
+    @Column(name="area_id")
     private String area_id;
-    @Column( "bdate")
+    @Column(name="bdate")
     private String bdate;
-    @Column( "bstarttime")
+    @Column(name="bstarttime")
     private String bstarttime;
-    @Column( "city_area")
+    @Column(name="city_area")
     private String city_area;
-    @Column( "city_id")
+    @Column(name="city_id")
     private String city_id;
-    @Column( "city_name")
+    @Column(name="city_name")
     private String city_name;
-    @Column( "distance")
+    @Column(name="distance")
     private String distance;
-    @Column( "fristtime")
+    @Column(name="fristtime")
     private String fristtime;
     @Id
-    @Column( "id")
+    @Column(name="id")
     private int id;
-    @Column( "lat")
+    @Column(name="lat")
     private Double lat;
-    @Column( "lng")
+    @Column(name="lng")
     private Double lng;
-    @Column( "message_alert")
+    @Column(name="message_alert")
     private String message_alert;
-    @Column( "starttime")
+    @Column(name="starttime")
     private String starttime;
 
     public String getArea() {
@@ -183,12 +183,12 @@ public class StoreEntity extends BaseEntity {
         this.type = type;
     }
 
-    @Column( "store_status")
+    @Column(name="store_status")
     private int store_status;
-    @Column( "telphone")
+    @Column(name="telphone")
     private String telphone;
-    @Column( "title")
+    @Column(name="title")
     private String title;
-    @Column( "type")
+    @Column(name="type")
     private int type;
 }

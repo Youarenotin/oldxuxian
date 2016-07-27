@@ -39,5 +39,5 @@ public @interface Table {
 	 *
 	 * @return the string
 	 */
-	public abstract String value();
+	public abstract String name();
 }
