@@ -5,12 +5,14 @@ import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ab.util.AbPreferenceUtils;
 import com.ab.util.AbScreenUtils;
 import com.ab.util.AbViewUtil;
 import com.xuxian.marketpro.R;
@@ -61,8 +63,35 @@ public class StoreFragmentActivity extends SuperSherlockFragmentActivity {
         setContentView(R.layout.store_fragment_layout);
         initTitleBar();
         initfindViewById();
+        initFragment();
         setListener();
         init();
+    }
+
+    private void initFragment() {
+        CityEntity.DataEntity.CityInfoEntity cityInfoEntity = (CityEntity.DataEntity.CityInfoEntity)getIntent().getExtras().getSerializable("intent_object");
+        this.storeFragment=new StoreFragment();
+        //TODO
+        if (cityInfoEntity!=null)
+        {
+            //TODO
+            this.storeFragment.setCityEntity(cityInfoEntity);
+        }
+        if (AbPreferenceUtils.loadPrefInt(getActivity(),"site_id",0)==0){//如果是第一次进入选择店面
+            setTitleRightIconShow(false);//不展示退回城市列表选择界面
+            if(AbPreferenceUtils.loadPrefBoolean(getActivity(),"show_distribution_popup",false)){//是否需要显示引导activity
+                //TODO 显示引导activity
+                //ActivityUtil.StartDistributionPopupActivity(getActivity());
+            }
+
+        }else {
+            setTitleRightIconShow(true);
+            setTitleRightIcon(R.drawable.location);
+            setTitleRightText(AbPreferenceUtils.loadPrefString(getActivity(),"city_name",""));
+        }
+        //sherlockFragment中引用的v4
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
     }
 
     @Override

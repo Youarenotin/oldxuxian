@@ -10,7 +10,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ab.util.AbPreferenceUtils;
-import com.actionbarsherlock.app.SherlockFragment;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.maps2d.AMap;
 import com.amap.api.maps2d.CameraUpdate;
@@ -22,7 +21,6 @@ import com.amap.api.maps2d.model.LatLng;
 import com.amap.api.maps2d.model.Marker;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
-import com.xuxian.marketpro.libraries.gaodemap.GaoDeLocationLibraries;
 import com.xuxian.marketpro.libraries.util.monitor.CityMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.GaoDeLocationMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor;
@@ -112,7 +110,7 @@ public class StoreFragment extends SuperFragment  {
         initFindViewById(view);
         setListener();
         init();
-        initMap(view,savedInstanceState);
+        initMap(view, savedInstanceState);
         return view;
     }
 
@@ -183,19 +181,23 @@ public class StoreFragment extends SuperFragment  {
         String title= "";
         if (this.storeList!=null && !this.storeList.isEmpty()){
             this.aMap.clear();
-            int store_id = AbPreferenceUtils.loadPrefInt(getActivity(),"site_id",0);
+            int store_id = AbPreferenceUtils.loadPrefInt(getActivity(), "site_id", 0);
             if (store_id>0 && !isSwitchArea && !isSwitchCity){
                 //TODO
             }else{
                 this.cenpt=new LatLng(storeList.get(0).getLat().doubleValue(),storeList.get(0).getLng().doubleValue());
                 this.isSwitchCity=false;
             }
-            changeCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(cenpt,15.0f,30.0f,0.0f)),null);
+            changeCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(cenpt, 15.0f, 30.0f, 0.0f)), null);
         }
 
     }
 
     private void changeCamera(CameraUpdate cameraUpdate, AMap.CancelableCallback callback) {
         this.aMap.animateCamera(cameraUpdate,callback);
+    }
+
+    public void setCityEntity(CityEntity.DataEntity.CityInfoEntity cityInfoEntity) {
+
     }
 }
