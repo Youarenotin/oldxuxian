@@ -56,7 +56,7 @@ public class StoreFragmentActivity extends SuperSherlockFragmentActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-       // getWindow().setFormat(PixelFormat.TRANSLUCENT);
+        getWindow().setFormat(PixelFormat.TRANSLUCENT);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.store_fragment_layout);
         initTitleBar();
@@ -108,6 +108,7 @@ public class StoreFragmentActivity extends SuperSherlockFragmentActivity {
         this.mTabs[1] = this.btn_store_fragment_store;
     }
 
+
     @Override
     protected void setListener() {
         ll_title_bar_right_click.setOnClickListener(new BarOnClickListener());//选择城市
@@ -120,10 +121,21 @@ public class StoreFragmentActivity extends SuperSherlockFragmentActivity {
 
     }
 
+    /**
+     * titleBar点击事件
+     */
     class BarOnClickListener implements View.OnClickListener{
         @Override
         public void onClick(View view) {
-            ActivityUtil.startCityListActivity(getActivity());
+            switch (view.getId()){
+                case R.id.iv_title_bar_left_icon:
+                    ActivityUtil.startCityListActivity(getActivity());
+                    finish();
+                    break;
+                case R.id.iv_title_bar_right_icon:
+                    //TODO
+                    break;
+            }
         }
     }
 }

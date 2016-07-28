@@ -18,6 +18,7 @@ import com.ab.view.AbLoadingDialog;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.xuxian.marketpro.R;
+import com.xuxian.marketpro.presentation.application.MyApplication;
 
 /**
  * 作者：lubo on 7/22 View.VISIBLEView.VISIBLE22 1View.INVISIBLE:53
@@ -53,6 +54,7 @@ public abstract class SuperSherlockFragmentActivity extends SherlockFragmentActi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        MyApplication.addActivity(this);
         titleBar();
         initLoadingDialog();
     }
