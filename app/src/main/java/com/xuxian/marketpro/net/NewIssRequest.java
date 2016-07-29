@@ -94,7 +94,8 @@ public class NewIssRequest {
     private ParameterList parameterList;
 
     static {
-        VAR = "?ver=2015121401&__t=" + System.currentTimeMillis();
+//        VAR = "?ver=2015121401&__t=" + System.currentTimeMillis();
+        VAR = "?ver=2015112001&__t=" + System.currentTimeMillis();
         MOBILE_XUXIAN_COM = "http://mobile.xuxian.com";
         ALIPAY = MOBILE_XUXIAN_COM + "/alipay/notifyAlipay";
         WEIXIN = MOBILE_XUXIAN_COM + "/wxpay/logicHandel/" + VAR;

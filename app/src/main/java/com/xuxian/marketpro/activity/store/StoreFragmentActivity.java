@@ -1,11 +1,13 @@
 package com.xuxian.marketpro.activity.store;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -17,6 +19,7 @@ import com.ab.util.AbScreenUtils;
 import com.ab.util.AbViewUtil;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockFragmentActivity;
+import com.xuxian.marketpro.libraries.gaodemap.GaoDeLocationLibraries;
 import com.xuxian.marketpro.libraries.util.ActivityUtil;
 import com.xuxian.marketpro.libraries.util.monitor.CityMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor;
@@ -91,7 +94,17 @@ public class StoreFragmentActivity extends SuperSherlockFragmentActivity {
         }
         //sherlockFragment中引用的v4
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
+        if ("配送".equals(AbPreferenceUtils.loadPrefString(getActivity(),"store_type","自提"))){
+//            transaction.add(R.id.rl_store_fragment_container,new c)
+            this.currentTabIndex=1;
+        }
+        else{
+            transaction.add(R.id.rl_store_fragment_container,this.storeFragment,"storeFragment");
+            transaction.commitAllowingStateLoss();
+            this.mContent=storeFragment;
+            this.currentTabIndex=0;
+        }
+        this.mTabs[currentTabIndex].setSelected(true);
     }
 
     @Override
@@ -112,7 +125,7 @@ public class StoreFragmentActivity extends SuperSherlockFragmentActivity {
         View view = View.inflate(getActivity(),R.layout.title_bar_address_layout,null);
         this.titleBarHeight= AbViewUtil.getViewHeight(view.findViewById(R.id.rl_title_bar));
         this.screenWidth= AbScreenUtils.getScreenWidth(getActivity());
-        getActionBar().setCustomView(view);
+        getSupportActionBar().setCustomView(view);
         this.ll_title_bar_left_click = (LinearLayout) view.findViewById(R.id.ll_title_bar_left_click);
         this.iv_title_bar_left_icon = (ImageView) view.findViewById(R.id.iv_title_bar_left_icon);
         this.tv_title_bar_left_text = (TextView) view.findViewById(R.id.tv_title_bar_left_text);
@@ -147,7 +160,21 @@ public class StoreFragmentActivity extends SuperSherlockFragmentActivity {
 
             }
         });
-
+        if (getAbLoadingDialog()!=null){
+            getAbLoadingDialog().setOnKeyListener(new DialogInterface.OnKeyListener() {
+                @Override
+                public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+                    if (i==KeyEvent.KEYCODE_BACK)
+                    {
+                        dialogInterface.dismiss();
+                        GaoDeLocationLibraries.getInstance(getActivity()).stopLocation();
+                        finish();
+                        return true;
+                    }
+                    return false;
+                }
+            });
+        }
     }
 
     /**

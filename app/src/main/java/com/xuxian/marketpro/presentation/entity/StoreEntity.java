@@ -34,10 +34,19 @@ public class StoreEntity extends BaseEntity {
     private Double lat;
     @Column(name="lng")
     private Double lng;
-    @Column(name="message_alert")
-    private String message_alert;
     @Column(name="starttime")
     private String starttime;
+
+    @Column(name="message_alert")
+    private String message_alert;
+    @Column(name="store_status")
+    private int store_status;
+    @Column(name="telphone")
+    private String telphone;
+    @Column(name="title")
+    private String title;
+    @Column(name="type")
+    private int type;
 
     public String getArea() {
         return area;
@@ -182,13 +191,4 @@ public class StoreEntity extends BaseEntity {
     public void setType(int type) {
         this.type = type;
     }
-
-    @Column(name="store_status")
-    private int store_status;
-    @Column(name="telphone")
-    private String telphone;
-    @Column(name="title")
-    private String title;
-    @Column(name="type")
-    private int type;
 }

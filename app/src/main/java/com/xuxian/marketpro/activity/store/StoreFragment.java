@@ -9,21 +9,30 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.ab.http.AbHttpUtil;
+import com.ab.http.IHttpResponseCallBack;
 import com.ab.util.AbPreferenceUtils;
+import com.ab.util.AbToastUtil;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.maps2d.AMap;
 import com.amap.api.maps2d.CameraUpdate;
 import com.amap.api.maps2d.CameraUpdateFactory;
+import com.amap.api.maps2d.LocationSource;
 import com.amap.api.maps2d.MapView;
 import com.amap.api.maps2d.UiSettings;
 import com.amap.api.maps2d.model.CameraPosition;
 import com.amap.api.maps2d.model.LatLng;
 import com.amap.api.maps2d.model.Marker;
+import com.amap.api.maps2d.model.MyLocationStyle;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
+import com.xuxian.marketpro.libraries.gaodemap.GaoDeLocationLibraries;
 import com.xuxian.marketpro.libraries.util.monitor.CityMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.GaoDeLocationMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor;
+import com.xuxian.marketpro.libraries.util.monitor.monitor.GaoDeLocationEnum;
+import com.xuxian.marketpro.net.NewIssRequest;
+import com.xuxian.marketpro.net.RequestParamsNet;
 import com.xuxian.marketpro.presentation.View.adapter.AreaAdapter;
 import com.xuxian.marketpro.presentation.View.adapter.StoreAdapter;
 import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
@@ -39,7 +48,7 @@ import java.util.List;
 /**
  * Created by youarenotin on 16/7/27.
  */
-public class StoreFragment extends SuperFragment  {
+public class StoreFragment extends SuperFragment implements LocationSource {
     private AMap aMap;
     private AreaAdapter areaAdapter;
     private LatLng cenpt;
@@ -67,7 +76,22 @@ public class StoreFragment extends SuperFragment  {
     public View view_layout;
     @Override
     protected void init() {
+        if (this.cityEntity!=null){
+            this.city_id=cityEntity.getCity_id();
+        }else{
+            this.city_id=AbPreferenceUtils.loadPrefString(getActivity(),"city_id","");
+        }
+        this.storeDb=new StoreDb(getActivity());
+        this.shoppingCartGoodsDb=new ShoppingCartGoodsDb(getActivity());
 
+        gaoDeLocation();
+    }
+
+
+    private void gaoDeLocation() {
+        this.emptyview_state.setVisibility(View.VISIBLE);
+        this.emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_LOADING);
+        GaoDeLocationLibraries.getInstance(getActivity()).startLocation(false, GaoDeLocationEnum.LOCATION_LATITUDE_AND_LONGITUDE);
     }
 
     @Override
@@ -87,9 +111,25 @@ public class StoreFragment extends SuperFragment  {
     protected void setListener() {
         GaoDeLocationMonitor.getInstance().register(StoreFragment.class.getSimpleName(), new GaoDeLocationMonitor.GaoDeLocationMonitorCallback() {
             @Override
-            public void appOperation(monitor.GaoDeLocationEnum gaoDeLocationEnum, AMapLocation aMapLocation) {
-
+            public void appOperation(GaoDeLocationEnum gaoDeLocationEnum, AMapLocation aMapLocation) {
+                switch (gaoDeLocationEnum){
+                    case LOCATION_LATITUDE_AND_LONGITUDE:
+                        if (aMapLocation==null){
+                            emptyview_state.setVisibility(View.GONE);
+                            return ;
+                        }
+                        else if(aMapLocation.getLongitude()<=0||aMapLocation.getLatitude()<=0){
+                            emptyview_state.setVisibility(View.GONE);
+                            AbToastUtil.showToast(getActivity(),"定位失败");
+                        }else{
+                            emptyview_state.setVisibility(View.GONE);
+                            cenpt=new LatLng(aMapLocation.getLatitude(),aMapLocation.getLongitude());
+                            initStore(Double.valueOf(aMapLocation.getLatitude()),Double.valueOf(aMapLocation.getLongitude()));
+                        }
+                }
             }
+
+
         });
 
         CityMonitor.getInstance().register(StoreFragment.class.getSimpleName(), new CityMonitor.CityMomitorCallback() {
@@ -102,9 +142,38 @@ public class StoreFragment extends SuperFragment  {
 
     }
 
-    @Nullable
+    private void initStore(Double lat, Double lng) {
+        AbHttpUtil.getInstance(getActivity()).postAndParse(NewIssRequest.GETSTORE,
+                RequestParamsNet.getInstance(getActivity()).getStoreInfo("" + lat, "" + lng, this.city_id),
+                GetStoreEntity.class,
+                new IHttpResponseCallBack<GetStoreEntity>() {
+                    @Override
+                    public void EndToParse() {
+
+                    }
+
+                    @Override
+                    public void FailedParseBean(String str) {
+
+                    }
+
+                    @Override
+                    public void StartToParse() {
+
+                    }
+
+                    @Override
+                    public void SucceedParseBean(GetStoreEntity content) {
+                        emptyview_state.setVisibility(View.GONE);
+                        getStoreEntity=content;
+
+                    }
+                }
+        );
+    }
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.shop_location_layout, null);
         initTitleBar();
         initFindViewById(view);
@@ -119,10 +188,15 @@ public class StoreFragment extends SuperFragment  {
         mapView.onCreate(savedInstanceState);
         if (this.aMap==null){
             aMap=mapView.getMap();
+//            aMap.setTrafficEnabled(true);//显示交通状况
+//            aMap.setMapType(AMap.MAP_TYPE_SATELLITE);
+            aMap.setLocationSource(this);
+            aMap.setMyLocationEnabled(true);
             UiSettings uiSettings = aMap.getUiSettings();
             uiSettings.setZoomGesturesEnabled(true);
             uiSettings.setScaleControlsEnabled(true);
             uiSettings.setZoomControlsEnabled(false);
+            uiSettings.setMyLocationButtonEnabled(true);
             initMapOverLay(false);
 
             aMap.setOnMarkerDragListener(new AMap.OnMarkerDragListener() {
@@ -198,6 +272,45 @@ public class StoreFragment extends SuperFragment  {
     }
 
     public void setCityEntity(CityEntity.DataEntity.CityInfoEntity cityInfoEntity) {
+        this.cityEntity=cityInfoEntity;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (mapView!=null)
+            mapView.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mapView!=null)
+            mapView.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (mapView!=null)
+            mapView.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (mapView!=null) {
+            mapView.onDestroy();
+        }
+    }
+
+    @Override
+    public void activate(OnLocationChangedListener onLocationChangedListener) {
+
+    }
+
+    @Override
+    public void deactivate() {
 
     }
 }

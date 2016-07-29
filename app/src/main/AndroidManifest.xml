@@ -71,7 +71,7 @@
         <!--<activity android:name="com.umeng.fb.ConversationActivity" />-->
         <!--<activity android:name="com.umeng.fb.ContactActivity" />-->
         <activity
-            android:name=".activity.store.StoreFragmentActivity"
+            android:name=".activity.CityListActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
@@ -86,6 +86,7 @@
                 <data android:scheme="wxbe553a84b2d8aa92"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activity.store.StoreFragmentActivity" android:screenOrientation="portrait"/>
         <!--高德-->
         <service android:name="com.amap.api.location.APSService"></service>
         <!--高德-->

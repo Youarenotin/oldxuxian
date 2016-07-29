@@ -1,5 +1,6 @@
 package com.xuxian.marketpro.presentation.db;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.ab.db.orm.dao.AbDBDaoImpl;
@@ -11,8 +12,8 @@ import java.util.List;
  * Created by youarenotin on 16/7/27.
  */
 public class StoreDb extends AbDBDaoImpl<StoreEntity> {
-    public StoreDb(SQLiteOpenHelper dbHelper, Class<StoreEntity> clazz) {
-        super(dbHelper, clazz);
+    public StoreDb(Context ct) {
+        super(new DBInsideHelper(ct), StoreEntity.class);
     }
 
     public void saveData(StoreEntity storeEntity){
