@@ -1,5 +1,6 @@
 package com.xuxian.marketpro.activity.store;
 
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,9 +20,12 @@ import com.amap.api.maps2d.CameraUpdateFactory;
 import com.amap.api.maps2d.LocationSource;
 import com.amap.api.maps2d.MapView;
 import com.amap.api.maps2d.UiSettings;
+import com.amap.api.maps2d.model.BitmapDescriptor;
+import com.amap.api.maps2d.model.BitmapDescriptorFactory;
 import com.amap.api.maps2d.model.CameraPosition;
 import com.amap.api.maps2d.model.LatLng;
 import com.amap.api.maps2d.model.Marker;
+import com.amap.api.maps2d.model.MarkerOptions;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.libraries.gaodemap.GaoDeLocationLibraries;
@@ -69,7 +73,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
     private StoreAdapter storeAdapter;
     private StoreDb storeDb;
     private StoreEntity storeEntity;
-    private List<GetStoreEntity.DataEntity.StoreInfoEntity> storeInfoEntities;
+    private List<GetStoreEntity.DataBean.StoreInfoBean> storeInfoEntities;
     private List<StoreEntity> storeList;
     public View view_layout;
     @Override
@@ -81,7 +85,25 @@ public class StoreFragment extends SuperFragment implements LocationSource {
         }
         this.storeDb=new StoreDb(getActivity());
         this.shoppingCartGoodsDb=new ShoppingCartGoodsDb(getActivity());
+        this.storeAdapter=new StoreAdapter(getActivity());
+        shop_site_list.setAdapter(storeAdapter);
+        this.areaAdapter=new AreaAdapter(getActivity());
+        lv_shop_site_area.setAdapter(areaAdapter);
+        this.storeAdapter.setOnShopItemClickListener(new StoreAdapter.OnShopItemListener() {
+            @Override
+            public void showOverLayPop(StoreEntity storeEntity) {
+                LatLng latLng = new LatLng(storeEntity.getLat().doubleValue(),storeEntity.getLng().doubleValue());
+                aMap.addMarker(new MarkerOptions()
+                        .title(storeEntity.getTitle())
+                        .icon(BitmapDescriptorFactory
+                        .fromBitmap(BitmapFactory
+                        .decodeResource(getResources(),R.drawable.icon_gcoding_overlay)))
+                        .draggable(true)
+                        .position(latLng)
+                        .period(50));
 
+            }
+        });
         gaoDeLocation();
     }
 
@@ -164,7 +186,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
                     @Override
                     public void SucceedParseBean(GetStoreEntity content) {
                         emptyview_state.setVisibility(View.GONE);
-
+                        getStoreEntity=content;
                     }
 
                 } );
