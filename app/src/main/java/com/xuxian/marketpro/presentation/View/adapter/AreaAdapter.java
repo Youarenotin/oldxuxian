@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.xuxian.marketpro.R;
+import com.xuxian.marketpro.presentation.entity.GetStoreEntity;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class AreaAdapter extends BaseAdapter {
     ViewHolder holder;
     private int initPosition;
     private LayoutInflater mInflater;
-    private List<GetStoreEntity.DataEntity.StoreInfoEntity> mListData;
+    private List<GetStoreEntity.DataBean.StoreInfoBean> mListData;
 
     class ViewHolder {
         TextView tv_area_name;
@@ -52,7 +53,7 @@ public class AreaAdapter extends BaseAdapter {
         return this.city_area;
     }
 
-    public void setData(List<GetStoreEntity.DataEntity.StoreInfoEntity> list){
+    public void setData(List<GetStoreEntity.DataBean.StoreInfoBean> list){
         this.mListData=list;
         notifyDataSetChanged();
     }
@@ -65,7 +66,7 @@ public class AreaAdapter extends BaseAdapter {
     }
 
     @Override
-    public GetStoreEntity.DataEntity.StoreInfoEntity getItem(int i) {
+    public GetStoreEntity.DataBean.StoreInfoBean getItem(int i) {
         return mListData.get(i);
     }
 
@@ -76,7 +77,7 @@ public class AreaAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View convertView, ViewGroup viewGroup) {
-        GetStoreEntity.DataEntity.StoreInfoEntity storeInfoEntity = mListData.get(i);
+        GetStoreEntity.DataBean.StoreInfoBean storeInfoEntity = mListData.get(i);
         ViewHolder holder = null;
         if (convertView == null) {
             convertView = mInflater.inflate(R.layout.area_item, null);

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.ab.http.AbHttpUtil;
 import com.ab.http.IHttpResponseCallBack;
 import com.ab.util.AbPreferenceUtils;
+import com.ab.util.AbStrUtil;
 import com.ab.util.AbToastUtil;
 import com.amap.api.location.AMapLocation;
 import com.amap.api.maps2d.AMap;
@@ -76,6 +78,8 @@ public class StoreFragment extends SuperFragment implements LocationSource {
     private List<GetStoreEntity.DataBean.StoreInfoBean> storeInfoEntities;
     private List<StoreEntity> storeList;
     public View view_layout;
+    private List<StoreEntity> store_list;
+
     @Override
     protected void init() {
         if (this.cityEntity!=null){
@@ -93,18 +97,39 @@ public class StoreFragment extends SuperFragment implements LocationSource {
             @Override
             public void showOverLayPop(StoreEntity storeEntity) {
                 LatLng latLng = new LatLng(storeEntity.getLat().doubleValue(),storeEntity.getLng().doubleValue());
-                aMap.addMarker(new MarkerOptions()
+                Marker marker = aMap.addMarker(new MarkerOptions()
                         .title(storeEntity.getTitle())
-                        .icon(BitmapDescriptorFactory
-                        .fromBitmap(BitmapFactory
-                        .decodeResource(getResources(),R.drawable.icon_gcoding_overlay)))
+                        .icon(BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.icon_gcoding_overlay)))
                         .draggable(true)
                         .position(latLng)
                         .period(50));
+                marker.showInfoWindow();
+                replacestore();
+            }
+        });
+        shop_site_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
             }
         });
+        lv_shop_site_area.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                areaAdapter.setInitPosition(i);
+                if (storeInfoEntities!=null && !storeInfoEntities.isEmpty()){
+                    List<StoreEntity> store_list = storeInfoEntities.get(i).getStore_list();
+                    storeAdapter.setData(store_list);
+                }
+                initMapOverLay(true);
+            }
+        });
+        this.city_area=AbPreferenceUtils.loadPrefString(getActivity(),"city_area");
         gaoDeLocation();
+    }
+
+    private void replacestore() {
+
     }
 
 
@@ -187,6 +212,35 @@ public class StoreFragment extends SuperFragment implements LocationSource {
                     public void SucceedParseBean(GetStoreEntity content) {
                         emptyview_state.setVisibility(View.GONE);
                         getStoreEntity=content;
+                        if (getStoreEntity!=null){
+                            if (getStoreEntity==null) {
+                                ((StoreFragmentActivity)getActivity()).showStoreMessge(getStoreEntity.getStatus().getMessage());
+                                ll_storeFragment_map.setVisibility(View.INVISIBLE);
+
+                            }
+                            ll_storeFragment_map.setVisibility(View.VISIBLE);
+                            storeInfoEntities=getStoreEntity.getData().getStore_info();
+                            if (storeInfoEntities!=null && !storeInfoEntities.isEmpty()){
+                                areaAdapter.setData(storeInfoEntities);
+                                if (AbStrUtil.isEmpty(city_area)){
+                                    isShowPop=false;
+                                    areaAdapter.setInitPosition(0);
+                                    store_list = storeInfoEntities.get(0).getStore_list();
+
+                                } else{
+                                  isShowPop=true;
+                                    for (int i=0 ; i<storeInfoEntities.size() ;i++){
+                                        if (storeInfoEntities.get(i).getArea_name().equals(city_area) ){
+                                            store_list=storeInfoEntities.get(i).getStore_list();
+                                            areaAdapter.setInitPosition(i);
+                                            break;
+                                        }
+                                    }
+                                }
+                                storeAdapter.setData(store_list);
+                                initMapOverLay(false);
+                            }
+                        }
                     }
 
                 } );

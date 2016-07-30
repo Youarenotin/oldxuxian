@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.ab.util.AbDialogUtil;
 import com.ab.util.AbPreferenceUtils;
 import com.ab.util.AbScreenUtils;
 import com.ab.util.AbViewUtil;
@@ -105,6 +106,12 @@ public class StoreFragmentActivity extends SuperSherlockFragmentActivity {
             this.currentTabIndex=0;
         }
         this.mTabs[currentTabIndex].setSelected(true);
+    }
+
+    public void showStoreMessge(String msg){
+        if (isShowStoreDialog==false){
+            AbDialogUtil.showDialog(getActivity(),msg,true);
+        }
     }
 
     @Override

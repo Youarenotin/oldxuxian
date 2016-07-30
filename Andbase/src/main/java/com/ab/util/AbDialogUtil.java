@@ -15,6 +15,8 @@
  */
 package com.ab.util;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -71,7 +73,18 @@ public class AbDialogUtil {
         newFragment.show(ft, dialogTag);
         return newFragment;
     }
-	
+
+
+	public static void showDialog(Activity activity, String text, boolean isFinish) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+		builder.setMessage(text);
+		builder.setTitle("提示");
+		builder.setCancelable(false);
+		builder.setPositiveButton("确定", new MyOnClickListner(activity,isFinish));
+		if (activity != null && !activity.isFinishing()) {
+			builder.create().show();
+		}
+	}
 	
 	/**
 	 * 显示一个隐藏的的对话框.
@@ -338,7 +351,25 @@ public class AbDialogUtil {
 		newFragment.show(ft, dialogTag);
 	    return newFragment;
 	}
-	
+
+	static class  	MyOnClickListner implements DialogInterface.OnClickListener{
+		private Activity activity;
+		private boolean isFinish;
+
+		public MyOnClickListner(Activity activity, boolean isFinish) {
+			this.activity = activity;
+			this.isFinish = isFinish;
+		}
+
+		@Override
+		public void onClick(DialogInterface dialogInterface, int i) {
+			dialogInterface.dismiss();
+			if (activity!=null && !isFinish){
+				activity.finish();
+			}
+		}
+	}
+
 	/**
 	 * 显示一个一般的对话框（String内容）.
 	 * @param context
