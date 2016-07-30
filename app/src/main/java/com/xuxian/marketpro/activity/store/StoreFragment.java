@@ -1,7 +1,6 @@
 package com.xuxian.marketpro.activity.store;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,6 @@ import com.amap.api.maps2d.UiSettings;
 import com.amap.api.maps2d.model.CameraPosition;
 import com.amap.api.maps2d.model.LatLng;
 import com.amap.api.maps2d.model.Marker;
-import com.amap.api.maps2d.model.MyLocationStyle;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.libraries.gaodemap.GaoDeLocationLibraries;
@@ -39,8 +37,8 @@ import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
 import com.xuxian.marketpro.presentation.db.ShoppingCartGoodsDb;
 import com.xuxian.marketpro.presentation.db.StoreDb;
 import com.xuxian.marketpro.presentation.entity.CityEntity;
-import com.xuxian.marketpro.presentation.entity.GetStoreEntity;
 import com.xuxian.marketpro.presentation.entity.StoreEntity;
+import com.xuxian.marketpro.presentation.entity.GetStoreEntity;
 
 import java.util.List;
 
@@ -147,6 +145,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
                 RequestParamsNet.getInstance(getActivity()).getStoreInfo("" + lat, "" + lng, this.city_id),
                 GetStoreEntity.class,
                 new IHttpResponseCallBack<GetStoreEntity>() {
+
                     @Override
                     public void EndToParse() {
 
@@ -165,12 +164,11 @@ public class StoreFragment extends SuperFragment implements LocationSource {
                     @Override
                     public void SucceedParseBean(GetStoreEntity content) {
                         emptyview_state.setVisibility(View.GONE);
-                        getStoreEntity=content;
 
                     }
-                }
-        );
-    }
+
+                } );
+     }
 
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {

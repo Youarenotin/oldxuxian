@@ -3,26 +3,103 @@ package com.xuxian.marketpro.presentation.entity;
 import java.util.List;
 
 /**
- * Created by youarenotin on 16/7/27.
+ * Created by youarenotin on 16/7/30.
  */
 public class GetStoreEntity {
-    private DataEntity data;
-    private StatusEntity status;
 
-    public static class DataEntity{
-        private List<StoreInfoEntity> store_info;
-        public static  class  StoreInfoEntity{
-            private String area_id;
+    /**
+     * code : 0
+     * message : success
+     */
+
+    private StatusBean status;
+    private DataBean data;
+
+    public StatusBean getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusBean status) {
+        this.status = status;
+    }
+
+    public DataBean getData() {
+        return data;
+    }
+
+    public void setData(DataBean data) {
+        this.data = data;
+    }
+
+    public static class StatusBean {
+        private String code;
+        private String message;
+
+        public String getCode() {
+            return code;
+        }
+
+        public void setCode(String code) {
+            this.code = code;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+    }
+
+    public static class DataBean {
+        /**
+         * area_name : 西城区
+         * area_id : 110102
+         * store_list : [{"id":"157","lat":"39.933376","lng":"116.348810","type":"2","city_id":"110000","city_name":"北京市","store_status":"2","telphone":"15300105243","bstarttime":"11:00～20:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2015-08-24","message_alert":"请您在48小时内把您的水果领回家。","fristtime":"2016-07-22","store_attr":"1","discount":"5000","tags":",商圈,老店,自营,","divide":"100","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"五栋大楼提货点","area":"西城区车公庄大街9号五栋大楼C座","distance":"43m"},{"id":"550","lat":"39.936245","lng":"116.357819","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"15810011262","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-30","message_alert":"请您在48小时内把您的水果鲜食回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"南小街永祥东巷（烟酒店）","area":"西城区南小街永祥东巷17号烟酒店","distance":"788m"},{"id":"507","lat":"39.932217","lng":"116.359390","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13552665198","bstarttime":"11：00-21：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-26","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"官园南里（烟酒销售）","area":"西城区官园南里（中国儿童中心对面）","distance":"871m"},{"id":"473","lat":"39.942169","lng":"116.350067","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13261276245","bstarttime":"11：00-20：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-25","message_alert":"请您在48小时内把您的水鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"北展北街（烟酒超市）","area":"西城区北展北街4-11烟酒超市(华城影视斜对面)","distance":"967m"},{"id":"882","lat":"39.930286","lng":"116.336838","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"15810353699","bstarttime":"11:00～21:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-25","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-06-24 14:38:42","title":"国安社区百万庄店","area":"西城区百万庄中里51号","distance":"1.1km"},{"id":"506","lat":"39.938515","lng":"116.363930","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"18211121668","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-26","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"新街口（烟酒销售）","area":"西城区新街口烟酒销售南草厂街37号","distance":"1.4km"},{"id":"510","lat":"39.929356","lng":"116.367691","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13121038946","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-26","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"赵登禹路南（云翔翔便利店）","area":"西城区赵登禹路近西四北四条（烟台山商务酒店斜对面）","distance":"1.6km"},{"id":"508","lat":"39.936340","lng":"116.368553","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13601023107","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-26","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"赵登禹路北（烟酒销售）","area":"西城区赵登禹路聚点串吧对面","distance":"1.7km"},{"id":"151","lat":"39.919284","lng":"116.355977","type":"2","city_id":"110000","city_name":"北京市","store_status":"0","telphone":"18511428707","bstarttime":"11:00-20:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2015-09-06","message_alert":"请您在48小时内把您的水果领回家。","fristtime":"2016-07-22","store_attr":"1","discount":"5000","tags":",商圈,老店,自营,","divide":"100","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"月坛北桥提货点","area":"西城区阜成门南大街9号（时美图文印刷店旁边）","distance":"1.7km"},{"id":"548","lat":"39.940487","lng":"116.368065","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13261062159","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-30","message_alert":"请您在48小时内把您的水果鲜食回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"新街口地铁C口（报刊亭）","area":"西城区新街口地铁B口报刊亭","distance":"1.8km"},{"id":"495","lat":"39.945049","lng":"116.365036","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13718735746","bstarttime":"11:00-22:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-26","message_alert":"请您在48小时内把您的水果鲜食回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"后英房（名烟名酒名茶）","area":"西城区后英房胡同（如意里北区旁）","distance":"1.9km"},{"id":"170","lat":"39.913746","lng":"116.346142","type":"2","city_id":"110000","city_name":"北京市","store_status":"2","telphone":"15810336258","bstarttime":"11:00～20:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2015-08-24","message_alert":"请您在48小时内把您的水果领回家。","fristtime":"2016-07-22","store_attr":"1","discount":"5000","tags":",商圈,老店,自营,","divide":"100","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"二七剧场路提货点","area":"二七剧场路与月坛南街丁字路口（二七剧场路一号院门脸房）","distance":"2.2km"},{"id":"547","lat":"39.941887","lng":"116.374283","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"15011196896","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-30","message_alert":"请您在48小时内把您的水果鲜食回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"积水潭（烟酒超市）","area":"西城区积水潭医院附件烟酒超市","distance":"2.3km"},{"id":"873","lat":"39.918248","lng":"116.368618","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13718938686","bstarttime":"11:00～24:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-25","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-06-24 10:53:01","title":"国安社区金融街店","area":"西城区宏英园13\u20143号","distance":"2.4km"},{"id":"323","lat":"39.951847","lng":"116.371208","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13683618916","bstarttime":"11:00-20:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-07","message_alert":"请您在48小时内把您的鲜食领回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"新街口外大街（乐百氏水站","area":"西城区新街口外大街31号院小区4号楼东侧平房","distance":"2.8km"},{"id":"600","lat":"39.952209","lng":"116.375237","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13522897664","bstarttime":"11：00-21：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-01","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-05-31 17:45:43","title":"安康胡同（晋香味面馆）","area":"西城区安康胡同13号（晋香味面馆）","distance":"3km"},{"id":"883","lat":"39.905056","lng":"116.347397","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13911133376","bstarttime":"11:00-24:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-25","message_alert":"请您在48小时内把您的水果领回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-06-24 14:50:36","title":"国安社区月坛店","area":"西城区真武庙二条4号楼真武家园1号楼裙房最西侧","distance":"3.2km"},{"id":"628","lat":"39.906277","lng":"116.336021","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"15810106021","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-01","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-05-31 21:21:09","title":"国宏大厦（汇天烟酒）","area":"西城区国宏大厦旁汇天烟酒","distance":"3.2km"},{"id":"594","lat":"39.903336","lng":"116.346252","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13621216087","bstarttime":"11：00-21：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-31","message_alert":"请您在48小时内把您的水果领回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-05-31 03:18:00","title":"真武庙四里（烟酒食品店）","area":"西城区复兴门真武庙4里六栋三友益烟酒食品店","distance":"3.4km"},{"id":"178","lat":"39.954595","lng":"116.378479","type":"2","city_id":"110000","city_name":"北京市","store_status":"0","telphone":"18511428671","bstarttime":"11:00-20:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2015-09-02","message_alert":"请您在48小时内把您的水果领回家。","fristtime":"2016-07-22","store_attr":"1","discount":"5000","tags":",商圈,老店,自营,","divide":"100","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"德胜国际中心提货点","area":"西城区德外大街德胜国际中心B座大厅B1层","distance":"3.4km"},{"id":"386","lat":"39.951241","lng":"116.384216","type":"2","city_id":"110000","city_name":"北京市","store_status":"0","telphone":"18500502030","bstarttime":"11：00-21：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-16","message_alert":"请您在48小时内把您的水果鲜食领回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"安德路六铺炕（哞哞小花牛","area":"西城区德胜门外安德路122号底商（第七中学对面）","distance":"3.6km"},{"id":"1001","lat":"39.961555","lng":"116.371628","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"15210793931","bstarttime":"09:30-18:00","city_area":"西城区","area_id":"110102","bdate":"1,5","starttime":"2016-07-12","message_alert":"请您在48小时内把您的水果领回家。（提货点周末不营业，周五、周六下单顺延至周一提货）","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-07-12 02:20:29","title":"和益金丰和商务苑","area":"西城区新街口外大街8号金丰和商务苑C座一楼大厅","distance":"3.7km"},{"id":"227","lat":"39.902362","lng":"116.335233","type":"1","city_id":"110000","city_name":"北京市","store_status":"0","telphone":"13311203869","bstarttime":"11:00-19:30","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2015-09-23","message_alert":"请您在48小时内把您的水果领回家。","fristtime":"2016-07-22","store_attr":"4","discount":"5000","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"公安大学提货点","area":"木樨地南里甲28号楼一层超市内","distance":"3.7km"},{"id":"556","lat":"39.905197","lng":"116.372330","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13717837657","bstarttime":"11：00-20：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-30","message_alert":"请您在48小时内把您的水果鲜食回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"教育街（烟酒食品超市）","area":"西城区教育街2号（烟酒食品超市）","distance":"3.7km"},{"id":"557","lat":"39.902866","lng":"116.368614","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"18801469732","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-30","message_alert":"请您在48小时内把您的水果鲜食回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"佟麟阁路（众皆乐超市）","area":"西城区佟麟阁路48号（众皆乐超市）","distance":"3.8km"},{"id":"565","lat":"39.900642","lng":"116.364853","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"18301231626","bstarttime":"11：00-21：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-30","message_alert":"请您在48小时内把您的水果鲜食回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"东智义胡同（花样多食品店）","area":"西城区东智义胡同15号（花样多食品店）","distance":"3.9km"},{"id":"576","lat":"39.898537","lng":"116.359688","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"15001081684","bstarttime":"11:00-21:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-31","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"长椿街西里（鑫海超市）","area":"西城区长椿街西里7号（鑫海超市）","distance":"4km"},{"id":"174","lat":"39.897855","lng":"116.338791","type":"2","city_id":"110000","city_name":"北京市","store_status":"2","telphone":"13691068518","bstarttime":"11:00-20:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2015-09-30","message_alert":"请您在48小时内把您的水果领回家。","fristtime":"2016-07-22","store_attr":"1","discount":"5000","tags":",商圈,老店,自营,","divide":"100","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"莲花池东路提货点","area":"西城区莲花池东路甲5号院14门101室街面","distance":"4.1km"},{"id":"1199","lat":"39.902828","lng":"116.378464","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13501338567","bstarttime":"9:00-22:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-07-29","message_alert":"请您在48小时内把您的水果领回家。","fristtime":"2016-07-30","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-07-28 17:51:30","title":"东绒线胡同（洋河蓝色经典）","area":"西城区东绒线胡同甲84号洋河蓝色经典烟酒","distance":"4.2km"},{"id":"870","lat":"39.904259","lng":"116.381416","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13520738821","bstarttime":"11：00-19：30","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-24","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-06-23 15:21:13","title":"国安社区西长安街店","area":"西城区西长安街西绒线胡同29号国安社区","distance":"4.2km"},{"id":"566","lat":"39.896374","lng":"116.362946","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13001987972","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-30","message_alert":"请您在48小时内把您的水果鲜食回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"槐柏树街（烟酒销售）","area":"西城区槐柏树街头东口1号楼（烟酒销售）","distance":"4.3km"},{"id":"1141","lat":"39.897190","lng":"116.366547","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"15727330429","bstarttime":"8:00-22:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-07-19","message_alert":"请您在48小时内把您的水果领回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-07-19 01:44:39","title":"三庙街1号楼（烟酒销售）","area":"西城区三庙街1号楼1层112洋河蓝色经典烟酒销售","distance":"4.3km"},{"id":"577","lat":"39.896461","lng":"116.383990","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13520156159","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-31","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"安平里1号（平安食品商店)","area":"西城区安平里1号（平安食品商店）","distance":"5.1km"},{"id":"713","lat":"39.892654","lng":"116.377625","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"63105262","bstarttime":"11：00-24：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-07","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-06-06 19:29:49","title":"椿树园（富荣彩商店）","area":"西城区长椿树园15-18（富荣彩商店）","distance":"5.1km"},{"id":"876","lat":"39.892471","lng":"116.379288","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"15911014588","bstarttime":"11:00～24:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-25","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-06-24 11:25:52","title":"国安社区椿树店","area":"西城区椿树街道四合上院106号底商","distance":"5.2km"},{"id":"578","lat":"39.892500","lng":"116.384024","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13522885898","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-31","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"前孙公园11号（二佳宜超市）","area":"西城区前孙公园11号（二佳宜超市）","distance":"5.4km"},{"id":"486","lat":"39.883739","lng":"116.337212","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13366529088","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-25","message_alert":"请您在48小时内把您的水果鲜食回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"红居斜街（社区）","area":"西城区红居斜街4号院1号楼","distance":"5.6km"},{"id":"633","lat":"39.883368","lng":"116.366215","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"18301324405","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-02","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-06-01 19:01:42","title":"南横西街（诚信烟酒茶行）","area":"西城区南横西街春风小区底商（11-16诚信烟酒超市）","distance":"5.8km"},{"id":"579","lat":"39.886149","lng":"116.385315","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13671242977","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-31","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"永定路106号（兴勇强发商店）","area":"西城区永安路106号（兴勇强发商店）","distance":"6.1km"},{"id":"878","lat":"39.884521","lng":"116.384590","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13910069143","bstarttime":"11:00-24:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-25","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-06-24 11:35:32","title":"国安社区陶然亭店","area":"西城区虎坊路21号底商，小区名称：陶然北岸小区东门南行20米","distance":"6.2km"},{"id":"634","lat":"39.883076","lng":"116.381956","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13601397004","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-02","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-06-01 19:03:23","title":"南华里（圆方达烟酒超市）","area":"西城区南华里10号楼底商（圆方达烟酒超市）","distance":"6.3km"},{"id":"874","lat":"39.886078","lng":"116.395386","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13810702406","bstarttime":"11:00～24:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-25","message_alert":"请您在48小时内把您的水果鲜食回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-06-24 11:04:50","title":"国安社区天桥店","area":"西城区天桥市场斜街2号国安社区","distance":"6.6km"},{"id":"580","lat":"39.882694","lng":"116.390238","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13439570096","bstarttime":"11：00-21：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-31","message_alert":"请您在48小时内把您的水果鲜食回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"禄长街（天使梦想）","area":"西城区禄长街头条1号楼（天使梦想）","distance":"6.6km"},{"id":"581","lat":"39.884411","lng":"116.395265","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"18910271935","bstarttime":"11：00-21：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-31","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"福长街40号（鸿达商店）","area":"西城区福长街40号（鸿达商店）","distance":"6.7km"},{"id":"585","lat":"39.874784","lng":"116.370793","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"63514783","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-05-31","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"0000-00-00 00:00:00","title":"里仁街6号（诚信水站）","area":"西城区里仁街6号院诚信水站","distance":"6.8km"},{"id":"877","lat":"39.872215","lng":"116.364822","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"13552079834","bstarttime":"11:00-24:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-25","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-06-24 11:30:24","title":"国安社区白纸坊店","area":"西城区右安门内大街万博苑7号楼一楼底商","distance":"6.9km"},{"id":"637","lat":"39.878605","lng":"116.396366","type":"2","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"15810671945","bstarttime":"11：00-22：00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-02","message_alert":"请您在48小时内把您的水果鲜食回家。","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-06-01 19:08:51","title":"南纬路（东华超市）","area":"西城区南纬路2号院1号楼（东华超市）","distance":"7.3km"},{"id":"891","lat":"39.922741","lng":"116.639442","type":"1","city_id":"110000","city_name":"北京市","store_status":"3","telphone":"82239778","bstarttime":"11:00～24:00","city_area":"西城区","area_id":"110102","bdate":"1,0","starttime":"2016-06-25","message_alert":"请您在48小时内把您的水果鲜食回家。 ","fristtime":"2016-07-22","store_attr":"4","discount":"0","tags":",轻食馆,","divide":"10","send_range":"3000","add_time":"2016-06-24 21:03:41","title":"国安社区德胜店","area":"西城区黄寺大街23号5号楼1层41号","distance":"24.8km"}]
+         */
+
+        private List<StoreInfoBean> store_info;
+
+        public List<StoreInfoBean> getStore_info() {
+            return store_info;
+        }
+
+        public void setStore_info(List<StoreInfoBean> store_info) {
+            this.store_info = store_info;
+        }
+
+        public static class StoreInfoBean {
             private String area_name;
+            private String area_id;
+            /**
+             * id : 157
+             * lat : 39.933376
+             * lng : 116.348810
+             * type : 2
+             * city_id : 110000
+             * city_name : 北京市
+             * store_status : 2
+             * telphone : 15300105243
+             * bstarttime : 11:00～20:00
+             * city_area : 西城区
+             * area_id : 110102
+             * bdate : 1,0
+             * starttime : 2015-08-24
+             * message_alert : 请您在48小时内把您的水果领回家。
+             * fristtime : 2016-07-22
+             * store_attr : 1
+             * discount : 5000
+             * tags : ,商圈,老店,自营,
+             * divide : 100
+             * send_range : 3000
+             * add_time : 0000-00-00 00:00:00
+             * title : 五栋大楼提货点
+             * area : 西城区车公庄大街9号五栋大楼C座
+             * distance : 43m
+             */
+
             private List<StoreEntity> store_list;
-
-            public List<StoreEntity> getStore_list() {
-                return store_list;
-            }
-
-            public void setStore_list(List<StoreEntity> store_list) {
-                this.store_list = store_list;
-            }
 
             public String getArea_name() {
                 return area_name;
@@ -39,26 +116,16 @@ public class GetStoreEntity {
             public void setArea_id(String area_id) {
                 this.area_id = area_id;
             }
-        }
-    }
-    public static class StatusEntity{
-        public String getMessage() {
-            return message;
-        }
 
-        public void setMessage(String message) {
-            this.message = message;
-        }
+            public List<StoreEntity> getStore_list() {
+                return store_list;
+            }
 
-        public int getCode() {
-            return code;
-        }
+            public void setStore_list(List<StoreEntity> store_list) {
+                this.store_list = store_list;
+            }
 
-        public void setCode(int code) {
-            this.code = code;
-        }
 
-        private int code;
-        private String message;
+        }
     }
 }

@@ -7,46 +7,108 @@ import com.ab.db.orm.annotation.Table;
 /**
  * Created by youarenotin on 16/7/27.
  */
-@Table(name ="Store")
+@Table(name = "Store")
 public class StoreEntity extends BaseEntity {
-    @Column(name="area")
-    private String area;
-    @Column(name="area_id")
+    @Column(name = "area")
+    private String area;//
+    @Column(name = "area_id")
     private String area_id;
-    @Column(name="bdate")
+    @Column(name = "bdate")
     private String bdate;
-    @Column(name="bstarttime")
+    @Column(name = "bstarttime")
     private String bstarttime;
-    @Column(name="city_area")
+    @Column(name = "city_area")
     private String city_area;
-    @Column(name="city_id")
+    @Column(name = "city_id")
     private String city_id;
-    @Column(name="city_name")
+    @Column(name = "city_name")
     private String city_name;
-    @Column(name="distance")
-    private String distance;
-    @Column(name="fristtime")
+    @Column(name = "distance")
+    private String distance;//
+    @Column(name = "fristtime")
     private String fristtime;
     @Id
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
-    @Column(name="lat")
+    @Column(name = "lat")
     private Double lat;
-    @Column(name="lng")
+    @Column(name = "lng")
     private Double lng;
-    @Column(name="starttime")
+    @Column(name = "starttime")
     private String starttime;
 
-    @Column(name="message_alert")
+    @Column(name = "message_alert")
     private String message_alert;
-    @Column(name="store_status")
+    @Column(name = "store_status")
     private int store_status;
-    @Column(name="telphone")
+    @Column(name = "telphone")
     private String telphone;
-    @Column(name="title")
-    private String title;
-    @Column(name="type")
+    @Column(name = "title")
+    private String title;//
+    @Column(name = "type")
     private int type;
+
+
+    @Column(name = "add_time")
+    private String add_time;
+    @Column(name = "send_range")
+    private String send_range;
+    @Column(name = "divide")
+    private String divide;
+    @Column(name = "tags")
+    private String tags;
+    @Column(name = "discount")
+    private String discount;
+    @Column(name = "store_attr")
+    private String store_attr;
+
+    public String getAdd_time() {
+        return add_time;
+    }
+
+    public void setAdd_time(String add_time) {
+        this.add_time = add_time;
+    }
+
+    public String getSend_range() {
+        return send_range;
+    }
+
+    public void setSend_range(String send_range) {
+        this.send_range = send_range;
+    }
+
+    public String getDivide() {
+        return divide;
+    }
+
+    public void setDivide(String divide) {
+        this.divide = divide;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
+    }
+
+    public String getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(String discount) {
+        this.discount = discount;
+    }
+
+    public String getStore_attr() {
+        return store_attr;
+    }
+
+    public void setStore_attr(String store_attr) {
+        this.store_attr = store_attr;
+    }
 
     public String getArea() {
         return area;

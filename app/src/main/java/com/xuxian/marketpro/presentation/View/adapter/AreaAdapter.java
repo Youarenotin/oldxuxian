@@ -9,10 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.xuxian.marketpro.R;
-import com.xuxian.marketpro.presentation.entity.GetStoreEntity;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 /**
  * Created by youarenotin on 16/7/27.
