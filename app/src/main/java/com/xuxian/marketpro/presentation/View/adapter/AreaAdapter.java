@@ -91,11 +91,11 @@ public class AreaAdapter extends BaseAdapter {
         holder.tv_area_name.setText(storeInfoEntity.getArea_name());
         if (initPosition==i){
             holder.tv_area_name.setTextColor(Color.parseColor("#4ea661"));
-            convertView.setBackgroundColor(Color.parseColor("FFFFFF"));
+            convertView.setBackgroundColor(Color.parseColor("#FFFFFF"));
         }
         else{
             holder.tv_area_name.setTextColor(Color.parseColor("#b5b6b8"));
-            convertView.setBackgroundColor(Color.parseColor("f3f3f3"));
+            convertView.setBackgroundColor(Color.parseColor("#f3f3f3"));
         }
         return convertView;
     }
