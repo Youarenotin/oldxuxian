@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
+import android.view.animation.CycleInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -318,7 +319,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
                     long startTime = SystemClock.uptimeMillis();
                     Point startPoint = projection.toScreenLocation(latLng);
                     startPoint.offset(0, -100);
-                    mHandler.post(new HanderlRunnable(latLng,aMap.getProjection().fromScreenLocation(startPoint),mHandler,new BounceInterpolator(),marker,startTime));
+                    mHandler.post(new HanderlRunnable(latLng, aMap.getProjection().fromScreenLocation(startPoint), mHandler, new BounceInterpolator(), marker, startTime));
                     return false;
                 }
             });
@@ -333,15 +334,24 @@ public class StoreFragment extends SuperFragment implements LocationSource {
             aMap.setInfoWindowAdapter(new AMap.InfoWindowAdapter() {
                 @Override
                 public View getInfoWindow(Marker marker) {
-                    return null;
+                    View view = View.inflate(getActivity(), R.layout.pop_shop_overlay_layout, null);
+                    renderMarkerPopOverLay(view,marker);
+                    return view;
                 }
-
                 @Override
                 public View getInfoContents(Marker marker) {
                     return null;
                 }
             });
         }
+    }
+
+    private void renderMarkerPopOverLay(View view, Marker marker) {
+        StoreEntity obj = (StoreEntity) marker.getObject();
+        ((TextView)view.findViewById(R.id.shop_overlay_name)).setText(obj.getTitle());
+        LinearLayout ll_enter_shop = (LinearLayout) view.findViewById(R.id.ll_enter_shop);
+        ll_enter_shop.setOnClickListener(new EnterShopOnClickListener(obj));
+        view.findViewById(R.id.ll_enter_shop_detail).setOnClickListener(new EnterShopDetailOnClickListener(obj));
     }
 
     private void initMapOverLay(boolean isSwitchArea) {//默认为false 点击区域选择为true
@@ -445,12 +455,36 @@ public class StoreFragment extends SuperFragment implements LocationSource {
 
         @Override
         public void run() {
-            float t = this.interpolator.getInterpolation(((float) (SystemClock.uptimeMillis() - this.startTime)) / 1500.0f);
+            float t = this.interpolator.getInterpolation(((float) (SystemClock.uptimeMillis() - this.startTime)) / 1000.0f);
             double lat = (((double) t) * this.startLatLng.latitude) + (((double) (1 - t)) * this.endLatlng.latitude);
             this.marker.setPosition(new LatLng(lat, (((double) t) * this.startLatLng.longitude) + (((double) (1 - t)) * this.startLatLng.longitude)));
             if (((double) t) < 1.0d) {
                 this.handler.postDelayed(this, 16);
             }
+        }
+    }
+
+    private class EnterShopOnClickListener implements View.OnClickListener {
+        private StoreEntity entity;
+        public EnterShopOnClickListener(StoreEntity obj) {
+            this.entity=obj;
+        }
+
+        @Override
+        public void onClick(View view) {
+
+        }
+    }
+
+    private class EnterShopDetailOnClickListener implements View.OnClickListener {
+            private StoreEntity entity;
+        public EnterShopDetailOnClickListener(StoreEntity obj) {
+            this.entity=obj;
+        }
+
+        @Override
+        public void onClick(View view) {
+
         }
     }
 }
