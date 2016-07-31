@@ -5,6 +5,7 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +72,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
     private boolean isExpress;
     boolean isFirstLoc;
     private boolean isShowPop;
-    private Handler mHandler;
+    private Handler mHandler = new Handler();
     private boolean isSwitchCity;
     private LinearLayout ll_storeFragment_map;
     private ListView lv_shop_site_area;
@@ -444,7 +445,12 @@ public class StoreFragment extends SuperFragment implements LocationSource {
 
         @Override
         public void run() {
-            interpolator.getInterpolation()
+            float t = this.interpolator.getInterpolation(((float) (SystemClock.uptimeMillis() - this.startTime)) / 1500.0f);
+            double lat = (((double) t) * this.startLatLng.latitude) + (((double) (1 - t)) * this.endLatlng.latitude);
+            this.marker.setPosition(new LatLng(lat, (((double) t) * this.startLatLng.longitude) + (((double) (1 - t)) * this.startLatLng.longitude)));
+            if (((double) t) < 1.0d) {
+                this.handler.postDelayed(this, 16);
+            }
         }
     }
 }

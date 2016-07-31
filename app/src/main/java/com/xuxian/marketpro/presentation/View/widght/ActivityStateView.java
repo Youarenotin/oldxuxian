@@ -120,7 +120,7 @@ public class ActivityStateView extends LinearLayout {
         loadingImage.setLayoutParams(params);
         addView(loadingImage);
         TextView loadingText =new TextView(getContext());
-        loadingText.setTextColor(Color.YELLOW);
+        loadingText.setTextColor(Color.BLUE);
         LayoutParams textParmas =new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         textParmas.leftMargin=20;
         loadingText.setText(loadingPromt.equals("")?"正在加载..":loadingPromt);
