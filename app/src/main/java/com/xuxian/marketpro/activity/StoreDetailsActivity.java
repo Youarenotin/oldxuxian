@@ -25,7 +25,7 @@ import java.text.SimpleDateFormat;
  * 作者：lubo on 8/1 0001 09:49
  * 邮箱：lubo_wen@126.com
  */
-public class StoreDetailsActivity extends SuperSherlockActivity implements View.OnClickListener{
+public class StoreDetailsActivity extends SuperSherlockActivity implements View.OnClickListener {
     private ImageView iv_shop_details_state;
     private ImageView iv_shop_type;
     private LinearLayout ll_business;
@@ -133,14 +133,14 @@ public class StoreDetailsActivity extends SuperSherlockActivity implements View.
                         this.tv_shop_details_delivery_time.setVisibility(8);
                     } else if (new SimpleDateFormat(AbDateUtil.dateFormatYMD).parse(this.storeEntity.getStarttime()).getTime() < System.currentTimeMillis()) {
                         this.tv_shop_details_opening_time.setVisibility(0);
-                        this.tv_shop_details_opening_date.setText(this.storeEntity.getStarttime() + "\u5f00\u4e1a");
+                        this.tv_shop_details_opening_date.setText(this.storeEntity.getStarttime() + "开业");
                     } else {
                         this.tv_shop_details_opening_time.setVisibility(8);
                         this.tv_shop_details_delivery_time.setVisibility(8);
                     }
                     if (AbStrUtil.isEmpty(this.storeEntity.getFristtime())) {
                         this.tv_shop_details_delivery_time.setVisibility(0);
-                        this.tv_shop_details_delivery_time.setText(this.storeEntity.getFristtime() + "\u53ef\u63d0");
+                        this.tv_shop_details_delivery_time.setText(this.storeEntity.getFristtime() + "可提");
                     }
                     if (AbStrUtil.isEmpty(this.storeEntity.getArea())) {
                         this.tv_shop_details_delivery_address.setText(this.storeEntity.getArea());
@@ -173,11 +173,85 @@ public class StoreDetailsActivity extends SuperSherlockActivity implements View.
                         this.tv_shop_details_delivery_time.setVisibility(8);
                     } else {
                         this.tv_shop_details_opening_time.setVisibility(0);
-                        this.tv_shop_details_opening_date.setText(this.storeEntity.getStarttime() + "\u5f00\u4e1a");
+                        this.tv_shop_details_opening_date.setText(this.storeEntity.getStarttime() + "开业");
                     }
                     if (AbStrUtil.isEmpty(this.storeEntity.getFristtime())) {
                         this.tv_shop_details_delivery_time.setVisibility(0);
-                        this.tv_shop_details_delivery_time.setText(this.storeEntity.getFristtime() + "\u53ef\u63d0");
+                        this.tv_shop_details_delivery_time.setText(this.storeEntity.getFristtime() + "可提");
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getArea())) {
+                        this.tv_shop_details_delivery_address.setText(this.storeEntity.getArea());
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getDistance())) {
+                        this.tv_shop_details_distance.setText(this.storeEntity.getTelphone());
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getMessage_alert())) {
+                        this.tv_shop_details_message.setText(this.storeEntity.getMessage_alert());
+                    }
+                    this.ll_business.setVisibility(0);
+                    this.ll_opening.setVisibility(8);
+                    this.tv_shop_details_business_date.setTextColor(Color.parseColor(getString(R.color.red)));
+                    this.tv_shop_details_business_time.setTextColor(Color.parseColor(getString(R.color.red)));
+                    if (this.storeEntity.getType() != 0) {
+                    }
+                    this.iv_shop_type.setImageResource(R.drawable.xue_xiao);
+                    this.tv_shop_type.setText("学校");
+                } else if (bdate[0].equals("1") && bdate[1].equals("4")) {
+                    String date = "周一到周四";
+                    this.tv_shop_details_business_date.setText(date);
+                    if (AbStrUtil.isEmpty(this.storeEntity.getBstarttime())) {
+                        this.tv_shop_details_business_time.setText(this.storeEntity.getBstarttime());
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getStarttime())) {
+                        this.tv_shop_details_opening_time.setVisibility(8);
+                        this.tv_shop_details_delivery_time.setVisibility(8);
+                    } else if (new SimpleDateFormat(AbDateUtil.dateFormatYMD).parse(this.storeEntity.getStarttime()).getTime() < System.currentTimeMillis()) {
+                        this.tv_shop_details_opening_time.setVisibility(0);
+                        this.tv_shop_details_opening_date.setText(this.storeEntity.getStarttime() + "开业");
+                    } else {
+                        this.tv_shop_details_opening_time.setVisibility(8);
+                        this.tv_shop_details_delivery_time.setVisibility(8);
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getFristtime())) {
+                        this.tv_shop_details_delivery_time.setVisibility(0);
+                        this.tv_shop_details_delivery_time.setText(this.storeEntity.getFristtime() + "可提");
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getArea())) {
+                        this.tv_shop_details_delivery_address.setText(this.storeEntity.getArea());
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getDistance())) {
+                        this.tv_shop_details_distance.setText(this.storeEntity.getTelphone());
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getMessage_alert())) {
+                        this.tv_shop_details_message.setText(this.storeEntity.getMessage_alert());
+                    }
+                    this.ll_business.setVisibility(0);
+                    this.ll_opening.setVisibility(8);
+                    this.tv_shop_details_business_date.setTextColor(Color.parseColor(getString(R.color.red)));
+                    this.tv_shop_details_business_time.setTextColor(Color.parseColor(getString(R.color.red)));
+                    if (this.storeEntity.getType() != 0) {
+                    }
+                    this.iv_shop_type.setImageResource(R.drawable.xue_xiao);
+                    this.tv_shop_type.setText("学校");
+                } else if (bdate[0].equals("1") && bdate[1].equals("5")) {
+                    String date = "周一到周五";
+                    this.tv_shop_details_business_date.setText(date);
+                    if (AbStrUtil.isEmpty(this.storeEntity.getBstarttime())) {
+                        this.tv_shop_details_business_time.setText(this.storeEntity.getBstarttime());
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getStarttime())) {
+                        this.tv_shop_details_opening_time.setVisibility(8);
+                        this.tv_shop_details_delivery_time.setVisibility(8);
+                    } else if (new SimpleDateFormat(AbDateUtil.dateFormatYMD).parse(this.storeEntity.getStarttime()).getTime() < System.currentTimeMillis()) {
+                        this.tv_shop_details_opening_time.setVisibility(8);
+                        this.tv_shop_details_delivery_time.setVisibility(8);
+                    } else {
+                        this.tv_shop_details_opening_time.setVisibility(0);
+                        this.tv_shop_details_opening_date.setText(this.storeEntity.getStarttime() + "开业");
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getFristtime())) {
+                        this.tv_shop_details_delivery_time.setVisibility(0);
+                        this.tv_shop_details_delivery_time.setText(this.storeEntity.getFristtime() + "可提");
                     }
                     if (AbStrUtil.isEmpty(this.storeEntity.getArea())) {
                         this.tv_shop_details_delivery_address.setText(this.storeEntity.getArea());
@@ -196,17 +270,68 @@ public class StoreDetailsActivity extends SuperSherlockActivity implements View.
                     }
                     this.iv_shop_type.setImageResource(R.drawable.xue_xiao);
                     this.tv_shop_type.setText("\u5b66\u6821");
-
-
-                } else {//storeEntity为空
+                } else {
+                    String date = null;
+                    if (bdate[0].equals("1") && bdate[1].equals("6")) {
+                        date = "周一到周六";
+                    }
+                    this.tv_shop_details_business_date.setText(date);
+                    if (AbStrUtil.isEmpty(this.storeEntity.getBstarttime())) {
+                        this.tv_shop_details_business_time.setText(this.storeEntity.getBstarttime());
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getStarttime())) {
+                        try {
+                            if (new SimpleDateFormat(AbDateUtil.dateFormatYMD).parse(this.storeEntity.getStarttime()).getTime() < System.currentTimeMillis()) {
+                                this.tv_shop_details_opening_time.setVisibility(0);
+                                this.tv_shop_details_opening_date.setText(this.storeEntity.getStarttime() + "开业");
+                            } else {
+                                this.tv_shop_details_opening_time.setVisibility(8);
+                                this.tv_shop_details_delivery_time.setVisibility(8);
+                            }
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        this.tv_shop_details_opening_time.setVisibility(8);
+                        this.tv_shop_details_delivery_time.setVisibility(8);
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getFristtime())) {
+                        this.tv_shop_details_delivery_time.setVisibility(0);
+                        this.tv_shop_details_delivery_time.setText(this.storeEntity.getFristtime() + "可提");
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getArea())) {
+                        this.tv_shop_details_delivery_address.setText(this.storeEntity.getArea());
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getDistance())) {
+                        this.tv_shop_details_distance.setText(this.storeEntity.getTelphone());
+                    }
+                    if (AbStrUtil.isEmpty(this.storeEntity.getMessage_alert())) {
+                        this.tv_shop_details_message.setText(this.storeEntity.getMessage_alert());
+                    }
+                    if (this.storeEntity.getStore_status() == 0 || this.storeEntity.getStore_status() == 3) {
+                        this.ll_business.setVisibility(0);
+                        this.ll_opening.setVisibility(8);
+                        this.tv_shop_details_business_date.setTextColor(Color.parseColor(getString(R.color.red)));
+                        this.tv_shop_details_business_time.setTextColor(Color.parseColor(getString(R.color.red)));
+                    }
+                    if (this.storeEntity.getType() != 0 || this.storeEntity.getType() == 1) {
+                        this.iv_shop_type.setImageResource(R.drawable.xue_xiao);
+                        this.tv_shop_type.setText("学校");
+                    } else if (this.storeEntity.getType() == 2) {
+                        this.iv_shop_type.setImageResource(R.drawable.shang_quan);
+                        this.tv_shop_type.setText("商圈");
+                    }
 
                 }
+            } else{//storeEntity为空
+
             }
         } catch (ParseException e) {
             e.printStackTrace();
         }
     }
-        @Override
+
+    @Override
     protected void initTitleBar() {
         setTitle("店面详情");
     }

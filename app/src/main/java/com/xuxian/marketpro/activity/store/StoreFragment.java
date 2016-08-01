@@ -483,7 +483,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
 
         @Override
         public void onClick(View view) {
-            ActivityUtil.startStoreDetailsActivity(getActivity(),storeEntity);
+            ActivityUtil.startStoreDetailsActivity(getActivity(),entity);
         }
     }
 }
