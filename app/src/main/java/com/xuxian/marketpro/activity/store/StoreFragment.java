@@ -40,6 +40,7 @@ import com.xuxian.marketpro.libraries.gaodemap.GaoDeLocationLibraries;
 import com.xuxian.marketpro.libraries.util.ActivityUtil;
 import com.xuxian.marketpro.libraries.util.monitor.CityMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.GaoDeLocationMonitor;
+import com.xuxian.marketpro.libraries.util.monitor.GoodsMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor.GaoDeLocationEnum;
 import com.xuxian.marketpro.net.NewIssRequest;
@@ -158,7 +159,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
                 List<ShoppingCartGoodsEntity> list = this.shoppingCartGoodsDb.queryAllData(AbPreferenceUtils.loadPrefString(getActivity(), "USER_ID", "0"));
                 if (list==null || list.size()==0){
                     saveData(entity);
-                    //// TODO: 8/1 0001 刷新店面商品监视器
+                   GoodsMonitor.issueGoodsMonitorCallback(monitor.GoodsEnum.REFRESH_GOODS); //刷新店面商品监视器
                     CityMonitor.getInstance().IssueMonitors(monitor.CityEnum.CLOSE_PAGE,null);
                     return;
                 }
