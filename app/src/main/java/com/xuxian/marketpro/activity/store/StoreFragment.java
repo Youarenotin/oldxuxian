@@ -102,7 +102,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
         shop_site_list.setAdapter(storeAdapter);
         this.areaAdapter = new AreaAdapter(getActivity());
         lv_shop_site_area.setAdapter(areaAdapter);
-        this.storeAdapter.setOnShopItemClickListener(new StoreAdapter.OnShopItemListener() {
+        this.storeAdapter.setOnShopItemClickListener(new StoreAdapter.OnShopItemListener() {//进入店面
             @Override
             public void showOverLayPop(StoreEntity storeEntity) {
                 LatLng latLng = new LatLng(storeEntity.getLat().doubleValue(), storeEntity.getLng().doubleValue());
@@ -112,8 +112,10 @@ public class StoreFragment extends SuperFragment implements LocationSource {
                         .draggable(true)
                         .position(latLng)
                         .period(50));
-                marker.showInfoWindow();
-                replacestore();
+                marker.setObject(storeEntity);
+                aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,15f));//将地图移动到指定latlng 和zoomlevel的视窗
+                marker.showInfoWindow();//将marker显示到camera中
+//                replacestore();
             }
         });
         shop_site_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -138,7 +140,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
         gaoDeLocation();
     }
 
-    private void replacestore() {
+    private void replacestore(StoreEntity entity) {
 
     }
 
@@ -471,7 +473,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
 
         @Override
         public void onClick(View view) {
-
+            replacestore(entity);
         }
     }
 

@@ -75,13 +75,13 @@ public class StoreDetailsActivity extends SuperSherlockActivity implements View.
                 if (storeEntity.getStore_status() == 1) {//即将开业
                     this.iv_shop_details_state.setVisibility(View.VISIBLE);
                     this.iv_shop_details_state.setBackgroundResource(R.drawable.jijiangkaiye_icon);
-                } else if (storeEntity.getStore_status() == 2) {
+                } else if (storeEntity.getStore_status() == 2) {//装修中
                     this.iv_shop_details_state.setVisibility(View.VISIBLE);
                     this.iv_shop_details_state.setBackgroundResource(R.drawable.zhuangxiu_icon);
-                } else if (storeEntity.getStore_status() == 3) {
+                } else if (storeEntity.getStore_status() == 3) {//新店
                     this.iv_shop_details_state.setVisibility(View.VISIBLE);
                     this.iv_shop_details_state.setBackgroundResource(R.drawable.xindian_icon);
-                } else {
+                } else {//无图标
                     this.iv_shop_details_state.setVisibility(View.GONE);
                 }
                 String[] bdate = storeEntity.getBdate().split(",");
