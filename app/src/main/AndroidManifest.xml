@@ -89,6 +89,8 @@
         <activity android:name=".activity.store.StoreFragmentActivity" android:screenOrientation="portrait"/>
         <!--店面详情-->
         <activity android:name=".activity.StoreDetailsActivity" android:screenOrientation="portrait"/>
+        <!--tab main-->
+        <activity android:name=".activity.tab.TabMainFragmentActivity" android:screenOrientation="portrait"></activity>
         <!--高德-->
         <service android:name="com.amap.api.location.APSService"></service>
         <!--高德-->

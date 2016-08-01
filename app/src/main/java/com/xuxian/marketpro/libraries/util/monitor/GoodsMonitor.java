@@ -9,9 +9,17 @@ import java.util.Map;
  */
 public class GoodsMonitor {
     private static Map<String ,GoodsMonitorCallback > monitorMaps=new HashMap<>();
+    private static GoodsMonitor monitor;
 
    public  interface GoodsMonitorCallback{
         void appOprate(monitor.GoodsEnum goodsEnum);
+    }
+
+    public static GoodsMonitor getInstance(){
+        if (monitor==null){
+            monitor=new GoodsMonitor();
+        }
+        return monitor;
     }
 
     public static void registerGoodsMonitor(String key , GoodsMonitorCallback callback){

@@ -25,8 +25,17 @@ public class MyApplication extends Application {
     public String localVersion;
     public DisplayImageOptions.Builder displayBuilder = null;
     public static ArrayList<Activity> mActivitys =new ArrayList<Activity>();
+    private static MyApplication application;
 
     public MyApplication() {
+    }
+
+    public static MyApplication getInstance(){
+        if (application ==null)
+        {
+            application=new MyApplication();
+        }
+        return application;
     }
 
     @Override
