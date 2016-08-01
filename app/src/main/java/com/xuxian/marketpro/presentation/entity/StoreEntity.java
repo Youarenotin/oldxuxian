@@ -4,11 +4,13 @@ import com.ab.db.orm.annotation.Column;
 import com.ab.db.orm.annotation.Id;
 import com.ab.db.orm.annotation.Table;
 
+import java.io.Serializable;
+
 /**
  * Created by youarenotin on 16/7/27.
  */
 @Table(name = "Store")
-public class StoreEntity extends BaseEntity {
+public class StoreEntity extends BaseEntity implements Serializable {
     @Column(name = "area")
     private String area;//
     @Column(name = "area_id")

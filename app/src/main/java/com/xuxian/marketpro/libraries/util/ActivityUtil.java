@@ -7,9 +7,11 @@ import android.os.Bundle;
 
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.CityListActivity;
+import com.xuxian.marketpro.activity.StoreDetailsActivity;
 import com.xuxian.marketpro.activity.store.StoreFragmentActivity;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
 import com.xuxian.marketpro.presentation.entity.CityEntity;
+import com.xuxian.marketpro.presentation.entity.StoreEntity;
 
 /**
  * Created by youarenotin on 16/7/27.
@@ -34,4 +36,14 @@ public class ActivityUtil {
         context.startActivity(in);
         ((Activity) context).overridePendingTransition(R.anim.fade, R.anim.hold);
     }
+
+
+    public static void startStoreDetailsActivity(Context context, StoreEntity storeEntity) {
+        Intent in = new Intent(context, StoreDetailsActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(SuperSherlockActivity.INTENT_OBJECT, storeEntity);
+        in.putExtra(SuperSherlockActivity.INTENT_BUNDLE, bundle);
+        context.startActivity(in);
+    }
+
 }
