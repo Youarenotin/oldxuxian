@@ -51,6 +51,7 @@ import com.xuxian.marketpro.presentation.db.ShoppingCartGoodsDb;
 import com.xuxian.marketpro.presentation.db.StoreDb;
 import com.xuxian.marketpro.presentation.entity.CityEntity;
 import com.xuxian.marketpro.presentation.entity.GetStoreEntity;
+import com.xuxian.marketpro.presentation.entity.ShoppingCartGoodsEntity;
 import com.xuxian.marketpro.presentation.entity.StoreEntity;
 
 import java.util.ArrayList;
@@ -154,7 +155,14 @@ public class StoreFragment extends SuperFragment implements LocationSource {
                 //TODO 刷新商品列表
                 CityMonitor.getInstance().IssueMonitors(monitor.CityEnum.CLOSE_PAGE,null);
             }else {// 切换到新的店面
-                this.shoppingCartGoodsDb.
+                List<ShoppingCartGoodsEntity> list = this.shoppingCartGoodsDb.queryAllData(AbPreferenceUtils.loadPrefString(getActivity(), "USER_ID", "0"));
+                if (list==null || list.size()==0){
+                    saveData(entity);
+                    //// TODO: 8/1 0001 刷新店面商品监视器
+                    CityMonitor.getInstance().IssueMonitors(monitor.CityEnum.CLOSE_PAGE,null);
+                    return;
+                }
+                //// TODO: 8/1 0001 原店面购物车有商品给予dialog提示清空
             }
         }
     }

@@ -3,6 +3,7 @@ package com.xuxian.marketpro.presentation.db;
 import android.content.Context;
 
 import com.ab.db.orm.dao.AbDBDaoImpl;
+import com.xuxian.marketpro.presentation.entity.GoodsListEntity;
 import com.xuxian.marketpro.presentation.entity.ShoppingCartGoodsEntity;
 
 import java.util.List;
@@ -104,5 +105,42 @@ public class ShoppingCartGoodsDb extends AbDBDaoImpl<ShoppingCartGoodsEntity> {
         }
     }
 
-    public void savaShoppingCarData()
+    public void savaShoppingCarData(GoodsListEntity goodsListEntity,String uid , int count){
+        int shop_car_goods_num = 0;
+        if (goodsListEntity!=null){
+            ShoppingCartGoodsEntity data = queryOneData(uid, goodsListEntity.getId());
+            if (data != null){
+                shop_car_goods_num=data.getCount();
+            }
+            if (isExit(uid, goodsListEntity.getId())){
+                deleteByIdAndUserIdData(goodsListEntity.getId(),uid);
+            }
+            savaData(new ShoppingCartGoodsEntity(
+                    goodsListEntity.getGoods_type()
+                    ,""
+                    ,""
+                    ,""
+                    ,goodsListEntity.getUnit()
+                    ,goodsListEntity.getNewimg()
+                    ,goodsListEntity.getId()
+                    ,goodsListEntity.getTitle()
+                    ,goodsListEntity.getPrice()
+                    ,goodsListEntity.getIcon()
+                    ,goodsListEntity.getStore_nums()
+                    ,goodsListEntity.getSold_num()
+                    ,goodsListEntity.getMarket_price()
+                    ,""
+                    ,0
+                    ,goodsListEntity.getSelltype()
+                    ,goodsListEntity.getTipsimg()
+                    ,goodsListEntity.getPhonetips()
+                    ,goodsListEntity.getStarttime()
+                    ,goodsListEntity.getEndtime()
+                    ,goodsListEntity.getShow()
+                    ,count+shop_car_goods_num,
+                    "",goodsListEntity.getDetails2()
+                    ,goodsListEntity.getDetails2()
+                    ,uid));
+        }
+    }
 }

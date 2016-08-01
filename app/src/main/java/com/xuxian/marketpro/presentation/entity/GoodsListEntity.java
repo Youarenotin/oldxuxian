@@ -2,11 +2,13 @@ package com.xuxian.marketpro.presentation.entity;
 
 import com.ab.db.orm.annotation.Column;
 import com.ab.db.orm.annotation.Id;
+import com.ab.db.orm.annotation.Table;
 
 /**
  * 作者：lubo on 8/1 0001 16:08
  * 邮箱：lubo_wen@126.com
  */
+@Table(name = "GoodsList")
 public class GoodsListEntity extends BaseEntity {
     @Column(name = "details2")
     private String details2;
