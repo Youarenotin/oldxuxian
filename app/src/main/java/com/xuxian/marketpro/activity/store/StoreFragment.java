@@ -115,7 +115,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
                 marker.setObject(storeEntity);
                 aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,15f));//将地图移动到指定latlng 和zoomlevel的视窗
                 marker.showInfoWindow();//将marker显示到camera中
-//                replacestore();
+                replacestore(storeEntity);//切换商店
             }
         });
         shop_site_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -141,6 +141,25 @@ public class StoreFragment extends SuperFragment implements LocationSource {
     }
 
     private void replacestore(StoreEntity entity) {
+        if (entity!=null){
+            int id = entity.getId();//店面site_id
+            int store_id =AbPreferenceUtils.loadPrefInt(getActivity(),"site_id",0);
+            if (store_id==0){
+                saveData(entity);
+                AbPreferenceUtils.savePrefInt(getActivity(),"start_id",1);//非第一次启动店面  是否进入引导页的标志
+                ActivityUtil.startTabMainActivity(getActivity());
+                CityMonitor.getInstance().IssueMonitors(monitor.CityEnum.CLOSE_PAGE,null);
+            } else if (store_id==id){//切换到与原先一样的店面
+                saveData(entity);
+                //TODO 刷新商品列表
+                CityMonitor.getInstance().IssueMonitors(monitor.CityEnum.CLOSE_PAGE,null);
+            }else {// 切换到新的店面
+                this.shoppingCartGoodsDb.
+            }
+        }
+    }
+
+    private void saveData(StoreEntity entity) {
 
     }
 
