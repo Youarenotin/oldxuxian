@@ -1,6 +1,8 @@
 package com.xuxian.marketpro.activity.tab;
 
 import android.app.Activity;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 
 import com.xuxian.marketpro.activity.supers.SuperSherlockFragmentActivity;
 
@@ -9,6 +11,12 @@ import com.xuxian.marketpro.activity.supers.SuperSherlockFragmentActivity;
  * 邮箱：lubo_wen@126.com
  */
 public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
     @Override
     protected Activity getActivity() {
         return this;

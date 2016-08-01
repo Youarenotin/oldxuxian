@@ -115,7 +115,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
                         .position(latLng)
                         .period(50));
                 marker.setObject(storeEntity);
-                aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,15f));//将地图移动到指定latlng 和zoomlevel的视窗
+                aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f));//将地图移动到指定latlng 和zoomlevel的视窗
                 marker.showInfoWindow();//将marker显示到camera中
                 replacestore(storeEntity);//切换商店
             }
@@ -143,24 +143,24 @@ public class StoreFragment extends SuperFragment implements LocationSource {
     }
 
     private void replacestore(StoreEntity entity) {
-        if (entity!=null){
+        if (entity != null) {
             int id = entity.getId();//店面site_id
-            int store_id =AbPreferenceUtils.loadPrefInt(getActivity(),"site_id",0);
-            if (store_id==0){
+            int store_id = AbPreferenceUtils.loadPrefInt(getActivity(), "site_id", 0);
+            if (store_id == 0) {//第一次進入店面
                 saveData(entity);
-                AbPreferenceUtils.savePrefInt(getActivity(),"start_id",1);//非第一次启动店面  是否进入引导页的标志
-                ActivityUtil.startTabMainActivity(getActivity());
-                CityMonitor.getInstance().IssueMonitors(monitor.CityEnum.CLOSE_PAGE,null);
-            } else if (store_id==id){//切换到与原先一样的店面
+                AbPreferenceUtils.savePrefInt(getActivity(), "start_id", 1);//非第一次启动店面  是否进入引导页的标志
+                ActivityUtil.startTabMainActivity(getActivity());//启动店面activity
+                CityMonitor.getInstance().IssueMonitors(monitor.CityEnum.CLOSE_PAGE, null);
+            } else if (store_id == id) {//切换到与原先一样的店面
                 saveData(entity);
                 //TODO 刷新商品列表
-                CityMonitor.getInstance().IssueMonitors(monitor.CityEnum.CLOSE_PAGE,null);
-            }else {// 切换到新的店面
+                CityMonitor.getInstance().IssueMonitors(monitor.CityEnum.CLOSE_PAGE, null);
+            } else {// 切换到新的店面
                 List<ShoppingCartGoodsEntity> list = this.shoppingCartGoodsDb.queryAllData(AbPreferenceUtils.loadPrefString(getActivity(), "USER_ID", "0"));
-                if (list==null || list.size()==0){
+                if (list == null || list.size() == 0) {
                     saveData(entity);
-                   GoodsMonitor.issueGoodsMonitorCallback(monitor.GoodsEnum.REFRESH_GOODS); //刷新店面商品监视器
-                    CityMonitor.getInstance().IssueMonitors(monitor.CityEnum.CLOSE_PAGE,null);
+                    GoodsMonitor.issueGoodsMonitorCallback(monitor.GoodsEnum.REFRESH_GOODS); //刷新店面商品监视器
+                    CityMonitor.getInstance().IssueMonitors(monitor.CityEnum.CLOSE_PAGE, null);
                     return;
                 }
                 //// TODO: 8/1 0001 原店面购物车有商品给予dialog提示清空
@@ -169,7 +169,20 @@ public class StoreFragment extends SuperFragment implements LocationSource {
     }
 
     private void saveData(StoreEntity entity) {
-
+        AbPreferenceUtils.savePrefInt(getActivity(), StoreFragmentActivity.ADDRESS_ID, 0);
+        AbPreferenceUtils.savePrefString(getActivity(), StoreFragmentActivity.SITE_NAME, entity.getTitle());
+        AbPreferenceUtils.savePrefInt(getActivity(), StoreFragmentActivity.SITE_ID, entity.getId());
+        AbPreferenceUtils.savePrefString(getActivity(), StoreFragmentActivity.STORE_ADDRESS, entity.getArea());
+        AbPreferenceUtils.savePrefString(getActivity(), StoreFragmentActivity.CITY_ID, entity.getCity_id());
+        AbPreferenceUtils.savePrefString(getActivity(), StoreFragmentActivity.CITY_NAME, entity.getCity_name());
+        AbPreferenceUtils.savePrefString(getActivity(), StoreFragmentActivity.CITY_AREA, entity.getCity_area());
+        AbPreferenceUtils.savePrefString(getActivity(), StoreFragmentActivity.AREA_ID, entity.getArea_id());
+        AbPreferenceUtils.savePrefString(getActivity(), StoreFragmentActivity.STORE_TYPE, "自提");
+        if (storeDb.isExists(entity.getId())){
+            storeDb.update(entity);
+        }else {
+            storeDb.saveData(entity);
+        }
     }
 
 
@@ -364,9 +377,10 @@ public class StoreFragment extends SuperFragment implements LocationSource {
                 @Override
                 public View getInfoWindow(Marker marker) {
                     View view = View.inflate(getActivity(), R.layout.pop_shop_overlay_layout, null);
-                    renderMarkerPopOverLay(view,marker);
+                    renderMarkerPopOverLay(view, marker);
                     return view;
                 }
+
                 @Override
                 public View getInfoContents(Marker marker) {
                     return null;
@@ -377,7 +391,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
 
     private void renderMarkerPopOverLay(View view, Marker marker) {
         StoreEntity obj = (StoreEntity) marker.getObject();
-        ((TextView)view.findViewById(R.id.shop_overlay_name)).setText(obj.getTitle());
+        ((TextView) view.findViewById(R.id.shop_overlay_name)).setText(obj.getTitle());
         LinearLayout ll_enter_shop = (LinearLayout) view.findViewById(R.id.ll_enter_shop);
         ll_enter_shop.setOnClickListener(new EnterShopOnClickListener(obj));//marker中进入店面按钮
         view.findViewById(R.id.ll_enter_shop_detail).setOnClickListener(new EnterShopDetailOnClickListener(obj));//marker中店面详细按钮
@@ -495,8 +509,9 @@ public class StoreFragment extends SuperFragment implements LocationSource {
 
     private class EnterShopOnClickListener implements View.OnClickListener {
         private StoreEntity entity;
+
         public EnterShopOnClickListener(StoreEntity obj) {
-            this.entity=obj;
+            this.entity = obj;
         }
 
         @Override
@@ -506,14 +521,15 @@ public class StoreFragment extends SuperFragment implements LocationSource {
     }
 
     private class EnterShopDetailOnClickListener implements View.OnClickListener {
-            private StoreEntity entity;
+        private StoreEntity entity;
+
         public EnterShopDetailOnClickListener(StoreEntity obj) {
-            this.entity=obj;
+            this.entity = obj;
         }
 
         @Override
         public void onClick(View view) {
-            ActivityUtil.startStoreDetailsActivity(getActivity(),entity);
+            ActivityUtil.startStoreDetailsActivity(getActivity(), entity);
         }
     }
 }
