@@ -5,12 +5,10 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.BounceInterpolator;
-import android.view.animation.CycleInterpolator;
 import android.view.animation.Interpolator;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -39,6 +37,7 @@ import com.amap.api.maps2d.model.MarkerOptions;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.libraries.gaodemap.GaoDeLocationLibraries;
+import com.xuxian.marketpro.libraries.util.ActivityUtil;
 import com.xuxian.marketpro.libraries.util.monitor.CityMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.GaoDeLocationMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor;
@@ -51,8 +50,8 @@ import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
 import com.xuxian.marketpro.presentation.db.ShoppingCartGoodsDb;
 import com.xuxian.marketpro.presentation.db.StoreDb;
 import com.xuxian.marketpro.presentation.entity.CityEntity;
-import com.xuxian.marketpro.presentation.entity.StoreEntity;
 import com.xuxian.marketpro.presentation.entity.GetStoreEntity;
+import com.xuxian.marketpro.presentation.entity.StoreEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -350,8 +349,8 @@ public class StoreFragment extends SuperFragment implements LocationSource {
         StoreEntity obj = (StoreEntity) marker.getObject();
         ((TextView)view.findViewById(R.id.shop_overlay_name)).setText(obj.getTitle());
         LinearLayout ll_enter_shop = (LinearLayout) view.findViewById(R.id.ll_enter_shop);
-        ll_enter_shop.setOnClickListener(new EnterShopOnClickListener(obj));
-        view.findViewById(R.id.ll_enter_shop_detail).setOnClickListener(new EnterShopDetailOnClickListener(obj));
+        ll_enter_shop.setOnClickListener(new EnterShopOnClickListener(obj));//marker中进入店面按钮
+        view.findViewById(R.id.ll_enter_shop_detail).setOnClickListener(new EnterShopDetailOnClickListener(obj));//marker中店面详细按钮
     }
 
     private void initMapOverLay(boolean isSwitchArea) {//默认为false 点击区域选择为true
@@ -484,7 +483,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
 
         @Override
         public void onClick(View view) {
-
+            ActivityUtil.startStoreDetailsActivity(getActivity(),storeEntity);
         }
     }
 }
