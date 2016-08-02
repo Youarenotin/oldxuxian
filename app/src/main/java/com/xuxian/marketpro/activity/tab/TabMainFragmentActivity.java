@@ -16,6 +16,7 @@ import com.xuxian.marketpro.libraries.util.monitor.GoodsMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor;
 import com.xuxian.marketpro.presentation.application.MyApplication;
 import com.xuxian.marketpro.presentation.db.ShoppingCartGoodsDb;
+import com.xuxian.marketpro.presentation.db.UserDb;
 
 /**
  * 作者：lubo on 8/1 0001 15:00
@@ -35,7 +36,7 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
 //    private ShoppingCartFragment shoppingCartFragment;
     private ShoppingCartGoodsDb shoppingCartGoodsDb;
     private TextView tv_tab_shopping_number;
-//    private UserDb userDb;
+    private UserDb userDb;
 
 
     @Override
@@ -82,7 +83,7 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
 
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        if (keyCode==KeyEvent.KEYCODE_BACK){
+        if (keyCode==KeyEvent.KEYCODE_BACK){//第一次按返回按钮时 , 如果fragment不是goodsfragment 跳回goodsfragment
             if (this.mContent==null||!(this.mContent instanceof GoodsFragment)){
                 GoodsMonitor.getInstance().issueGoodsMonitorCallback(monitor.GoodsEnum.SWITCH_MAIN_PAGE);
             }
@@ -93,6 +94,9 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
         return true;
     }
 
+    /**
+     * 退出app
+     */
     private void exitAPP() {
        if (System.currentTimeMillis()-exitTime<2000){
            MyApplication.getInstance().exit();
