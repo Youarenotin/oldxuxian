@@ -29,11 +29,12 @@ public class GoodsMonitor {
         monitorMaps.put(key,callback);
     }
 
+
     public static void removeAllGoodsMonitorCallback(){
         monitorMaps.clear();
     }
 
-    public static void removeOneGoodsMonitorCallback(String key){
+    public static void unRegisterGoodsMonitorCallback(String key){
         if (!monitorMaps.containsKey(key)){
             return;
         }

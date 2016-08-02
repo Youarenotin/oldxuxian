@@ -78,7 +78,12 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
 
     @Override
     protected void setListener() {
+        GoodsMonitor.registerGoodsMonitor(TabMainFragmentActivity.class.getSimpleName(), new GoodsMonitor.GoodsMonitorCallback() {
+            @Override
+            public void appOprate(monitor.GoodsEnum goodsEnum) {
 
+            }
+        });
     }
 
     @Override

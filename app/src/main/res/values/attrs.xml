@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <declare-styleable name="RippView">
+        <attr name="rv_color" format="reference"/>
+        <attr name="rv_type" format="integer"/>
+        <attr name="rv_zoom" format="boolean"/>
+        <attr name="rv_centered" format="boolean"/>
+        <attr name="rv_rippleDuration" format="integer"/>
+        <attr name="rv_framerate" format="integer"/>
+        <attr name="rv_alpha" format="integer"/>
+        <attr name="rv_ripplePadding" format="dimension"/>
+        <attr name="rv_zoomScale" format="float"/>
+        <attr name="rv_zoomDuration" format="integer"/>
+    </declare-styleable>
+
     <attr name="titleTextStyle" format="reference" />
     <attr name="subtitleTextStyle" format="reference" />
     <attr name="background" format="reference|color" />
@@ -183,20 +196,20 @@
     <attr name="emojiconSize" format="dimension" />
     <attr name="emojiconTextStart" format="integer" />
     <attr name="emojiconTextLength" format="integer" />
-    <attr name="rv_alpha" format="integer" />
-    <attr name="rv_framerate" format="integer" />
-    <attr name="rv_rippleDuration" format="integer" />
-    <attr name="rv_zoomDuration" format="integer" />
-    <attr name="rv_color" format="color" />
-    <attr name="rv_centered" format="boolean" />
-    <attr name="rv_type">
-        <enum name="simpleRipple" value="0" />
-        <enum name="doubleRipple" value="1" />
-        <enum name="rectangle" value="2" />
-    </attr>
-    <attr name="rv_ripplePadding" format="dimension" />
-    <attr name="rv_zoom" format="boolean" />
-    <attr name="rv_zoomScale" format="float" />
+    <!--<attr name="rv_alpha" format="integer" />-->
+    <!--<attr name="rv_framerate" format="integer" />-->
+    <!--<attr name="rv_rippleDuration" format="integer" />-->
+    <!--<attr name="rv_zoomDuration" format="integer" />-->
+    <!--<attr name="rv_color" format="color" />-->
+    <!--<attr name="rv_centered" format="boolean" />-->
+    <!--<attr name="rv_type">-->
+        <!--<enum name="simpleRipple" value="0" />-->
+        <!--<enum name="doubleRipple" value="1" />-->
+        <!--<enum name="rectangle" value="2" />-->
+    <!--</attr>-->
+    <!--<attr name="rv_ripplePadding" format="dimension" />-->
+    <!--<attr name="rv_zoom" format="boolean" />-->
+    <!--<attr name="rv_zoomScale" format="float" />-->
     <attr name="auto_start" format="boolean" />
     <attr name="base_alpha" format="float" />
     <attr name="duration" format="integer" />

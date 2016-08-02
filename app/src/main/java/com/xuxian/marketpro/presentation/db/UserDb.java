@@ -40,11 +40,13 @@ public class UserDb extends AbDBDaoImpl<UserEntity>{
 
     public int  updateData(UserEntity entity){
         startReadableDatabase();
-        int update;
+        int update=0;
         try {
             update=update(entity);
+            return update;
         }catch (Exception e){
             e.printStackTrace();
+            return update;
         }finally {
             closeDatabase();
         }
@@ -65,6 +67,13 @@ public class UserDb extends AbDBDaoImpl<UserEntity>{
         }finally {
             closeDatabase();
         }
+    }
+
+    public boolean isLogin() {
+        if (queryData() != null) {
+            return true;
+        }
+        return false;
     }
 
 }
