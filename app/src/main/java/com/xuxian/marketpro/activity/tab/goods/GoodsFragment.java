@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.activity.tab.TabMainFragmentActivity;
 
@@ -22,7 +23,12 @@ public class GoodsFragment extends SuperFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View.inflate(getActivity(),)
+        View view = View.inflate(getActivity(), R.layout.fragment_goods, null);
+        initTitleBar();
+        initFindViewById(view);
+        setListener();
+        init();
+        return view;
     }
 
     @Override
