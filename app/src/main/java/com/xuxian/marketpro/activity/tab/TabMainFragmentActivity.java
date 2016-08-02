@@ -2,16 +2,15 @@ package com.xuxian.marketpro.activity.tab;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.ab.util.AbToastUtil;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockFragmentActivity;
-import com.xuxian.marketpro.activity.tab.goods.GoodsFragment;
 import com.xuxian.marketpro.libraries.util.monitor.GoodsMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor;
 import com.xuxian.marketpro.presentation.application.MyApplication;
@@ -40,7 +39,7 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
 
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab);
         initTitleBar();
@@ -81,7 +80,23 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
         GoodsMonitor.registerGoodsMonitor(TabMainFragmentActivity.class.getSimpleName(), new GoodsMonitor.GoodsMonitorCallback() {
             @Override
             public void appOprate(monitor.GoodsEnum goodsEnum) {
+                switch (goodsEnum){
+                    case SWITCH_MAIN_PAGE:
 
+                        break;
+                    case REFRESH_GOODS:
+
+                        break;
+                    case REFRESH_LISTVIEW:
+
+                        break;
+                    case REFRESH_ADDRESS:
+
+                        break;
+                    case SWITCH_SHOPPING_CART:
+
+                        break;
+                }
             }
         });
     }
@@ -89,14 +104,32 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
         if (keyCode==KeyEvent.KEYCODE_BACK){//第一次按返回按钮时 , 如果fragment不是goodsfragment 跳回goodsfragment
-            if (this.mContent==null||!(this.mContent instanceof GoodsFragment)){
-                GoodsMonitor.getInstance().issueGoodsMonitorCallback(monitor.GoodsEnum.SWITCH_MAIN_PAGE);
-            }
-            else{
+//            if (this.mContent==null||!(this.mContent instanceof GoodsFragment)){
+//                GoodsMonitor.getInstance().issueGoodsMonitorCallback(monitor.GoodsEnum.SWITCH_MAIN_PAGE);
+//            }
+//            else{
                 exitAPP();
-            }
+//            }
         }
         return true;
+    }
+
+
+    public void  onTabClicked(View view){
+        switch (view.getId()){
+            case R.id.btn_tab_main:
+
+                break;
+            case R.id.btn_tab_shopping_cart:
+
+                break;
+            case R.id.btn_tab_near:
+
+                break;
+            case R.id.btn_tab_me:
+
+                break;
+        }
     }
 
     /**
@@ -104,6 +137,7 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
      */
     private void exitAPP() {
        if (System.currentTimeMillis()-exitTime<2000){
+           AbToastUtil.showToast(getActivity(),"");
            MyApplication.getInstance().exit();
        }
         AbToastUtil.showToast(getActivity(),"再按一次退出");
