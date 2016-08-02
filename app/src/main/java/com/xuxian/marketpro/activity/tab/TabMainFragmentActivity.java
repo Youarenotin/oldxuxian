@@ -11,6 +11,10 @@ import android.widget.TextView;
 import com.ab.util.AbToastUtil;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockFragmentActivity;
+import com.xuxian.marketpro.activity.tab.forums.ForumsFragment;
+import com.xuxian.marketpro.activity.tab.goods.GoodsFragment;
+import com.xuxian.marketpro.activity.tab.personlcenter.PersonalCenterFregment;
+import com.xuxian.marketpro.activity.tab.shoppingcar.ShoppingCartFragment;
 import com.xuxian.marketpro.libraries.util.monitor.GoodsMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor;
 import com.xuxian.marketpro.presentation.application.MyApplication;
@@ -26,13 +30,13 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
     int clickedNumber;
     private int currentTabIndex;
     private long exitTime;
-//    private ForumsFragment forumsFragment;
-//    private GoodsFragment goodsFragment;
+    private ForumsFragment forumsFragment;
+    private GoodsFragment goodsFragment;
     private int index;
     private Fragment mContent;
     private Button[] mTabs;
-//    private PersonalCenterFregment personalCenterFregment;
-//    private ShoppingCartFragment shoppingCartFragment;
+    private PersonalCenterFregment personalCenterFregment;
+    private ShoppingCartFragment shoppingCartFragment;
     private ShoppingCartGoodsDb shoppingCartGoodsDb;
     private TextView tv_tab_shopping_number;
     private UserDb userDb;
@@ -55,7 +59,9 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
 
     @Override
     protected void init() {
-
+        //todo 个推和友盟初始化
+        userDb=new UserDb(getActivity());
+        shoppingCartGoodsDb=new ShoppingCartGoodsDb(getActivity());
     }
 
     @Override
@@ -81,19 +87,19 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
             @Override
             public void appOprate(monitor.GoodsEnum goodsEnum) {
                 switch (goodsEnum){
-                    case SWITCH_MAIN_PAGE:
+                    case SWITCH_MAIN_PAGE://切换到商品tab
 
                         break;
-                    case REFRESH_GOODS:
+                    case REFRESH_GOODS://刷新shangpin
 
                         break;
-                    case REFRESH_LISTVIEW:
+                    case REFRESH_LISTVIEW://刷新listview
 
                         break;
-                    case REFRESH_ADDRESS:
+                    case REFRESH_ADDRESS://刷新地址
 
                         break;
-                    case SWITCH_SHOPPING_CART:
+                    case SWITCH_SHOPPING_CART://切换购物车tab
 
                         break;
                 }
@@ -117,19 +123,51 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
 
     public void  onTabClicked(View view){
         switch (view.getId()){
-            case R.id.btn_tab_main:
-
+            case R.id.btn_tab_main://商品tab
+                goodsFragment();
                 break;
-            case R.id.btn_tab_shopping_cart:
-
+            case R.id.btn_tab_shopping_cart://购物车tab
+                shoppingCarFragment();
                 break;
-            case R.id.btn_tab_near:
-
+            case R.id.btn_tab_near://附近tab
+                forumsFragment();
                 break;
-            case R.id.btn_tab_me:
-
+            case R.id.btn_tab_me://我tab
+                personalCenterFragment();
                 break;
         }
+    }
+
+    private void personalCenterFragment() {
+
+    }
+
+    private void forumsFragment() {
+
+    }
+
+    private void shoppingCarFragment() {
+        if (index!=1){
+            //// TODO: 16/8/2 从别的tab调到购物车刷新购物车
+        }
+        index=1;
+        if()
+    }
+
+    private void goodsFragment() {
+        this.index=0;
+        if (goodsFragment==null)
+            goodsFragment=new GoodsFragment(this);
+        this.clickedNumber++;
+        if (clickedNumber==2){
+            clickedNumber=0;
+            //// TODO: 16/8/2 listview滑动到顶部
+        }
+        switchContent(goodsFragment,"goodsFragment");
+    }
+
+    private void switchContent(Fragment fragment, String tag) {
+
     }
 
     /**
