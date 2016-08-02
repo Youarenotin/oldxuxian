@@ -53,6 +53,8 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
         initFragment();
         setListener();
         init();
+        //updata();  //友盟更新
+        getUserInfo();
     }
 
     private void initFragment() {
@@ -220,5 +222,8 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
        }
         AbToastUtil.showToast(getActivity(),"再按一次退出");
         this.exitTime=System.currentTimeMillis();
+    }
+
+    public void getUserInfo() {
     }
 }

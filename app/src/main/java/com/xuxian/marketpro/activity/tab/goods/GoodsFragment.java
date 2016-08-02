@@ -1,7 +1,10 @@
 package com.xuxian.marketpro.activity.tab.goods;
 
 import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.activity.tab.TabMainFragmentActivity;
@@ -16,6 +19,12 @@ public class GoodsFragment extends SuperFragment {
     public GoodsFragment(TabMainFragmentActivity activity){
 
     }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View.inflate(getActivity(),)
+    }
+
     @Override
     protected void init() {
 

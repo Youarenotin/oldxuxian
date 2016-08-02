@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_fragment"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <com.xuxian.market.appbase.view.refreshlayout.XuXianRefreshLayout
+        android:id="@id/bla_goods"
+        style="@style/MatchMatch">
+
+        <com.xuxian.market.appbase.view.listview.PinnedSectionListView
+            android:id="@id/pslv_goods"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@null"
+            android:divider="@null"
+            android:fadingEdge="none"
+            android:footerDividersEnabled="false"
+            android:headerDividersEnabled="false" />
+    </com.xuxian.market.appbase.view.refreshlayout.XuXianRefreshLayout>
+
+    <include layout="@layout/emptyview_layout" />
+</RelativeLayout>
