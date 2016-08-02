@@ -3,6 +3,8 @@ package com.xuxian.marketpro.activity.tab;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -48,8 +50,20 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
         setContentView(R.layout.tab);
         initTitleBar();
         initfindViewById();
+        initFragment();
         setListener();
         init();
+    }
+
+    private void initFragment() {
+        this.goodsFragment = new GoodsFragment(this);
+        this.forumsFragment = new ForumsFragment();
+        this.shoppingCartFragment = new ShoppingCartFragment();
+        this.personalCenterFregment = new PersonalCenterFregment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.rl_tab_fragment_container, this.goodsFragment, "goodsFragment");
+        transaction.commitAllowingStateLoss();
+        this.mContent = this.goodsFragment;
     }
 
     @Override
@@ -139,19 +153,30 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
     }
 
     private void personalCenterFragment() {
-
+        clickedNumber=0;
+        index=3;
+        if (personalCenterFregment==null)
+            personalCenterFregment=new PersonalCenterFregment();
+        switchContent(personalCenterFregment,"personalCenterFregment");
     }
 
     private void forumsFragment() {
-
+        this.clickedNumber=0;
+        this.index=2;
+        if (forumsFragment==null)
+           forumsFragment=new ForumsFragment();
+        switchContent(forumsFragment,"forumsFragment");
     }
 
     private void shoppingCarFragment() {
+        this.clickedNumber=0;
         if (index!=1){
             //// TODO: 16/8/2 从别的tab调到购物车刷新购物车
         }
         index=1;
-        if()
+        if(shoppingCartFragment==null)
+            shoppingCartFragment=new ShoppingCartFragment();
+        switchContent(shoppingCartFragment,"shoppingCartFragment");
     }
 
     private void goodsFragment() {
@@ -167,7 +192,22 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
     }
 
     private void switchContent(Fragment fragment, String tag) {
-
+        try {
+            if (mContent!=fragment){
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                if (fragment.isAdded()){
+                    transaction.hide(fragment);
+                }else{
+                    transaction.add(R.id.rl_tab_fragment_container,fragment,tag).commitAllowingStateLoss();
+                }
+                for (Button button:mTabs){
+                    button.setSelected(false);
+                }
+                mTabs[index].setSelected(true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
