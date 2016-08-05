@@ -19,6 +19,7 @@ public class GoodsFragment extends SuperFragment {
 
     public GoodsFragment(TabMainFragmentActivity activity){
 
+
     }
 
     @Override
