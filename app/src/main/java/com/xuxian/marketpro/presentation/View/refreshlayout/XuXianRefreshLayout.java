@@ -1,5 +1,6 @@
 package com.xuxian.marketpro.presentation.View.refreshlayout;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
@@ -80,7 +81,7 @@ public class XuXianRefreshLayout extends LinearLayout {
 
     private AbsListView mAbsListView;
     private ScrollView mScrollView;
-    private RecyclerView mRecyclerView;
+    private RecyclerView mRecoyclerView;
     private View mNormalView;
     private WebView mWebView;
     private BGAStickyNavLayout mStickyNavLayout;
@@ -178,8 +179,8 @@ public class XuXianRefreshLayout extends LinearLayout {
         animator.setDuration(mRefreshViewHolder.getTopAnimDuration());
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                int paddingTop = (int) animation.getAnimatedValue();
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                int paddingTop = (int)valueAnimator.getAnimatedValue();
                 mWholeHeaderView.setPadding(0, paddingTop, 0, 0);
             }
         });
