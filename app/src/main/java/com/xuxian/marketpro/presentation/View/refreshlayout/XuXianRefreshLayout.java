@@ -333,7 +333,7 @@ public class XuXianRefreshLayout extends LinearLayout {
         if (mIsLoadingMore || mCurrentRefreshStatus == RefreshStatus.REFRESHING || mLoadMoreFooterView == null || mDelegate == null || recyclerView.getAdapter() == null || recyclerView.getAdapter().getItemCount() == 0) {
             return false;
         }
-        return BGARefreshScrollingUtil.isRecyclerViewToBottom(recyclerView);
+//        return BGARefreshScrollingUtil.isRecyclerViewToBottom(recyclerView);
     }
 
     /**
