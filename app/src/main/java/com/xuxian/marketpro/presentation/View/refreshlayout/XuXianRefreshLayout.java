@@ -167,7 +167,7 @@ public class XuXianRefreshLayout extends LinearLayout {
         }
     }
 
-    public void setRefreshViewHolder(BGARefreshViewHolder refreshViewHolder) {
+    public void setRefreshViewHolder(XuXianRefreshViewHolder refreshViewHolder) {
         mRefreshViewHolder = refreshViewHolder;
         mRefreshViewHolder.setRefreshLayout(this);
         initRefreshHeaderView();
