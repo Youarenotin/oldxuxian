@@ -1,7 +1,10 @@
 package com.xuxian.marketpro.presentation.View.refreshlayout;
 
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
@@ -24,7 +27,7 @@ import java.lang.reflect.Field;
 public class XuXianRefreshLayout extends LinearLayout {
     private static final String TAG = XuXianRefreshLayout.class.getSimpleName();
 
-    private XuXianNormalRefreshViewHolder mRefreshViewHolder;
+    private XuXianRefreshViewHolder mRefreshViewHolder;
     /**
      * 整个头部控件，下拉刷新控件mRefreshHeaderView和下拉刷新控件下方的自定义组件mCustomHeaderView的父控件
      */
@@ -81,10 +84,10 @@ public class XuXianRefreshLayout extends LinearLayout {
 
     private AbsListView mAbsListView;
     private ScrollView mScrollView;
-    private RecyclerView mRecoyclerView;
+    private RecyclerView mRecyclerView;
     private View mNormalView;
     private WebView mWebView;
-    private BGAStickyNavLayout mStickyNavLayout;
+//    private BGAStickyNavLayout mStickyNavLayout;
     private View mContentView;
 
     private float mInterceptTouchDownX = -1;
@@ -122,6 +125,7 @@ public class XuXianRefreshLayout extends LinearLayout {
         this(context, null);
     }
 
+    @SuppressLint("NewApi")
     public XuXianRefreshLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         setOrientation(LinearLayout.VERTICAL);
@@ -157,10 +161,12 @@ public class XuXianRefreshLayout extends LinearLayout {
             mScrollView = (ScrollView) mContentView;
         } else if (mContentView instanceof WebView) {
             mWebView = (WebView) mContentView;
-        } else if (mContentView instanceof BGAStickyNavLayout) {
-            mStickyNavLayout = (BGAStickyNavLayout) mContentView;
-            mStickyNavLayout.setRefreshLayout(this);
-        } else {
+        }
+//        else if (mContentView instanceof BGAStickyNavLayout) {
+//            mStickyNavLayout = (BGAStickyNavLayout) mContentView;
+//            mStickyNavLayout.setRefreshLayout(this);
+//        }
+        else {
             mNormalView = mContentView;
             // 设置为可点击，否则在空白区域无法拖动
             mNormalView.setClickable(true);
@@ -175,15 +181,27 @@ public class XuXianRefreshLayout extends LinearLayout {
     }
 
     public void startChangeWholeHeaderViewPaddingTop(int distance) {
-        ValueAnimator animator = ValueAnimator.ofInt(mWholeHeaderView.getPaddingTop(), mWholeHeaderView.getPaddingTop() - distance);
-        animator.setDuration(mRefreshViewHolder.getTopAnimDuration());
-        animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                int paddingTop = (int)valueAnimator.getAnimatedValue();
-                mWholeHeaderView.setPadding(0, paddingTop, 0, 0);
+        ValueAnimator animator = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            animator = ValueAnimator.ofInt(mWholeHeaderView.getPaddingTop(), mWholeHeaderView.getPaddingTop() - distance);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            animator.setDuration(mRefreshViewHolder.getTopAnimDuration());
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            if (animator != null) {
+                animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                        int paddingTop = 0;
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                            paddingTop = (int)valueAnimator.getAnimatedValue();
+                        }
+                        mWholeHeaderView.setPadding(0, paddingTop, 0, 0);
+                    }
+                });
             }
-        });
+        }
         animator.start();
     }
 
@@ -307,7 +325,7 @@ public class XuXianRefreshLayout extends LinearLayout {
             return false;
         }
 
-        return BGARefreshScrollingUtil.isAbsListViewToBottom(absListView);
+//        return BGARefreshScrollingUtil.isAbsListViewToBottom(absListView);
     }
 
     public boolean shouldHandleRecyclerViewLoadingMore(RecyclerView recyclerView) {
@@ -332,11 +350,11 @@ public class XuXianRefreshLayout extends LinearLayout {
             return true;
         }
 
-        if (BGARefreshScrollingUtil.isWebViewToBottom(mWebView)) {
+        if (this.mWebView!=null &&((float) this.mWebView.getContentHeight()) * this.mWebView.getScale() == ((float) (this.mWebView.getScrollY() + this.mWebView.getMeasuredHeight()))) {
             return true;
         }
 
-        if (BGARefreshScrollingUtil.isScrollViewToBottom(mScrollView)) {
+        if (this.mScrollView != null && ((this.mScrollView.getScrollY() + this.mScrollView.getMeasuredHeight()) - this.mScrollView.getPaddingTop()) - this.mScrollView.getPaddingBottom() == this.mScrollView.getChildAt(0).getMeasuredHeight()) {
             return true;
         }
 
@@ -344,15 +362,11 @@ public class XuXianRefreshLayout extends LinearLayout {
             return shouldHandleAbsListViewLoadingMore(mAbsListView);
         }
 
-        if (mRecyclerView != null) {
-            return shouldHandleRecyclerViewLoadingMore(mRecyclerView);
-        }
+        return this.mRecyclerView != null ? shouldHandleRecyclerViewLoadingMore() : false;
 
-        if (mStickyNavLayout != null) {
-            return mStickyNavLayout.shouldHandleLoadingMore();
-        }
-
-        return false;
+//        if (mStickyNavLayout != null) {
+//            return mStickyNavLayout.shouldHandleLoadingMore();
+//        }
     }
 
     @Override
@@ -722,6 +736,7 @@ public class XuXianRefreshLayout extends LinearLayout {
     /**
      * 隐藏下拉刷新控件，带动画
      */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void hiddenRefreshHeaderView() {
         ValueAnimator animator = ValueAnimator.ofInt(mWholeHeaderView.getPaddingTop(), mMinWholeHeaderViewPaddingTop);
         animator.setDuration(mRefreshViewHolder.getTopAnimDuration());
@@ -738,6 +753,7 @@ public class XuXianRefreshLayout extends LinearLayout {
     /**
      * 设置下拉刷新控件的paddingTop到0，带动画
      */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private void changeRefreshHeaderViewToZero() {
         ValueAnimator animator = ValueAnimator.ofInt(mWholeHeaderView.getPaddingTop(), 0);
         animator.setDuration(mRefreshViewHolder.getTopAnimDuration());
@@ -771,12 +787,23 @@ public class XuXianRefreshLayout extends LinearLayout {
         mRefreshViewHolder.changeToLoadingMore();
         mLoadMoreFooterView.setVisibility(VISIBLE);
 
-        BGARefreshScrollingUtil.scrollToBottom(mScrollView);
-        BGARefreshScrollingUtil.scrollToBottom(mRecyclerView);
-        BGARefreshScrollingUtil.scrollToBottom(mAbsListView);
-        if (mStickyNavLayout != null) {
-            mStickyNavLayout.scrollToBottom();
+//        BGARefreshScrollingUtil.scrollToBottom(mScrollView);
+        if (mScrollView!=null){
+            new Handler().post(new Runnable() {
+                @Override
+                public void run() {
+                    mScrollView.fullScroll(FOCUS_DOWN);
+                }
+            });
         }
+//        BGARefreshScrollingUtil.scrollToBottom(mRecyclerView);
+        if (mRecyclerView!=null){
+            mRecyclerView
+        }
+//        BGARefreshScrollingUtil.scrollToBottom(mAbsListView);
+//        if (mStickyNavLayout != null) {
+//            mStickyNavLayout.scrollToBottom();
+//        }
     }
 
     /**
