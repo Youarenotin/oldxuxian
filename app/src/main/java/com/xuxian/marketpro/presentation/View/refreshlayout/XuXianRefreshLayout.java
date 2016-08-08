@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.MotionEvent;
@@ -798,7 +799,8 @@ public class XuXianRefreshLayout extends LinearLayout {
         }
 //        BGARefreshScrollingUtil.scrollToBottom(mRecyclerView);
         if (mRecyclerView!=null){
-            mRecyclerView
+            RecyclerView.LayoutManager layoutManager = mRecyclerView.getLayoutManager();
+
         }
 //        BGARefreshScrollingUtil.scrollToBottom(mAbsListView);
 //        if (mStickyNavLayout != null) {
