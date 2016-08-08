@@ -24,7 +24,7 @@ import java.lang.reflect.Field;
 public class XuXianRefreshLayout extends LinearLayout {
     private static final String TAG = XuXianRefreshLayout.class.getSimpleName();
 
-    private X mRefreshViewHolder;
+    private XuXianNormalRefreshViewHolder mRefreshViewHolder;
     /**
      * 整个头部控件，下拉刷新控件mRefreshHeaderView和下拉刷新控件下方的自定义组件mCustomHeaderView的父控件
      */
