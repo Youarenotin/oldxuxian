@@ -7,7 +7,9 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.MotionEvent;
@@ -17,6 +19,7 @@ import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.AbsListView;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ScrollView;
 
 import java.lang.reflect.Field;
@@ -279,7 +282,7 @@ public class XuXianRefreshLayout extends LinearLayout {
             mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
                 public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                    if ((newState == RecyclerView.SCROLL_STATE_IDLE || newState == RecyclerView.SCROLL_STATE_SETTLING) && shouldHandleRecyclerViewLoadingMore(mRecyclerView)) {
+                    if ((newState == RecyclerView.SCROLL_STATE_IDLE || newState == RecyclerView.SCROLL_STATE_SETTLING) && shouldHandleRecyclerViewLoadingMore()) {
                         beginLoadingMore();
                     }
                 }
@@ -325,14 +328,37 @@ public class XuXianRefreshLayout extends LinearLayout {
         if (mIsLoadingMore || mCurrentRefreshStatus == RefreshStatus.REFRESHING || mLoadMoreFooterView == null || mDelegate == null || absListView == null || absListView.getAdapter() == null || absListView.getAdapter().getCount() == 0) {
             return false;
         }
-
+        int lastChildBottom = 0;
+        if (this.mAbsListView.getChildCount() > 0) {
+            lastChildBottom = this.mAbsListView.getChildAt(this.mAbsListView.getChildCount() - 1).getBottom();
+        }
+        return this.mAbsListView.getLastVisiblePosition() == ((ListAdapter) this.mAbsListView.getAdapter()).getCount() + -1 && lastChildBottom <= this.mAbsListView.getMeasuredHeight();
 //        return BGARefreshScrollingUtil.isAbsListViewToBottom(absListView);
     }
 
-    public boolean shouldHandleRecyclerViewLoadingMore(RecyclerView recyclerView) {
-        if (mIsLoadingMore || mCurrentRefreshStatus == RefreshStatus.REFRESHING || mLoadMoreFooterView == null || mDelegate == null || recyclerView.getAdapter() == null || recyclerView.getAdapter().getItemCount() == 0) {
+    public boolean shouldHandleRecyclerViewLoadingMore() {
+        if (mIsLoadingMore || mCurrentRefreshStatus == RefreshStatus.REFRESHING || mLoadMoreFooterView == null || mDelegate == null || mRecyclerView.getAdapter() == null || mRecyclerView.getAdapter().getItemCount() == 0) {
             return false;
         }
+
+        RecyclerView.LayoutManager manager = this.mRecyclerView.getLayoutManager();
+        if (manager == null || manager.getItemCount() == 0) {
+            return false;
+        }
+        if (manager instanceof LinearLayoutManager) {
+            if (((LinearLayoutManager) manager).findLastCompletelyVisibleItemPosition() == this.mRecyclerView.getAdapter().getItemCount() - 1) {
+                return true;
+            }
+        } else if (manager instanceof StaggeredGridLayoutManager) {
+            StaggeredGridLayoutManager layoutManager = (StaggeredGridLayoutManager) manager;
+            int lastPosition = layoutManager.getItemCount() - 1;
+            for (int position : layoutManager.findLastCompletelyVisibleItemPositions(null)) {
+                if (position == lastPosition) {
+                    return true;
+                }
+            }
+        }
+        return false;
 //        return BGARefreshScrollingUtil.isRecyclerViewToBottom(recyclerView);
     }
 
@@ -363,7 +389,7 @@ public class XuXianRefreshLayout extends LinearLayout {
             return shouldHandleAbsListViewLoadingMore(mAbsListView);
         }
 
-        return this.mRecyclerView != null ? shouldHandleRecyclerViewLoadingMore() : false;
+        return this.mRecyclerView != null && shouldHandleRecyclerViewLoadingMore();
 
 //        if (mStickyNavLayout != null) {
 //            return mStickyNavLayout.shouldHandleLoadingMore();
@@ -388,14 +414,19 @@ public class XuXianRefreshLayout extends LinearLayout {
 
                     int interceptTouchMoveDistanceY = (int) (event.getRawY() - mInterceptTouchDownY);
                     // 可以没有上拉加载更多，但是必须有下拉刷新，否则就不拦截事件
-                    if (Math.abs(event.getRawX() - mInterceptTouchDownX) < Math.abs(interceptTouchMoveDistanceY) && mRefreshHeaderView != null) {
-                        if ((interceptTouchMoveDistanceY > mTouchSlop && shouldHandleRefresh()) || (interceptTouchMoveDistanceY < -mTouchSlop && shouldHandleLoadingMore()) || (interceptTouchMoveDistanceY < -mTouchSlop && !isWholeHeaderViewCompleteInvisible()) || (interceptTouchMoveDistanceY > mTouchSlop && shouldInterceptToMoveCustomHeaderViewDown())) {
-
-                            // ACTION_DOWN时没有消耗掉事件，子控件会处于按下状态，这里设置ACTION_CANCEL，使子控件取消按下状态
-                            event.setAction(MotionEvent.ACTION_CANCEL);
-                            super.onInterceptTouchEvent(event);
-                            return true;
-                        }
+//                    if (Math.abs(event.getRawX() - mInterceptTouchDownX) < Math.abs(interceptTouchMoveDistanceY) && mRefreshHeaderView != null) {
+//                        if ((interceptTouchMoveDistanceY > mTouchSlop && shouldHandleRefresh()) || (interceptTouchMoveDistanceY < -mTouchSlop && shouldHandleLoadingMore()) || (interceptTouchMoveDistanceY < -mTouchSlop && !isWholeHeaderViewCompleteInvisible()) || (interceptTouchMoveDistanceY > mTouchSlop && shouldInterceptToMoveCustomHeaderViewDown())) {
+//
+//                            // ACTION_DOWN时没有消耗掉事件，子控件会处于按下状态，这里设置ACTION_CANCEL，使子控件取消按下状态
+//                            event.setAction(MotionEvent.ACTION_CANCEL);
+//                            super.onInterceptTouchEvent(event);
+//                            return true;
+//                        }
+//                    }
+                    if (Math.abs(event.getRawX() - this.mInterceptTouchDownX) < ((float) Math.abs(interceptTouchMoveDistanceY)) && this.mRefreshHeaderView != null && ((interceptTouchMoveDistanceY > 0 && shouldHandleRefresh()) || ((interceptTouchMoveDistanceY < 0 && shouldHandleLoadingMore()) || (interceptTouchMoveDistanceY < 0 && !isWholeHeaderViewCompleteInvisible())))) {
+                        event.setAction(MotionEvent.ACTION_CANCEL);
+                        super.onInterceptTouchEvent(event);
+                        return true;
                     }
                 }
                 break;
@@ -425,49 +456,84 @@ public class XuXianRefreshLayout extends LinearLayout {
      * @return
      */
     private boolean shouldHandleRefresh() {
-        if (!mPullDownRefreshEnable || mIsLoadingMore || mCurrentRefreshStatus == RefreshStatus.REFRESHING || mRefreshHeaderView == null || mDelegate == null) {
+        if (this.mIsLoadingMore || this.mCurrentRefreshStatus == RefreshStatus.REFRESHING || this.mRefreshHeaderView == null || this.mDelegate == null) {
             return false;
         }
-
-        return isContentViewToTop();
-    }
-
-    private boolean isContentViewToTop() {
-        // 内容是普通控件，满足
-        if (mNormalView != null) {
+        if (this.mNormalView != null) {
             return true;
         }
-
-        if (BGARefreshScrollingUtil.isScrollViewOrWebViewToTop(mWebView)) {
+        if (this.mWebView != null && this.mWebView.getScrollY() == 0) {
             return true;
         }
-
-        if (BGARefreshScrollingUtil.isScrollViewOrWebViewToTop(mScrollView)) {
+        if (this.mScrollView != null && this.mScrollView.getScrollY() == 0) {
             return true;
         }
-
-        if (BGARefreshScrollingUtil.isAbsListViewToTop(mAbsListView)) {
-            return true;
+        int firstChildTop;
+        if (this.mAbsListView != null) {
+            firstChildTop = 0;
+            if (this.mAbsListView.getChildCount() > 0) {
+                firstChildTop = this.mAbsListView.getChildAt(0).getTop() - this.mAbsListView.getPaddingTop();
+            }
+            if (this.mAbsListView.getFirstVisiblePosition() == 0 && firstChildTop == 0) {
+                return true;
+            }
         }
-
-        if (BGARefreshScrollingUtil.isRecyclerViewToTop(mRecyclerView)) {
-            return true;
+        if (this.mRecyclerView != null) {
+            firstChildTop = 0;
+            if (this.mRecyclerView.getChildCount() > 0) {
+                firstChildTop = (this.mRecyclerView.getChildAt(0).getTop() - ((MarginLayoutParams) this.mRecyclerView.getChildAt(0).getLayoutParams()).topMargin) - this.mRecyclerView.getPaddingTop();
+            }
+            RecyclerView.LayoutManager manager = this.mRecyclerView.getLayoutManager();
+            if (manager == null || manager.getItemCount() == 0) {
+                return true;
+            }
+            if (manager instanceof LinearLayoutManager) {
+                if (((LinearLayoutManager) manager).findFirstCompletelyVisibleItemPosition() == 0 && firstChildTop == 0) {
+                    return true;
+                }
+            } else if ((manager instanceof StaggeredGridLayoutManager) && ((StaggeredGridLayoutManager) manager).findFirstCompletelyVisibleItemPositions(null)[0] == 0) {
+                return true;
+            }
         }
-
-        if (BGARefreshScrollingUtil.isStickyNavLayoutToTop(mStickyNavLayout)) {
-            return true;
-        }
-
         return false;
     }
 
-    private boolean shouldInterceptToMoveCustomHeaderViewDown() {
-        return isContentViewToTop() && mCustomHeaderView != null && mIsCustomHeaderViewScrollable && !isCustomHeaderViewCompleteVisible();
-    }
+//    private boolean isContentViewToTop() {
+//        // 内容是普通控件，满足
+//        if (mNormalView != null) {
+//            return true;
+//        }
+//
+//        if (BGARefreshScrollingUtil.isScrollViewOrWebViewToTop(mWebView)) {
+//            return true;
+//        }
+//
+//        if (BGARefreshScrollingUtil.isScrollViewOrWebViewToTop(mScrollView)) {
+//            return true;
+//        }
+//
+//        if (BGARefreshScrollingUtil.isAbsListViewToTop(mAbsListView)) {
+//            return true;
+//        }
+//
+//        if (BGARefreshScrollingUtil.isRecyclerViewToTop(mRecyclerView)) {
+//            return true;
+//        }
+//
+//        if (BGARefreshScrollingUtil.isStickyNavLayoutToTop(mStickyNavLayout)) {
+//            return true;
+//        }
+//
+//        return false;
+//    }
 
-    private boolean shouldInterceptToMoveCustomHeaderViewUp() {
-        return isContentViewToTop() && mCustomHeaderView != null && mIsCustomHeaderViewScrollable && !isWholeHeaderViewCompleteInvisible();
-    }
+//    private boolean shouldInterceptToMoveCustomHeaderViewDown() {
+//        return isContentViewToTop() && mCustomHeaderView != null && mIsCustomHeaderViewScrollable && !isCustomHeaderViewCompleteVisible();
+//    }
+//
+//    private boolean shouldInterceptToMoveCustomHeaderViewUp() {
+//        return isContentViewToTop() && mCustomHeaderView != null && mIsCustomHeaderViewScrollable && !isWholeHeaderViewCompleteInvisible();
+//    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -634,7 +700,7 @@ public class XuXianRefreshLayout extends LinearLayout {
             }
 
             int wholeHeaderDiffY = (int) event.getY() - mWholeHeaderDownY;
-            if ((mPullDownRefreshEnable && !isWholeHeaderViewCompleteInvisible()) || (wholeHeaderDiffY > 0 && shouldInterceptToMoveCustomHeaderViewDown()) || (wholeHeaderDiffY < 0 && shouldInterceptToMoveCustomHeaderViewUp())) {
+            if ((!isWholeHeaderViewCompleteInvisible()) || (wholeHeaderDiffY > 0 && shouldHandleRefresh()&&isCustomHeaderViewCompleteVisible()) ) {
 
                 int paddingTop = mWholeHeaderViewDownPaddingTop + wholeHeaderDiffY;
                 if (paddingTop < mMinWholeHeaderViewPaddingTop - mCustomHeaderView.getMeasuredHeight()) {
