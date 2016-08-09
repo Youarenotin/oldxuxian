@@ -57,7 +57,7 @@ public class GoodsFragment extends SuperFragment {
     }
 
     private void initHeaderView() {
-        View headerView=LayoutInflater.from(getActivity()).inflate(R.id.header)
+        View headerView=LayoutInflater.from(getActivity()).inflate(R.id.)
     }
 
     @Override
