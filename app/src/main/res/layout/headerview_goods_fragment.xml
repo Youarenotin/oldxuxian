@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/headview_main"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_headerview_goods_banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.xuxian.marketpro.presentation.View.viewpage.BannerViewPager
+            android:id="@+id/vp_headerview_goods_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/ll_headerview_goods_group"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/vp_headerview_goods_banner"
+            android:layout_marginBottom="10.0dip"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal" />
+    </RelativeLayout>
+
+    <com.xuxian.market.appbase.view.gridview.MGridView
+        android:id="@+id/gv_headerview_goods_app"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:numColumns="4"
+        android:paddingBottom="10.0dip" />
+
+    <LinearLayout
+        android:id="@+id/ll_headerview_goods_postion"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip"
+        android:orientation="vertical" />
+</LinearLayout>

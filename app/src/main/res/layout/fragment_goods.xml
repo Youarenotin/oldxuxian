@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <com.xuxian.market.appbase.view.refreshlayout.XuXianRefreshLayout
+    <com.xuxian.marketpro.presentation.View.refreshlayout.XuXianRefreshLayout
         android:id="@+id/bla_goods"
         style="@style/MatchMatch">
 
@@ -17,7 +17,7 @@
             android:fadingEdge="none"
             android:footerDividersEnabled="false"
             android:headerDividersEnabled="false" />
-    </com.xuxian.market.appbase.view.refreshlayout.XuXianRefreshLayout>
+    </com.xuxian.marketpro.presentation.View.refreshlayout.XuXianRefreshLayout>
 
     <include layout="@layout/emptyview_layout" />
 </RelativeLayout>

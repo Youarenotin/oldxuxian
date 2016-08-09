@@ -21,7 +21,7 @@ import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.presentation.application.MyApplication;
 
 /**
- * 作者：lubo on 7/22 View.VISIBLEView.VISIBLE22 1View.INVISIBLE:53
+ * 作者：lubo on 7/22
  * 邮箱：lubo_wen@126.com
  */
 public abstract class SuperSherlockFragmentActivity extends SherlockFragmentActivity {
