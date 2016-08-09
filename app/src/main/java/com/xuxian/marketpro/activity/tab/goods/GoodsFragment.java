@@ -2,22 +2,27 @@ package com.xuxian.marketpro.activity.tab.goods;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ab.util.AbScreenUtils;
+import com.ab.util.AbViewUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.listener.PauseOnScrollListener;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.activity.tab.TabMainFragmentActivity;
+import com.xuxian.marketpro.appbase.view.MGridView;
 import com.xuxian.marketpro.presentation.View.listview.PinnedSectionListView;
 import com.xuxian.marketpro.presentation.View.refreshlayout.XuXianRefreshLayout;
+import com.xuxian.marketpro.presentation.View.viewpage.BannerViewPager;
 import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
 
 /**
@@ -38,6 +43,12 @@ public class GoodsFragment extends SuperFragment {
     private ActivityStateView emptyview_state;
     private PinnedSectionListView pinnedSectionListView;
     private XuXianRefreshLayout bla_goods;
+    private LinearLayout headerview_main;
+    private RelativeLayout rl_headerview_goods_banner;
+    private View vp_headerview_goods_banner;
+    private LinearLayout ll_headerview_goods_group;
+    private MGridView gv_headerview_goods_app;
+    private LinearLayout ll_headerview_goods_postion;
 
     public GoodsFragment(TabMainFragmentActivity activity){
 
@@ -57,7 +68,16 @@ public class GoodsFragment extends SuperFragment {
     }
 
     private void initHeaderView() {
-        View headerView=LayoutInflater.from(getActivity()).inflate(R.id.)
+        View headerView=LayoutInflater.from(getActivity()).inflate(R.layout.headerview_goods_fragment,null);
+        headerview_main= (LinearLayout) headerView.findViewById(R.id.headview_main);
+//        headerview_main.setBackgroundColor(Color.TRANSPARENT);
+        rl_headerview_goods_banner= (RelativeLayout) headerView.findViewById(R.id.rl_headerview_goods_banner);
+         vp_headerview_goods_banner = headerView.findViewById(R.id.vp_headerview_goods_banner);
+        AbViewUtil.setViewWH(vp_headerview_goods_banner,screenWidth,screenWidth/2);
+        ll_headerview_goods_group= (LinearLayout) headerView.findViewById(R.id.ll_headerview_goods_group);
+        gv_headerview_goods_app= (MGridView) headerView.findViewById(R.id.gv_headerview_goods_app);
+        ll_headerview_goods_postion= (LinearLayout) headerView.findViewById(R.id.ll_headerview_goods_postion);
+
     }
 
     @Override
