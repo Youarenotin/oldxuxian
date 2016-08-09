@@ -9,7 +9,6 @@
         android:id="@+id/rl_headerview_goods_banner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
         <com.xuxian.marketpro.presentation.View.viewpage.BannerViewPager
             android:id="@+id/vp_headerview_goods_banner"
             android:layout_width="wrap_content"
