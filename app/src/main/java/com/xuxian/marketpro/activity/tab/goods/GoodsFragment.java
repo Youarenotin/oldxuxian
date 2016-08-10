@@ -20,17 +20,24 @@ import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.activity.tab.TabMainFragmentActivity;
 import com.xuxian.marketpro.appbase.view.MGridView;
+import com.xuxian.marketpro.libraries.util.monitor.GoodsMonitor;
+import com.xuxian.marketpro.libraries.util.monitor.monitor;
+import com.xuxian.marketpro.presentation.View.adapter.SimpleAdapterListView02;
 import com.xuxian.marketpro.presentation.View.listview.PinnedSectionListView;
+import com.xuxian.marketpro.presentation.View.refreshlayout.XuXianNormalRefreshViewHolder;
 import com.xuxian.marketpro.presentation.View.refreshlayout.XuXianRefreshLayout;
 import com.xuxian.marketpro.presentation.View.viewpage.BannerViewPager;
 import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
+import com.xuxian.marketpro.presentation.db.GoodsListDb;
+import com.xuxian.marketpro.presentation.entity.GoodsListEntity;
+
 
 /**
  * 作者：lubo on 8/1 0001 18:12
  * 邮箱：lubo_wen@126.com
  */
 @SuppressLint("ValidFragment")
-public class GoodsFragment extends SuperFragment {
+public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.XuXianRefreshLayoutDelegate {
 
 
     private int screenWidth;
@@ -49,6 +56,8 @@ public class GoodsFragment extends SuperFragment {
     private LinearLayout ll_headerview_goods_group;
     private MGridView gv_headerview_goods_app;
     private LinearLayout ll_headerview_goods_postion;
+    private GoodsListDb goodsListDb;
+    private SimpleAdapterListView02 mAdapter;
 
     public GoodsFragment(TabMainFragmentActivity activity){
 
@@ -114,6 +123,48 @@ public class GoodsFragment extends SuperFragment {
 
     @Override
     protected void setListener() {
+        bla_goods.setDelegate(this);
+        bla_goods.setRefreshViewHolder(new XuXianNormalRefreshViewHolder(getActivity(),false));
+        BarOnClickListener barOnClickListener=new BarOnClickListener();
+        ll_bar_main_classification.setOnClickListener(barOnClickListener);
+        ll_bar_main_store.setOnClickListener(barOnClickListener);
+        goodsListDb=new GoodsListDb(getActivity(), GoodsListEntity.class);
+        GoodsMonitor.getInstance().registerGoodsMonitor(GoodsFragment.class.getSimpleName(), new GoodsMonitor.GoodsMonitorCallback() {
+            @Override
+            public void appOprate(monitor.GoodsEnum goodsEnum) {
+                switch (goodsEnum){
+                    case REFRESH_GOODS://1
 
+                        break;
+                    case REFRESH_LISTVIEW://2
+                        if (mAdapter)
+                        break;
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onXuXianRefreshLayoutBeginRefreshing(XuXianRefreshLayout refreshLayout) {
+
+    }
+
+    @Override
+    public boolean onXuXianRefreshLayoutBeginLoadingMore(XuXianRefreshLayout refreshLayout) {
+        return false;
+    }
+
+    private class BarOnClickListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.ll_bar_main_store:
+                    //TODO 选店面
+                    break;
+                case R.id.ll_bar_main_classification;
+                    //// TODO: 16/8/9 选择分类
+                    break;
+            }
+        }
     }
 }
