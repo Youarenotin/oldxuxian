@@ -53,21 +53,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f46f1c2f-a2ce-40bf-bb40-f676042d028b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/default_newimg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/IndexEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/LocalConstant.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/PageEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/StatusEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/imageloader/AnimateFirstDisplayListenerTipsimg.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/filled_circle.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/gray_selector.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/gridview_item_listview02.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/title_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SectionedBaseAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SectionedBaseAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/GoodsFragmentHeaderEntity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/GoodsFragmentHeaderEntity.java" />
     </list>
     <ignored path="xuxian.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -111,8 +98,8 @@
       <file leaf-file-name="GoodsFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.97094804">
-              <caret line="186" column="108" selection-start-line="186" selection-start-column="108" selection-end-line="186" selection-end-column="108" />
+            <state vertical-scroll-proportion="0.012638231">
+              <caret line="154" column="21" selection-start-line="153" selection-start-column="92" selection-end-line="154" selection-end-column="21" />
               <folding>
                 <element signature="method#EndToParse#0;class#3762:13498" expanded="false" />
                 <element signature="method#FailedParseBean#0;class#3762:13498" expanded="false" />
@@ -3314,7 +3301,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="device.picker.selection" value="TA00403SDH" />
@@ -3699,12 +3686,6 @@
       <option name="number" value="Default" />
       <updated>1469188779978</updated>
     </task>
-    <task id="LOCAL-00010" summary="1.0.8&#10;">
-      <created>1469504932599</created>
-      <option name="number" value="00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1469504932599</updated>
-    </task>
     <task id="LOCAL-00011" summary="1.0.8&#10;">
       <created>1469504990491</created>
       <option name="number" value="00011" />
@@ -3993,7 +3974,13 @@
       <option name="project" value="LOCAL" />
       <updated>1470791852617</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="1.13.2">
+      <created>1470816502929</created>
+      <option name="number" value="00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1470816502929</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TodoView">
@@ -4641,8 +4628,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.97094804">
-          <caret line="186" column="108" selection-start-line="186" selection-start-column="108" selection-end-line="186" selection-end-column="108" />
+        <state vertical-scroll-proportion="0.012638231">
+          <caret line="154" column="21" selection-start-line="153" selection-start-column="92" selection-end-line="154" selection-end-column="21" />
           <folding>
             <element signature="method#EndToParse#0;class#3762:13498" expanded="false" />
             <element signature="method#FailedParseBean#0;class#3762:13498" expanded="false" />
