@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/click_gray"
+    android:orientation="horizontal"
+    android:paddingBottom="6.0dip"
+    android:paddingTop="6.0dip">
+
+    <RelativeLayout style="@style/title_layout_height">
+
+        <LinearLayout
+            android:id="@+id/main_more_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15.0dip"
+            android:background="@drawable/gray_selector"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5.0dip"
+                android:text="更多" />
+
+            <ImageView
+                android:layout_width="25.0dip"
+                android:layout_height="23.0dip"
+                android:src="@drawable/more_button" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14.0dip"
+            android:textColor="@color/public_gray_font"
+            android:textSize="@dimen/title_layout_text_size" />
+    </RelativeLayout>
+</LinearLayout>

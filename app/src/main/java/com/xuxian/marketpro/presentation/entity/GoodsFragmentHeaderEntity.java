@@ -1,6 +1,5 @@
 package com.xuxian.marketpro.presentation.entity;
 
-import android.support.annotation.VisibleForTesting;
 
 import java.util.List;
 
@@ -30,7 +29,7 @@ public class GoodsFragmentHeaderEntity {
     public  static class DataEntity {
         private List<AppEntity> app;
         private List<BannerEntity> banner;
-        private List<List<BlocksEntity>> bolcks;
+        private List<List<BlocksEntity>> blocks;
 
         public List<AppEntity> getApp() {
             return app;
@@ -48,12 +47,12 @@ public class GoodsFragmentHeaderEntity {
             this.banner = banner;
         }
 
-        public List<List<BlocksEntity>> getBolcks() {
-            return bolcks;
+        public List<List<BlocksEntity>> getBlocks() {
+            return blocks;
         }
 
-        public void setBolcks(List<List<BlocksEntity>> bolcks) {
-            this.bolcks = bolcks;
+        public void setBlocks(List<List<BlocksEntity>> blocks) {
+            this.blocks = blocks;
         }
 
         public static class AppEntity {
@@ -449,15 +448,15 @@ public class GoodsFragmentHeaderEntity {
         }
     }
 
-    private  class StatusEntiy {
-        private String code;
+    public    class StatusEntiy {
+        private int  code;
         private String message;
 
-        public String getCode() {
+        public int getCode() {
             return code;
         }
 
-        public void setCode(String code) {
+        public void setCode(int code) {
             this.code = code;
         }
 
