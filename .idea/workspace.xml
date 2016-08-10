@@ -53,7 +53,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f46f1c2f-a2ce-40bf-bb40-f676042d028b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="xuxian.iws" />
@@ -98,7 +97,7 @@
       <file leaf-file-name="GoodsFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.012638231">
+            <state vertical-scroll-proportion="0.019277109">
               <caret line="154" column="21" selection-start-line="153" selection-start-column="92" selection-end-line="154" selection-end-column="21" />
               <folding>
                 <element signature="method#EndToParse#0;class#3762:13498" expanded="false" />
@@ -3686,12 +3685,6 @@
       <option name="number" value="Default" />
       <updated>1469188779978</updated>
     </task>
-    <task id="LOCAL-00011" summary="1.0.8&#10;">
-      <created>1469504990491</created>
-      <option name="number" value="00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1469504990491</updated>
-    </task>
     <task id="LOCAL-00012" summary="1.0.9&#10;">
       <created>1469520517749</created>
       <option name="number" value="00012" />
@@ -3980,7 +3973,13 @@
       <option name="project" value="LOCAL" />
       <updated>1470816502929</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="init">
+      <created>1470817129192</created>
+      <option name="number" value="00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1470817129193</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3994,12 +3993,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1276" height="777" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4614221" sideWeight="0.49705634" order="3" side_tool="false" content_ui="tabs" />
@@ -4071,7 +4070,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.0.18增加高德2d地图jar包&#10;" />
     <MESSAGE value="1.0.19&#10;" />
     <MESSAGE value="1.0.20&#10;" />
     <MESSAGE value="1.0.21&#10;" />
@@ -4096,7 +4094,8 @@
     <MESSAGE value="1.12.1" />
     <MESSAGE value="1.12.2" />
     <MESSAGE value="1.13.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.13.2" />
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -4628,7 +4627,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.012638231">
+        <state vertical-scroll-proportion="0.019277109">
           <caret line="154" column="21" selection-start-line="153" selection-start-column="92" selection-end-line="154" selection-end-column="21" />
           <folding>
             <element signature="method#EndToParse#0;class#3762:13498" expanded="false" />
