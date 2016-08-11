@@ -30,6 +30,7 @@ import com.xuxian.marketpro.libraries.util.monitor.GoodsMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor;
 import com.xuxian.marketpro.net.NewIssRequest;
 import com.xuxian.marketpro.net.RequestParamsNet;
+import com.xuxian.marketpro.presentation.View.adapter.HeadViewPagerAdapter;
 import com.xuxian.marketpro.presentation.View.adapter.SimpleAdapterListView02;
 import com.xuxian.marketpro.presentation.View.listview.PinnedSectionListView;
 import com.xuxian.marketpro.presentation.View.refreshlayout.XuXianNormalRefreshViewHolder;

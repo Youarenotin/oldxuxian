@@ -226,4 +226,8 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
 
     public void getUserInfo() {
     }
+
+    public void personalCenterFregment() {
+
+    }
 }
