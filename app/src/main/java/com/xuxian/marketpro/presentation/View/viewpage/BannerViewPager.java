@@ -30,6 +30,7 @@ public class BannerViewPager extends ViewPager {
     private Runnable runnable;
     private ImageView[] tips;
     private int width;
+    private Context mContext;
 
 
     public BannerViewPager(Context context) {
@@ -43,6 +44,7 @@ public class BannerViewPager extends ViewPager {
     }
 
     private void init(Context context) {
+        this.mContext=context;
         this.mIsChanged = false;
         this.FIRST_ITEM_INDEX = MSG_CHANGE_PHOTO;
         this.mCurrentPagePosition = this.FIRST_ITEM_INDEX;
@@ -100,8 +102,8 @@ public class BannerViewPager extends ViewPager {
     public void addImage(int length, ViewGroup group) {
         this.len = length;
         this.tips = new ImageView[length];
-        for (int i = 0; i < length; i += MSG_CHANGE_PHOTO) {
-            ImageView imageView = new ImageView(MyApplication.getInstance());
+        for (int i = 0; i < length; i += 1) {
+            ImageView imageView = new ImageView(mContext);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp.leftMargin = 10;
             imageView.setLayoutParams(lp);

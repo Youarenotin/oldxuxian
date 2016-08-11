@@ -15,6 +15,7 @@ import com.xuxian.marketpro.activity.tab.TabMainFragmentActivity;
 import com.xuxian.marketpro.activity.tab.goods.BannerTpyeOnClickListener;
 import com.xuxian.marketpro.presentation.application.MyApplication;
 import com.xuxian.marketpro.presentation.entity.GoodsFragmentHeaderEntity.DataEntity.BannerEntity;
+import com.xuxian.marketpro.presentation.imageloader.AnimateFirstDisplayListenerBanner;
 
 import java.util.ArrayList;
 import java.util.List;

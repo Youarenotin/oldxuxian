@@ -37,6 +37,7 @@ import com.xuxian.marketpro.presentation.View.refreshlayout.XuXianNormalRefreshV
 import com.xuxian.marketpro.presentation.View.refreshlayout.XuXianRefreshLayout;
 import com.xuxian.marketpro.presentation.View.viewpage.BannerViewPager;
 import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
+import com.xuxian.marketpro.presentation.adapter.GoodsFragmentHeaderAdapter;
 import com.xuxian.marketpro.presentation.db.GoodsListDb;
 import com.xuxian.marketpro.presentation.entity.GoodsFragmentHeaderEntity;
 import com.xuxian.marketpro.presentation.entity.GoodsFragmentHeaderEntity.DataEntity.AppEntity;
@@ -80,6 +81,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
     private boolean isCacheGoods;
     private HeadViewPagerAdapter headViewPagerAdapter;
     private GoodsFragmentHeaderAdapter goodsFragmentHeaderAdapter;
+    private TabMainFragmentActivity tabMainFragmentActivity;
 
 
     public GoodsFragment(TabMainFragmentActivity activity) {
@@ -154,7 +156,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                     GoodsFragment.this.headViewPagerAdapter.setTabMainFragmentActivity(GoodsFragment.this.tabMainFragmentActivity);
                     GoodsFragment.this.vp_headerview_goods_banner.setCurrentItem(1);
                     if (!AbPreferenceUtils.loadPrefBoolean(GoodsFragment.this.getActivity(), LocalConstant.SHOW_XIAN_PIN_POPUP, false)) {
-                        ActivityUtil.StartXianPinPopupActivity(GoodsFragment.this.getActivity());
+//                        ActivityUtil.StartXianPinPopupActivity(GoodsFragment.this.getActivity());
                     }
                 }
                 if (appEntities == null || appEntities.isEmpty()) {
@@ -165,7 +167,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                 } else {
                     GoodsFragment.this.gv_headerview_goods_app.setVisibility(View.VISIBLE);
                     if (GoodsFragment.this.goodsFragmentHeaderAdapter == null) {
-                        GoodsFragment.this.goodsFragmentHeaderAdapter = new GoodsFragmentHeaderAdapter(GoodsFragment.this.tabMainFragmentActivity, appEntities, GoodsFragment.this.getActivity());
+                        GoodsFragment.this.goodsFragmentHeaderAdapter = new GoodsFragmentHeaderAdapter(getActivity(),appEntities,tabMainFragmentActivity);
                         GoodsFragment.this.gv_headerview_goods_app.setAdapter(GoodsFragment.this.goodsFragmentHeaderAdapter);
                     } else {
                         GoodsFragment.this.goodsFragmentHeaderAdapter.setData(appEntities);
@@ -186,42 +188,42 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                     layoutParams.bottomMargin = 20;
                     if (!(rangeList == null || rangeList.isEmpty())) {
                         for (int j = 0; j < rangeList.size(); j += 1) {
-                            BlocksEntity range = (BlocksEntity) rangeList.get(j);
-                            relativeLayout = new RelativeLayout(GoodsFragment.this.tabMainFragmentActivity);
-                            String[] a_postion = range.getA_position().split("_");
-                            int x = (int) (((double) GoodsFragment.this.screenWidth) * Double.valueOf(a_postion[0]).doubleValue());
-                            int y = (int) (((double) GoodsFragment.this.screenWidth) * Double.valueOf(a_postion[1]).doubleValue());
-                            RelativeLayout.LayoutParams linearLayout_params = new RelativeLayout.LayoutParams((int) (((double) GoodsFragment.this.screenWidth) * Double.valueOf(range.getWidth()).doubleValue()), (int) (((double) GoodsFragment.this.screenWidth) * Double.valueOf(range.getHeight()).doubleValue()));
-                            linearLayout_params.topMargin = x;
-                            linearLayout_params.leftMargin = y;
-                            relativeLayout.setLayoutParams(linearLayout_params);
-                            String show_type = range.getShow_type();
-                            RelativeLayout.LayoutParams bvpaLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                            RangeViewPagerAdapter bvpaAdapter = new RangeViewPagerAdapter(GoodsFragment.this.tabMainFragmentActivity);
-                            BannerViewPager bvp = new BannerViewPager(GoodsFragment.this.tabMainFragmentActivity);
-                            bvp.setAdapter(bvpaAdapter);
-                            relativeLayout.addView(bvp, bvpaLayoutParams);
-                            if (!TextUtils.equals(show_type, ShowType.SINGLEIMG.getValue() + CoinPacketExtension.NAMESPACE)) {
-                                RelativeLayout.LayoutParams dotLayoutParams = new RelativeLayout.LayoutParams(-2, -2);
-                                dotLayoutParams.addRule(12);
-                                dotLayoutParams.addRule(14);
-                                dotLayoutParams.bottomMargin = 30;
-                                LinearLayout dotLayout = new LinearLayout(GoodsFragment.this.tabMainFragmentActivity);
-                                dotLayout.setOrientation(LinearLayout.HORIZONTAL);
-                                dotLayout.setLayoutParams(dotLayoutParams);
-                                bvp.addImage(range.getSale_as().size(), dotLayout);
-                                relativeLayout.addView(dotLayout);
-                                if (TextUtils.equals(show_type, ShowType.MULTIPLAY.getValue() + CoinPacketExtension.NAMESPACE)) {
-                                    bvp.startPlay();
-                                } else {
-                                    if (TextUtils.equals(show_type, ShowType.MULTISLIDING.getValue() + CoinPacketExtension.NAMESPACE)) {
-                                    }
-                                }
-                            }
-                            bvp.setCurrentItem(1);
-                            bvpaAdapter.setData(range);
-                            bvpaAdapter.setTabMainFragmentActivity(GoodsFragment.this.tabMainFragmentActivity);
-                            relativeLayout.addView(relativeLayout);
+//                            BlocksEntity range = (BlocksEntity) rangeList.get(j);
+//                            relativeLayout = new RelativeLayout(GoodsFragment.this.tabMainFragmentActivity);
+//                            String[] a_postion = range.getA_position().split("_");
+//                            int x = (int) (((double) GoodsFragment.this.screenWidth) * Double.valueOf(a_postion[0]).doubleValue());
+//                            int y = (int) (((double) GoodsFragment.this.screenWidth) * Double.valueOf(a_postion[1]).doubleValue());
+//                            RelativeLayout.LayoutParams linearLayout_params = new RelativeLayout.LayoutParams((int) (((double) GoodsFragment.this.screenWidth) * Double.valueOf(range.getWidth()).doubleValue()), (int) (((double) GoodsFragment.this.screenWidth) * Double.valueOf(range.getHeight()).doubleValue()));
+//                            linearLayout_params.topMargin = x;
+//                            linearLayout_params.leftMargin = y;
+//                            relativeLayout.setLayoutParams(linearLayout_params);
+//                            String show_type = range.getShow_type();
+//                            RelativeLayout.LayoutParams bvpaLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                            RangeViewPagerAdapter bvpaAdapter = new RangeViewPagerAdapter(GoodsFragment.this.tabMainFragmentActivity);
+//                            BannerViewPager bvp = new BannerViewPager(GoodsFragment.this.tabMainFragmentActivity);
+//                            bvp.setAdapter(bvpaAdapter);
+//                            relativeLayout.addView(bvp, bvpaLayoutParams);
+//                            if (!TextUtils.equals(show_type, ShowType.SINGLEIMG.getValue() + CoinPacketExtension.NAMESPACE)) {
+//                                RelativeLayout.LayoutParams dotLayoutParams = new RelativeLayout.LayoutParams(-2, -2);
+//                                dotLayoutParams.addRule(12);
+//                                dotLayoutParams.addRule(14);
+//                                dotLayoutParams.bottomMargin = 30;
+//                                LinearLayout dotLayout = new LinearLayout(GoodsFragment.this.tabMainFragmentActivity);
+//                                dotLayout.setOrientation(LinearLayout.HORIZONTAL);
+//                                dotLayout.setLayoutParams(dotLayoutParams);
+//                                bvp.addImage(range.getSale_as().size(), dotLayout);
+//                                relativeLayout.addView(dotLayout);
+//                                if (TextUtils.equals(show_type, ShowType.MULTIPLAY.getValue() + CoinPacketExtension.NAMESPACE)) {
+//                                    bvp.startPlay();
+//                                } else {
+//                                    if (TextUtils.equals(show_type, ShowType.MULTISLIDING.getValue() + CoinPacketExtension.NAMESPACE)) {
+//                                    }
+//                                }
+//                            }
+//                            bvp.setCurrentItem(1);
+//                            bvpaAdapter.setData(range);
+//                            bvpaAdapter.setTabMainFragmentActivity(GoodsFragment.this.tabMainFragmentActivity);
+//                            relativeLayout.addView(relativeLayout);
                         }
                     }
                     GoodsFragment.this.ll_headerview_goods_postion.addView(relativeLayout, i, layoutParams);
@@ -256,7 +258,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
         headerview_main = (LinearLayout) headerView.findViewById(R.id.headview_main);
 //        headerview_main.setBackgroundColor(Color.TRANSPARENT);
         rl_headerview_goods_banner = (RelativeLayout) headerView.findViewById(R.id.rl_headerview_goods_banner);
-        vp_headerview_goods_banner = headerView.findViewById(R.id.vp_headerview_goods_banner);
+        vp_headerview_goods_banner = (BannerViewPager) headerView.findViewById(R.id.vp_headerview_goods_banner);
         AbViewUtil.setViewWH(vp_headerview_goods_banner, screenWidth, screenWidth / 2);
         ll_headerview_goods_group = (LinearLayout) headerView.findViewById(R.id.ll_headerview_goods_group);
         gv_headerview_goods_app = (MGridView) headerView.findViewById(R.id.gv_headerview_goods_app);
@@ -364,7 +366,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                 case R.id.ll_bar_main_store:
                     //TODO 选店面
                     break;
-                case R.id.ll_bar_main_classification ;
+                case R.id.ll_bar_main_classification :
                     //// TODO: 16/8/9 选择分类
                     break;
             }

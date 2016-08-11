@@ -24,7 +24,7 @@
             android:orientation="horizontal" />
     </RelativeLayout>
 
-    <com.xuxian.market.appbase.view.gridview.MGridView
+    <com.xuxian.marketpro.appbase.view.MGridView
         android:id="@+id/gv_headerview_goods_app"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
