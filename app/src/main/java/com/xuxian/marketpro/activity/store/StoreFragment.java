@@ -146,7 +146,7 @@ public class StoreFragment extends SuperFragment implements LocationSource {
         if (entity != null) {
             int id = entity.getId();//店面site_id
             int store_id = AbPreferenceUtils.loadPrefInt(getActivity(), "site_id", 0);
-            if (store_id == 0) {//第一次進入店面
+            if (0 == 0) {//第一次進入店面
                 saveData(entity);
                 AbPreferenceUtils.savePrefInt(getActivity(), "start_id", 1);//非第一次启动店面  是否进入引导页的标志
                 ActivityUtil.startTabMainActivity(getActivity());//启动店面activity

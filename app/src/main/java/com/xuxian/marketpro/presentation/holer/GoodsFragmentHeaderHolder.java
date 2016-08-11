@@ -26,7 +26,6 @@ public class GoodsFragmentHeaderHolder extends AbBaseHolder<AppEntity>{
     private int screenWidth;
     private TabMainFragmentActivity tabMainFragmentActivity;
     private TextView tv_list_item_goods_header_title;
-    private Context mContext;
 
     public GoodsFragmentHeaderHolder(Context context,TabMainFragmentActivity tabMainFragmentActivity) {
         super(context);
@@ -36,7 +35,7 @@ public class GoodsFragmentHeaderHolder extends AbBaseHolder<AppEntity>{
 
     @Override
     protected View initView() {
-        View view = View.inflate(mContext, R.layout.listitem_goods_header, null);
+        View view = View.inflate(context, R.layout.listitem_goods_header, null);
         this.civ_list_item_goods_header_icon= (ImageView) view.findViewById(R.id.civ_list_item_goods_header_icon);
         this.tv_list_item_goods_header_title= (TextView) view.findViewById(R.id.tv_list_item_goods_header_title);
         return view;

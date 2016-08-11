@@ -263,7 +263,12 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
         ll_headerview_goods_group = (LinearLayout) headerView.findViewById(R.id.ll_headerview_goods_group);
         gv_headerview_goods_app = (MGridView) headerView.findViewById(R.id.gv_headerview_goods_app);
         ll_headerview_goods_postion = (LinearLayout) headerView.findViewById(R.id.ll_headerview_goods_postion);
-
+        this.headViewPagerAdapter = new HeadViewPagerAdapter(getActivity());
+        this.vp_headerview_goods_banner.setAdapter(this.headViewPagerAdapter);
+        this.vp_headerview_goods_banner.startPlay();
+        this.pinnedSectionListView.addHeaderView(headerView);
+        this.mAdapter = new SimpleAdapterListView02(getActivity());
+        this.pinnedSectionListView.setAdapter(this.mAdapter);
     }
 
     @Override

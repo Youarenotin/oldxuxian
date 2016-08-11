@@ -89,7 +89,7 @@ public class MyApplication extends Application {
                 displayBuilder = builder;
             }
         }
-        return builder;
+        return displayBuilder;
     }
 
     public static void addActivity(Activity  activity){

@@ -39,6 +39,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SectionIndexer;
 
+import com.xuxian.marketpro.presentation.View.adapter.SimpleAdapterListView02;
+
 /**
  * ListView, which is capable to pin section views at its top while the rest is still scrolled.
  */
@@ -518,7 +520,7 @@ public class PinnedSectionListView extends ListView {
         if (adapter instanceof HeaderViewListAdapter) {
             adapter = ((HeaderViewListAdapter)adapter).getWrappedAdapter();
         }
-        return ((PinnedSectionListAdapter) adapter).isItemViewTypePinned(viewType);
+        return ((SimpleAdapterListView02) adapter).isItemViewTypePinned(viewType);
     }
 
 }

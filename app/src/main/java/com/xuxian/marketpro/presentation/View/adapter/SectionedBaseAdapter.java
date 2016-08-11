@@ -1,15 +1,18 @@
 package com.xuxian.marketpro.presentation.View.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 /**
  * Created by youarenotin on 16/8/9.
  */
 public abstract class SectionedBaseAdapter extends BaseAdapter implements HeaderBaseAdapter {
+    private Context mContext;
     private static int HEADER_VIEW_TYPE = 0;
     private static int ITEM_VIEW_TYPE = 0;
     int mCount = -1;
