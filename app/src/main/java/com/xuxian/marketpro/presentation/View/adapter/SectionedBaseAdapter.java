@@ -2,6 +2,7 @@ package com.xuxian.marketpro.presentation.View.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +60,7 @@ public abstract class SectionedBaseAdapter extends BaseAdapter implements Header
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+//        Log.d("position",position+"");
        if (isSectionHeader(position)){
            return getSectionHeaderView(getSectionForPositon(position),convertView,parent);
        }
@@ -69,7 +71,6 @@ public abstract class SectionedBaseAdapter extends BaseAdapter implements Header
     public void notifyDataSetChanged() {
         mSectionCache.clear();
         mSectionCountCache.clear();
-        ;
         mSectionPostionCache.clear();
         mCount = -1;
         mSectionCount = -1;
@@ -80,7 +81,6 @@ public abstract class SectionedBaseAdapter extends BaseAdapter implements Header
     public void notifyDataSetInvalidated() {
         mSectionCache.clear();
         mSectionCountCache.clear();
-        ;
         mSectionPostionCache.clear();
         mCount = -1;
         mSectionCount = -1;

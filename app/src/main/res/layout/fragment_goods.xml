@@ -6,6 +6,7 @@
 
     <com.xuxian.marketpro.presentation.View.refreshlayout.XuXianRefreshLayout
         android:id="@+id/bla_goods"
+        android:orientation="vertical"
         style="@style/MatchMatch">
 
         <com.xuxian.marketpro.presentation.View.listview.PinnedSectionListView

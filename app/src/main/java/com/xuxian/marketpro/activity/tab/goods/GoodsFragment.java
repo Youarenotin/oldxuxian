@@ -180,54 +180,54 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                 }
                 ll_headerview_goods_postion.setVisibility(View.VISIBLE);
                 ll_headerview_goods_postion.removeAllViews();
-                for (int i = 0; i < postionEntitys.size(); i ++) {
-                    List<BlocksEntity> rangeList = (List) postionEntitys.get(i);
-                    View relativeLayout = new RelativeLayout(getActivity());
-                    relativeLayout.setBackgroundColor(-1);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    layoutParams.bottomMargin = 20;
-                    if (!(rangeList == null || rangeList.isEmpty())) {
-                        for (int j = 0; j < rangeList.size(); j += 1) {
-//                            BlocksEntity range = (BlocksEntity) rangeList.get(j);
-//                            relativeLayout = new RelativeLayout(tabMainFragmentActivity);
-//                            String[] a_postion = range.getA_position().split("_");
-//                            int x = (int) (((double) screenWidth) * Double.valueOf(a_postion[0]).doubleValue());
-//                            int y = (int) (((double) screenWidth) * Double.valueOf(a_postion[1]).doubleValue());
-//                            RelativeLayout.LayoutParams linearLayout_params = new RelativeLayout.LayoutParams((int) (((double) screenWidth) * Double.valueOf(range.getWidth()).doubleValue()), (int) (((double) screenWidth) * Double.valueOf(range.getHeight()).doubleValue()));
-//                            linearLayout_params.topMargin = x;
-//                            linearLayout_params.leftMargin = y;
-//                            relativeLayout.setLayoutParams(linearLayout_params);
-//                            String show_type = range.getShow_type();
-//                            RelativeLayout.LayoutParams bvpaLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//                            RangeViewPagerAdapter bvpaAdapter = new RangeViewPagerAdapter(tabMainFragmentActivity);
-//                            BannerViewPager bvp = new BannerViewPager(tabMainFragmentActivity);
-//                            bvp.setAdapter(bvpaAdapter);
-//                            relativeLayout.addView(bvp, bvpaLayoutParams);
-//                            if (!TextUtils.equals(show_type, ShowType.SINGLEIMG.getValue() + CoinPacketExtension.NAMESPACE)) {
-//                                RelativeLayout.LayoutParams dotLayoutParams = new RelativeLayout.LayoutParams(-2, -2);
-//                                dotLayoutParams.addRule(12);
-//                                dotLayoutParams.addRule(14);
-//                                dotLayoutParams.bottomMargin = 30;
-//                                LinearLayout dotLayout = new LinearLayout(tabMainFragmentActivity);
-//                                dotLayout.setOrientation(LinearLayout.HORIZONTAL);
-//                                dotLayout.setLayoutParams(dotLayoutParams);
-//                                bvp.addImage(range.getSale_as().size(), dotLayout);
-//                                relativeLayout.addView(dotLayout);
-//                                if (TextUtils.equals(show_type, ShowType.MULTIPLAY.getValue() + CoinPacketExtension.NAMESPACE)) {
-//                                    bvp.startPlay();
-//                                } else {
-//                                    if (TextUtils.equals(show_type, ShowType.MULTISLIDING.getValue() + CoinPacketExtension.NAMESPACE)) {
-//                                    }
-//                                }
-//                            }
-//                            bvp.setCurrentItem(1);
-//                            bvpaAdapter.setData(range);
-//                            bvpaAdapter.setTabMainFragmentActivity(tabMainFragmentActivity);
-//                            relativeLayout.addView(relativeLayout);
-                        }
-                    }
-                    ll_headerview_goods_postion.addView(relativeLayout, i, layoutParams);
-                }
+//                for (int i = 0; i < postionEntitys.size(); i ++) {
+//                    List<BlocksEntity> rangeList = (List) postionEntitys.get(i);
+//                    View relativeLayout = new RelativeLayout(getActivity());
+//                    relativeLayout.setBackgroundColor(-1);
+//                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                    layoutParams.bottomMargin = 20;
+//                    if (!(rangeList == null || rangeList.isEmpty())) {
+//                        for (int j = 0; j < rangeList.size(); j += 1) {
+////                            BlocksEntity range = (BlocksEntity) rangeList.get(j);
+////                            relativeLayout = new RelativeLayout(tabMainFragmentActivity);
+////                            String[] a_postion = range.getA_position().split("_");
+////                            int x = (int) (((double) screenWidth) * Double.valueOf(a_postion[0]).doubleValue());
+////                            int y = (int) (((double) screenWidth) * Double.valueOf(a_postion[1]).doubleValue());
+////                            RelativeLayout.LayoutParams linearLayout_params = new RelativeLayout.LayoutParams((int) (((double) screenWidth) * Double.valueOf(range.getWidth()).doubleValue()), (int) (((double) screenWidth) * Double.valueOf(range.getHeight()).doubleValue()));
+////                            linearLayout_params.topMargin = x;
+////                            linearLayout_params.leftMargin = y;
+////                            relativeLayout.setLayoutParams(linearLayout_params);
+////                            String show_type = range.getShow_type();
+////                            RelativeLayout.LayoutParams bvpaLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+////                            RangeViewPagerAdapter bvpaAdapter = new RangeViewPagerAdapter(tabMainFragmentActivity);
+////                            BannerViewPager bvp = new BannerViewPager(tabMainFragmentActivity);
+////                            bvp.setAdapter(bvpaAdapter);
+////                            relativeLayout.addView(bvp, bvpaLayoutParams);
+////                            if (!TextUtils.equals(show_type, ShowType.SINGLEIMG.getValue() + CoinPacketExtension.NAMESPACE)) {
+////                                RelativeLayout.LayoutParams dotLayoutParams = new RelativeLayout.LayoutParams(-2, -2);
+////                                dotLayoutParams.addRule(12);
+////                                dotLayoutParams.addRule(14);
+////                                dotLayoutParams.bottomMargin = 30;
+////                                LinearLayout dotLayout = new LinearLayout(tabMainFragmentActivity);
+////                                dotLayout.setOrientation(LinearLayout.HORIZONTAL);
+////                                dotLayout.setLayoutParams(dotLayoutParams);
+////                                bvp.addImage(range.getSale_as().size(), dotLayout);
+////                                relativeLayout.addView(dotLayout);
+////                                if (TextUtils.equals(show_type, ShowType.MULTIPLAY.getValue() + CoinPacketExtension.NAMESPACE)) {
+////                                    bvp.startPlay();
+////                                } else {
+////                                    if (TextUtils.equals(show_type, ShowType.MULTISLIDING.getValue() + CoinPacketExtension.NAMESPACE)) {
+////                                    }
+////                                }
+////                            }
+////                            bvp.setCurrentItem(1);
+////                            bvpaAdapter.setData(range);
+////                            bvpaAdapter.setTabMainFragmentActivity(tabMainFragmentActivity);
+////                            relativeLayout.addView(relativeLayout);
+//                        }
+//                    }
+//                    ll_headerview_goods_postion.addView(relativeLayout, i, layoutParams);
+//                }
             }
         };
     }

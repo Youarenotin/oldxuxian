@@ -1,6 +1,7 @@
 package com.xuxian.marketpro.presentation.View.adapter;
 
 import android.content.Context;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -177,8 +178,6 @@ public class SimpleAdapterListView02 extends SectionedBaseAdapter {
         }
         viewHolder.ll_goods_01.setOnClickListener(new ll_goods_01OnClickListener(section));
         viewHolder.ll_goods_02.setOnClickListener(new ll_goods_02OnClickListener(section));
-        if (convertView==null)
-            return new TextView(mContext);
         return convertView;
     }
 
