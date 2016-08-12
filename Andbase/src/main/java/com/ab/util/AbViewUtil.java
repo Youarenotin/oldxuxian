@@ -562,8 +562,8 @@ public class AbViewUtil {
 		if (params!=null){
 			params.width=widthPixels;
 			params.height=heightPixels;
+			view.setLayoutParams(params);
 		}
-		view.setLayoutParams(params);
 	}
 
 	/**

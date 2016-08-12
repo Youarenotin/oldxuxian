@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import com.ab.view.holder.AbBaseHolder;
 import com.alibaba.fastjson.parser.deserializer.MapDeserializer;
@@ -41,6 +42,10 @@ public abstract class AbBaseAdapter<T> extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    public void setAddData(List<T> Datas) {
+        this.mDatas.addAll(Datas);
+        notifyDataSetChanged();
+    }
 
     @Override
     public int getCount() {
@@ -70,7 +75,7 @@ public abstract class AbBaseAdapter<T> extends BaseAdapter {
             holder= (AbBaseHolder) convertView.getTag();
         }
         holder.setPostion(position);
-        holder.setView(convertView);
+        holder.setData(mDatas.get(position));
         holder.setViewGroup(parent);
         return holder.getConvertView();
     }

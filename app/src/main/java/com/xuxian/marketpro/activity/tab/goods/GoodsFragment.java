@@ -3,9 +3,9 @@ package com.xuxian.marketpro.activity.tab.goods;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.graphics.Color;
+import android.graphics.Region;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -76,11 +76,11 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
     private MGridView gv_headerview_goods_app;
     private LinearLayout ll_headerview_goods_postion;
     private GoodsListDb goodsListDb;
-    private SimpleAdapterListView02 mAdapter;
+    private SimpleAdapterListView02 mAdapter;//listview的适配器
     private IHttpResponseCallBack<GoodsFragmentHeaderEntity> goodsFragmentHeaderHttpResponseCallBack;
     private boolean isCacheGoods;
-    private HeadViewPagerAdapter headViewPagerAdapter;
-    private GoodsFragmentHeaderAdapter goodsFragmentHeaderAdapter;
+    private HeadViewPagerAdapter headViewPagerAdapter;//banner的适配器
+    private GoodsFragmentHeaderAdapter goodsFragmentHeaderAdapter;//GridView的适配器
     private TabMainFragmentActivity tabMainFragmentActivity;
 
 
@@ -98,22 +98,22 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                     bla_goods.endRefreshing();
                     return;
                 }
-                if (AbPreferenceUtils.loadPrefInt(GoodsFragment.this.getActivity(), "site_id", 0) > 0) {
-                    GoodsFragment.this.emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_NODATA);
+                if (AbPreferenceUtils.loadPrefInt(getActivity(), "site_id", 0) > 0) {
+                    emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_NODATA);
                 } else {
-                    GoodsFragment.this.emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_NODATA, "点击屏幕,选择提货点");
+                    emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_NODATA, "点击屏幕,选择提货点");
                 }
                 emptyview_state.setVisibility(View.VISIBLE);
                 emptyview_state.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (AbPreferenceUtils.loadPrefInt(GoodsFragment.this.getActivity(), "site_id", 0) > 0) {
-                            GoodsFragment.this.emptyview_state.setVisibility(View.VISIBLE);
-                            GoodsFragment.this.emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_LOADING);
+                        if (AbPreferenceUtils.loadPrefInt(getActivity(), "site_id", 0) > 0) {
+                            emptyview_state.setVisibility(View.VISIBLE);
+                            emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_LOADING);
                             request(111);
                             return;
                         }
-                        ActivityUtil.startStoreFragmentActivity(GoodsFragment.this.getActivity(), null);
+                        ActivityUtil.startStoreFragmentActivity(getActivity(), null);
                     }
                 });
             }
@@ -144,63 +144,63 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                     rl_headerview_goods_banner.setVisibility(View.GONE);
                     ll_headerview_goods_group.removeAllViews();
                     vp_headerview_goods_banner.removeAllViews();
-                    if (GoodsFragment.this.headViewPagerAdapter != null) {
-                        GoodsFragment.this.headViewPagerAdapter.setData(null);
+                    if (headViewPagerAdapter != null) {
+                        headViewPagerAdapter.setData(null);
                     }
                 }
                 else{
-                    GoodsFragment.this.rl_headerview_goods_banner.setVisibility(View.VISIBLE);
-                    GoodsFragment.this.ll_headerview_goods_group.removeAllViews();
-                    GoodsFragment.this.vp_headerview_goods_banner.addImage(bannerEntities.size(), GoodsFragment.this.ll_headerview_goods_group);
-                    GoodsFragment.this.headViewPagerAdapter.setData(bannerEntities);
-                    GoodsFragment.this.headViewPagerAdapter.setTabMainFragmentActivity(GoodsFragment.this.tabMainFragmentActivity);
-                    GoodsFragment.this.vp_headerview_goods_banner.setCurrentItem(1);
-                    if (!AbPreferenceUtils.loadPrefBoolean(GoodsFragment.this.getActivity(), LocalConstant.SHOW_XIAN_PIN_POPUP, false)) {
-//                        ActivityUtil.StartXianPinPopupActivity(GoodsFragment.this.getActivity());
+                    rl_headerview_goods_banner.setVisibility(View.VISIBLE);
+                    ll_headerview_goods_group.removeAllViews();
+                    vp_headerview_goods_banner.addImage(bannerEntities.size(), ll_headerview_goods_group);
+                    headViewPagerAdapter.setData(bannerEntities);
+                    headViewPagerAdapter.setTabMainFragmentActivity(tabMainFragmentActivity);
+                    vp_headerview_goods_banner.setCurrentItem(1);
+                    if (!AbPreferenceUtils.loadPrefBoolean(getActivity(), LocalConstant.SHOW_XIAN_PIN_POPUP, false)) {
+//                        ActivityUtil.StartXianPinPopupActivity(getActivity());
                     }
                 }
                 if (appEntities == null || appEntities.isEmpty()) {
-                    GoodsFragment.this.gv_headerview_goods_app.setVisibility(View.GONE);
-                    if (GoodsFragment.this.goodsFragmentHeaderAdapter != null) {
-                        GoodsFragment.this.goodsFragmentHeaderAdapter.setData(null);
+                    gv_headerview_goods_app.setVisibility(View.GONE);
+                    if (goodsFragmentHeaderAdapter != null) {
+                        goodsFragmentHeaderAdapter.setData(null);
                     }
                 } else {
-                    GoodsFragment.this.gv_headerview_goods_app.setVisibility(View.VISIBLE);
-                    if (GoodsFragment.this.goodsFragmentHeaderAdapter == null) {
-                        GoodsFragment.this.goodsFragmentHeaderAdapter = new GoodsFragmentHeaderAdapter(getActivity(),appEntities,tabMainFragmentActivity);
-                        GoodsFragment.this.gv_headerview_goods_app.setAdapter(GoodsFragment.this.goodsFragmentHeaderAdapter);
+                    gv_headerview_goods_app.setVisibility(View.VISIBLE);
+                    if (goodsFragmentHeaderAdapter == null) {
+                        goodsFragmentHeaderAdapter = new GoodsFragmentHeaderAdapter(getActivity(),appEntities,tabMainFragmentActivity);
+                        gv_headerview_goods_app.setAdapter(goodsFragmentHeaderAdapter);
                     } else {
-                        GoodsFragment.this.goodsFragmentHeaderAdapter.setData(appEntities);
+                        goodsFragmentHeaderAdapter.setData(appEntities);
                     }
                 }
                 if (postionEntitys == null || postionEntitys.isEmpty()) {
-                    GoodsFragment.this.ll_headerview_goods_postion.setVisibility(View.GONE);
-                    GoodsFragment.this.ll_headerview_goods_postion.removeAllViews();
+                    ll_headerview_goods_postion.setVisibility(View.GONE);
+                    ll_headerview_goods_postion.removeAllViews();
                     return;
                 }
-                GoodsFragment.this.ll_headerview_goods_postion.setVisibility(View.VISIBLE);
-                GoodsFragment.this.ll_headerview_goods_postion.removeAllViews();
+                ll_headerview_goods_postion.setVisibility(View.VISIBLE);
+                ll_headerview_goods_postion.removeAllViews();
                 for (int i = 0; i < postionEntitys.size(); i ++) {
                     List<BlocksEntity> rangeList = (List) postionEntitys.get(i);
-                    View relativeLayout = new RelativeLayout(GoodsFragment.this.getActivity());
+                    View relativeLayout = new RelativeLayout(getActivity());
                     relativeLayout.setBackgroundColor(-1);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                     layoutParams.bottomMargin = 20;
                     if (!(rangeList == null || rangeList.isEmpty())) {
                         for (int j = 0; j < rangeList.size(); j += 1) {
 //                            BlocksEntity range = (BlocksEntity) rangeList.get(j);
-//                            relativeLayout = new RelativeLayout(GoodsFragment.this.tabMainFragmentActivity);
+//                            relativeLayout = new RelativeLayout(tabMainFragmentActivity);
 //                            String[] a_postion = range.getA_position().split("_");
-//                            int x = (int) (((double) GoodsFragment.this.screenWidth) * Double.valueOf(a_postion[0]).doubleValue());
-//                            int y = (int) (((double) GoodsFragment.this.screenWidth) * Double.valueOf(a_postion[1]).doubleValue());
-//                            RelativeLayout.LayoutParams linearLayout_params = new RelativeLayout.LayoutParams((int) (((double) GoodsFragment.this.screenWidth) * Double.valueOf(range.getWidth()).doubleValue()), (int) (((double) GoodsFragment.this.screenWidth) * Double.valueOf(range.getHeight()).doubleValue()));
+//                            int x = (int) (((double) screenWidth) * Double.valueOf(a_postion[0]).doubleValue());
+//                            int y = (int) (((double) screenWidth) * Double.valueOf(a_postion[1]).doubleValue());
+//                            RelativeLayout.LayoutParams linearLayout_params = new RelativeLayout.LayoutParams((int) (((double) screenWidth) * Double.valueOf(range.getWidth()).doubleValue()), (int) (((double) screenWidth) * Double.valueOf(range.getHeight()).doubleValue()));
 //                            linearLayout_params.topMargin = x;
 //                            linearLayout_params.leftMargin = y;
 //                            relativeLayout.setLayoutParams(linearLayout_params);
 //                            String show_type = range.getShow_type();
 //                            RelativeLayout.LayoutParams bvpaLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//                            RangeViewPagerAdapter bvpaAdapter = new RangeViewPagerAdapter(GoodsFragment.this.tabMainFragmentActivity);
-//                            BannerViewPager bvp = new BannerViewPager(GoodsFragment.this.tabMainFragmentActivity);
+//                            RangeViewPagerAdapter bvpaAdapter = new RangeViewPagerAdapter(tabMainFragmentActivity);
+//                            BannerViewPager bvp = new BannerViewPager(tabMainFragmentActivity);
 //                            bvp.setAdapter(bvpaAdapter);
 //                            relativeLayout.addView(bvp, bvpaLayoutParams);
 //                            if (!TextUtils.equals(show_type, ShowType.SINGLEIMG.getValue() + CoinPacketExtension.NAMESPACE)) {
@@ -208,7 +208,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
 //                                dotLayoutParams.addRule(12);
 //                                dotLayoutParams.addRule(14);
 //                                dotLayoutParams.bottomMargin = 30;
-//                                LinearLayout dotLayout = new LinearLayout(GoodsFragment.this.tabMainFragmentActivity);
+//                                LinearLayout dotLayout = new LinearLayout(tabMainFragmentActivity);
 //                                dotLayout.setOrientation(LinearLayout.HORIZONTAL);
 //                                dotLayout.setLayoutParams(dotLayoutParams);
 //                                bvp.addImage(range.getSale_as().size(), dotLayout);
@@ -222,11 +222,11 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
 //                            }
 //                            bvp.setCurrentItem(1);
 //                            bvpaAdapter.setData(range);
-//                            bvpaAdapter.setTabMainFragmentActivity(GoodsFragment.this.tabMainFragmentActivity);
+//                            bvpaAdapter.setTabMainFragmentActivity(tabMainFragmentActivity);
 //                            relativeLayout.addView(relativeLayout);
                         }
                     }
-                    GoodsFragment.this.ll_headerview_goods_postion.addView(relativeLayout, i, layoutParams);
+                    ll_headerview_goods_postion.addView(relativeLayout, i, layoutParams);
                 }
             }
         };
@@ -403,7 +403,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
         @Override
         public void SucceedParseBean(IndexEntity t) {
             bla_goods.endRefreshing();
-            emptyview_state.setVisibility(View.GONE);
+            emptyview_state.setVisibility(View.GONE); //这是整个goods fragment数据全部加载完成后
             if (t != null) {
                 if (this.code == 1 && t.getStatus() != null && t.getStatus().getCode() == 1) {
                    emptyview_state.setVisibility(View.VISIBLE);
@@ -415,13 +415,13 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                     return;
                 }
                mAdapter.setData(t.getData());
-                if (GoodsFragment.this.getLoadingStatus() == 111) {
-                    int goods_id = AbPreferenceUtils.loadPrefInt(GoodsFragment.this.getActivity(), "goods_id", 0);
+                if (getLoadingStatus() == 111) {
+                    int goods_id = AbPreferenceUtils.loadPrefInt(getActivity(), "goods_id", 0);
                     if (goods_id != 0) {
-                        GoodsFragment.this.setGoodsDetails(goods_id);
+                        setGoodsDetails(goods_id);
                     }
                 }
-                if (GoodsFragment.this.isCacheGoods) {
+                if (isCacheGoods) {
                     GoodsAsyncTask goodsAsyncTask = new GoodsAsyncTask();
                     Object[] objArr = new Object[0];
                     objArr[0] = t.getData();
@@ -431,12 +431,12 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                 return;
             }
             //如果t为空
-            if (GoodsFragment.this.getLoadingStatus() == 333) {
-                GoodsFragment.this.bla_goods.endRefreshing();
+            if (getLoadingStatus() == 333) {
+                bla_goods.endRefreshing();
             } else {
-                GoodsFragment.this.emptyview_state.setVisibility(View.GONE);
+                emptyview_state.setVisibility(View.GONE);
             }
-            GoodsFragment.this.mAdapter.setData(null);
+            mAdapter.setData(null);
         }
     }
 
@@ -453,17 +453,17 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
 
         protected void onPreExecute() {
             super.onPreExecute();
-            GoodsFragment.this.isCacheGoods = false;
+            isCacheGoods = false;
         }
 
         protected String doInBackground(Object... params) {
-            GoodsFragment.this.saveGoodsList((List<GoodsEntity>) params[0]);
+            saveGoodsList((List<GoodsEntity>) params[0]);
             return null;
         }
 
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            GoodsFragment.this.isCacheGoods = true;
+            isCacheGoods = true;
         }
     }
 

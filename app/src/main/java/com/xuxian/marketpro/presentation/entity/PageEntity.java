@@ -8,6 +8,9 @@ public class PageEntity {
     private  int pagenum;
     private int total;
 
+    public PageEntity() {
+    }
+
     public PageEntity(int pagecount, int pagenum, int total) {
         this.pagecount = pagecount;
         this.pagenum = pagenum;

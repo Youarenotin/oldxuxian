@@ -19,7 +19,7 @@
             android:background="@drawable/gray_selector"
             android:gravity="center"
             android:orientation="horizontal"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -40,7 +40,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="14.0dip"
-            android:textColor="@color/public_gray_font"
+            android:textColor="@color/red"
             android:textSize="@dimen/title_layout_text_size" />
     </RelativeLayout>
 </LinearLayout>

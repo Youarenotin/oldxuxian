@@ -10,6 +10,15 @@ public class IndexEntity {
     private PageEntity page;
     private StatusEntity status;
 
+    public StatusEntity getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusEntity status) {
+        this.status = status;
+    }
+
+
     public List<GoodsEntity> getData() {
         return data;
     }
@@ -26,13 +35,7 @@ public class IndexEntity {
         this.page = page;
     }
 
-    public StatusEntity getStatus() {
-        return status;
-    }
 
-    public void setStatus(StatusEntity status) {
-        this.status = status;
-    }
 
     public static  class GoodsEntity {
         private List<GoodsListEntity> goods;
@@ -55,5 +58,25 @@ public class IndexEntity {
         }
     }
 
+    public    class StatusEntity {
+        private int  code;
+        private String message;
+
+        public int getCode() {
+            return code;
+        }
+
+        public void setCode(int code) {
+            this.code = code;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+    }
 
 }

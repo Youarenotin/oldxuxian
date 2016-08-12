@@ -27,6 +27,7 @@ public abstract class AbBaseHolder<T> {
 
     public void setData(T data){
         this.data=data;
+        refreshView();
     }
 
     public T getData(){
@@ -34,6 +35,7 @@ public abstract class AbBaseHolder<T> {
     }
 
     public View getConvertView() {
+
         return view;
     }
 

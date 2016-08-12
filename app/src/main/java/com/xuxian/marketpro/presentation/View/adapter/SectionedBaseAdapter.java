@@ -165,6 +165,11 @@ public abstract class SectionedBaseAdapter extends BaseAdapter implements Header
         return getItemViewTypeCount()+getSectionHeaderViewTypeCount();
     }
 
+    /**
+     * 根据section查询该section中item的数量
+     * @param section
+     * @return
+     */
     private int internalGetCountForSection(int section) {
         Integer cachedSectionCount = mSectionCountCache.get(section);
         if (cachedSectionCount != null) {
@@ -175,6 +180,10 @@ public abstract class SectionedBaseAdapter extends BaseAdapter implements Header
         return sectionCount;
     }
 
+    /**
+     * section种类的数量
+     * @return
+     */
     private int internalGetSectionCount() {
         if (mSectionCount >= 0) {
             return mSectionCount;

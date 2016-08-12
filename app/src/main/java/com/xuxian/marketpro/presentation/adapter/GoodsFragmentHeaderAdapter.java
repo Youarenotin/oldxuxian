@@ -16,11 +16,10 @@ import java.util.List;
  */
 public class GoodsFragmentHeaderAdapter extends AbBaseAdapter<AppEntity>{
     private TabMainFragmentActivity tabMainFragmentActivity;
-    private  Context mContext;
+
 
     public GoodsFragmentHeaderAdapter(Context context, List<AppEntity> mDatas,TabMainFragmentActivity tabMainFragmentActivity) {
         super(context, mDatas);
-        mContext=context;
         this.tabMainFragmentActivity=tabMainFragmentActivity;
     }
 
@@ -28,7 +27,7 @@ public class GoodsFragmentHeaderAdapter extends AbBaseAdapter<AppEntity>{
     @Override
     public AbBaseHolder getHolder() {
 
-        return new GoodsFragmentHeaderHolder(mContext,tabMainFragmentActivity);
+        return new GoodsFragmentHeaderHolder(context,tabMainFragmentActivity);
     }
 
 }

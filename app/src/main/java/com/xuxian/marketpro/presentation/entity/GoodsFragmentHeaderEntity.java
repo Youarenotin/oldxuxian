@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class GoodsFragmentHeaderEntity {
     private DataEntity data;
-    private StatusEntiy status;
+    private StatusEntity status;
 
     public DataEntity getData() {
         return data;
@@ -18,11 +18,11 @@ public class GoodsFragmentHeaderEntity {
         this.data = data;
     }
 
-    public StatusEntiy getStatus() {
+    public StatusEntity getStatus() {
         return status;
     }
 
-    public void setStatus(StatusEntiy status) {
+    public void setStatus(StatusEntity status) {
         this.status = status;
     }
 
@@ -448,7 +448,7 @@ public class GoodsFragmentHeaderEntity {
         }
     }
 
-    public    class StatusEntiy {
+    public    class StatusEntity {
         private int  code;
         private String message;
 
