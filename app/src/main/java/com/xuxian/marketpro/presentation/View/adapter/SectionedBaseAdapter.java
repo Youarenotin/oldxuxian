@@ -60,7 +60,7 @@ public abstract class SectionedBaseAdapter extends BaseAdapter implements Header
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-//        Log.d("position",position+"");
+        Log.d("position",position+"");
        if (isSectionHeader(position)){
            return getSectionHeaderView(getSectionForPositon(position),convertView,parent);
        }
