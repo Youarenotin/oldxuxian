@@ -99,7 +99,38 @@ public class SimpleAdapterListView02 extends SectionedBaseAdapter {
             AbViewUtil.setViewWH(viewHolder.iv_goods_sold_out_01, w / 2, ((w / 16) * 9) / 2);
             AbViewUtil.setViewWH(viewHolder.iv_goods_sold_out_02, w / 2, ((w / 16) * 9) / 2);
         } else {
+            if (convertView.getTag() instanceof ViewHolder)
             viewHolder = (ViewHolder) convertView.getTag();
+            else {
+                viewHolder = new ViewHolder();
+                viewHolder.ll_goods_01 = (LinearLayout) convertView.findViewById(R.id.ll_goods_01);
+                viewHolder.rl_goods_img_01 = (RelativeLayout) convertView.findViewById(R.id.rl_goods_img_01);
+                viewHolder.iv_goods_img_01 = (ImageView) convertView.findViewById(R.id.iv_goods_img_01);
+                viewHolder.tv_goods_count_01 = (TextView) convertView.findViewById(R.id.tv_goods_count_01);
+                viewHolder.iv_goods_sold_out_01 = (ImageView) convertView.findViewById(R.id.iv_goods_sold_out_01);
+                viewHolder.tv_goods_name_01 = (TextView) convertView.findViewById(R.id.tv_goods_name_01);
+                viewHolder.tv_goods_price_01 = (TextView) convertView.findViewById(R.id.tv_goods_price_01);
+                viewHolder.iv_goods_tipsim_01 = (ImageView) convertView.findViewById(R.id.iv_goods_tipsim_01);
+                viewHolder.tv_goods_market_price_01 = (TextView) convertView.findViewById(R.id.tv_goods_market_price_01);
+                viewHolder.ll_goods_02 = (LinearLayout) convertView.findViewById(R.id.ll_goods_02);
+                viewHolder.rl_goods_img_02 = (RelativeLayout) convertView.findViewById(R.id.rl_goods_img_02);
+                viewHolder.iv_goods_img_02 = (ImageView) convertView.findViewById(R.id.iv_goods_img_02);
+                viewHolder.tv_goods_count_02 = (TextView) convertView.findViewById(R.id.tv_goods_count_02);
+                viewHolder.iv_goods_sold_out_02 = (ImageView) convertView.findViewById(R.id.iv_goods_sold_out_02);
+                viewHolder.tv_goods_name_02 = (TextView) convertView.findViewById(R.id.tv_goods_name_02);
+                viewHolder.tv_goods_price_02 = (TextView) convertView.findViewById(R.id.tv_goods_price_02);
+                viewHolder.iv_goods_tipsim_02 = (ImageView) convertView.findViewById(R.id.iv_goods_tipsim_02);
+                viewHolder.tv_goods_market_price_02 = (TextView) convertView.findViewById(R.id.tv_goods_market_price_02);
+                convertView.setTag(viewHolder);
+                int w = this.screenWidth / 2;
+                int h = (w / 4) * 3;
+                AbViewUtil.setViewWH(viewHolder.rl_goods_img_01, w, h);
+                AbViewUtil.setViewWH(viewHolder.rl_goods_img_02, w, h);
+                AbViewUtil.setViewWH(viewHolder.iv_goods_img_01, w, h);
+                AbViewUtil.setViewWH(viewHolder.iv_goods_img_02, w, h);
+                AbViewUtil.setViewWH(viewHolder.iv_goods_sold_out_01, w / 2, ((w / 16) * 9) / 2);
+                AbViewUtil.setViewWH(viewHolder.iv_goods_sold_out_02, w / 2, ((w / 16) * 9) / 2);
+            }
         }
         int position01 = position * 2;
         int position02 = (position * 2) + 1;

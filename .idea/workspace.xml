@@ -63,15 +63,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f46f1c2f-a2ce-40bf-bb40-f676042d028b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SectionedBaseAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SectionedBaseAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java" />
     </list>
     <ignored path="xuxian.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -162,13 +155,13 @@
       <file leaf-file-name="SimpleAdapterListView02.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21011059">
-              <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.3364929">
+              <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
               <folding>
-                <marker date="1470997396000" expanded="false" signature="5792:5878" placeholder="&quot;￥{new Object[]{goodsListEntity01.getPrice()}}/份&quot;" />
-                <marker date="1470997396000" expanded="false" signature="5933:6029" placeholder="&quot;￥{new Object[]{goodsListEntity01.getMarket_price()}}&quot;" />
-                <marker date="1470997396000" expanded="false" signature="8358:8444" placeholder="&quot;￥{new Object[]{goodsListEntity02.getPrice()}}/份&quot;" />
-                <marker date="1470997396000" expanded="false" signature="8503:8599" placeholder="&quot;￥{new Object[]{goodsListEntity02.getMarket_price()}}&quot;" />
+                <marker date="1471088100000" expanded="false" signature="8517:8603" placeholder="&quot;￥{new Object[]{goodsListEntity01.getPrice()}}/份&quot;" />
+                <marker date="1471088100000" expanded="false" signature="8658:8754" placeholder="&quot;￥{new Object[]{goodsListEntity01.getMarket_price()}}&quot;" />
+                <marker date="1471088100000" expanded="false" signature="11083:11169" placeholder="&quot;￥{new Object[]{goodsListEntity02.getPrice()}}/份&quot;" />
+                <marker date="1471088100000" expanded="false" signature="11228:11324" placeholder="&quot;￥{new Object[]{goodsListEntity02.getMarket_price()}}&quot;" />
               </folding>
             </state>
           </provider>
@@ -178,7 +171,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SectionedBaseAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+              <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -2700,9 +2693,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/title_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/headerview_goods_fragment.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_goods.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SectionedBaseAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java" />
       </list>
     </option>
   </component>
@@ -4022,12 +4015,6 @@
       <option name="number" value="Default" />
       <updated>1469188779978</updated>
     </task>
-    <task id="LOCAL-00020" summary="1.0.16&#10;">
-      <created>1469599856492</created>
-      <option name="number" value="00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1469599856492</updated>
-    </task>
     <task id="LOCAL-00021" summary="1.0.16&#10;">
       <created>1469599933577</created>
       <option name="number" value="00021" />
@@ -4316,7 +4303,13 @@
       <option name="project" value="LOCAL" />
       <updated>1470999314013</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="1.16.2">
+      <created>1471048463010</created>
+      <option name="number" value="00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1471048463010</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TodoView">
@@ -4451,7 +4444,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java</url>
-          <line>101</line>
+          <line>102</line>
           <properties />
           <option name="timeStamp" value="140" />
         </line-breakpoint>
@@ -5197,20 +5190,20 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SectionedBaseAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <caret line="30" column="25" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21011059">
-          <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.3364929">
+          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
           <folding>
-            <marker date="1470997396000" expanded="false" signature="5792:5878" placeholder="&quot;￥{new Object[]{goodsListEntity01.getPrice()}}/份&quot;" />
-            <marker date="1470997396000" expanded="false" signature="5933:6029" placeholder="&quot;￥{new Object[]{goodsListEntity01.getMarket_price()}}&quot;" />
-            <marker date="1470997396000" expanded="false" signature="8358:8444" placeholder="&quot;￥{new Object[]{goodsListEntity02.getPrice()}}/份&quot;" />
-            <marker date="1470997396000" expanded="false" signature="8503:8599" placeholder="&quot;￥{new Object[]{goodsListEntity02.getMarket_price()}}&quot;" />
+            <marker date="1471088100000" expanded="false" signature="8517:8603" placeholder="&quot;￥{new Object[]{goodsListEntity01.getPrice()}}/份&quot;" />
+            <marker date="1471088100000" expanded="false" signature="8658:8754" placeholder="&quot;￥{new Object[]{goodsListEntity01.getMarket_price()}}&quot;" />
+            <marker date="1471088100000" expanded="false" signature="11083:11169" placeholder="&quot;￥{new Object[]{goodsListEntity02.getPrice()}}/份&quot;" />
+            <marker date="1471088100000" expanded="false" signature="11228:11324" placeholder="&quot;￥{new Object[]{goodsListEntity02.getMarket_price()}}&quot;" />
           </folding>
         </state>
       </provider>
