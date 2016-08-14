@@ -64,10 +64,10 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
     private ImageView iv_bar_main_store_icon;
     private LinearLayout ll_bar_main_store;
     private LinearLayout ll_bar_main_classification;
-    private TextView tv_bar_main_city_name;
-    private TextView tv_bar_main_store_name;
+    private TextView tv_bar_main_city_name;//title中城市选择按钮
+    private TextView tv_bar_main_store_name;//title中店面选择按钮
     private ActivityStateView emptyview_state;
-    private PinnedSectionListView pinnedSectionListView;
+    private PinnedSectionListView pinnedSectionListView;//listview
     private XuXianRefreshLayout bla_goods;
     private LinearLayout headerview_main;
     private RelativeLayout rl_headerview_goods_banner;
@@ -373,6 +373,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                     break;
                 case R.id.ll_bar_main_classification :
                     //// TODO: 16/8/9 选择分类
+                    ActivityUtil.startClassifyActivity(GoodsFragment.this.getActivity());
                     break;
             }
         }

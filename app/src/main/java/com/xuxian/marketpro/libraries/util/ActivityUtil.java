@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.CityListActivity;
+import com.xuxian.marketpro.activity.ClassifyActivity;
 import com.xuxian.marketpro.activity.StoreDetailsActivity;
 import com.xuxian.marketpro.activity.store.StoreFragmentActivity;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
@@ -58,6 +59,15 @@ public class ActivityUtil {
      */
     public static void startTabMainActivity(Context context) {
         context.startActivity(new Intent(context, TabMainFragmentActivity.class));
+    }
+
+    /**
+     * 启动分类Activity
+     * @param context
+     */
+    public static void startClassifyActivity(Context context) {
+        context.startActivity(new Intent(context, ClassifyActivity.class));
+        ((Activity) context).overridePendingTransition(R.anim.fade, R.anim.hold);
     }
 
 }

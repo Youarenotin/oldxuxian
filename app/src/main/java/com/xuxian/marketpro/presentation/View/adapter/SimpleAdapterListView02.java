@@ -15,6 +15,8 @@ import com.ab.util.AbStrUtil;
 import com.ab.util.AbViewUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.xuxian.marketpro.R;
+import com.xuxian.marketpro.presentation.View.listview.PinnedSectionListView;
+import com.xuxian.marketpro.presentation.View.listview.PinnedSectionListView.PinnedSectionListAdapter;
 import com.xuxian.marketpro.presentation.application.MyApplication;
 import com.xuxian.marketpro.presentation.db.ShoppingCartGoodsDb;
 import com.xuxian.marketpro.presentation.entity.GoodsListEntity;
@@ -27,7 +29,7 @@ import java.util.List;
 /**
  * Created by youarenotin on 16/8/9.
  */
-public class SimpleAdapterListView02 extends SectionedBaseAdapter {
+public class SimpleAdapterListView02 extends SectionedBaseAdapter implements PinnedSectionListAdapter {
     private Context mContext;
     private ShoppingCartGoodsDb detailsDb;
     private ImageLoader imageLoader;
@@ -103,6 +105,7 @@ public class SimpleAdapterListView02 extends SectionedBaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
             else {
                 viewHolder = new ViewHolder();
+                convertView =View.inflate(mContext,R.layout.gridview_item_listview02,null);
                 viewHolder.ll_goods_01 = (LinearLayout) convertView.findViewById(R.id.ll_goods_01);
                 viewHolder.rl_goods_img_01 = (RelativeLayout) convertView.findViewById(R.id.rl_goods_img_01);
                 viewHolder.iv_goods_img_01 = (ImageView) convertView.findViewById(R.id.iv_goods_img_01);
@@ -228,7 +231,14 @@ public class SimpleAdapterListView02 extends SectionedBaseAdapter {
             viewHolderTitle.title = (TextView) convertView.findViewById(R.id.text1);
             convertView.setTag(viewHolderTitle);
         } else {
+            if (convertView.getTag() instanceof ViewHolderTitle)
             viewHolderTitle = (ViewHolderTitle) convertView.getTag();
+            else {
+                convertView = View.inflate(mContext, R.layout.title_layout, null);
+                viewHolderTitle = new ViewHolderTitle();
+                viewHolderTitle.title = (TextView) convertView.findViewById(R.id.text1);
+                convertView.setTag(viewHolderTitle);
+            }
         }
         if (!(this.mDataList == null || this.mDataList.isEmpty())) {
             viewHolderTitle.title.setText(this.mDataList.get(section).getTitle());

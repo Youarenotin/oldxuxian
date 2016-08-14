@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.xuxian.marketpro.presentation.View.listview.PinnedSectionListView;
+import com.xuxian.marketpro.presentation.View.listview.PinnedSectionListView.PinnedSectionListAdapter;
+
 /**
  * Created by youarenotin on 16/8/9.
  */
@@ -143,10 +146,11 @@ public abstract class SectionedBaseAdapter extends BaseAdapter implements Header
     }
 
     public int getItemViewType(int position){
-        if (isSectionHeader(position)){
+        if (isSectionHeader(position)){//返回1 pinned
             return getItemViewTypeCount()+getSectionHeaderViewType(getSectionForPositon(position));
         }
-        return  getItemViewType(getSectionForPositon(position)+getPositonInSectionForPosition(position));
+        //返回0 不pinned
+        return  getItemViewType(getSectionForPositon(position),getPositonInSectionForPosition(position));
     }
 
     public int getItemViewType(int  section ,int position) {
