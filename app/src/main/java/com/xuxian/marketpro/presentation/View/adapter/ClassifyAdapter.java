@@ -4,9 +4,15 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.xuxian.marketpro.R;
+import com.xuxian.marketpro.presentation.application.MyApplication;
 import com.xuxian.marketpro.presentation.entity.ClassifyEntity;
 
+import java.security.interfaces.ECKey;
 import java.util.List;
 
 /**
@@ -44,7 +50,29 @@ public class ClassifyAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        ShoppingCarHolder holder;
+        if (convertView==null){
+            convertView=View.inflate(mContext, R.layout.classify_item,null);
+            holder=new ShoppingCarHolder();
+            holder.ItemIcon= (ImageView) convertView.findViewById(R.id.classify_item_icon);
+            holder.ItemTitle= (TextView) convertView.findViewById(R.id.classify_item_title);
+            convertView.setTag(holder);
+        }
+        else {
+            holder= (ShoppingCarHolder) convertView.getTag();
+        }
+        holder.ItemTitle.setText(mDataList.get(position).getClassifyname());
+        ImageLoader.getInstance().displayImage(mDataList.get(position).getIcon(),holder.ItemIcon, MyApplication.getInstance().getSampleOptions(R.drawable.default_qita));
 
-        return null;
+        return convertView;
+    }
+
+
+    class ShoppingCarHolder {
+        ImageView ItemIcon;
+        TextView ItemTitle;
+
+        ShoppingCarHolder() {
+        }
     }
 }

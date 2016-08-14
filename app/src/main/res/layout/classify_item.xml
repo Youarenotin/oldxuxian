@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="10.0dip">
+
+    <ImageView
+        android:id="@+id/classify_item_icon"
+        android:layout_width="30.0dip"
+        android:layout_height="30.0dip" />
+
+    <TextView
+        android:id="@+id/classify_item_title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:textColor="@color/splash_green"
+        android:textSize="@dimen/title_layout_text_size" />
+</LinearLayout>
