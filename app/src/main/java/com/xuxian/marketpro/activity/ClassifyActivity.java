@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.xuxian.marketpro.R;
@@ -13,13 +14,12 @@ import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
 import com.xuxian.marketpro.presentation.entity.ClassifyEntity;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by youarenotin on 16/8/14.
  */
-public class ClassifyActivity extends SuperSherlockActivity{
-    private NetworkAsyncTask calssifyAsyncTask;
+public class ClassifyActivity extends SuperSherlockActivity implements AdapterView.OnItemClickListener {
+    private NetworkAsyncTask classifyAsyncTask;
     private ActivityStateView emptyview_state;
     private ClassifyAdapter mAdapter;
     private ListView mClassifyList;
@@ -43,7 +43,9 @@ public class ClassifyActivity extends SuperSherlockActivity{
 
     @Override
     protected void init() {
-
+        this.mAdapter=new ClassifyAdapter(getActivity());
+        mClassifyList.setAdapter(mAdapter);
+        classifyAsyncTask=new NetworkAsyncTask();
     }
 
     @Override
@@ -55,15 +57,20 @@ public class ClassifyActivity extends SuperSherlockActivity{
     protected void initFindViewById() {
         mClassifyList = (ListView) findViewById(R.id.classify_list);
         mClassifyList.setAdapter(mAdapter);
-        emptyview_state= (ActivityStateView) findViewById(R.id.emptyview_state);
+        emptyview_state = (ActivityStateView) findViewById(R.id.emptyview_state);
     }
 
     @Override
     protected void setListener() {
-//        mClassifyList.setOnClickListener();
+        mClassifyList.setOnItemClickListener(this);
     }
 
-    private class NetworkAsyncTask extends AsyncTask<Object,Void,Object> {
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    private class NetworkAsyncTask extends AsyncTask<Object, Void, Object> {
 
         public NetworkAsyncTask() {
         }
@@ -83,8 +90,7 @@ public class ClassifyActivity extends SuperSherlockActivity{
         @Override
         protected void onPostExecute(Object result) {
             super.onPostExecute(result);
-            if (result!=null)
-            {
+            if (result != null) {
 
             }
         }
