@@ -11,7 +11,7 @@ import com.ab.util.AbWifiUtil;
 /**
  * Created by youarenotin on 16/8/15.
  */
-public abstract class AnimeAsyncTask<Params,Progress,Object> extends AsyncTask<Params,Progress,Object>{
+public abstract class AnimeAsyncTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> {
     private ProgressDialog dialog;
     private String loadingText;
     private Activity mContext;
@@ -24,18 +24,30 @@ public abstract class AnimeAsyncTask<Params,Progress,Object> extends AsyncTask<P
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        if (!AbWifiUtil.isConnectivity(mContext)){
-            AbToastUtil.showToast(mContext,"网络没有连接!");
+        if (!AbWifiUtil.isConnectivity(mContext)) {
+            AbToastUtil.showToast(mContext, "网络没有连接!");
         }
-        if (!AbStrUtil.isEmpty(this.loadingText)){
-            showRequestDialog(mContext,loadingText);
+        if (!AbStrUtil.isEmpty(this.loadingText)) {
+            showRequestDialog(mContext, loadingText);
         }
 
     }
 
-    protected  void showRequestDialog(Activity mContext, String loadingText){
-        this.dialog=ProgressDialog.show(mContext,"提示",loadingText);
+    @Override
+    protected void onPostExecute(Result result) {
+        super.onPostExecute(result);
+        dissMissDialog();
+    }
+
+    protected void showRequestDialog(Activity mContext, String loadingText) {
+        this.dialog = ProgressDialog.show(mContext, "提示", loadingText);
         this.dialog.setCanceledOnTouchOutside(false);//不可以触摸dialog外取消
         this.dialog.setCancelable(true);//可以back取消
+    }
+
+    private void dissMissDialog() {
+        if (this.dialog != null && this.dialog.isShowing()) {
+            this.dialog.dismiss();
+        }
     }
 }
