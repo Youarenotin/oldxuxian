@@ -8,6 +8,7 @@ import android.os.Bundle;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.CityListActivity;
 import com.xuxian.marketpro.activity.ClassifyActivity;
+import com.xuxian.marketpro.activity.ClassifyDetailsActivity;
 import com.xuxian.marketpro.activity.StoreDetailsActivity;
 import com.xuxian.marketpro.activity.store.StoreFragmentActivity;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
@@ -70,4 +71,10 @@ public class ActivityUtil {
         ((Activity) context).overridePendingTransition(R.anim.fade, R.anim.hold);
     }
 
+    public static void startClassifyDetailsActivity(Context context, String title, String id) {
+        Intent in = new Intent(context, ClassifyDetailsActivity.class);
+        in.putExtra(ClassifyDetailsActivity.INTENT_ACTION_TITLE, title);
+        in.putExtra(ClassifyDetailsActivity.INTENT_CATEGORYID, id);
+        context.startActivity(in);
+    }
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <GridView
+        android:id="@+id/classify_detail_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="2.0dip"
+        android:horizontalSpacing="2.0dip"
+        android:numColumns="2"
+        android:verticalSpacing="2.0dip" />
+
+    <include layout="@layout/emptyview_layout" />
+</RelativeLayout>

@@ -93,6 +93,8 @@
         <activity android:name=".activity.tab.TabMainFragmentActivity" android:screenOrientation="portrait"/>
         <!--分类-->
         <activity android:name=".activity.ClassifyActivity" android:screenOrientation="portrait"/>
+        <!--详情-->
+        <activity android:name=".activity.ClassifyDetailsActivity" android:screenOrientation="portrait"/>
         <!--高德-->
         <service android:name="com.amap.api.location.APSService"/>
         <!--高德-->
