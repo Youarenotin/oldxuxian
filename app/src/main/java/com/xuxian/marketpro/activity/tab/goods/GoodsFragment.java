@@ -324,6 +324,14 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
     }
 
     @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden){//由hidden到show
+            initTitleBar();
+        }
+    }
+
+    @Override
     protected void initFindViewById(View view) {
         emptyview_state = (ActivityStateView) view.findViewById(R.id.emptyview_state);
         pinnedSectionListView = (PinnedSectionListView) view.findViewById(R.id.pslv_goods);

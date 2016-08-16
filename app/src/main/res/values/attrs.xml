@@ -153,8 +153,8 @@
     <attr name="fadeDegree" format="float" />
     <attr name="selectorEnabled" format="boolean" />
     <attr name="selectorDrawable" format="reference" />
-    <attr name="border_width" format="dimension" />
-    <attr name="border_color" format="color" />
+    <!--<attr name="border_width" format="dimension" />-->
+    <!--<attr name="border_color" format="color" />-->
     <attr name="circlePageIndicatorStyle" format="reference" />
     <attr name="titlePageIndicatorStyle" format="reference" />
     <attr name="centered" format="boolean" />

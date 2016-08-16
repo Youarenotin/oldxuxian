@@ -12,12 +12,15 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.ab.util.AbPreferenceUtils;
 import com.ab.util.AbScreenUtils;
+import com.nostra13.universalimageloader.core.ImageLoader;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.libraries.util.ActivityUtil;
 import com.xuxian.marketpro.presentation.View.widght.CircleImageView;
 import com.xuxian.marketpro.presentation.View.widght.pop.OperationPopupWindow;
+import com.xuxian.marketpro.presentation.application.MyApplication;
 import com.xuxian.marketpro.presentation.db.UserDb;
 import com.xuxian.marketpro.presentation.entity.UserEntity;
 
@@ -50,8 +53,28 @@ public class PersonalCenterFregment extends SuperFragment{
         View view = inflater.inflate(R.layout.personal_center_fragment, null);
         View topView = View.inflate(getActivity(), R.layout.account_header, null);
         initTitleBar();
+        initFindViewById(view);
         initHeaderView(topView);
+        initMenu(topView);
+        setListener();
+        init();
+        getUserInfo();
         return view;
+    }
+
+    private void getUserInfo() {
+
+    }
+
+    private void initMenu(View topView) {
+        this.adapter = new SampleAdapter(getActivity());
+        this.adapter.add(new SampleItem(R.drawable.sliding_my_order, "我的订单"));
+        this.adapter.add(new SampleItem(R.drawable.members_icon, "我的会员"));
+        this.adapter.add(new SampleItem(R.drawable.youhui_icon, "我的优惠券"));
+        this.adapter.add(new SampleItem(R.drawable.qiangxian_icon, "抢鲜"));
+        this.adapter.add(new SampleItem(R.drawable.sliding_mall_icon, "积分商城"));
+        this.lv_account.addHeaderView(topView);
+        this.lv_account.setAdapter(this.adapter);
     }
 
     private void initHeaderView(View topView) {
@@ -86,33 +109,70 @@ public class PersonalCenterFregment extends SuperFragment{
 
     @Override
     protected void init() {
+        this.userDb = new UserDb(getActivity());
+        setData(this.userDb.queryData());
+    }
 
+    public void setData(UserEntity userEntity) {
+        if (userEntity != null) {
+            AbPreferenceUtils.savePrefString(getActivity(), "USER_ID", userEntity.getUserid());
+            this.tv_user_name.setText(userEntity.getUsername());
+            this.tv_point.setText("许鲜币 " + userEntity.getPoint());
+            ImageLoader.getInstance().displayImage(userEntity.getHead_ico(), this.iv_head_icon, MyApplication.getInstance().getSampleOptions(R.drawable.pintuan_default_head_icon));
+            return;
+        }
+        this.tv_user_name.setText("点击登录");
+        this.tv_point.setText(" 许鲜币  0");
+        ImageLoader.getInstance().displayImage("drawable://2130838130", this.iv_head_icon);
     }
 
     @Override
     protected void initTitleBar() {
         if (getTitle_bar() == null) {
             titleBar();
-            setTitle((int) R.string.account);
+            setTitle(R.string.account);
             setTitleLeftText("");
             int statusHeight = AbScreenUtils.getStatusHeight(getActivity());
             setTitleLeftIcon(R.drawable.set, statusHeight - 10, statusHeight - 10);
             setTitleRightIcon(R.drawable.tab_near_icon_grey, statusHeight - 10, statusHeight - 10);
             setTitleLeftViewShow(true);
             setTitleRightViewShow(true);
+            getSherlockActivity().getActionBar().setCustomView(getTitle_bar());
             return;
         }
-        setCustomView(getTitle_bar());
+        getSherlockActivity().getActionBar().setCustomView(getTitle_bar());
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (!hidden){
+            initTitleBar();
+        }
     }
 
     @Override
     protected void initFindViewById(View view) {
-
+        this.lv_account = (ListView) view.findViewById(R.id.lv_account);
     }
 
     @Override
     protected void setListener() {
-
+        BarOnClickListener barOnClickListener = new BarOnClickListener();
+        getTitleLeftClick().setOnClickListener(barOnClickListener);
+        getTitleRightClick().setOnClickListener(barOnClickListener);
+//        UserMonitor.getInstance().register(new UserMonitorCallback() {
+//            public void AppOperation(UserEntity userEntity) {
+//                PersonalCenterFregment.this.setData(userEntity);
+//            }
+//        }, PersonalCenterFregment.class.getName());
+//        RefreshCardMonitor.getInstance().register(new RefreshCardMonitorCallback() {
+//            public void AppOperation(boolean is) {
+//                if (!is) {
+//                    PersonalCenterFregment.this.getUseriInfo();
+//                }
+//            }
+//        }, PersonalCenterFregment.class.getName());
     }
     private class SampleAdapter extends ArrayAdapter<SampleItem> {
         public SampleAdapter(Context context) {
@@ -182,6 +242,18 @@ public class PersonalCenterFregment extends SuperFragment{
         TextView tv_title;
 
         SlidingHolder() {
+        }
+    }
+
+    public class BarOnClickListener implements View.OnClickListener {
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.ll_title_bar_left_click:
+//                    ActivityUtil.startSetActivity(PersonalCenterFregment.this.getActivity());
+                case R.id.ll_title_bar_right_click:
+//                    ActivityUtil.startMessagerActivity(PersonalCenterFregment.this.getActivity());
+                default:
+            }
         }
     }
 }

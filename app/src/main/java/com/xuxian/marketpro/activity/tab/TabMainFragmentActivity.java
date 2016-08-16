@@ -195,17 +195,18 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
 
     private void switchContent(Fragment fragment, String tag) {
         try {
-            if (mContent!=fragment){
+            if (mContent!=fragment){//点击为非当前fragment
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
                 if (fragment.isAdded()){
-                    transaction.hide(fragment);
+                    transaction.hide(mContent).show(fragment).commitAllowingStateLoss();
                 }else{
-                    transaction.add(R.id.rl_tab_fragment_container,fragment,tag).commitAllowingStateLoss();
+                    transaction.hide(mContent).add(R.id.rl_tab_fragment_container,fragment,tag).show(fragment).commitAllowingStateLoss();
                 }
                 for (Button button:mTabs){
                     button.setSelected(false);
                 }
                 mTabs[index].setSelected(true);
+                mContent=fragment;
             }
         } catch (Exception e) {
             e.printStackTrace();
