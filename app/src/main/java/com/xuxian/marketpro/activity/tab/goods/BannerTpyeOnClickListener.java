@@ -70,7 +70,7 @@ public class BannerTpyeOnClickListener implements View.OnClickListener {
                     return;
                 case 6 /*6*/:
                     if (this.tabMainFragmentActivity != null) {
-                        this.tabMainFragmentActivity.personalCenterFregment();
+//                        this.tabMainFragmentActivity.personalCenterFregment();
                         return;
                     }
                     return;

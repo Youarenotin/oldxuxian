@@ -13,7 +13,10 @@ import com.xuxian.marketpro.activity.StoreDetailsActivity;
 import com.xuxian.marketpro.activity.store.StoreFragmentActivity;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
 import com.xuxian.marketpro.activity.tab.TabMainFragmentActivity;
+import com.xuxian.marketpro.activity.tab.forums.activity.ForumListActivity;
 import com.xuxian.marketpro.presentation.entity.CityEntity;
+import com.xuxian.marketpro.presentation.entity.ForumsInfoEntity;
+import com.xuxian.marketpro.presentation.entity.ForumsInfoEntity.DataEntity.ForumsEntity;
 import com.xuxian.marketpro.presentation.entity.StoreEntity;
 
 /**
@@ -71,10 +74,29 @@ public class ActivityUtil {
         ((Activity) context).overridePendingTransition(R.anim.fade, R.anim.hold);
     }
 
+    /**
+     * 启动分类详细Activity
+     * @param context
+     * @param title
+     * @param id
+     */
     public static void startClassifyDetailsActivity(Context context, String title, String id) {
         Intent in = new Intent(context, ClassifyDetailsActivity.class);
         in.putExtra(ClassifyDetailsActivity.INTENT_ACTION_TITLE, title);
         in.putExtra(ClassifyDetailsActivity.INTENT_CATEGORYID, id);
         context.startActivity(in);
+    }
+
+    /**
+     *
+     * @param mContext
+     * @param entity
+     */
+    public static void startForumListActivity(Context mContext, ForumsEntity forums) {
+        Intent in = new Intent(mContext, ForumListActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(SuperSherlockActivity.INTENT_OBJECT, forums);
+        in.putExtra(SuperSherlockActivity.INTENT_BUNDLE, bundle);
+        mContext.startActivity(in);
     }
 }

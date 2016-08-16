@@ -17,6 +17,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.xuxian.marketpro.R;
+import com.xuxian.marketpro.libraries.util.ActivityUtil;
 import com.xuxian.marketpro.presentation.db.UserDb;
 import com.xuxian.marketpro.presentation.entity.ForumsInfoEntity;
 import com.xuxian.marketpro.presentation.entity.ForumsInfoEntity.DataEntity.ForumsEntity;
@@ -122,7 +123,7 @@ public class ForumsAdapter extends BaseAdapter{
         @Override
         public void onClick(View v) {
             if (ForumsAdapter.this.userDb.queryData() != null) {
-//                ActivityUtil.startForumListActivity(ForumsAdapter.this.mContext, this.entity);
+               ActivityUtil.startForumListActivity(ForumsAdapter.this.mContext, this.entity);
             } else {
 //                ActivityUtil.startLoginActivity(ForumsAdapter.this.mContext);
             }

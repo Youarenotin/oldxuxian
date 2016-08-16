@@ -1,5 +1,6 @@
 package com.xuxian.marketpro.presentation.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -107,7 +108,7 @@ public class ForumsInfoEntity {
             this.forums = forums;
         }
 
-        public static class ForumsEntity {
+        public static class ForumsEntity implements Serializable{
             private String article;
             private String created_userid;
             private String vieworder;

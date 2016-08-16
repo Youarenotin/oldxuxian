@@ -39,7 +39,6 @@ public class ForumsFragment extends SuperFragment implements XuXianRefreshLayout
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_forums_layout, null);
-
         initTitleBar();
         initFindViewById(view);
         setListener();
@@ -118,7 +117,7 @@ public class ForumsFragment extends SuperFragment implements XuXianRefreshLayout
 
         if (getTitle_bar() == null) {
             titleBar();
-            setTitle("\u9644\u8fd1");
+            setTitle("附近");
             setTitleLeftViewShow(false);
             setTitleRightViewShow(false);
             getSherlockActivity().getSupportActionBar().setCustomView(getTitle_bar());
