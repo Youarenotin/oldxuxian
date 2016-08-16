@@ -137,7 +137,7 @@ public class SimpleAdapterListView02 extends SectionedBaseAdapter implements Pin
         }
         int position01 = position * 2;
         int position02 = (position * 2) + 1;
-        GoodsListEntity goodsListEntity01 = (GoodsListEntity) ((GoodsEntity) this.mDataList.get(section)).getGoods().get(position01);
+        GoodsListEntity goodsListEntity01 = this.mDataList.get(section).getGoods().get(position01);
         viewHolder.ll_goods_01.setVisibility(View.VISIBLE);
         viewHolder.ll_goods_02.setVisibility(View.INVISIBLE);
         viewHolder.tv_goods_name_01.setText(goodsListEntity01.getTitle());
@@ -171,8 +171,8 @@ public class SimpleAdapterListView02 extends SectionedBaseAdapter implements Pin
             viewHolder.iv_goods_tipsim_01.setVisibility(View.VISIBLE);
             this.imageLoader.displayImage(goodsListEntity01.getTipsimg(), viewHolder.iv_goods_tipsim_01, MyApplication.getInstance().getSampleOptions(R.drawable.default_tipsimg), new AnimateFirstDisplayListenerTipsimg(this.screenWidth));
         }
-        if (position02 < ((GoodsEntity) this.mDataList.get(section)).getGoods().size()) {
-            GoodsListEntity goodsListEntity02 = (GoodsListEntity) ((GoodsEntity) this.mDataList.get(section)).getGoods().get(position02);
+        if (position02 < this.mDataList.get(section).getGoods().size()) {
+            GoodsListEntity goodsListEntity02 = this.mDataList.get(section).getGoods().get(position02);
             viewHolder.ll_goods_01.setVisibility(View.VISIBLE);
             viewHolder.ll_goods_02.setVisibility(View.VISIBLE);
             viewHolder.tv_goods_name_02.setText(goodsListEntity02.getTitle());

@@ -29,19 +29,19 @@
 
             <Button
                 android:id="@+id/btn_tab_main"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="@color/white"
-                android:drawableTop="@drawable/tab_main_bg"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:onClick="onTabClicked"
-                android:paddingBottom="2.0dip"
-                android:paddingTop="7.0dip"
-                android:scaleType="matrix"
-                android:text="主页"
-                android:textColor="@color/tab_botton_text_color"
-                android:textSize="10.0sp"/>
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/white"
+            android:drawableTop="@drawable/tab_main_bg"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:onClick="onTabClicked"
+            android:paddingBottom="2.0dip"
+            android:paddingTop="7.0dip"
+            android:scaleType="matrix"
+            android:text="主页"
+            android:textColor="@color/tab_botton_text_color"
+            android:textSize="10.0sp"/>
         </com.xuxian.marketpro.presentation.View.widght.RippView>
 
         <com.xuxian.marketpro.presentation.View.widght.RippView
@@ -60,7 +60,9 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="@color/white"
-                android:drawableTop="@drawable/tab_shopping_cart_bg"
+                android:drawableTop="@drawable/tab_main_bg"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:onClick="onTabClicked"
                 android:paddingBottom="2.0dip"
                 android:paddingTop="7.0dip"
