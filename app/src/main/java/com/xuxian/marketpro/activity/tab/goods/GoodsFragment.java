@@ -317,10 +317,10 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
             tv_bar_main_store_name = (TextView) bar_view_layout.findViewById(R.id.tv_bar_main_store_name);
             ll_bar_main_store.setBackgroundResource(R.drawable.btn_store_selector);
             ll_bar_main_classification.setBackgroundResource(R.drawable.btn_store_selector);
-            getSherlockActivity().getActionBar().setCustomView(bar_view_layout);
+            getSherlockActivity().getSupportActionBar().setCustomView(bar_view_layout);
             return;
         }
-        getSherlockActivity().getActionBar().setCustomView(bar_view_layout);
+        getSherlockActivity().getSupportActionBar().setCustomView(bar_view_layout);
     }
 
     @Override

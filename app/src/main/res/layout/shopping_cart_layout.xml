@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/shopping_car_fragment"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_shopping_cart_store"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:padding="10.0dip">
+
+        <ImageView
+            android:id="@+id/iv_shopping_cart_store_jiantou"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5.0dip"
+            android:src="@drawable/right_arrow_white_icon" />
+
+        <TextView
+            android:id="@+id/tv_shopping_cart_store_choose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
+            android:layout_toLeftOf="@+id/iv_shopping_cart_store_jiantou"
+            android:text="更换配送方式"
+            android:textColor="@color/white"
+            android:textSize="12.0sp" />
+
+        <TextView
+            android:id="@+id/tv_shopping_cart_store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10.0dip"
+            android:layout_toLeftOf="@+id/tv_shopping_cart_store_choose"
+            android:lines="1"
+            android:singleLine="true"
+            android:text="店面"
+            android:textColor="@color/white"
+            android:textSize="@dimen/title_layout_text_size" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_shopping_cart_bottom_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:padding="5.0dip">
+
+        <RelativeLayout
+            android:id="@+id/rl_shopping_cart_settlement"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btn_shopping_cart_settlement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_bg_green"
+                android:gravity="center"
+                android:text="去结算"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btn_shopping_cart_settlement"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10.0dip"
+                    android:gravity="center"
+                    android:text="总计: "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/title_layout_text_size" />
+
+                <TextView
+                    android:id="@+id/shopping_cart_always_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="20.0dip"
+                    android:gravity="center"
+                    android:text="￥0.00"
+                    android:textColor="@color/price_text_color"
+                    android:textSize="@dimen/title_layout_text_size" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_shopping_cart_delete"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible">
+
+            <CheckBox
+                android:id="@+id/cb_all_selected"
+                style="@style/CustomCheckboxTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginRight="5.0dip" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/cb_all_selected"
+                android:text="全选" />
+
+            <Button
+                android:id="@+id/btn_shopping_cart_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/btn_bg_green"
+                android:gravity="center"
+                android:text="删除"
+                android:textColor="@color/white"
+                android:visibility="visible" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_default_shopping_car_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/default_shopping_car_img" />
+
+        <TextView
+            android:id="@+id/tv_shopping_car_massage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/green" />
+    </LinearLayout>
+
+    <com.xuxian.marketpro.presentation.View.listview.ShoppingCarListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/rl_shopping_cart_bottom_view"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rl_shopping_cart_store" />
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:layout_above="@+id/rl_shopping_cart_bottom_view"
+        android:background="@color/gray" />
+
+    <include layout="@layout/emptyview_layout" />
+</RelativeLayout>
