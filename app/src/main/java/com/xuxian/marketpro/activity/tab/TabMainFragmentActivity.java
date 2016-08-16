@@ -90,7 +90,7 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
         this.tv_tab_shopping_number = (TextView) findViewById(R.id.tv_tab_shopping_number);
         this.mTabs = new Button[4];
         this.mTabs[0] = (Button) findViewById(R.id.btn_tab_main);
-        this.mTabs[1] = (Button) findViewById(R.id.btn_tab_shopping_cart);
+        this.mTabs[1] = (Button) findViewById(R.id.btn_tab_shopping_cart1);
         this.mTabs[2] = (Button) findViewById(R.id.btn_tab_near);
         this.mTabs[3] = (Button) findViewById(R.id.btn_tab_me);
         this.mTabs[0].setSelected(true);
@@ -142,7 +142,7 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
             case R.id.btn_tab_main://商品tab
                 goodsFragment();
                 break;
-            case R.id.btn_tab_shopping_cart://购物车tab
+            case R.id.btn_tab_shopping_cart1://购物车tab
                 shoppingCarFragment();
                 break;
             case R.id.btn_tab_near://附近tab
@@ -173,7 +173,7 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
     private void shoppingCarFragment() {
         this.clickedNumber=0;
         if (index!=1){
-            //// TODO: 16/8/2 从别的tab调到购物车刷新购物车
+            //// TODO: 16/8/2 从别的tab调到购物车刷新购物车 刷新购物车
         }
         index=1;
         if(shoppingCartFragment==null)
