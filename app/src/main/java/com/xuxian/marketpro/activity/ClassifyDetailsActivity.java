@@ -9,13 +9,20 @@ import com.ab.http.AbHttpUtil;
 import com.ab.http.AbRequestParams;
 import com.ab.http.IHttpResponseCallBack;
 import com.ab.util.AbPreferenceUtils;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.store.StoreFragmentActivity;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
 import com.xuxian.marketpro.net.NewIssRequest;
+import com.xuxian.marketpro.net.entity.ResultDataEntity;
+import com.xuxian.marketpro.net.entity.ResultDataEntity.StatusEntity;
 import com.xuxian.marketpro.presentation.View.adapter.PublicListAdapter;
 import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
+import com.xuxian.marketpro.presentation.entity.CityEntity;
 import com.xuxian.marketpro.presentation.entity.GoodsListEntity;
+
+import java.util.List;
 
 /**
  * Created by youarenotin on 16/8/15.
@@ -48,7 +55,7 @@ public class ClassifyDetailsActivity extends SuperSherlockActivity {
     @Override
     protected void init() {
         mAdapter = new PublicListAdapter(getActivity());
-        gridView.setAdapter(mAdapter);
+
         emptyview_state.setVisibility(View.VISIBLE);
         emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_LOADING);
 
@@ -56,11 +63,15 @@ public class ClassifyDetailsActivity extends SuperSherlockActivity {
         AbRequestParams params=new AbRequestParams();
         params.put("locationid",mSiteId);
         params.put(ClassifyDetailsActivity.INTENT_CATEGORYID,mCategoryid);
+        requestData(params);
+    }
+
+    private void requestData(AbRequestParams params) {
         AbHttpUtil.getInstance(getActivity()).postAndParse(
                 NewIssRequest.GETGOODSLIST,
                 params,
-                GoodsListEntity.class,
-                new IHttpResponseCallBack<GoodsListEntity>() {
+                String.class,
+                new IHttpResponseCallBack<String>() {
                     @Override
                     public void EndToParse() {
 
@@ -69,6 +80,17 @@ public class ClassifyDetailsActivity extends SuperSherlockActivity {
                     @Override
                     public void FailedParseBean(String str) {
                         emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_NETWORK_ERROR);
+                        emptyview_state.setClickable(true);
+                        emptyview_state.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                int mSiteId = AbPreferenceUtils.loadPrefInt(getActivity(), StoreFragmentActivity.SITE_ID, 0);
+                                AbRequestParams params=new AbRequestParams();
+                                params.put("locationid",mSiteId);
+                                params.put(ClassifyDetailsActivity.INTENT_CATEGORYID,mCategoryid);
+                                requestData(params);
+                            }
+                        });
                     }
 
                     @Override
@@ -77,8 +99,40 @@ public class ClassifyDetailsActivity extends SuperSherlockActivity {
                     }
 
                     @Override
-                    public void SucceedParseBean(GoodsListEntity goodsListEntity) {
+                    public void SucceedParseBean(String result) {
+                        ResultDataEntity<GoodsListEntity> resultDataEntity=new ResultDataEntity<GoodsListEntity>();
+                        JSONObject jsonObject = JSONObject.parseObject(result);
+                        if (jsonObject.containsKey("status")){
+                            resultDataEntity.setStatus(JSON.parseObject(jsonObject.getString("status"),StatusEntity.class));
+                        }
+                        if (jsonObject.containsKey("data")){
+                            resultDataEntity.setDataList(JSON.parseArray(jsonObject.getString("data"),GoodsListEntity.class));
+                        }
 
+                        if (resultDataEntity.getStatus().getCode()==0) {
+                            if (resultDataEntity!=null && resultDataEntity.getDataList()!=null && !resultDataEntity.getDataList().isEmpty()){
+                                mAdapter.setData(resultDataEntity.getDataList());
+                                gridView.setAdapter(mAdapter);
+                                emptyview_state.setVisibility(View.GONE);
+                                return ;
+                            }
+                            emptyview_state.setNodataText("没有商品");
+                            emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_NODATA);
+                        }
+                        else {
+                            emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_NETWORK_ERROR);
+                            emptyview_state.setClickable(true);
+                            emptyview_state.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    int mSiteId = AbPreferenceUtils.loadPrefInt(getActivity(), StoreFragmentActivity.SITE_ID, 0);
+                                    AbRequestParams params=new AbRequestParams();
+                                    params.put("locationid",mSiteId);
+                                    params.put(ClassifyDetailsActivity.INTENT_CATEGORYID,mCategoryid);
+                                    requestData(params);
+                                }
+                            });
+                        }
                     }
                 }
         );
