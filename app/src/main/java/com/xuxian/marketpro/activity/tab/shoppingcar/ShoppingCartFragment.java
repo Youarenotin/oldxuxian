@@ -11,14 +11,18 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.ab.http.IHttpResponseCallBack;
 import com.ab.util.AbScreenUtils;
 import com.ab.util.AbViewUtil;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.presentation.View.listview.ShoppingCarListView;
 import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
+import com.xuxian.marketpro.presentation.adapter.ShoppingCarAdapter;
 import com.xuxian.marketpro.presentation.db.ShoppingCartGoodsDb;
 import com.xuxian.marketpro.presentation.db.UserDb;
+import com.xuxian.marketpro.presentation.entity.NewCartGoodsEntity;
+import com.xuxian.marketpro.presentation.entity.SureOrderEntity;
 
 /**
  * Created by youarenotin on 16/8/2.
@@ -98,7 +102,7 @@ public class ShoppingCartFragment extends SuperFragment{
         this.rl_shopping_cart_delete = (RelativeLayout) view.findViewById(R.id.rl_shopping_cart_delete);
         this.btn_shopping_cart_delete = (Button) view.findViewById(R.id.btn_shopping_cart_delete);
         this.cb_all_selected = (CheckBox) view.findViewById(R.id.cb_all_selected);
-        this.rl_shopping_cart_delete.setVisibility(4);
+        this.rl_shopping_cart_delete.setVisibility(View.INVISIBLE);
         AbViewUtil.setViewWH(this.btn_shopping_cart_delete, this.screenWidth / 4, AbViewUtil.getViewHeight(this.btn_shopping_cart_settlement));
         this.btn_shopping_cart_settlement.setEnabled(false);
         this.rl_shopping_cart_store = (RelativeLayout) view.findViewById(R.id.rl_shopping_cart_store);
