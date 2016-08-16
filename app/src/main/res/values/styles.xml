@@ -546,44 +546,12 @@
         <item name="android:minWidth">22.0dip</item>
         <item name="android:minHeight">22.0dip</item>
     </style>
-    <style name="MyDialogStyle">
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowFrame">@null</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsFloating">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
-        <item name="android:backgroundDimEnabled">true</item>
-    </style>
-    <style name="grid_item_layout_bottom_height">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">80.0dip</item>
-    </style>
-    <style name="option_height">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">60.0dip</item>
-    </style>
-    <style name="option_height_width">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">60.0dip</item>
-    </style>
+
     <style name="title_layout_height">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">25.0dip</item>
     </style>
-    <style name="details_height_width">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-    <style name="item_pic_height_width">
-        <item name="android:layout_width">80.0dip</item>
-        <item name="android:layout_height">80.0dip</item>
-    </style>
-    <style name="xuxian_icon">
-        <item name="android:layout_width">40.0dip</item>
-        <item name="android:layout_height">30.0dip</item>
-    </style>
+
     <style name="dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@color/sc_transparent_background</item>
         <item name="android:windowFrame">@null</item>
@@ -595,31 +563,7 @@
         <item name="android:windowEnterAnimation">@anim/push_bottom_in</item>
         <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
     </style>
-    <style name="chat_content_date_style">
-        <item name="android:textSize">15.0sp</item>
-        <item name="android:textColor">#ff000000</item>
-        <item name="android:gravity">center</item>
-        <item name="android:background">#ffbfbfbf</item>
-        <item name="android:focusable">true</item>
-        <item name="android:clickable">true</item>
-        <item name="android:minHeight">50.0dip</item>
-        <item name="android:lineSpacingExtra">2.0dip</item>
-    </style>
-    <style name="chat_text_name_style">
-        <item name="android:textSize">15.0sp</item>
-        <item name="android:textColor">#ff818181</item>
-        <item name="android:gravity">center</item>
-    </style>
-    <style name="chat_text_date_style">
-        <item name="android:textSize">12.0sp</item>
-        <item name="android:textColor">@color/btn_gray_normal</item>
-        <item name="android:background">@drawable/timestampe_bg</item>
-        <item name="android:padding">2.0dip</item>
-        <item name="android:paddingLeft">12.0dip</item>
-        <item name="android:paddingTop">2.0dip</item>
-        <item name="android:paddingRight">12.0dip</item>
-        <item name="android:paddingBottom">2.0dip</item>
-    </style>
+
     <style name="AnimFade" parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
         <item name="android:activityOpenExitAnimation">@anim/hold</item>
@@ -686,11 +630,7 @@
         <item name="android:windowAnimationStyle">@style/AnimHead</item>
         <item name="android:backgroundDimEnabled">false</item>
     </style>
-    <style name="devide_line_eee">
-        <item name="android:background">#ffeeeeee</item>
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">1.5dip</item>
-    </style>
+
     <style name="bottom_line_edit_text_style" parent="@android:style/Widget.EditText">
         <item name="android:gravity">center_vertical</item>
         <item name="android:background">@drawable/edit_text_bg</item>
@@ -720,32 +660,7 @@
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowCloseOnTouchOutside">false</item>
     </style>
-    <style name="Dialog_bocop">
-        <item name="android:windowBackground">@color/bocop_dialog_bg</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
-    </style>
-    <style name="transparent_activity">
-        <item name="android:windowBackground">@color/mytransparent</item>
-        <item name="android:windowFrame">@null</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowAnimationStyle">@style/AnimBottom</item>
-        <item name="android:backgroundDimEnabled">true</item>
-    </style>
-    <style name="WrapMatch">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">fill_parent</item>
-    </style>
-    <style name="MatchWrap">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-    <style name="WrapWrap">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
+
     <style name="MatchMatch">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">fill_parent</item>
@@ -755,39 +670,7 @@
         <item name="android:layout_height">0.0dip</item>
         <item name="android:layout_weight">1.0</item>
     </style>
-    <style name="AutoMatch">
-        <item name="android:layout_width">0.0dip</item>
-        <item name="android:layout_height">fill_parent</item>
-        <item name="android:layout_weight">1.0</item>
-    </style>
-    <style name="WrapAuto">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">0.0dip</item>
-        <item name="android:layout_weight">1.0</item>
-    </style>
-    <style name="AutoWrap">
-        <item name="android:layout_width">0.0dip</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1.0</item>
-    </style>
-    <style name="WrapMatch.Vertical" parent="@style/WrapMatch">
-        <item name="android:orientation">vertical</item>
-    </style>
-    <style name="WrapMatch.Horizontal" parent="@style/WrapMatch">
-        <item name="android:orientation">horizontal</item>
-    </style>
-    <style name="MatchWrap.Vertical" parent="@style/MatchWrap">
-        <item name="android:orientation">vertical</item>
-    </style>
-    <style name="MatchWrap.Horizontal" parent="@style/MatchWrap">
-        <item name="android:orientation">horizontal</item>
-    </style>
-    <style name="WrapWrap.Vertical" parent="@style/WrapWrap">
-        <item name="android:orientation">vertical</item>
-    </style>
-    <style name="WrapWrap.Horizontal" parent="@style/WrapWrap">
-        <item name="android:orientation">horizontal</item>
-    </style>
+
     <style name="MatchMatch.Vertical" parent="@style/MatchMatch">
         <item name="android:orientation">vertical</item>
     </style>
@@ -799,31 +682,5 @@
     </style>
     <style name="MatchAuto.Horizontal" parent="@style/MatchAuto">
         <item name="android:orientation">horizontal</item>
-    </style>
-    <style name="AutoMatch.Vertical" parent="@style/AutoMatch">
-        <item name="android:orientation">vertical</item>
-    </style>
-    <style name="AutoMatch.Horizontal" parent="@style/AutoMatch">
-        <item name="android:orientation">horizontal</item>
-    </style>
-    <style name="WrapAuto.Vertical" parent="@style/WrapAuto">
-        <item name="android:orientation">vertical</item>
-    </style>
-    <style name="WrapAuto.Horizontal" parent="@style/WrapAuto">
-        <item name="android:orientation">horizontal</item>
-    </style>
-    <style name="AutoWrap.Vertical" parent="@style/AutoWrap">
-        <item name="android:orientation">vertical</item>
-    </style>
-    <style name="AutoWrap.Horizontal" parent="@style/AutoWrap">
-        <item name="android:orientation">horizontal</item>
-    </style>
-    <style name="MatchOne">
-        <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">1.0px</item>
-    </style>
-    <style name="OneMatch">
-        <item name="android:layout_width">1.0px</item>
-        <item name="android:layout_height">fill_parent</item>
     </style>
 </resources>
