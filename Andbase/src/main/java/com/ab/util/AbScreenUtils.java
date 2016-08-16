@@ -1,6 +1,7 @@
 package com.ab.util;
 
 import android.content.Context;
+import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
 
@@ -27,4 +28,14 @@ public class AbScreenUtils {
         return outMetrics.heightPixels;
     }
 
+    public static int getStatusHeight(Context context) {
+        int statusHeight = -1;
+        try {
+            Class<?> clazz = Class.forName("com.android.internal.R$dimen");
+            statusHeight = context.getResources().getDimensionPixelSize(Integer.parseInt(clazz.getField("status_bar_height").get(clazz.newInstance()).toString()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return statusHeight;
+    }
 }

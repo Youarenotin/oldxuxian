@@ -12,11 +12,14 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.ab.util.AbScreenUtils;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.libraries.util.ActivityUtil;
 import com.xuxian.marketpro.presentation.View.widght.CircleImageView;
+import com.xuxian.marketpro.presentation.View.widght.pop.OperationPopupWindow;
 import com.xuxian.marketpro.presentation.db.UserDb;
+import com.xuxian.marketpro.presentation.entity.UserEntity;
 
 /**
  * Created by youarenotin on 16/8/2.
@@ -46,7 +49,39 @@ public class PersonalCenterFregment extends SuperFragment{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.personal_center_fragment, null);
         View topView = View.inflate(getActivity(), R.layout.account_header, null);
+        initTitleBar();
+        initHeaderView(topView);
         return view;
+    }
+
+    private void initHeaderView(View topView) {
+        this.ll_user_information = (LinearLayout) topView.findViewById(R.id.ll_user_information);
+        this.tv_user_name = (TextView) topView.findViewById(R.id.tv_user_name);
+        this.iv_head_icon = (CircleImageView) topView.findViewById(R.id.iv_head_icon);
+        this.ll_management_shipping_address = (LinearLayout) topView.findViewById(R.id.ll_management_shipping_address);
+        this.iv_head_icon.setBorderColor(getResources().getColor(R.color.white));
+        this.iv_head_icon.setBorderWidth(8);
+//        this.iv_head_icon.setNeedshowline(true);
+        this.tv_point = (TextView) topView.findViewById(R.id.tv_point);
+        this.ll_user_information.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                UserEntity userEntity = PersonalCenterFregment.this.userDb.queryData();
+                if (userEntity != null) {
+//                    ActivityUtil.startPersonalInformationActivity(PersonalCenterFregment.this.getActivity(), userEntity);
+                } else {
+//                    ActivityUtil.startLoginActivity(PersonalCenterFregment.this.getActivity());
+                }
+            }
+        });
+        this.ll_management_shipping_address.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (PersonalCenterFregment.this.userDb.queryData() != null) {
+//                    ActivityUtil.startChooseShippingAddressActivity(PersonalCenterFregment.this.getActivity(), 1);
+                } else {
+//                    ActivityUtil.startLoginActivity(PersonalCenterFregment.this.getActivity());
+                }
+            }
+        });
     }
 
     @Override
@@ -56,7 +91,18 @@ public class PersonalCenterFregment extends SuperFragment{
 
     @Override
     protected void initTitleBar() {
-
+        if (getTitle_bar() == null) {
+            titleBar();
+            setTitle((int) R.string.account);
+            setTitleLeftText("");
+            int statusHeight = AbScreenUtils.getStatusHeight(getActivity());
+            setTitleLeftIcon(R.drawable.set, statusHeight - 10, statusHeight - 10);
+            setTitleRightIcon(R.drawable.tab_near_icon_grey, statusHeight - 10, statusHeight - 10);
+            setTitleLeftViewShow(true);
+            setTitleRightViewShow(true);
+            return;
+        }
+        setCustomView(getTitle_bar());
     }
 
     @Override
