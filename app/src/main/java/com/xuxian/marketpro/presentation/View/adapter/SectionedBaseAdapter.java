@@ -25,7 +25,7 @@ public abstract class SectionedBaseAdapter extends BaseAdapter implements Header
     private SparseArray<Integer> mSectionCountCache = new SparseArray<>();
     private SparseArray<Integer> mSectionPostionCache = new SparseArray<>();
 
-    public abstract int getCountForSection(int i);
+    public abstract int getCountForSection(int section);
 
     public abstract Object getItem(int section, int postion);
 

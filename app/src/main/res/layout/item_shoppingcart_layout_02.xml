@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10.0dip">
+
+        <CheckBox
+            android:id="@+id/cb_shopping_cart_checkbox"
+            style="@style/CustomCheckboxTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="5.0dip"
+            android:clickable="false"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/iv_shopping_cart_img"
+            android:layout_width="100.0dip"
+            android:layout_height="50.0dip"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_newimg" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_shopping_cart_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:ellipsize="end"
+                android:gravity="top"
+                android:lines="2"
+                android:text="Hello World"
+                android:textSize="@dimen/text_title_size" />
+
+            <TextView
+                android:id="@+id/tv_shopping_cart_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/tv_shopping_cart_title"
+                android:layout_marginLeft="10.0dip"
+                android:gravity="center"
+                android:text="1.06元"
+                android:textColor="@color/price_text_color"
+                android:textSize="@dimen/text_title_size" />
+
+            <ImageView
+                android:id="@+id/iv_shop_car_tipsimg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/tv_shopping_cart_title"
+                android:layout_marginLeft="10.0dip"
+                android:layout_toRightOf="@+id/tv_shopping_cart_price"
+                android:src="@drawable/default_tipsimg" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_shopping_cart_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="10.0dip"
+            android:text="1份"
+            android:textSize="@dimen/text_title_size" />
+    </LinearLayout>
+</LinearLayout>

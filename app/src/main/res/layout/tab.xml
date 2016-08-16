@@ -78,7 +78,7 @@
                 android:background="@drawable/unread_count_bg"
                 android:gravity="center"
                 android:text="0"
-                android:textColor="@*android:color/white"
+                android:textColor="@android:color/white"
                 android:textSize="12.0sp"
                 android:visibility="gone"/>
         </com.xuxian.marketpro.presentation.View.widght.RippView>
