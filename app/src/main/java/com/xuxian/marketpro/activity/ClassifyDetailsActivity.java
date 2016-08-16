@@ -19,10 +19,7 @@ import com.xuxian.marketpro.net.entity.ResultDataEntity;
 import com.xuxian.marketpro.net.entity.ResultDataEntity.StatusEntity;
 import com.xuxian.marketpro.presentation.View.adapter.PublicListAdapter;
 import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
-import com.xuxian.marketpro.presentation.entity.CityEntity;
 import com.xuxian.marketpro.presentation.entity.GoodsListEntity;
-
-import java.util.List;
 
 /**
  * Created by youarenotin on 16/8/15.
