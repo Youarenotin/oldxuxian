@@ -10,13 +10,25 @@ import android.widget.TextView;
 
 import com.ab.http.AbHttpUtil;
 import com.ab.http.IHttpResponseCallBack;
+import com.ab.util.AbDialogUtil;
+import com.ab.util.AbPreferenceUtils;
+import com.ab.util.AbToastUtil;
 import com.easyandroidanimations.library.BounceAnimation;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
+import com.xuxian.marketpro.libraries.util.monitor.GoodsMonitor;
+import com.xuxian.marketpro.libraries.util.monitor.monitor;
+import com.xuxian.marketpro.libraries.util.monitor.monitor.AddressCartEnum;
 import com.xuxian.marketpro.net.NewIssRequest;
 import com.xuxian.marketpro.net.RequestParamsNet;
 import com.xuxian.marketpro.presentation.db.UserDb;
 import com.xuxian.marketpro.presentation.entity.LoginEntity;
+import com.xuxian.marketpro.presentation.entity.UserEntity;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by youarenotin on 16/8/17.
@@ -35,6 +47,11 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
     private IHttpResponseCallBack<LoginEntity> loginHttpResponseCallBack;
     private TextView tv_login_find_password;
     private UserDb userDb;
+
+    public LoginActivity() {
+        userDb =new UserDb(getActivity());
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +74,7 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
 
     @Override
     protected void initTitleBar() {
-        setTitle((int) R.string.login_title);
+        setTitle(R.string.login_title);
         setTitleLeftViewBg(R.drawable.btn_bg_gray);
     }
 
@@ -83,20 +100,54 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
 
             @Override
             public void FailedParseBean(String str) {
-
+                dismissLoadingDialog();
+                AbToastUtil.showToast(LoginActivity.this.getActivity(), "网络不给力,请重试");
             }
 
             @Override
             public void StartToParse() {
-
+                showLoadingDialog("正在登录");
             }
 
             @Override
-            public void SucceedParseBean(LoginEntity loginEntity) {
-
+            public void SucceedParseBean(LoginEntity t) {
+                dismissLoadingDialog();
+                if (t != null && AbDialogUtil.isStatus(LoginActivity.this, t.getStatus().getCode(),t.getStatus().getMessage())) {
+                    UserEntity userEntity = t.getData();
+                    if (userEntity == null) {
+                        return;
+                    }
+                    if (userEntity.getUsers() == null || userEntity.getUsers().isEmpty() || userEntity.getUsers().size() <= 1) {
+                        AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_ID, userEntity.getUserid());
+                        AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_TOKEN, userEntity.getToken());
+                        AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_EMAIL, userEntity.getEmail());
+                        AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_NAME, userEntity.getUsername());
+                        AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_PHONE, userEntity.getPhone());
+                        AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_HEAD_ICON, userEntity.getHead_ico());
+                        userDb.saveData(userEntity);
+                        GoodsMonitor.getInstance().issueGoodsMonitorCallback(monitor.GoodsEnum.REFRESH_LISTVIEW);
+//                        AddressMonitor.getInstance().IssuedMonitor(AddressCartEnum.QUERY_ALL_ADDRESSES, null);
+//                        UserMonitor.getInstance().IssuedMonitor(userEntity);
+                        return;
+                    }
+                    List<String> userNameList = new ArrayList();
+                    Map<String, UserEntity> mapUser = new HashMap();
+                    for (UserEntity loginDto : userEntity.getUsers()) {
+                        mapUser.put(loginDto.getUsername(), loginDto);
+                        userNameList.add(loginDto.getUsername());
+                    }
+                    String[] usersItems = new String[userNameList.size()];
+                    userNameList.toArray(usersItems);
+                    loginSuccess(userEntity, usersItems, mapUser);
+                }
             }
         };
     }
+
+    private void loginSuccess(UserEntity userEntity, String[] usersItems, Map<String, UserEntity> mapUser) {
+
+    }
+
 
     @Override
     public void onClick(View v) {

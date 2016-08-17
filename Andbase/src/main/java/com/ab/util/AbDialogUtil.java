@@ -352,6 +352,16 @@ public class AbDialogUtil {
 	    return newFragment;
 	}
 
+	public static boolean isStatus(Activity context, int code, String message) {
+		if (code!= 1 && code != 404) {
+			return true;
+		}
+		if (!(context == null || context.isFinishing())) {
+			showDialog(context, message, true);
+		}
+		return false;
+	}
+
 	static class  	MyOnClickListner implements DialogInterface.OnClickListener{
 		private Activity activity;
 		private boolean isFinish;

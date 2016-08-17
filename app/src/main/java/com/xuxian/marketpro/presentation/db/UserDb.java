@@ -16,7 +16,7 @@ public class UserDb extends AbDBDaoImpl<UserEntity>{
         super(new DBInsideHelper(ct),UserEntity.class);
     }
 
-    public void savaData(UserEntity entity){
+    public void saveData(UserEntity entity){
         startReadableDatabase();
         try{
             insert(entity,false);

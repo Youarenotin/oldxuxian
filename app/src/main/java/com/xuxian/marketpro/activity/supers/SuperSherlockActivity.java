@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ab.util.AbLogUtil;
+import com.ab.util.AbStrUtil;
 import com.ab.util.AbViewUtil;
 import com.ab.view.AbLoadingDialog;
 import com.actionbarsherlock.app.ActionBar;
@@ -80,6 +81,27 @@ public abstract class SuperSherlockActivity  extends SherlockActivity{
                 return false;
             }
         });
+    }
+
+    public int getLoadingStatus() {
+        return this.loadingStatus;
+    }
+
+    public void setLoadingStatus(int loadingStatus) {
+        this.loadingStatus = loadingStatus;
+    }
+
+    public void showLoadingDialog(String title) {
+        if (AbStrUtil.isEmpty(title)) {
+            this.abLoadingDialog.setTitle(getString(R.string.loding_dialog));
+        } else {
+            this.abLoadingDialog.setTitle((CharSequence) title);
+        }
+        this.abLoadingDialog.show();
+    }
+
+    public void dismissLoadingDialog() {
+        this.abLoadingDialog.dismiss();
     }
 
     protected  void titleBar(){
