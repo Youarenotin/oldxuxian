@@ -43,7 +43,6 @@
                 android:imeOptions="actionGo"
                 android:inputType="textPassword"
                 android:padding="10.0dip"
-                android:password="true"
                 android:singleLine="true" />
 
             <TextView

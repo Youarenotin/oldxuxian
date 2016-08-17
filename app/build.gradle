@@ -46,4 +46,5 @@ dependencies {
     compile files('libs/AMap_Location_V2.6.0_20160628.jar')
     compile files('libs/AMap_2DMap_V2.9.0_20160525.jar')
     compile 'com.android.support:recyclerview-v7:22.2.0'
+    compile 'com.github.2359media:EasyAndroidAnimations:0.8'
 }
