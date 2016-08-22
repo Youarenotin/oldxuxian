@@ -12,6 +12,7 @@ import com.xuxian.marketpro.activity.ClassifyActivity;
 import com.xuxian.marketpro.activity.ClassifyDetailsActivity;
 import com.xuxian.marketpro.activity.FindActivity;
 import com.xuxian.marketpro.activity.LoginActivity;
+import com.xuxian.marketpro.activity.RegisteredPhoneCodeActivity;
 import com.xuxian.marketpro.activity.StoreDetailsActivity;
 import com.xuxian.marketpro.activity.store.StoreFragmentActivity;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
@@ -118,5 +119,24 @@ public class ActivityUtil {
      */
     public static void startFindActivity(Activity activity) {
         activity.startActivity(new Intent(activity,FindActivity.class));
+    }
+
+    /**
+     * 注册Activity
+     * @param activity
+     */
+    public static void startRegisterActivity(Activity activity) {
+        activity.startActivity(new Intent(activity,RegisteredPhoneCodeActivity.class));
+    }
+
+    /**
+     * 查看注册时服务条款webview
+     * @param activity
+     * @param url
+     * @param title
+     * @param b
+     */
+    public static void startMessageWebViewActivity(Activity activity, String url, String title, boolean b) {
+
     }
 }

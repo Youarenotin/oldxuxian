@@ -2,18 +2,18 @@
 <items version="2" >
 
     <item
-        jar="/Users/youarenotin/Documents/Repositories/xuxian/app/build/intermediates/exploded-aar/com.android.support/support-v13/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jar="/Users/youarenotin/Documents/Repositories/xuxian/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="22.0.1"
-        sha1="79a5b6d9fbab3b5fb4c6f86a1ed7a17722fd937b">
-        <dex dex="/Users/youarenotin/Documents/Repositories/xuxian/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-22.2.0_5f25801097f3c835d343f1582fada129fda71b83/classes.dex" />
+        sha1="6a69f31131c381c78cf07c448549004bf121075f">
+        <dex dex="/Users/youarenotin/Documents/Repositories/xuxian/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_4f1268c31fa8e2b0f4fcf39e8bb77a19fc4f0889/classes.dex" />
     </item>
     <item
-        jar="/Users/youarenotin/Documents/Repositories/xuxian/app/build/intermediates/exploded-aar/com.android.support/support-v13/22.2.0/jars/classes.jar"
+        jar="/Users/youarenotin/Documents/Repositories/xuxian/app/build/intermediates/exploded-aar/com.github.2359media/EasyAndroidAnimations/0.8/jars/classes.jar"
         jumboMode="true"
         revision="22.0.1"
-        sha1="9aa93835393824b436f366120c9ba8a0260ce75d">
-        <dex dex="/Users/youarenotin/Documents/Repositories/xuxian/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v13-22.2.0_9f4f706b80e977ea43d8cebe03eb7f90fb7d22f5/classes.dex" />
+        sha1="53bb0f9d6f5f063a1a998a074fb1e880e7beba45">
+        <dex dex="/Users/youarenotin/Documents/Repositories/xuxian/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.github.2359media-EasyAndroidAnimations-0.8_db3bbe9c7ca69ab05e2fd5b7de4f5645bd2ded4a/classes.dex" />
     </item>
 
 </items>
