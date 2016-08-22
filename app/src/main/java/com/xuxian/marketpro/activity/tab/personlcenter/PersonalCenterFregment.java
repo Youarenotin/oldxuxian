@@ -220,7 +220,7 @@ public class PersonalCenterFregment extends SuperFragment{
                         }
                     }
                     //没有登录⬇
-//                    ActivityUtil.startLoginActivity(PersonalCenterFregment.this.getActivity());
+                    ActivityUtil.startLoginActivity(PersonalCenterFregment.this.getActivity());
                 }
             });
             return convertView;

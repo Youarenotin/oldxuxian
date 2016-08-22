@@ -3,6 +3,7 @@ package com.xuxian.marketpro.libraries.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
@@ -142,6 +143,16 @@ public class ActivityUtil {
         intent.putExtra(MessageWebViewActivity.INTENT_SHARE,share);
         intent.putExtra(MessageWebViewActivity.INTENT_TITLE,title);
         intent.putExtra(MessageWebViewActivity.INTENT_URL,url);
+        activity.startActivity(intent);
+    }
+
+    /**
+     * 浏览器
+     * @param activity
+     * @param message
+     */
+    public static void startActionView(Activity activity, String message) {
+        Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(message));
         activity.startActivity(intent);
     }
 }

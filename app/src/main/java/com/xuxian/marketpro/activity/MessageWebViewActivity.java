@@ -1,27 +1,35 @@
 package com.xuxian.marketpro.activity;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.ab.http.AbHttpUtil;
 import com.ab.http.IHttpResponseCallBack;
-import com.ab.model.AbPoint;
 import com.ab.util.AbPreferenceUtils;
+import com.ab.util.JsonHelper;
+import com.alibaba.fastjson.JSON;
 import com.xuxian.marketpro.activity.store.StoreFragmentActivity;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
+import com.xuxian.marketpro.libraries.util.ActivityUtil;
 import com.xuxian.marketpro.net.NewIssRequest;
 import com.xuxian.marketpro.net.RequestParamsNet;
+import com.xuxian.marketpro.presentation.View.webview.ProgressWebView;
+import com.xuxian.marketpro.presentation.entity.ClassifyEntity;
 import com.xuxian.marketpro.presentation.entity.SharedContentEntity;
 
-import static android.app.AlertDialog.*;
+import static android.app.AlertDialog.Builder;
+import static android.app.AlertDialog.OnClickListener;
 
 /**
  * Created by youarenotin on 16/8/22.
  */
-public class MessageWebViewActivity extends SuperSherlockActivity{
+public class MessageWebViewActivity extends SuperSherlockActivity {
     public static final String INTENT_SHARE = "share";
     public static final String INTENT_TITLE = "title";
     public static final String INTENT_URL = "url";
@@ -30,7 +38,7 @@ public class MessageWebViewActivity extends SuperSherlockActivity{
     private String title;
     private String url;
     private String user_id;
-//    private ProgressWebView webView;
+    private ProgressWebView webView;
 
 
     @Override
@@ -49,7 +57,54 @@ public class MessageWebViewActivity extends SuperSherlockActivity{
 
     @Override
     protected void init() {
+        webView = new ProgressWebView(getActivity());
+        setContentView(webView);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.setWebViewClient(new WebViewClient() {
+            //加载新的网址不跳转默认浏览器
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+                return true;
+            }
+        });
+        webView.addJavascriptInterface(new Object() {
+            @JavascriptInterface
+            public void toastMessage(String callbackstr) {
+                if (!TextUtils.isEmpty(callbackstr)) {
+                    TransferDetailEntity transferDetailEntity = JsonHelper.parseObjectByJsonStr(callbackstr, TransferDetailEntity.class);
+                    if (transferDetailEntity != null) {
+                        transferDetailByBannerType(getActivity(), transferDetailEntity.bannertype, transferDetailEntity.message);
+                    }
+                }
+            }
+        }, "control");
+        webView.loadUrl(url);
+    }
 
+    private void transferDetailByBannerType(Activity activity, int bannertype, String message) {
+        switch (bannertype) {
+            case 1:
+
+                break;
+            case 2:
+                ClassifyEntity classifyEntity = JSON.parseObject(message, ClassifyEntity.class);
+                ActivityUtil.startClassifyDetailsActivity(getActivity(), classifyEntity.getClassifyname(), classifyEntity.getClassifyid());
+                break;
+            case 3:
+                ActivityUtil.startMessageWebViewActivity(getActivity(), message, "消息", false);
+                break;
+            case 4:
+                ActivityUtil.startActionView(getActivity(), message);
+                break;
+            case 5:
+
+                break;
+            case 6:
+
+                break;
+        }
     }
 
     @Override
@@ -68,13 +123,13 @@ public class MessageWebViewActivity extends SuperSherlockActivity{
         getTitleRightClick().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Builder builder =   new Builder(getActivity());
+                Builder builder = new Builder(getActivity());
                 builder.setTitle("微信分享");
                 builder.setItems(new String[]{"1"}, new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        store_id= AbPreferenceUtils.loadPrefInt(getActivity(), StoreFragmentActivity.SITE_ID,0);
-                        user_id=AbPreferenceUtils.loadPrefString(getActivity(),LoginActivity.USER_ID,"0");
+                        store_id = AbPreferenceUtils.loadPrefInt(getActivity(), StoreFragmentActivity.SITE_ID, 0);
+                        user_id = AbPreferenceUtils.loadPrefString(getActivity(), LoginActivity.USER_ID, "0");
                         AbHttpUtil.getInstance(getActivity()).postAndParse(
                                 NewIssRequest.GET_SHARED_CONTENT,
                                 RequestParamsNet.getInstance(getActivity()).getSharedTitleAndContent(url),
@@ -103,7 +158,7 @@ class shareContentIHttpResponseCallBack implements IHttpResponseCallBack<SharedC
     private int which;
 
     public shareContentIHttpResponseCallBack(int which) {
-        this.which=which;
+        this.which = which;
     }
 
     @Override
