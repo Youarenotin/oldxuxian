@@ -5,9 +5,11 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.AbsoluteLayout;
 
 import com.ab.http.AbHttpUtil;
 import com.ab.http.IHttpResponseCallBack;
@@ -58,6 +60,7 @@ public class MessageWebViewActivity extends SuperSherlockActivity {
     @Override
     protected void init() {
         webView = new ProgressWebView(getActivity());
+        webView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         setContentView(webView);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);

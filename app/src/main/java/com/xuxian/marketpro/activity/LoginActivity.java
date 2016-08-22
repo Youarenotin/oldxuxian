@@ -164,6 +164,10 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
         }
     }
 
+    /**
+     * 点击登录
+     * @param v
+     */
     private void login(View v) {
         //不满足
         if (TextUtils.isEmpty(ed_login_password.getText().toString())&&TextUtils.isEmpty(ed_login_user.getText().toString())){

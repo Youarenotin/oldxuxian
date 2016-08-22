@@ -88,7 +88,7 @@ public class RegisteredPhoneCodeActivity extends SuperSherlockActivity implement
 
                 break;
             case R.id.tv_terms_service:
-                ActivityUtil.startMessageWebViewActivity(getActivity(), "http://www.xuxian.com/index.php?controller=site&action=help&id=59", "服务条款", true);
+                ActivityUtil.startMessageWebViewActivity(getActivity(), "http://www.xuxian.com/index.php?controller=site&action=help&id=59", "服务条款", false);
                 break;
 
         }
