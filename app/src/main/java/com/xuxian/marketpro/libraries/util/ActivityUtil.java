@@ -12,6 +12,7 @@ import com.xuxian.marketpro.activity.ClassifyActivity;
 import com.xuxian.marketpro.activity.ClassifyDetailsActivity;
 import com.xuxian.marketpro.activity.FindActivity;
 import com.xuxian.marketpro.activity.LoginActivity;
+import com.xuxian.marketpro.activity.MessageWebViewActivity;
 import com.xuxian.marketpro.activity.RegisteredPhoneCodeActivity;
 import com.xuxian.marketpro.activity.StoreDetailsActivity;
 import com.xuxian.marketpro.activity.store.StoreFragmentActivity;
@@ -136,7 +137,11 @@ public class ActivityUtil {
      * @param title
      * @param b
      */
-    public static void startMessageWebViewActivity(Activity activity, String url, String title, boolean b) {
-
+    public static void startMessageWebViewActivity(Activity activity, String url, String title, boolean share) {
+        Intent intent = new Intent(activity,MessageWebViewActivity.class);
+        intent.putExtra(MessageWebViewActivity.INTENT_SHARE,share);
+        intent.putExtra(MessageWebViewActivity.INTENT_TITLE,title);
+        intent.putExtra(MessageWebViewActivity.INTENT_URL,url);
+        activity.startActivity(intent);
     }
 }
