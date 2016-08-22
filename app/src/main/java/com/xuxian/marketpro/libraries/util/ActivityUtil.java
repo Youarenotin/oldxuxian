@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.CityListActivity;
 import com.xuxian.marketpro.activity.ClassifyActivity;
 import com.xuxian.marketpro.activity.ClassifyDetailsActivity;
+import com.xuxian.marketpro.activity.LoginActivity;
 import com.xuxian.marketpro.activity.StoreDetailsActivity;
 import com.xuxian.marketpro.activity.store.StoreFragmentActivity;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
@@ -88,7 +90,7 @@ public class ActivityUtil {
     }
 
     /**
-     *
+     * 登录Activity
      * @param mContext
      * @param entity
      */
@@ -98,5 +100,10 @@ public class ActivityUtil {
         bundle.putSerializable(SuperSherlockActivity.INTENT_OBJECT, forums);
         in.putExtra(SuperSherlockActivity.INTENT_BUNDLE, bundle);
         mContext.startActivity(in);
+    }
+
+    public static void startLoginActivity(FragmentActivity activity) {
+        Intent intent = new Intent(activity, LoginActivity.class);
+        activity.startActivity(intent);
     }
 }

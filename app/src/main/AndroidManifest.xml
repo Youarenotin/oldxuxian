@@ -95,6 +95,8 @@
         <activity android:name=".activity.ClassifyActivity" android:screenOrientation="portrait"/>
         <!--详情-->
         <activity android:name=".activity.ClassifyDetailsActivity" android:screenOrientation="portrait"/>
+        <!--登录-->
+        <activity android:name=".activity.LoginActivity" android:screenOrientation="portrait"/>
         <!--高德-->
         <service android:name="com.amap.api.location.APSService"/>
         <!--高德-->

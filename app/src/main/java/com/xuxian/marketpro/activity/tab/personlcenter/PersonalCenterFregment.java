@@ -92,7 +92,7 @@ public class PersonalCenterFregment extends SuperFragment{
                 if (userEntity != null) {
 //                    ActivityUtil.startPersonalInformationActivity(PersonalCenterFregment.this.getActivity(), userEntity);
                 } else {
-//                    ActivityUtil.startLoginActivity(PersonalCenterFregment.this.getActivity());
+                    ActivityUtil.startLoginActivity(PersonalCenterFregment.this.getActivity());
                 }
             }
         });
@@ -101,7 +101,7 @@ public class PersonalCenterFregment extends SuperFragment{
                 if (PersonalCenterFregment.this.userDb.queryData() != null) {
 //                    ActivityUtil.startChooseShippingAddressActivity(PersonalCenterFregment.this.getActivity(), 1);
                 } else {
-//                    ActivityUtil.startLoginActivity(PersonalCenterFregment.this.getActivity());
+                    ActivityUtil.startLoginActivity(PersonalCenterFregment.this.getActivity());
                 }
             }
         });
