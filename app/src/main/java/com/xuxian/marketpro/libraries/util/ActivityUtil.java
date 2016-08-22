@@ -10,6 +10,7 @@ import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.CityListActivity;
 import com.xuxian.marketpro.activity.ClassifyActivity;
 import com.xuxian.marketpro.activity.ClassifyDetailsActivity;
+import com.xuxian.marketpro.activity.FindActivity;
 import com.xuxian.marketpro.activity.LoginActivity;
 import com.xuxian.marketpro.activity.StoreDetailsActivity;
 import com.xuxian.marketpro.activity.store.StoreFragmentActivity;
@@ -90,7 +91,7 @@ public class ActivityUtil {
     }
 
     /**
-     * 登录Activity
+     * 附近Activity
      * @param mContext
      * @param entity
      */
@@ -102,8 +103,20 @@ public class ActivityUtil {
         mContext.startActivity(in);
     }
 
+    /**
+     * 登录Activity
+     * @param activity
+     */
     public static void startLoginActivity(FragmentActivity activity) {
         Intent intent = new Intent(activity, LoginActivity.class);
         activity.startActivity(intent);
+    }
+
+    /**
+     * 找回Activity
+     * @param activity
+     */
+    public static void startFindActivity(Activity activity) {
+        activity.startActivity(new Intent(activity,FindActivity.class));
     }
 }

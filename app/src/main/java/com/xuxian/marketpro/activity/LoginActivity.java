@@ -16,6 +16,7 @@ import com.ab.util.AbToastUtil;
 import com.easyandroidanimations.library.BounceAnimation;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
+import com.xuxian.marketpro.libraries.util.ActivityUtil;
 import com.xuxian.marketpro.libraries.util.monitor.GoodsMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor.AddressCartEnum;
@@ -153,10 +154,10 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_login_find_password:
-//                ActivityUtil.startFindActivity(getActivity());
+                ActivityUtil.startFindActivity(getActivity());
                 break;
             case R.id.btn_registered_users:
-//                ActivityUtil.startRegisterActivity(getActivity());
+                ActivityUtil.startRegisterActivity(getActivity());
             case R.id.btn_login:
                 login(v);
             default:

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.xuxian.marketpro"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -57,10 +58,11 @@
     <application
         android:name="com.xuxian.marketpro.presentation.application.MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/xuxian_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppThemeAnimation">
+        android:theme="@style/AppThemeAnimation"
+        tools:replace="android:icon,android:theme">
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
