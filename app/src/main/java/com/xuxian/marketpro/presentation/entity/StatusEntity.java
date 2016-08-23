@@ -9,10 +9,10 @@ public class StatusEntity extends BaseEntity {
     private String message;
     private int  requestType;
 
-    public StatusEntity(String message, String errmsg, int code) {
-        this.message = message;
-        this.errmsg = errmsg;
+    public StatusEntity(int code, String errmsg, String message) {
         this.code = code;
+        this.errmsg = errmsg;
+        this.message = message;
     }
 
     public int getCode() {

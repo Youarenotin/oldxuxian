@@ -90,7 +90,7 @@ public class PersonalCenterFregment extends SuperFragment{
             public void onClick(View v) {
                 UserEntity userEntity = PersonalCenterFregment.this.userDb.queryData();
                 if (userEntity != null) {
-//                    ActivityUtil.startPersonalInformationActivity(PersonalCenterFregment.this.getActivity(), userEntity);
+                    ActivityUtil.startPersonalInformationActivity(PersonalCenterFregment.this.getActivity(), userEntity);
                 } else {
                     ActivityUtil.startLoginActivity(PersonalCenterFregment.this.getActivity());
                 }

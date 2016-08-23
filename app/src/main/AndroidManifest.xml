@@ -103,6 +103,8 @@
         <activity android:name=".activity.RegisteredPhoneCodeActivity" android:screenOrientation="portrait"/>
         <!--webview-->
         <activity android:name=".activity.MessageWebViewActivity" android:screenOrientation="portrait"/>
+        <!--个人信息-->
+        <activity android:name=".activity.PersonalInformationActivity" android:screenOrientation="portrait"/>
         <!--高德-->
         <service android:name="com.amap.api.location.APSService"/>
     </application>

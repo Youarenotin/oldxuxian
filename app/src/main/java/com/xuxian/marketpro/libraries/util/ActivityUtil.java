@@ -14,6 +14,7 @@ import com.xuxian.marketpro.activity.ClassifyDetailsActivity;
 import com.xuxian.marketpro.activity.FindActivity;
 import com.xuxian.marketpro.activity.LoginActivity;
 import com.xuxian.marketpro.activity.MessageWebViewActivity;
+import com.xuxian.marketpro.activity.PersonalInformationActivity;
 import com.xuxian.marketpro.activity.RegisteredPhoneCodeActivity;
 import com.xuxian.marketpro.activity.StoreDetailsActivity;
 import com.xuxian.marketpro.activity.store.StoreFragmentActivity;
@@ -24,6 +25,7 @@ import com.xuxian.marketpro.presentation.entity.CityEntity;
 import com.xuxian.marketpro.presentation.entity.ForumsInfoEntity;
 import com.xuxian.marketpro.presentation.entity.ForumsInfoEntity.DataEntity.ForumsEntity;
 import com.xuxian.marketpro.presentation.entity.StoreEntity;
+import com.xuxian.marketpro.presentation.entity.UserEntity;
 
 /**
  * Created by youarenotin on 16/7/27.
@@ -153,6 +155,15 @@ public class ActivityUtil {
      */
     public static void startActionView(Activity activity, String message) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(message));
+        activity.startActivity(intent);
+    }
+
+
+    public static void startPersonalInformationActivity(FragmentActivity activity, UserEntity userEntity) {
+        Intent intent = new Intent(activity,PersonalInformationActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(SuperSherlockActivity.INTENT_OBJECT,userEntity);
+        intent.putExtra(SuperSherlockActivity.INTENT_BUNDLE,bundle);
         activity.startActivity(intent);
     }
 }

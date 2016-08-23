@@ -6,6 +6,7 @@ import com.xuxian.marketpro.presentation.entity.CityEntity;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  * Created by youarenotin on 16/7/25.
@@ -32,7 +33,7 @@ public class CityMonitor {
     }
 
     public void IssueMonitors(monitor.CityEnum cityEnum, CityEntity.DataEntity.CityInfoEntity cityInfoEntity) {
-        for (Map.Entry entry : monitorMap.entrySet()) {
+        for (Entry entry : monitorMap.entrySet()) {
             ((CityMomitorCallback) entry.getValue()).appOpration(cityEnum, cityInfoEntity);
         }
     }
