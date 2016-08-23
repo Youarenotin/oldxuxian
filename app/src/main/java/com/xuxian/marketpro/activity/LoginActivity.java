@@ -1,12 +1,15 @@
 package com.xuxian.marketpro.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ab.http.AbHttpUtil;
 import com.ab.http.IHttpResponseCallBack;
@@ -24,6 +27,7 @@ import com.xuxian.marketpro.net.NewIssRequest;
 import com.xuxian.marketpro.net.RequestParamsNet;
 import com.xuxian.marketpro.presentation.db.UserDb;
 import com.xuxian.marketpro.presentation.entity.LoginEntity;
+import com.xuxian.marketpro.presentation.entity.StatusAndPageEntity;
 import com.xuxian.marketpro.presentation.entity.UserEntity;
 
 import java.util.ArrayList;
@@ -128,13 +132,19 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
                         return;
                     }
                     if (userEntity.getUsers() == null || userEntity.getUsers().isEmpty() || userEntity.getUsers().size() <= 1) {
+                        //保存 user_id
                         AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_ID, userEntity.getUserid());
+                        //保存 user_token
                         AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_TOKEN, userEntity.getToken());
+                        //保存 user_email
                         AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_EMAIL, userEntity.getEmail());
+                        //保存 user_name
                         AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_NAME, userEntity.getUsername());
+                        //保存 user_phone
                         AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_PHONE, userEntity.getPhone());
+                        //保存 head url
                         AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_HEAD_ICON, userEntity.getHead_ico());
-                        userDb.saveData(userEntity);
+                        userDb.saveData(userEntity);//保存到db中
                         GoodsMonitor.getInstance().issueGoodsMonitorCallback(GoodsEnum.REFRESH_LISTVIEW);
                         AddressMonitor.getInstance().issueMonitorCallback(AddressCartEnum.QUERY_ALL_ADDRESSES, null);
                         UserMonitor.getInstance().issueMonitor(userEntity);
@@ -155,9 +165,34 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
     }
 
     private void loginSuccess(UserEntity userEntity, String[] usersItems, Map<String, UserEntity> mapUser) {
-
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("选择账号");
+        builder.setItems(usersItems, new ChooseOnClickListenser(usersItems, mapUser));
+        builder.create().show();
     }
 
+
+    class ChooseOnClickListenser implements DialogInterface.OnClickListener {
+        private String[] usersItems;
+        private Map<String, UserEntity> mapUser;
+
+        public ChooseOnClickListenser(String[] usersItems, Map<String, UserEntity> mapUser) {
+            this.mapUser = mapUser;
+            this.usersItems = usersItems;
+        }
+
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            String usersItem = usersItems[which];
+            UserEntity userEntity = mapUser.get(usersItem);
+            AbHttpUtil.getInstance(getActivity()).postAndParse(
+                    NewIssRequest.SUREMOBILE,
+                    RequestParamsNet.getInstance(getActivity()).suremobile(userEntity.getUserid(), userEntity.getPhone()),
+                    StatusAndPageEntity.class,
+                    new SuremobileIHttpResponseCallBack(userEntity));
+        }
+    }
 
     @Override
     public void onClick(View v) {
@@ -194,7 +229,7 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
                     NewIssRequest.LOGIN,
                     RequestParamsNet.getInstance(getActivity()).login(ed_login_user.getText().toString(), ed_login_password.getText().toString()),
                     LoginEntity.class,
-                    loginHttpResponseCallBack
+                    this.loginHttpResponseCallBack
             );
         }
     }
@@ -202,5 +237,50 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    private class SuremobileIHttpResponseCallBack implements IHttpResponseCallBack<StatusAndPageEntity> {
+        private UserEntity userEntity;
+
+        public SuremobileIHttpResponseCallBack(UserEntity userEntity) {
+            this.userEntity = userEntity;
+        }
+
+        @Override
+        public void EndToParse() {
+
+        }
+
+        @Override
+        public void FailedParseBean(String str) {
+            dismissLoadingDialog();
+            Toast.makeText(getActivity(), "网络不给力,请重试", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void StartToParse() {
+            showLoadingDialog("");
+        }
+
+        @Override
+        public void SucceedParseBean(StatusAndPageEntity t) {
+            dismissLoadingDialog();
+            if (t != null) {
+                StatusAndPageEntity.StatusEntity statusEntity = t.getStatus();
+                if (statusEntity != null && AbDialogUtil.isStatus(getActivity(), t.getStatus().getCode(), t.getStatus().getMessage())) {
+                    AbToastUtil.showToast(LoginActivity.this.getActivity(), statusEntity.getMessage());
+                    AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_ID, this.userEntity.getUserid());
+                    AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_TOKEN, this.userEntity.getToken());
+                    AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_EMAIL, this.userEntity.getEmail());
+                    AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_NAME, this.userEntity.getUsername());
+                    AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_PHONE, this.userEntity.getPhone());
+                    AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_HEAD_ICON, this.userEntity.getHead_ico());
+                    userDb.saveData(this.userEntity);
+                    GoodsMonitor.getInstance().issueGoodsMonitorCallback(GoodsEnum.REFRESH_LISTVIEW);
+                    AddressMonitor.getInstance().issueMonitorCallback(AddressCartEnum.QUERY_ALL_ADDRESSES, null);
+                    UserMonitor.getInstance().issueMonitor(this.userEntity);
+                }
+            }
+        }
     }
 }
