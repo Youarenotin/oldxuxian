@@ -73,21 +73,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f46f1c2f-a2ce-40bf-bb40-f676042d028b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/arrow.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFregment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/TabMainFragmentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/TabMainFragmentActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/view_refresh_header_normal.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/view_refresh_header_normal.xml" />
     </list>
     <ignored path="xuxian.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -141,8 +128,8 @@
       <file leaf-file-name="TabMainFragmentActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/TabMainFragmentActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2527646">
-              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.1529052">
+              <caret line="49" column="62" selection-start-line="49" selection-start-column="62" selection-end-line="49" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -153,6 +140,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="385" column="9" selection-start-line="385" selection-start-column="9" selection-end-line="385" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShoppingCartFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/shoppingcar/ShoppingCartFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -2621,10 +2618,12 @@
       <projects_view />
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/TabMainFragmentActivity.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SectionedBaseAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_shoppingcart_layout_02.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/ShoppingCarAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java" />
@@ -2632,7 +2631,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/ForumsEntity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_forum_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/tab.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/TabMainFragmentActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/forums/ForumsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/ForumsAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/ForumsInfoEntity.java" />
@@ -2675,6 +2673,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/refreshlayout/XuXianNormalRefreshViewHolder.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/view_refresh_header_normal.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/shoppingcar/ShoppingCartFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/TabMainFragmentActivity.java" />
       </list>
     </option>
   </component>
@@ -3188,7 +3188,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="898" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="full.screen.before.presentation.mode" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="tabmain&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.tab.TabMainFragmentActivity&#10;goodsfr&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.tab.goods.GoodsFragment&#10;person&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFregment.java&#10;login&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/LoginActivity.java&#10;entity&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/CityEntity.java&#10;entit&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/UserEntity.java&#10;acutil&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/libraries/util/ActivityUtil.java&#10;moni&#9;PSI&#9;JAVA://com.xuxian.marketpro.libraries.util.monitor.CityMonitor&#10;color&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/res/values/colors.xml&#10;userdb&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.db.UserDb&#10;pinned&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.View.listview.PinnedSectionListView&#10;goods&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java&#10;attr&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/res/values/attrs.xml&#10;grid&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/res/layout/gridview_item_listview02.xml&#10;mg&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/appbase/view/MGridView.java&#10;viewholderti&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.View.adapter.SimpleAdapterListView02.ViewHolderTitle&#10;PageEntity&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/PageEntity.java&#10;StatusEntity&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/StatusEntity.java&#10;sim&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java&#10;simp&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.View.adapter.SimpleAdapterListView02&#10;activi&#9;PSI&#9;JAVA://com.xuxian.marketpro.libraries.util.ActivityUtil&#10;activitystat&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/View/widght/ActivityStateView.java&#10;newiss&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/net/NewIssRequest.java&#10;citylis&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/CityListActivity.java&#10;city&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/CityListActivity.java" />
+    <property name="SearchEverywhereHistoryKey" value="shoppfrag&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.tab.shoppingcar.ShoppingCartFragment&#10;shoppingcahr&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/View/refreshlayout/XuXianRefreshLayout.java&#10;tabmain&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.tab.TabMainFragmentActivity&#10;goodsfr&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.tab.goods.GoodsFragment&#10;person&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFregment.java&#10;login&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/LoginActivity.java&#10;entity&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/CityEntity.java&#10;entit&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/UserEntity.java&#10;acutil&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/libraries/util/ActivityUtil.java&#10;moni&#9;PSI&#9;JAVA://com.xuxian.marketpro.libraries.util.monitor.CityMonitor&#10;color&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/res/values/colors.xml&#10;userdb&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.db.UserDb&#10;pinned&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.View.listview.PinnedSectionListView&#10;goods&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java&#10;attr&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/res/values/attrs.xml&#10;grid&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/res/layout/gridview_item_listview02.xml&#10;mg&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/appbase/view/MGridView.java&#10;viewholderti&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.View.adapter.SimpleAdapterListView02.ViewHolderTitle&#10;PageEntity&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/PageEntity.java&#10;StatusEntity&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/StatusEntity.java&#10;sim&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java&#10;simp&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.View.adapter.SimpleAdapterListView02&#10;activi&#9;PSI&#9;JAVA://com.xuxian.marketpro.libraries.util.ActivityUtil&#10;activitystat&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/View/widght/ActivityStateView.java&#10;newiss&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/net/NewIssRequest.java&#10;citylis&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/CityListActivity.java&#10;city&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/CityListActivity.java" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable-hdpi" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="518" />
   </component>
@@ -3548,12 +3548,6 @@
       <option name="number" value="Default" />
       <updated>1469188779978</updated>
     </task>
-    <task id="LOCAL-00058" summary="1.13.2">
-      <created>1470791852616</created>
-      <option name="number" value="00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1470791852617</updated>
-    </task>
     <task id="LOCAL-00059" summary="1.13.2">
       <created>1470816502929</created>
       <option name="number" value="00059" />
@@ -3842,7 +3836,13 @@
       <option name="project" value="LOCAL" />
       <updated>1471938381050</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="1.22.7">
+      <created>1471942199622</created>
+      <option name="number" value="00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1471942199622</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3862,7 +3862,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299373" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.49370277" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37367624" sideWeight="0.48541328" order="4" side_tool="false" content_ui="tabs" />
@@ -3935,7 +3935,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.19.5" />
     <MESSAGE value="1.19.6" />
     <MESSAGE value="1.19.7 shoppingcarfragment" />
     <MESSAGE value="1.19.8" />
@@ -3960,7 +3959,8 @@
     <MESSAGE value="1.22.4 monitor" />
     <MESSAGE value="1.22.5" />
     <MESSAGE value="1.22.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.22.6" />
+    <MESSAGE value="1.22.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.22.7" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -4011,14 +4011,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/BannerTpyeOnClickListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="73" column="31" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/forums/activity/ForumListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4463,14 +4455,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/refreshlayout/XuXianRefreshLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="385" column="9" selection-start-line="385" selection-start-column="9" selection-end-line="385" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.4814816">
@@ -4479,10 +4463,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/shoppingcar/ShoppingCartFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/refreshlayout/XuXianRefreshLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="385" column="9" selection-start-line="385" selection-start-column="9" selection-end-line="385" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/TabMainFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2527646">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.1529052">
+          <caret line="49" column="62" selection-start-line="49" selection-start-column="62" selection-end-line="49" selection-end-column="62" />
           <folding />
         </state>
       </provider>

@@ -47,7 +47,7 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab);
-        initTitleBar();
+        initTitleBar();//不需要设置titlebar 由每个fragment各自定义titlebar
         initfindViewById();
         initFragment();
         setListener();
@@ -65,7 +65,7 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
         transaction.add(R.id.rl_tab_fragment_container, this.goodsFragment, "goodsFragment");
         transaction.commitAllowingStateLoss();
         this.mContent = this.goodsFragment;
-        this.currentTabIndex=0;
+        this.currentTabIndex = 0;
     }
 
     @Override
@@ -76,8 +76,8 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
     @Override
     protected void init() {
         //todo 个推和友盟初始化
-        userDb=new UserDb(getActivity());
-        shoppingCartGoodsDb=new ShoppingCartGoodsDb(getActivity());
+        userDb = new UserDb(getActivity());
+        shoppingCartGoodsDb = new ShoppingCartGoodsDb(getActivity());
     }
 
     @Override
@@ -107,7 +107,7 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
         GoodsMonitor.registerGoodsMonitor(TabMainFragmentActivity.class.getSimpleName(), new GoodsMonitor.GoodsMonitorCallback() {
             @Override
             public void appOprate(monitor.GoodsEnum goodsEnum) {
-                switch (goodsEnum){
+                switch (goodsEnum) {
                     case SWITCH_MAIN_PAGE://切换到商品tab
                         goodsFragment();
                         break;
@@ -130,20 +130,19 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
 
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        if (keyCode==KeyEvent.KEYCODE_BACK){//第一次按返回按钮时 , 如果fragment不是goodsfragment 跳回goodsfragment
-            if (this.mContent==null||!(this.mContent instanceof GoodsFragment)){
+        if (keyCode == KeyEvent.KEYCODE_BACK) {//第一次按返回按钮时 , 如果fragment不是goodsfragment 跳回goodsfragment
+            if (this.mContent == null || !(this.mContent instanceof GoodsFragment)) {
                 GoodsMonitor.getInstance().issueGoodsMonitorCallback(monitor.GoodsEnum.SWITCH_MAIN_PAGE);
-            }
-            else{
-              exitAPP();
+            } else {
+                exitAPP();
             }
         }
         return true;
     }
 
 
-    public void  onTabClicked(View view){
-        switch (view.getId()){
+    public void onTabClicked(View view) {
+        switch (view.getId()) {
             case R.id.btn_tab_main://商品tab
                 goodsFragment();
                 break;
@@ -160,59 +159,59 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
     }
 
     private void personalCenterFragment() {
-        clickedNumber=0;
-        index=3;
-        if (personalCenterFragment ==null)
-            personalCenterFragment =new PersonalCenterFragment();
-        switchContent(personalCenterFragment,"personalCenterFragment");
+        clickedNumber = 0;
+        index = 3;
+        if (personalCenterFragment == null)
+            personalCenterFragment = new PersonalCenterFragment();
+        switchContent(personalCenterFragment, "personalCenterFragment");
     }
 
     private void forumsFragment() {
-        this.clickedNumber=0;
-        this.index=2;
-        if (forumsFragment==null)
-           forumsFragment=new ForumsFragment();
-        switchContent(forumsFragment,"forumsFragment");
+        this.clickedNumber = 0;
+        this.index = 2;
+        if (forumsFragment == null)
+            forumsFragment = new ForumsFragment();
+        switchContent(forumsFragment, "forumsFragment");
     }
 
     private void shoppingCarFragment() {
-        this.clickedNumber=0;
-        if (index!=1){
+        this.clickedNumber = 0;
+        if (index != 1) {
             //// TODO: 16/8/2 从别的tab调到购物车刷新购物车 刷新购物车
         }
-        index=1;
-        if(shoppingCartFragment==null)
-            shoppingCartFragment=new ShoppingCartFragment();
-        switchContent(shoppingCartFragment,"shoppingCartFragment");
+        index = 1;
+        if (shoppingCartFragment == null)
+            shoppingCartFragment = new ShoppingCartFragment();
+        switchContent(shoppingCartFragment, "shoppingCartFragment");
     }
 
     private void goodsFragment() {
-        this.index=0;
-        if (goodsFragment==null)
-            goodsFragment=new GoodsFragment(this);
+        this.index = 0;
+        if (goodsFragment == null)
+            goodsFragment = new GoodsFragment(this);
         this.clickedNumber++;
-        if (clickedNumber==2){
-            clickedNumber=0;
+        if (clickedNumber == 2) {
+            clickedNumber = 0;
             //// TODO: 16/8/2 listview滑动到顶部
         }
-        switchContent(goodsFragment,"goodsFragment");
+        switchContent(goodsFragment, "goodsFragment");
     }
 
     private void switchContent(Fragment fragment, String tag) {
         try {
-            if (mContent!=fragment){//点击为非当前fragment
+            if (mContent != fragment) {//点击为非当前fragment
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            if (fragment.isAdded()){
-                transaction.hide(mContent).show(fragment).commitAllowingStateLoss();
-            }else{
-                transaction.hide(mContent).add(R.id.rl_tab_fragment_container,fragment,tag).show(fragment).commitAllowingStateLoss();
+                if (fragment.isAdded()) {
+                    transaction.hide(mContent).show(fragment).commitAllowingStateLoss();
+                } else {
+                    transaction.hide(mContent).add(R.id.rl_tab_fragment_container, fragment, tag).show(fragment).commitAllowingStateLoss();
+                }
+                for (Button button : mTabs) {
+                    button.setSelected(false);
+                }
+                mTabs[index].setSelected(true);
+                mContent = fragment;
             }
-            for (Button button:mTabs){
-                button.setSelected(false);
-            }
-            mTabs[index].setSelected(true);
-            mContent=fragment;
-        }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -222,11 +221,11 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
      * 退出app
      */
     private void exitAPP() {
-       if (System.currentTimeMillis()-exitTime<2000){
-           MyApplication.getInstance().exit();
-       }
-        AbToastUtil.showToast(getActivity(),"再按一次退出");
-        this.exitTime=System.currentTimeMillis();
+        if (System.currentTimeMillis() - exitTime < 2000) {
+            MyApplication.getInstance().exit();
+        }
+        AbToastUtil.showToast(getActivity(), "再按一次退出");
+        this.exitTime = System.currentTimeMillis();
     }
 
     public void getUserInfo() {
