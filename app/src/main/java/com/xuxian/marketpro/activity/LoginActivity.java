@@ -17,7 +17,9 @@ import com.easyandroidanimations.library.BounceAnimation;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
 import com.xuxian.marketpro.libraries.util.ActivityUtil;
+import com.xuxian.marketpro.libraries.util.monitor.AddressMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.GoodsMonitor;
+import com.xuxian.marketpro.libraries.util.monitor.UserMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor;
 import com.xuxian.marketpro.net.NewIssRequest;
 import com.xuxian.marketpro.net.RequestParamsNet;
@@ -29,6 +31,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.xuxian.marketpro.libraries.util.monitor.monitor.*;
 
 /**
  * Created by youarenotin on 16/8/17.
@@ -69,7 +73,12 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
 
     @Override
     protected void init() {
-
+        UserMonitor.getInstance().registerUserMonitorCallback(LoginActivity.class.getSimpleName(), new UserMonitor.UserMonitorCallback() {
+            @Override
+            public void appOperation(UserEntity userEntity) {
+                getActivity().finish();
+            }
+        });
     }
 
     @Override
@@ -125,9 +134,9 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
                         AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_PHONE, userEntity.getPhone());
                         AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_HEAD_ICON, userEntity.getHead_ico());
                         userDb.saveData(userEntity);
-                        GoodsMonitor.getInstance().issueGoodsMonitorCallback(monitor.GoodsEnum.REFRESH_LISTVIEW);
-//                        AddressMonitor.getInstance().IssuedMonitor(AddressCartEnum.QUERY_ALL_ADDRESSES, null);
-//                        UserMonitor.getInstance().IssuedMonitor(userEntity);
+                        GoodsMonitor.getInstance().issueGoodsMonitorCallback(GoodsEnum.REFRESH_LISTVIEW);
+                        AddressMonitor.getInstance().issueMonitorCallback(AddressCartEnum.QUERY_ALL_ADDRESSES, null);
+                        UserMonitor.getInstance().issueMonitor(userEntity);
                         return;
                     }
                     List<String> userNameList = new ArrayList();
@@ -186,6 +195,10 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
                     loginHttpResponseCallBack
                     );
         }
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }
