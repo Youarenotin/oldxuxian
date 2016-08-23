@@ -10,6 +10,9 @@ import java.util.List;
  * 邮箱：lubo_wen@126.com
  */
 public class UserEntity extends BaseEntity{
+    public UserEntity() {
+    }
+
     public UserEntity(String userid, String phone, String payment, String token, String username, int developersid, String email, int point, int sex, String birthday, String occupation, String school, String interest, String head_ico) {
         this.userid = userid;
         this.phone = phone;

@@ -20,7 +20,6 @@ import com.xuxian.marketpro.libraries.util.ActivityUtil;
 import com.xuxian.marketpro.libraries.util.monitor.AddressMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.GoodsMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.UserMonitor;
-import com.xuxian.marketpro.libraries.util.monitor.monitor;
 import com.xuxian.marketpro.net.NewIssRequest;
 import com.xuxian.marketpro.net.RequestParamsNet;
 import com.xuxian.marketpro.presentation.db.UserDb;
@@ -32,7 +31,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.xuxian.marketpro.libraries.util.monitor.monitor.*;
+import static com.xuxian.marketpro.libraries.util.monitor.monitor.AddressCartEnum;
+import static com.xuxian.marketpro.libraries.util.monitor.monitor.GoodsEnum;
 
 /**
  * Created by youarenotin on 16/8/17.
@@ -53,7 +53,7 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
     private UserDb userDb;
 
     public LoginActivity() {
-        userDb =new UserDb(getActivity());
+        userDb = new UserDb(getActivity());
 
     }
 
@@ -61,6 +61,7 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_layout);
+        initTitleBar();
         initFindViewById();
         setListener();
         init();
@@ -101,7 +102,7 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
         this.btn_registered_users.setOnClickListener(this);
         this.tv_login_find_password.setOnClickListener(this);
         this.btn_login.setOnClickListener(this);
-        loginHttpResponseCallBack=new IHttpResponseCallBack<LoginEntity>() {
+        loginHttpResponseCallBack = new IHttpResponseCallBack<LoginEntity>() {
             @Override
             public void EndToParse() {
 
@@ -121,7 +122,7 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
             @Override
             public void SucceedParseBean(LoginEntity t) {
                 dismissLoadingDialog();
-                if (t != null && AbDialogUtil.isStatus(LoginActivity.this, t.getStatus().getCode(),t.getStatus().getMessage())) {
+                if (t != null && AbDialogUtil.isStatus(LoginActivity.this, t.getStatus().getCode(), t.getStatus().getMessage())) {
                     UserEntity userEntity = t.getData();
                     if (userEntity == null) {
                         return;
@@ -166,34 +167,35 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
                 break;
             case R.id.btn_registered_users:
                 ActivityUtil.startRegisterActivity(getActivity());
+                break;
             case R.id.btn_login:
                 login(v);
+                break;
             default:
         }
     }
 
     /**
      * 点击登录
+     *
      * @param v
      */
     private void login(View v) {
         //不满足
-        if (TextUtils.isEmpty(ed_login_password.getText().toString())&&TextUtils.isEmpty(ed_login_user.getText().toString())){
-            new BounceAnimation(ed_login_user).setNumOfBounces(3).setDuration(100).animate();
-            new BounceAnimation(ed_login_password).setNumOfBounces(3).setDuration(100).animate();
-        }
-        else if (TextUtils.isEmpty(ed_login_password.getText().toString())){
-            new BounceAnimation(ed_login_password).setNumOfBounces(3).setDuration(100).animate();
-        }
-        else if (TextUtils.isEmpty(ed_login_user.getText().toString())){
-            new BounceAnimation(ed_login_user).setNumOfBounces(3).setDuration(100).animate();
-        }else {//满足条件
+        if (TextUtils.isEmpty(ed_login_password.getText().toString()) && TextUtils.isEmpty(ed_login_user.getText().toString())) {
+            new BounceAnimation(ed_login_user).setNumOfBounces(3).setDuration(300).animate();
+            new BounceAnimation(ed_login_password).setNumOfBounces(3).setDuration(300).animate();
+        } else if (TextUtils.isEmpty(ed_login_password.getText().toString())) {
+            new BounceAnimation(ed_login_password).setNumOfBounces(3).setDuration(300).animate();
+        } else if (TextUtils.isEmpty(ed_login_user.getText().toString())) {
+            new BounceAnimation(ed_login_user).setNumOfBounces(3).setDuration(300).animate();
+        } else {//满足条件
             AbHttpUtil.getInstance(getActivity()).postAndParse(
                     NewIssRequest.LOGIN,
-                    RequestParamsNet.getInstance(getActivity()).login(ed_login_user.getText().toString(),ed_login_password.getText().toString()),
+                    RequestParamsNet.getInstance(getActivity()).login(ed_login_user.getText().toString(), ed_login_password.getText().toString()),
                     LoginEntity.class,
                     loginHttpResponseCallBack
-                    );
+            );
         }
     }
 
