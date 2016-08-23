@@ -166,4 +166,15 @@ public class ActivityUtil {
         intent.putExtra(SuperSherlockActivity.INTENT_BUNDLE,bundle);
         activity.startActivity(intent);
     }
+
+    public static void startLoveActivity(Activity activity, String s) {
+    }
+
+    public static void startSchoolCityActivity(Activity activity) {
+
+    }
+
+    public static void startVerificationActivity(Activity activity) {
+
+    }
 }

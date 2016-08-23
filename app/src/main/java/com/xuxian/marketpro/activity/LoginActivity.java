@@ -19,7 +19,6 @@ import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
 import com.xuxian.marketpro.libraries.util.ActivityUtil;
 import com.xuxian.marketpro.libraries.util.monitor.GoodsMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor;
-import com.xuxian.marketpro.libraries.util.monitor.monitor.AddressCartEnum;
 import com.xuxian.marketpro.net.NewIssRequest;
 import com.xuxian.marketpro.net.RequestParamsNet;
 import com.xuxian.marketpro.presentation.db.UserDb;

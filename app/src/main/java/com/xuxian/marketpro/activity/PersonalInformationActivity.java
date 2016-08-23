@@ -1,15 +1,21 @@
 package com.xuxian.marketpro.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputType;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -18,6 +24,7 @@ import com.ab.util.AbStrUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
+import com.xuxian.marketpro.libraries.util.ActivityUtil;
 import com.xuxian.marketpro.libraries.util.monitor.PhoneMonitor;
 import com.xuxian.marketpro.presentation.View.widght.CircleImageView;
 import com.xuxian.marketpro.presentation.View.widght.pop.OperationPopupWindow;
@@ -27,6 +34,8 @@ import com.xuxian.marketpro.presentation.entity.UserEntity;
 
 import java.io.File;
 import java.util.Calendar;
+
+import static android.widget.LinearLayout.HORIZONTAL;
 
 /**
  * Created by youarenotin on 16/8/23.
@@ -302,6 +311,123 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
             case R.id.iv_head_pic:
                 popWindow.showAtLocation(findViewById(R.id.personal_information), 81,0,0);
                 break;
+            case R.id.rl_update_name:
+                initNameDialog();
+                break;
+            case R.id.rl_update_password:
+                initPasswordDialog();
+                break;
+            case R.id.rl_update_phone:
+                ActivityUtil.startVerificationActivity(getActivity());
+                break;
+            case R.id.rl_update_sex:
+                initSexDialog();
+                break;
+            case R.id.rl_birthday:
+                showDialog(1);
+                break;
+            case R.id.rl_update_professional:
+                initPrefessionalDialog();
+                break;
+            case R.id.rl_update_school:
+                ActivityUtil.startSchoolCityActivity(getActivity());
+                break;
+            case R.id.rl_update_love:
+                ActivityUtil.startLoveActivity(getActivity(), this.tv_update_love.getText().toString());
+                break;
+            case R.id.rl_update_email:
+                initEmailDialog();
+                break;
+
         }
+    }
+
+    private void initPasswordDialog() {
+        Builder builder = new Builder(getActivity());
+        LinearLayout.LayoutParams params_editText = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout linearLayout = new LinearLayout(getActivity());
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        this.ed_old_paw = new EditText(getActivity());
+        this.ed_new_paw = new EditText(getActivity());
+        this.ed_old_paw.setHint("请输入旧密码");
+        this.ed_new_paw.setHint("请输入新密码");
+        this.ed_old_paw.setSingleLine(true);
+        this.ed_new_paw.setSingleLine(true);
+        this.ed_old_paw.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD|InputType.TYPE_CLASS_TEXT);
+        this.ed_new_paw.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD|InputType.TYPE_CLASS_TEXT);
+        linearLayout.addView(this.ed_old_paw, params_editText);
+        linearLayout.addView(this.ed_new_paw, params_editText);
+        builder.setTitle("修改密码");
+        builder.setView(linearLayout);
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                if (userEntity != null) {
+                    type = "paw";
+//                    updatemodifyPwdOrUnameAsyncTask = new NetworkAsyncTask(getActivity(), null, PersonalInformationActivity.UPLOAD_FILE_DONE);
+//                    NetworkAsyncTask access$1100 = updatemodifyPwdOrUnameAsyncTask;
+//                    Object[] objArr = new Object[PersonalInformationActivity.UPLOAD_IN_PROCESS];
+//                    objArr[0] = userEntity.getUserid();
+//                    objArr[PersonalInformationActivity.TO_UPLOAD_FILE] = IceUdpTransportPacketExtension.PWD_ATTR_NAME;
+//                    objArr[PersonalInformationActivity.UPLOAD_FILE_DONE] = ed_old_paw.getText().toString();
+//                    objArr[PersonalInformationActivity.TO_SELECT_PHOTO] = ed_new_paw.getText().toString();
+//                    objArr[PersonalInformationActivity.UPLOAD_INIT_PROCESS] = Long.valueOf(System.currentTimeMillis());
+//                    access$1100.execute(objArr);
+                }
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+        builder.create().show();
+    }
+
+    private void initSexDialog() {
+
+    }
+
+    private void initPrefessionalDialog() {
+
+    }
+
+    private void initEmailDialog() {
+
+    }
+
+    private void initNameDialog() {
+        Builder builder = new Builder(getActivity());
+        LinearLayout.LayoutParams params_editText = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        LinearLayout linearLayout = new LinearLayout(getActivity());
+        linearLayout.setOrientation(HORIZONTAL);
+        this.ed_name = new EditText(getActivity());
+        this.ed_name.setSingleLine(true);
+        this.ed_name.setHint("请输入昵称");
+        linearLayout.addView(this.ed_name, params_editText);
+        this.ed_name.setText(this.tv_update_name.getText().toString());
+        builder.setTitle("\u4fee\u6539\u6635\u79f0");
+        builder.setView(linearLayout);
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                if (userEntity != null) {
+//                    type = UserDao.COLUMN_NAME_ID;
+//                    updatemodifyPwdOrUnameAsyncTask = new NetworkAsyncTask(getActivity(), null, PersonalInformationActivity.UPLOAD_FILE_DONE);
+//                    NetworkAsyncTask access$1100 = updatemodifyPwdOrUnameAsyncTask;
+//                    Object[] objArr = new Object[PersonalInformationActivity.UPLOAD_IN_PROCESS];
+//                    objArr[0] = userEntity.getUserid();
+//                    objArr[PersonalInformationActivity.TO_UPLOAD_FILE] = UserDao.COLUMN_NAME_ID;
+//                    objArr[PersonalInformationActivity.UPLOAD_FILE_DONE] = tv_update_name.getText().toString();
+//                    objArr[PersonalInformationActivity.TO_SELECT_PHOTO] = ed_name.getText().toString();
+//                    objArr[PersonalInformationActivity.UPLOAD_INIT_PROCESS] = Long.valueOf(System.currentTimeMillis());
+//                    access$1100.execute(objArr);
+                }
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+        builder.create().show();
     }
 }
