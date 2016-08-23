@@ -3,7 +3,6 @@ package com.xuxian.marketpro.activity.tab.goods;
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.graphics.Color;
-import android.graphics.Region;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -86,7 +85,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
 
     public GoodsFragment(TabMainFragmentActivity activity) {
 
-        goodsFragmentHeaderHttpResponseCallBack=new IHttpResponseCallBack<GoodsFragmentHeaderEntity>() {
+        goodsFragmentHeaderHttpResponseCallBack = new IHttpResponseCallBack<GoodsFragmentHeaderEntity>() {
             @Override
             public void EndToParse() {
 
@@ -94,7 +93,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
 
             @Override
             public void FailedParseBean(String str) {
-                if (getLoadingStatus()==333){
+                if (getLoadingStatus() == 333) {
                     bla_goods.endRefreshing();
                     return;
                 }
@@ -125,14 +124,14 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
 
             @Override
             public void SucceedParseBean(GoodsFragmentHeaderEntity goodsFragmentHeaderEntity) {
-                int code=0;
-                if (goodsFragmentHeaderEntity==null || goodsFragmentHeaderEntity.getData()==null){//header数据为空
+                int code = 0;
+                if (goodsFragmentHeaderEntity == null || goodsFragmentHeaderEntity.getData() == null) {//header数据为空
                     rl_headerview_goods_banner.setVisibility(View.GONE);
                     gv_headerview_goods_app.setVisibility(View.GONE);
                     ll_headerview_goods_postion.setVisibility(View.GONE);
                     return;
                 }
-                if (goodsFragmentHeaderEntity!=null && goodsFragmentHeaderEntity.getData()!=null){//header数据不为空
+                if (goodsFragmentHeaderEntity != null && goodsFragmentHeaderEntity.getData() != null) {//header数据不为空
                     code = goodsFragmentHeaderEntity.getStatus().getCode();//获取状态代码
                 }
                 initIndexData(code);//获取listview数据
@@ -140,15 +139,14 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                 List<BannerEntity> bannerEntities = goodsFragmentHeaderEntity.getData().getBanner();
                 List<AppEntity> appEntities = goodsFragmentHeaderEntity.getData().getApp();
                 List<List<BlocksEntity>> postionEntitys = goodsFragmentHeaderEntity.getData().getBlocks();
-                if (bannerEntities==null || bannerEntities.isEmpty()){
+                if (bannerEntities == null || bannerEntities.isEmpty()) {//如果banner数据为空 不显示banner
                     rl_headerview_goods_banner.setVisibility(View.GONE);
                     ll_headerview_goods_group.removeAllViews();
                     vp_headerview_goods_banner.removeAllViews();
                     if (headViewPagerAdapter != null) {
                         headViewPagerAdapter.setData(null);
                     }
-                }
-                else{
+                } else {//banner数据不为空 设置banner数据
                     rl_headerview_goods_banner.setVisibility(View.VISIBLE);
                     ll_headerview_goods_group.removeAllViews();
                     vp_headerview_goods_banner.addImage(bannerEntities.size(), ll_headerview_goods_group);
@@ -156,78 +154,79 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                     headViewPagerAdapter.setTabMainFragmentActivity(tabMainFragmentActivity);
                     vp_headerview_goods_banner.setCurrentItem(1);
                     if (!AbPreferenceUtils.loadPrefBoolean(getActivity(), LocalConstant.SHOW_XIAN_PIN_POPUP, false)) {
+                        //第一次进入显示 引导页
 //                        ActivityUtil.StartXianPinPopupActivity(getActivity());
                     }
                 }
-                if (appEntities == null || appEntities.isEmpty()) {
+                if (appEntities == null || appEntities.isEmpty()) {//如果gridview数据为空 gridview不显示
                     gv_headerview_goods_app.setVisibility(View.GONE);
                     if (goodsFragmentHeaderAdapter != null) {
                         goodsFragmentHeaderAdapter.setData(null);
                     }
-                } else {
+                } else {//如果gridview数据不为空 设置gridview数据
                     gv_headerview_goods_app.setVisibility(View.VISIBLE);
                     if (goodsFragmentHeaderAdapter == null) {
-                        goodsFragmentHeaderAdapter = new GoodsFragmentHeaderAdapter(getActivity(),appEntities,tabMainFragmentActivity);
+                        goodsFragmentHeaderAdapter = new GoodsFragmentHeaderAdapter(getActivity(), appEntities, tabMainFragmentActivity);
                         gv_headerview_goods_app.setAdapter(goodsFragmentHeaderAdapter);
                     } else {
                         goodsFragmentHeaderAdapter.setData(appEntities);
                     }
                 }
-                if (postionEntitys == null || postionEntitys.isEmpty()) {
+                if (postionEntitys == null || postionEntitys.isEmpty()) {//如果活动数均为空 多个linearlayout不显示
                     ll_headerview_goods_postion.setVisibility(View.GONE);
                     ll_headerview_goods_postion.removeAllViews();
                     return;
                 }
-                ll_headerview_goods_postion.setVisibility(View.VISIBLE);
+                ll_headerview_goods_postion.setVisibility(View.GONE);
                 ll_headerview_goods_postion.removeAllViews();
-//                for (int i = 0; i < postionEntitys.size(); i ++) {
-//                    List<BlocksEntity> rangeList = (List) postionEntitys.get(i);
-//                    View relativeLayout = new RelativeLayout(getActivity());
-//                    relativeLayout.setBackgroundColor(-1);
-//                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-//                    layoutParams.bottomMargin = 20;
-//                    if (!(rangeList == null || rangeList.isEmpty())) {
-//                        for (int j = 0; j < rangeList.size(); j += 1) {
-////                            BlocksEntity range = (BlocksEntity) rangeList.get(j);
-////                            relativeLayout = new RelativeLayout(tabMainFragmentActivity);
-////                            String[] a_postion = range.getA_position().split("_");
-////                            int x = (int) (((double) screenWidth) * Double.valueOf(a_postion[0]).doubleValue());
-////                            int y = (int) (((double) screenWidth) * Double.valueOf(a_postion[1]).doubleValue());
-////                            RelativeLayout.LayoutParams linearLayout_params = new RelativeLayout.LayoutParams((int) (((double) screenWidth) * Double.valueOf(range.getWidth()).doubleValue()), (int) (((double) screenWidth) * Double.valueOf(range.getHeight()).doubleValue()));
-////                            linearLayout_params.topMargin = x;
-////                            linearLayout_params.leftMargin = y;
-////                            relativeLayout.setLayoutParams(linearLayout_params);
-////                            String show_type = range.getShow_type();
-////                            RelativeLayout.LayoutParams bvpaLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-////                            RangeViewPagerAdapter bvpaAdapter = new RangeViewPagerAdapter(tabMainFragmentActivity);
-////                            BannerViewPager bvp = new BannerViewPager(tabMainFragmentActivity);
-////                            bvp.setAdapter(bvpaAdapter);
-////                            relativeLayout.addView(bvp, bvpaLayoutParams);
-////                            if (!TextUtils.equals(show_type, ShowType.SINGLEIMG.getValue() + CoinPacketExtension.NAMESPACE)) {
-////                                RelativeLayout.LayoutParams dotLayoutParams = new RelativeLayout.LayoutParams(-2, -2);
-////                                dotLayoutParams.addRule(12);
-////                                dotLayoutParams.addRule(14);
-////                                dotLayoutParams.bottomMargin = 30;
-////                                LinearLayout dotLayout = new LinearLayout(tabMainFragmentActivity);
-////                                dotLayout.setOrientation(LinearLayout.HORIZONTAL);
-////                                dotLayout.setLayoutParams(dotLayoutParams);
-////                                bvp.addImage(range.getSale_as().size(), dotLayout);
-////                                relativeLayout.addView(dotLayout);
-////                                if (TextUtils.equals(show_type, ShowType.MULTIPLAY.getValue() + CoinPacketExtension.NAMESPACE)) {
-////                                    bvp.startPlay();
-////                                } else {
-////                                    if (TextUtils.equals(show_type, ShowType.MULTISLIDING.getValue() + CoinPacketExtension.NAMESPACE)) {
-////                                    }
-////                                }
-////                            }
-////                            bvp.setCurrentItem(1);
-////                            bvpaAdapter.setData(range);
-////                            bvpaAdapter.setTabMainFragmentActivity(tabMainFragmentActivity);
-////                            relativeLayout.addView(relativeLayout);
-//                        }
-//                    }
-//                    ll_headerview_goods_postion.addView(relativeLayout, i, layoutParams);
-//                }
+                for (int i = 0; i < postionEntitys.size(); i++) {
+                    List<BlocksEntity> rangeList = (List) postionEntitys.get(i);
+                    View relativeLayout = new RelativeLayout(getActivity());
+                    relativeLayout.setBackgroundColor(-1);
+                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    layoutParams.bottomMargin = 20;
+                    if (!(rangeList == null || rangeList.isEmpty())) {
+                        for (int j = 0; j < rangeList.size(); j += 1) {
+//                            BlocksEntity range = (BlocksEntity) rangeList.get(j);
+//                            relativeLayout = new RelativeLayout(tabMainFragmentActivity);
+//                            String[] a_postion = range.getA_position().split("_");
+//                            int x = (int) (((double) screenWidth) * Double.valueOf(a_postion[0]).doubleValue());
+//                            int y = (int) (((double) screenWidth) * Double.valueOf(a_postion[1]).doubleValue());
+//                            RelativeLayout.LayoutParams linearLayout_params = new RelativeLayout.LayoutParams((int) (((double) screenWidth) * Double.valueOf(range.getWidth()).doubleValue()), (int) (((double) screenWidth) * Double.valueOf(range.getHeight()).doubleValue()));
+//                            linearLayout_params.topMargin = x;
+//                            linearLayout_params.leftMargin = y;
+//                            relativeLayout.setLayoutParams(linearLayout_params);
+//                            String show_type = range.getShow_type();
+//                            RelativeLayout.LayoutParams bvpaLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//                            RangeViewPagerAdapter bvpaAdapter = new RangeViewPagerAdapter(tabMainFragmentActivity);
+//                            BannerViewPager bvp = new BannerViewPager(tabMainFragmentActivity);
+//                            bvp.setAdapter(bvpaAdapter);
+//                            relativeLayout.addView(bvp, bvpaLayoutParams);
+//                            if (!TextUtils.equals(show_type, ShowType.SINGLEIMG.getValue() + CoinPacketExtension.NAMESPACE)) {
+//                                RelativeLayout.LayoutParams dotLayoutParams = new RelativeLayout.LayoutParams(-2, -2);
+//                                dotLayoutParams.addRule(12);
+//                                dotLayoutParams.addRule(14);
+//                                dotLayoutParams.bottomMargin = 30;
+//                                LinearLayout dotLayout = new LinearLayout(tabMainFragmentActivity);
+//                                dotLayout.setOrientation(LinearLayout.HORIZONTAL);
+//                                dotLayout.setLayoutParams(dotLayoutParams);
+//                                bvp.addImage(range.getSale_as().size(), dotLayout);
+//                                relativeLayout.addView(dotLayout);
+//                                if (TextUtils.equals(show_type, ShowType.MULTIPLAY.getValue() + CoinPacketExtension.NAMESPACE)) {
+//                                    bvp.startPlay();
+//                                } else {
+//                                    if (TextUtils.equals(show_type, ShowType.MULTISLIDING.getValue() + CoinPacketExtension.NAMESPACE)) {
+//                                    }
+//                                }
+//                            }
+//                            bvp.setCurrentItem(1);
+//                            bvpaAdapter.setData(range);
+//                            bvpaAdapter.setTabMainFragmentActivity(tabMainFragmentActivity);
+//                            relativeLayout.addView(relativeLayout);
+                        }
+                    }
+                    ll_headerview_goods_postion.addView(relativeLayout, i, layoutParams);
+                }
             }
         };
     }
@@ -235,9 +234,9 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
     private void initIndexData(int code) {
         AbHttpUtil.getInstance(getActivity()).postAndParse(
                 NewIssRequest.INDEX
-                ,RequestParamsNet.getInstance(getActivity()).index( AbPreferenceUtils.loadPrefInt(getActivity(),"site_id",0),AbPreferenceUtils.loadPrefString(getActivity(),"USRE_ID","0"),AbPreferenceUtils.loadPrefString(getActivity(),"USER_TOKEN"))
+                , RequestParamsNet.getInstance(getActivity()).index(AbPreferenceUtils.loadPrefInt(getActivity(), "site_id", 0), AbPreferenceUtils.loadPrefString(getActivity(), "USRE_ID", "0"), AbPreferenceUtils.loadPrefString(getActivity(), "USER_TOKEN"))
                 , IndexEntity.class
-                ,new IndexHttpResponseCallBack(code,null)
+                , new IndexHttpResponseCallBack(code, null)
         );
     }
 
@@ -290,7 +289,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                 NewIssRequest.GOODS_FRAGMENT_HEADER
                 , RequestParamsNet.getInstance(getActivity()).setGoodsFragmentHeader(AbPreferenceUtils.loadPrefString(getActivity(), "city_id"), store_id)
                 , GoodsFragmentHeaderEntity.class
-                ,goodsFragmentHeaderHttpResponseCallBack);
+                , goodsFragmentHeaderHttpResponseCallBack);
     }
 
     private void showStore() {
@@ -326,7 +325,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        if (!hidden){//由hidden到show
+        if (!hidden) {//由hidden到show
             initTitleBar();
         }
     }
@@ -356,7 +355,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                         break;
                     case REFRESH_LISTVIEW://2
 
-                            break;
+                        break;
                 }
             }
         });
@@ -364,7 +363,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
 
     @Override
     public void onXuXianRefreshLayoutBeginRefreshing(XuXianRefreshLayout refreshLayout) {
-
+        request(333);
     }
 
     @Override
@@ -379,7 +378,7 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                 case R.id.ll_bar_main_store:
                     //TODO 选店面
                     break;
-                case R.id.ll_bar_main_classification :
+                case R.id.ll_bar_main_classification:
                     //// TODO: 16/8/9 选择分类
                     ActivityUtil.startClassifyActivity(GoodsFragment.this.getActivity());
                     break;
@@ -388,9 +387,10 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
     }
 
     private class IndexHttpResponseCallBack implements IHttpResponseCallBack<IndexEntity> {
-        private  int  code;
+        private int code;
+
         public IndexHttpResponseCallBack(int code, Object o) {
-            this.code=code;
+            this.code = code;
         }
 
         @Override
@@ -400,8 +400,8 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
 
         @Override
         public void FailedParseBean(String str) {
-          emptyview_state.setVisibility(View.GONE);
-          bla_goods.endRefreshing();
+            emptyview_state.setVisibility(View.GONE);
+            bla_goods.endRefreshing();
         }
 
         @Override
@@ -415,15 +415,15 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
             emptyview_state.setVisibility(View.GONE); //这是整个goods fragment数据全部加载完成后
             if (t != null) {
                 if (this.code == 1 && t.getStatus() != null && t.getStatus().getCode() == 1) {
-                   emptyview_state.setVisibility(View.VISIBLE);
-                   emptyview_state.setNodataText(t.getStatus().getMessage());
-                   emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_NETWORK_ERROR);
+                    emptyview_state.setVisibility(View.VISIBLE);
+                    emptyview_state.setNodataText(t.getStatus().getMessage());
+                    emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_NETWORK_ERROR);
                 }
                 if (t.getData() == null || t.getData().isEmpty()) {
-                   mAdapter.setData(null);
+                    mAdapter.setData(null);
                     return;
                 }
-               mAdapter.setData(t.getData());
+                mAdapter.setData(t.getData());
                 if (getLoadingStatus() == 111) {
                     int goods_id = AbPreferenceUtils.loadPrefInt(getActivity(), "goods_id", 0);
                     if (goods_id != 0) {

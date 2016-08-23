@@ -3,7 +3,6 @@ package com.xuxian.marketpro.activity.tab;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.View;
@@ -15,7 +14,7 @@ import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockFragmentActivity;
 import com.xuxian.marketpro.activity.tab.forums.ForumsFragment;
 import com.xuxian.marketpro.activity.tab.goods.GoodsFragment;
-import com.xuxian.marketpro.activity.tab.personlcenter.PersonalCenterFregment;
+import com.xuxian.marketpro.activity.tab.personlcenter.PersonalCenterFragment;
 import com.xuxian.marketpro.activity.tab.shoppingcar.ShoppingCartFragment;
 import com.xuxian.marketpro.libraries.util.monitor.GoodsMonitor;
 import com.xuxian.marketpro.libraries.util.monitor.monitor;
@@ -37,7 +36,7 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
     private int index;
     private Fragment mContent;
     private Button[] mTabs;
-    private PersonalCenterFregment personalCenterFregment;
+    private PersonalCenterFragment personalCenterFragment;
     private ShoppingCartFragment shoppingCartFragment;
     private ShoppingCartGoodsDb shoppingCartGoodsDb;
     private TextView tv_tab_shopping_number;
@@ -61,7 +60,7 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
         this.goodsFragment = new GoodsFragment(this);
         this.forumsFragment = new ForumsFragment();
         this.shoppingCartFragment = new ShoppingCartFragment();
-        this.personalCenterFregment = new PersonalCenterFregment();
+        this.personalCenterFragment = new PersonalCenterFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.rl_tab_fragment_container, this.goodsFragment, "goodsFragment");
         transaction.commitAllowingStateLoss();
@@ -163,9 +162,9 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
     private void personalCenterFragment() {
         clickedNumber=0;
         index=3;
-        if (personalCenterFregment==null)
-            personalCenterFregment=new PersonalCenterFregment();
-        switchContent(personalCenterFregment,"personalCenterFregment");
+        if (personalCenterFragment ==null)
+            personalCenterFragment =new PersonalCenterFragment();
+        switchContent(personalCenterFragment,"personalCenterFragment");
     }
 
     private void forumsFragment() {
