@@ -9,6 +9,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.xuxian.marketpro.R;
@@ -56,17 +58,21 @@ public class RippView extends RelativeLayout {
             invalidate();
         }
     };
+
     public RippView(Context context) {
         super(context);
     }
+
     public RippView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
+
     public RippView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init(context, attrs);
     }
+
     private void init(final Context context, final AttributeSet attrs) {
         if (isInEditMode())
             return;
@@ -106,10 +112,12 @@ public class RippView extends RelativeLayout {
         });
         this.setDrawingCacheEnabled(true);
     }
+
     @Override
-    public void addView(View child, int index, ViewGroup.LayoutParams params) {
-        childView = child;
-        super.addView(child, index, params);
+    public void addView(View child, ViewGroup.LayoutParams params) {
+        if (child instanceof Button)
+            childView = child;
+        super.addView(child,  params);
     }
     @Override
     public void draw(Canvas canvas) {
@@ -148,6 +156,7 @@ public class RippView extends RelativeLayout {
             timer++;
         }
     }
+
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
@@ -158,6 +167,7 @@ public class RippView extends RelativeLayout {
         scaleAnimation.setRepeatMode(Animation.REVERSE);
         scaleAnimation.setRepeatCount(1);
     }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (gestureDetector.onTouchEvent(event) && !animationRunning) {
@@ -183,10 +193,27 @@ public class RippView extends RelativeLayout {
         childView.onTouchEvent(event);
         return true;
     }
+
+    long start;
+
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
+//        long current = (int) SystemClock.uptimeMillis();
+//        if (current - start < 500) {
+//            return true;
+//        }
+//        start = SystemClock.uptimeMillis();
+////      return super.onInterceptTouchEvent(event);
+//        return false;
         return true;
     }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+
+        return super.dispatchTouchEvent(ev);
+    }
+
     private Bitmap getCircleBitmap(final int radius) {
         final Bitmap output = Bitmap.createBitmap(originBitmap.getWidth(), originBitmap.getHeight(), Bitmap.Config.ARGB_8888);
         final Canvas canvas = new Canvas(output);

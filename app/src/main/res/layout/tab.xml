@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@+id/mainLayout"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="@color/white">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white">
 
     <LinearLayout
         android:id="@+id/main_bottom"
@@ -29,19 +29,19 @@
 
             <Button
                 android:id="@+id/btn_tab_main"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="@color/white"
-            android:drawableTop="@drawable/tab_main_bg"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:onClick="onTabClicked"
-            android:paddingBottom="2.0dip"
-            android:paddingTop="7.0dip"
-            android:scaleType="matrix"
-            android:text="主页"
-            android:textColor="@color/tab_botton_text_color"
-            android:textSize="10.0sp"/>
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:drawableTop="@drawable/tab_main_bg"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:onClick="onTabClicked"
+                android:paddingBottom="2.0dip"
+                android:paddingTop="7.0dip"
+                android:scaleType="matrix"
+                android:text="主页"
+                android:textColor="@color/tab_botton_text_color"
+                android:textSize="10.0sp" />
         </com.xuxian.marketpro.presentation.View.widght.RippView>
 
         <com.xuxian.marketpro.presentation.View.widght.RippView
@@ -60,28 +60,29 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:background="@color/white"
-                android:drawableTop="@drawable/tab_shopping_cart_bg"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
+                android:drawableTop="@drawable/tab_near_bg"
                 android:paddingBottom="2.0dip"
                 android:paddingTop="7.0dip"
                 android:scaleType="matrix"
+                android:onClick="onTabClicked"
                 android:text="购物车"
                 android:textColor="@color/tab_botton_text_color"
-                android:textSize="10.0sp"/>
+                android:textSize="10.0sp"
+                />
 
             <TextView
                 android:id="@+id/tv_tab_shopping_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
                 android:layout_marginRight="10.0dip"
                 android:background="@drawable/unread_count_bg"
                 android:gravity="center"
                 android:text="0"
                 android:textColor="@android:color/white"
                 android:textSize="12.0sp"
-                android:visibility="gone"/>
+                android:visibility="gone" />
         </com.xuxian.marketpro.presentation.View.widght.RippView>
 
         <com.xuxian.marketpro.presentation.View.widght.RippView
@@ -89,6 +90,8 @@
             android:layout_width="0.0dip"
             android:layout_height="fill_parent"
             android:layout_weight="1.0"
+            android:descendantFocusability="blocksDescendants"
+
             app:rv_rippleDuration="200"
             app:rv_type="1"
             app:rv_zoom="true"
@@ -107,7 +110,7 @@
                 android:scaleType="matrix"
                 android:text="附近"
                 android:textColor="@color/tab_botton_text_color"
-                android:textSize="10.0sp"/>
+                android:textSize="10.0sp" />
         </com.xuxian.marketpro.presentation.View.widght.RippView>
 
         <com.xuxian.marketpro.presentation.View.widght.RippView
@@ -133,7 +136,7 @@
                 android:scaleType="matrix"
                 android:text="我"
                 android:textColor="@color/tab_botton_text_color"
-                android:textSize="10.0sp"/>
+                android:textSize="10.0sp" />
         </com.xuxian.marketpro.presentation.View.widght.RippView>
     </LinearLayout>
 
@@ -142,11 +145,11 @@
         android:layout_width="fill_parent"
         android:layout_height="0.5dip"
         android:layout_above="@+id/main_bottom"
-        android:background="@color/gray"/>
+        android:background="@color/gray" />
 
     <RelativeLayout
         android:id="@+id/rl_tab_fragment_container"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_above="@+id/view_line"/>
+        android:layout_above="@+id/view_line" />
 </RelativeLayout>

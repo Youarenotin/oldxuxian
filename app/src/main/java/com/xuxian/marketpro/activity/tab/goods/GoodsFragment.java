@@ -496,4 +496,8 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
             }
         }
     }
+
+    public void scrollToTop(){
+        pinnedSectionListView.smoothScrollToPosition(0);
+    }
 }

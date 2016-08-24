@@ -78,6 +78,7 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
         //todo 个推和友盟初始化
         userDb = new UserDb(getActivity());
         shoppingCartGoodsDb = new ShoppingCartGoodsDb(getActivity());
+
     }
 
     @Override
@@ -94,12 +95,6 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
         this.mTabs[2] = (Button) findViewById(R.id.btn_tab_near);
         this.mTabs[3] = (Button) findViewById(R.id.btn_tab_me);
         this.mTabs[0].setSelected(true);
-//        this.mTabs[1].setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                shoppingCarFragment();
-//            }
-//        });
     }
 
     @Override
@@ -121,7 +116,7 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
 
                         break;
                     case SWITCH_SHOPPING_CART://切换购物车tab
-
+                        shoppingCarFragment();
                         break;
                 }
             }
@@ -192,7 +187,8 @@ public class TabMainFragmentActivity extends SuperSherlockFragmentActivity {
         this.clickedNumber++;
         if (clickedNumber == 2) {
             clickedNumber = 0;
-            //// TODO: 16/8/2 listview滑动到顶部
+            //listview滑动到顶部
+            goodsFragment.scrollToTop();
         }
         switchContent(goodsFragment, "goodsFragment");
     }

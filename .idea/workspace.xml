@@ -73,8 +73,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f46f1c2f-a2ce-40bf-bb40-f676042d028b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/TabMainFragmentActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/TabMainFragmentActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/widght/RippView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/widght/RippView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/tab.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/tab.xml" />
     </list>
     <ignored path="xuxian.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -118,18 +130,53 @@
       <file leaf-file-name="GoodsFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.4814816">
-              <caret line="69" column="21" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+            <state vertical-scroll-proportion="-16.555555">
+              <caret line="500" column="54" selection-start-line="500" selection-start-column="54" selection-end-line="500" selection-end-column="54" />
+              <folding>
+                <element signature="e#24719#24720#0" expanded="true" />
+                <element signature="e#24782#24783#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TabMainFragmentActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/TabMainFragmentActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.7777777">
+              <caret line="97" column="5" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TabMainFragmentActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/TabMainFragmentActivity.java">
+      <file leaf-file-name="RippView.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/widght/RippView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.1529052">
-              <caret line="49" column="62" selection-start-line="49" selection-start-column="62" selection-end-line="49" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.4059406">
+              <caret line="118" column="30" selection-start-line="117" selection-start-column="8" selection-end-line="118" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MotionEvent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-22/android/view/MotionEvent.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2711" column="0" selection-start-line="2711" selection-start-column="0" selection-end-line="2711" selection-end-column="0" />
+              <folding>
+                <element signature="e#107614#107615#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ForumsAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/ForumsAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="107" column="27" selection-start-line="107" selection-start-column="27" selection-end-line="107" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -149,7 +196,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/shoppingcar/ShoppingCartFragment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -2624,13 +2671,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_shoppingcart_layout_02.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/ShoppingCarAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_forums_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/ForumsEntity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_forum_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/tab.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/forums/ForumsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/ForumsAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/ForumsInfoEntity.java" />
@@ -2670,11 +2715,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFregment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/refreshlayout/XuXianNormalRefreshViewHolder.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/view_refresh_header_normal.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/shoppingcar/ShoppingCartFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/tab.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/TabMainFragmentActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/widght/RippView.java" />
       </list>
     </option>
   </component>
@@ -3165,7 +3212,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="device.picker.selection" value="TA00403SDH" />
+    <property name="device.picker.selection" value="Nexus_5X_API_22" />
     <property name="android.project.structure.last.selected" value="Andbase" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="ExportApk.ApkPath" value="$PROJECT_DIR$/app" />
@@ -3548,12 +3595,6 @@
       <option name="number" value="Default" />
       <updated>1469188779978</updated>
     </task>
-    <task id="LOCAL-00059" summary="1.13.2">
-      <created>1470816502929</created>
-      <option name="number" value="00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1470816502929</updated>
-    </task>
     <task id="LOCAL-00060" summary="init">
       <created>1470817129192</created>
       <option name="number" value="00060" />
@@ -3842,7 +3883,13 @@
       <option name="project" value="LOCAL" />
       <updated>1471942199622</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="1.22.8">
+      <created>1471943369326</created>
+      <option name="number" value="00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1471943369326</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3855,7 +3902,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="23" width="1276" height="777" extended-state="0" />
+    <frame x="4" y="23" width="1276" height="777" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3865,7 +3912,7 @@
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299373" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.49370277" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37367624" sideWeight="0.48541328" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.73676246" sideWeight="0.48541328" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959481" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41452345" sideWeight="0.49027553" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45990923" sideWeight="0.5113452" order="2" side_tool="true" content_ui="tabs" />
@@ -3935,7 +3982,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.19.6" />
     <MESSAGE value="1.19.7 shoppingcarfragment" />
     <MESSAGE value="1.19.8" />
     <MESSAGE value="1.19.9" />
@@ -3960,7 +4006,8 @@
     <MESSAGE value="1.22.5" />
     <MESSAGE value="1.22.6" />
     <MESSAGE value="1.22.7" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.22.7" />
+    <MESSAGE value="1.22.8" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.22.8" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3978,12 +4025,6 @@
           <option name="timeStamp" value="152" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/ForumsAdapter.java</url>
-          <line>95</line>
-          <properties />
-          <option name="timeStamp" value="163" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/LoginActivity.java</url>
           <line>128</line>
           <properties />
@@ -3999,7 +4040,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="179" />
+      <option name="time" value="191" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
@@ -4011,43 +4052,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/forums/activity/ForumListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="5" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/FindActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36808845">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/textview_border.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/SharedContentEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31595576">
-          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/TransferDetailEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22116904">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-22/android/content/Intent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
@@ -4455,18 +4459,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.4814816">
-          <caret line="69" column="21" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/shoppingcar/ShoppingCartFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="47" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -4479,10 +4475,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-16.555555">
+          <caret line="500" column="54" selection-start-line="500" selection-start-column="54" selection-end-line="500" selection-end-column="54" />
+          <folding>
+            <element signature="e#24719#24720#0" expanded="true" />
+            <element signature="e#24782#24783#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/tab.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.620689">
+          <caret line="66" column="46" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/TabMainFragmentActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1529052">
-          <caret line="49" column="62" selection-start-line="49" selection-start-column="62" selection-end-line="49" selection-end-column="62" />
+        <state vertical-scroll-proportion="-7.7777777">
+          <caret line="97" column="5" selection-start-line="97" selection-start-column="5" selection-end-line="97" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-22/android/view/ViewGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61002785">
+          <caret line="1959" column="0" selection-start-line="1959" selection-start-column="0" selection-end-line="1959" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/ForumsAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="107" column="27" selection-start-line="107" selection-start-column="27" selection-end-line="107" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-22/android/view/MotionEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2711" column="0" selection-start-line="2711" selection-start-column="0" selection-end-line="2711" selection-end-column="0" />
+          <folding>
+            <element signature="e#107614#107615#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/widght/RippView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4059406">
+          <caret line="118" column="30" selection-start-line="117" selection-start-column="8" selection-end-line="118" selection-end-column="30" />
           <folding />
         </state>
       </provider>
