@@ -27,7 +27,7 @@ import com.xuxian.marketpro.presentation.entity.UserEntity;
 /**
  * Created by youarenotin on 16/8/2.
  */
-public class PersonalCenterFragment extends SuperFragment{
+public class PersonalCenterFragment extends SuperFragment {
     public static final String GUIDE = "guide";
     private SampleAdapter adapter;
     private CircleImageView iv_head_icon;
@@ -44,7 +44,6 @@ public class PersonalCenterFragment extends SuperFragment{
     public PersonalCenterFragment() {
         mPageName = "PersonalCenterFragment";
     }
-
 
 
     @Nullable
@@ -67,26 +66,26 @@ public class PersonalCenterFragment extends SuperFragment{
     }
 
     private void initMenu(View topView) {
-        this.adapter = new SampleAdapter(getActivity());
-        this.adapter.add(new SampleItem(R.drawable.sliding_my_order, "我的订单"));
-        this.adapter.add(new SampleItem(R.drawable.members_icon, "我的会员"));
-        this.adapter.add(new SampleItem(R.drawable.youhui_icon, "我的优惠券"));
-        this.adapter.add(new SampleItem(R.drawable.qiangxian_icon, "抢鲜"));
-        this.adapter.add(new SampleItem(R.drawable.sliding_mall_icon, "积分商城"));
-        this.lv_account.addHeaderView(topView);
-        this.lv_account.setAdapter(this.adapter);
+        adapter = new SampleAdapter(getActivity());
+        adapter.add(new SampleItem(R.drawable.sliding_my_order, "我的订单"));
+        adapter.add(new SampleItem(R.drawable.members_icon, "我的会员"));
+        adapter.add(new SampleItem(R.drawable.youhui_icon, "我的优惠券"));
+        adapter.add(new SampleItem(R.drawable.qiangxian_icon, "抢鲜"));
+        adapter.add(new SampleItem(R.drawable.sliding_mall_icon, "积分商城"));
+        lv_account.addHeaderView(topView);
+        lv_account.setAdapter(this.adapter);
     }
 
     private void initHeaderView(View topView) {
-        this.ll_user_information = (LinearLayout) topView.findViewById(R.id.ll_user_information);
-        this.tv_user_name = (TextView) topView.findViewById(R.id.tv_user_name);
-        this.iv_head_icon = (CircleImageView) topView.findViewById(R.id.iv_head_icon);
-        this.ll_management_shipping_address = (LinearLayout) topView.findViewById(R.id.ll_management_shipping_address);
-        this.iv_head_icon.setBorderColor(getResources().getColor(R.color.white));
-        this.iv_head_icon.setBorderWidth(8);
+        ll_user_information = (LinearLayout) topView.findViewById(R.id.ll_user_information);
+        tv_user_name = (TextView) topView.findViewById(R.id.tv_user_name);
+        iv_head_icon = (CircleImageView) topView.findViewById(R.id.iv_head_icon);
+        ll_management_shipping_address = (LinearLayout) topView.findViewById(R.id.ll_management_shipping_address);
+        iv_head_icon.setBorderColor(getResources().getColor(R.color.white));
+        iv_head_icon.setBorderWidth(8);
 //        this.iv_head_icon.setNeedshowline(true);
-        this.tv_point = (TextView) topView.findViewById(R.id.tv_point);
-        this.ll_user_information.setOnClickListener(new View.OnClickListener() {
+        tv_point = (TextView) topView.findViewById(R.id.tv_point);
+        ll_user_information.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 UserEntity userEntity = PersonalCenterFragment.this.userDb.queryData();
                 if (userEntity != null) {
@@ -96,7 +95,7 @@ public class PersonalCenterFragment extends SuperFragment{
                 }
             }
         });
-        this.ll_management_shipping_address.setOnClickListener(new View.OnClickListener() {
+        ll_management_shipping_address.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (PersonalCenterFragment.this.userDb.queryData() != null) {
 //                    ActivityUtil.startChooseShippingAddressActivity(PersonalCenterFragment.this.getActivity(), 1);
@@ -146,7 +145,7 @@ public class PersonalCenterFragment extends SuperFragment{
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        if (!hidden){
+        if (!hidden) {
             initTitleBar();
         }
     }
@@ -174,9 +173,10 @@ public class PersonalCenterFragment extends SuperFragment{
 //            }
 //        }, PersonalCenterFragment.class.getName());
     }
+
     private class SampleAdapter extends ArrayAdapter<SampleItem> {
         public SampleAdapter(Context context) {
-            super(context,0);
+            super(context, 0);
         }
 
         @Override
@@ -236,6 +236,7 @@ public class PersonalCenterFragment extends SuperFragment{
             this.title = title;
         }
     }
+
     class SlidingHolder {
         ImageView iv_icon;
         TextView tv_text;

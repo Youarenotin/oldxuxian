@@ -683,4 +683,15 @@
     <style name="MatchAuto.Horizontal" parent="@style/MatchAuto">
         <item name="android:orientation">horizontal</item>
     </style>
+
+
+
+    <style name="transparent_activity">
+        <item name="android:windowBackground">@color/mytransparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/AnimBottom</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
 </resources>

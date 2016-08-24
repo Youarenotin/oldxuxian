@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ImageView
+        android:id="@+id/ic_activity_distribution_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginTop="230.0dip"
+        android:src="@drawable/ic_xian_pin_popup_title" />
+
+    <ImageView
+        android:id="@+id/ic_activity_distribution_stick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ic_activity_distribution_title"
+        android:layout_marginLeft="50.0dip"
+        android:gravity="center"
+        android:src="@drawable/ic_xian_pin_popup_stick" />
+
+    <ImageView
+        android:id="@+id/iv_distribution_know"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ic_activity_distribution_stick"
+        android:layout_marginLeft="110.0dip"
+        android:layout_marginTop="20.0dip"
+        android:clickable="true"
+        android:onClick="know"
+        android:src="@drawable/ic_xian_pin_popup_know" />
+</RelativeLayout>

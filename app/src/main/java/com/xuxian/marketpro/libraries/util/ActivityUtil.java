@@ -17,6 +17,7 @@ import com.xuxian.marketpro.activity.MessageWebViewActivity;
 import com.xuxian.marketpro.activity.PersonalInformationActivity;
 import com.xuxian.marketpro.activity.RegisteredPhoneCodeActivity;
 import com.xuxian.marketpro.activity.StoreDetailsActivity;
+import com.xuxian.marketpro.activity.XianPinPopupActivity;
 import com.xuxian.marketpro.activity.store.StoreFragmentActivity;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
 import com.xuxian.marketpro.activity.tab.TabMainFragmentActivity;
@@ -176,5 +177,9 @@ public class ActivityUtil {
 
     public static void startVerificationActivity(Activity activity) {
 
+    }
+
+    public static void StartXianPinPopupActivity(FragmentActivity activity) {
+        activity.startActivity(new Intent(activity,XianPinPopupActivity.class));
     }
 }

@@ -154,8 +154,8 @@ public class GoodsFragment extends SuperFragment implements XuXianRefreshLayout.
                     headViewPagerAdapter.setTabMainFragmentActivity(tabMainFragmentActivity);
                     vp_headerview_goods_banner.setCurrentItem(1);
                     if (!AbPreferenceUtils.loadPrefBoolean(getActivity(), LocalConstant.SHOW_XIAN_PIN_POPUP, false)) {
-                        //第一次进入显示 引导页
-//                        ActivityUtil.StartXianPinPopupActivity(getActivity());
+                        //xian pin pop
+                        ActivityUtil.StartXianPinPopupActivity(getActivity());
                     }
                 }
                 if (appEntities == null || appEntities.isEmpty()) {//如果gridview数据为空 gridview不显示
