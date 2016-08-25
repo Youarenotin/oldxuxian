@@ -592,7 +592,7 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
                     Intent intent1 = new Intent(this, CropImageActivity.class);
                     intent1.putExtra("PATH", currentFilePath);
                     startActivityForResult(intent1, CAMERA_CROP_DATA);
-                case CAMERA_CROP_DATA /*3022*/:
+                case CAMERA_CROP_DATA /*3022*/://拍照完成后 裁剪
                     String path = mIntent.getStringExtra("PATH");
                     if (this.userEntity == null) {
                         return;
@@ -606,13 +606,13 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
                     msg.obj = path;
                     msg.what = TO_UPLOAD_FILE;
                     this.handler.sendMessage(msg);
-                case CAMERA_WITH_DATA /*3023*/:
+                case CAMERA_WITH_DATA /*3023*/://照相机拍摄
                     Intent intent2 = new Intent(this, CropImageActivity.class);
                     intent2.putExtra("PATH", AbPreferenceUtils.loadPrefString(getActivity(), "path"));
                     startActivityForResult(intent2, CAMERA_CROP_DATA);
-                case CITY /*3024*/:
+                case CITY /*3024*/://城市选择
                     this.tv_update_school.setText(mIntent.getStringExtra("SCHOOL"));
-                case LOVE /*3025*/:
+                case LOVE /*3025*/://爱好选择
                     this.love = mIntent.getStringExtra("LOVE");
                     this.tv_update_love.setText(this.love);
                 default:

@@ -268,13 +268,13 @@ public class LoginActivity extends SuperSherlockActivity implements View.OnClick
             if (t != null) {
                 StatusAndPageEntity.StatusEntity statusEntity = t.getStatus();
                 if (statusEntity != null && AbDialogUtil.isStatus(getActivity(), t.getStatus().getCode(), t.getStatus().getMessage())) {
-                    AbToastUtil.showToast(LoginActivity.this.getActivity(), statusEntity.getMessage());
-                    AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_ID, this.userEntity.getUserid());
-                    AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_TOKEN, this.userEntity.getToken());
-                    AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_EMAIL, this.userEntity.getEmail());
-                    AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_NAME, this.userEntity.getUsername());
-                    AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_PHONE, this.userEntity.getPhone());
-                    AbPreferenceUtils.savePrefString(LoginActivity.this.getActivity(), LoginActivity.USER_HEAD_ICON, this.userEntity.getHead_ico());
+                    AbToastUtil.showToast(getActivity(), statusEntity.getMessage());
+                    AbPreferenceUtils.savePrefString(getActivity(), LoginActivity.USER_ID, this.userEntity.getUserid());
+                    AbPreferenceUtils.savePrefString(getActivity(), LoginActivity.USER_TOKEN, this.userEntity.getToken());
+                    AbPreferenceUtils.savePrefString(getActivity(), LoginActivity.USER_EMAIL, this.userEntity.getEmail());
+                    AbPreferenceUtils.savePrefString(getActivity(), LoginActivity.USER_NAME, this.userEntity.getUsername());
+                    AbPreferenceUtils.savePrefString(getActivity(), LoginActivity.USER_PHONE, this.userEntity.getPhone());
+                    AbPreferenceUtils.savePrefString(getActivity(), LoginActivity.USER_HEAD_ICON, this.userEntity.getHead_ico());
                     userDb.saveData(this.userEntity);
                     GoodsMonitor.getInstance().issueGoodsMonitorCallback(GoodsEnum.REFRESH_LISTVIEW);
                     AddressMonitor.getInstance().issueMonitorCallback(AddressCartEnum.QUERY_ALL_ADDRESSES, null);
