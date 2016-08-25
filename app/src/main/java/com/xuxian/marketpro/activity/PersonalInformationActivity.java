@@ -4,10 +4,17 @@ import android.app.Activity;
 import android.app.AlertDialog.Builder;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
+import android.os.Message;
 import android.text.InputType;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -15,13 +22,19 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ab.util.AbDateUtil;
+import com.ab.util.AbFileUtil;
+import com.ab.util.AbPreferenceUtils;
 import com.ab.util.AbStrUtil;
+import com.ab.util.AbToastUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.download.ImageDownloader;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
 import com.xuxian.marketpro.libraries.util.ActivityUtil;
+import com.xuxian.marketpro.libraries.util.AddPhoto;
 import com.xuxian.marketpro.libraries.util.monitor.PhoneMonitor;
 import com.xuxian.marketpro.presentation.View.widght.CircleImageView;
 import com.xuxian.marketpro.presentation.View.widght.pop.OperationPopupWindow;
@@ -183,10 +196,80 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
     }
 
     private void initPicPopWindow() {
-        this.popView = View.inflate(getActivity(), R.layout.choose_picture_dialog, null);
-
+        popView = View.inflate(getActivity(), R.layout.choose_picture_dialog, null);
+        btn_taking_pictures = (Button) this.popView.findViewById(R.id.btn_taking_pictures);
+        btn_system_head = (Button) this.popView.findViewById(R.id.btn_system_head);
+        btn_photo_albums = (Button) this.popView.findViewById(R.id.btn_photo_albums);
+        btn_cancel = (Button) this.popView.findViewById(R.id.btn_cancel);
+        popWindow = new OperationPopupWindow(this.popView, getActivity(), ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, true);
+        popWindow.setAnimationStyle(R.style.AnimBottom);
+        popWindow.setBackgroundDrawable(new ColorDrawable(0x50000000));
+        popWindow.setOutsideTouchable(true);
+        this.btn_system_head.setOnClickListener(new View.OnClickListener() {//启动系统相册选择照片
+            public void onClick(View v) {
+                if (popWindow.isShowing()) {
+                    popWindow.dismiss();
+                }
+                ActivityUtil.startSystemImageActivity(getActivity());
+            }
+        });
+        this.btn_taking_pictures.setOnClickListener(new View.OnClickListener() {//拍照
+            public void onClick(View v) {
+                if (popWindow.isShowing()) {
+                    popWindow.dismiss();
+                }
+                String photo_dir = AbFileUtil.getImageDownloadDir(getActivity());
+                if (AbStrUtil.isEmpty(photo_dir)) {
+                    AbToastUtil.showToast(getActivity(), "存储卡不存在");
+                    return;
+                }
+                PHOTO_DIR = new File(photo_dir);
+                doPickPhotoAction();
+            }
+        });
+        this.btn_photo_albums.setOnClickListener(new View.OnClickListener() {//相册选取照片
+            public void onClick(View v) {
+                if (popWindow.isShowing()) {
+                    popWindow.dismiss();
+                }
+                try {
+                    Intent intent = new Intent("android.intent.action.GET_CONTENT", null);
+                    intent.setType("image/*");
+                    startActivityForResult(intent, PersonalInformationActivity.PHOTO_PICKED_WITH_DATA);
+                } catch (ActivityNotFoundException e) {
+                    AbToastUtil.showToast(getActivity(), "没有找到照片");
+                }
+            }
+        });
+        this.btn_cancel.setOnClickListener(new View.OnClickListener() {//取消
+            public void onClick(View v) {
+                if (popWindow.isShowing()) {
+                    popWindow.dismiss();
+                }
+            }
+        });
     }
 
+    private void doPickPhotoAction() {
+        if (Environment.getExternalStorageState().equals("mounted")) {
+            doTakePhoto();
+        } else {
+            AbToastUtil.showToast(getActivity(), "没有可用的存储卡");
+        }
+    }
+
+    protected void doTakePhoto() {
+        try {
+            this.mFileName = System.currentTimeMillis() + ".jpg";
+            this.mCurrentPhotoFile = new File(this.PHOTO_DIR, this.mFileName);
+            AbPreferenceUtils.savePrefString(getActivity(), "path", this.mCurrentPhotoFile.getPath());
+            Intent intent = new Intent("android.media.action.IMAGE_CAPTURE", null);
+            intent.putExtra("output", Uri.fromFile(this.mCurrentPhotoFile));
+            startActivityForResult(intent, CAMERA_WITH_DATA);
+        } catch (Exception e) {
+            AbToastUtil.showToast(getActivity(), "未找到系统相机程序");
+        }
+    }
     @Override
     protected Activity getActivity() {
         return this;
@@ -308,7 +391,7 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_head_pic:
-                popWindow.showAtLocation(findViewById(R.id.personal_information), 81, 0, 0);
+                popWindow.showAtLocation(findViewById(R.id.personal_information), Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
                 break;
             case R.id.rl_update_name:
                 initNameDialog();
@@ -428,5 +511,61 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
             }
         });
         builder.create().show();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent mIntent) {
+        super.onActivityResult(requestCode, resultCode, mIntent);
+        if (resultCode == -1) {
+            switch (requestCode) {
+                case TO_SELECT_PHOTO /*3*/:
+                    this.image = mIntent.getStringExtra("IMAGE");
+                    ImageLoader.getInstance().displayImage(this.image, this.iv_head_pic, MyApplication.getInstance().getSampleOptions(R.drawable.pintuan_default_head_icon));
+                    if (this.userEntity != null) {
+//                        this.updateSystemImageAsyncTask = new NetworkAsyncTask(getActivity(), null, TO_UPLOAD_FILE);
+//                        NetworkAsyncTask networkAsyncTask = this.updateSystemImageAsyncTask;
+//                        Object[] objArr = new Object[UPLOAD_IN_PROCESS];
+//                        objArr[0] = this.userEntity.getUserid();
+//                        objArr[TO_UPLOAD_FILE] = Integer.valueOf(UPLOAD_FILE_DONE);
+//                        objArr[UPLOAD_FILE_DONE] = this.userEntity.getToken();
+//                        objArr[TO_SELECT_PHOTO] = null;
+//                        objArr[UPLOAD_INIT_PROCESS] = this.image;
+//                        networkAsyncTask.execute(objArr);
+                    }
+                case PHOTO_PICKED_WITH_DATA /*3021*/:
+                    String currentFilePath = AddPhoto.getPath(getActivity(), mIntent.getData());
+                    if (AbStrUtil.isEmpty(currentFilePath)) {
+                        AbToastUtil.showToast(getActivity(), "未在存储卡中找到这个文件");
+                        return;
+                    }
+                    Intent intent1 = new Intent(this, CropImageActivity.class);
+                    intent1.putExtra("PATH", currentFilePath);
+                    startActivityForResult(intent1, CAMERA_CROP_DATA);
+                case CAMERA_CROP_DATA /*3022*/:
+                    String path = mIntent.getStringExtra("PATH");
+                    if (this.userEntity == null) {
+                        return;
+                    }
+                    if (AbStrUtil.isEmpty(path)) {
+                        Toast.makeText(this, "上传的文件路径出错", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    ImageLoader.getInstance().displayImage(ImageDownloader.Scheme.FILE.wrap(path), this.iv_head_pic, MyApplication.getInstance().getSampleOptions(R.drawable.pintuan_default_head_icon));
+                    Message msg = Message.obtain();
+                    msg.obj = path;
+                    msg.what = TO_UPLOAD_FILE;
+                    this.handler.sendMessage(msg);
+                case CAMERA_WITH_DATA /*3023*/:
+                    Intent intent2 = new Intent(this, CropImageActivity.class);
+                    intent2.putExtra("PATH", AbPreferenceUtils.loadPrefString(getActivity(), "path"));
+                    startActivityForResult(intent2, CAMERA_CROP_DATA);
+                case CITY /*3024*/:
+                    this.tv_update_school.setText(mIntent.getStringExtra("SCHOOL"));
+                case LOVE /*3025*/:
+                    this.love = mIntent.getStringExtra("LOVE");
+                    this.tv_update_love.setText(this.love);
+                default:
+            }
+        }
     }
 }

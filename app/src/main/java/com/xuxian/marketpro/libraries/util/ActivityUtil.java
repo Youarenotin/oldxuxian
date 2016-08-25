@@ -182,4 +182,12 @@ public class ActivityUtil {
     public static void StartXianPinPopupActivity(FragmentActivity activity) {
         activity.startActivity(new Intent(activity,XianPinPopupActivity.class));
     }
+
+    /**
+     * 系统相册图片选择
+     * @param activity
+     */
+    public static void startSystemImageActivity(Activity activity) {
+
+    }
 }
