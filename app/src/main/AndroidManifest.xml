@@ -109,8 +109,7 @@
         <!--登录-->
         <activity
             android:name=".activity.LoginActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/horizontal_slide" />
+            android:screenOrientation="portrait" />
         <!--注册-->
         <activity
             android:name=".activity.RegisteredPhoneCodeActivity"

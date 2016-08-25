@@ -12,7 +12,7 @@
         jar="/Users/youarenotin/Documents/Repositories/xuxian/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         revision="22.0.1"
-        sha1="6006b40cf2fc9bdf5e312a8b4e73bac86f6740e1">
+        sha1="5a7e92b41b34c7371a23813b6305e9ccc7993030">
         <dex dex="/Users/youarenotin/Documents/Repositories/xuxian/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_4f1268c31fa8e2b0f4fcf39e8bb77a19fc4f0889/classes.dex" />
     </item>
     <item
@@ -68,7 +68,7 @@
         jar="/Users/youarenotin/Documents/Repositories/xuxian/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         revision="22.0.1"
-        sha1="b017439c0ccfda6cddb3e797d657840bb100bb8f">
+        sha1="c9e170cf0434fcfdf86daf19e2952d29eea9e0be">
         <dex dex="/Users/youarenotin/Documents/Repositories/xuxian/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_121aa265e959e0c076f067c8c1d216e00fd30a69/classes.dex" />
     </item>
     <item

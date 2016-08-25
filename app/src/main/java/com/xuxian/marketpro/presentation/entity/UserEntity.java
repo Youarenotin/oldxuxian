@@ -2,6 +2,7 @@ package com.xuxian.marketpro.presentation.entity;
 
 import com.ab.db.orm.annotation.Column;
 import com.ab.db.orm.annotation.Id;
+import com.ab.db.orm.annotation.Table;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
  * 作者：lubo on 8/2 0002 13:45
  * 邮箱：lubo_wen@126.com
  */
+@Table(name = "User")
 public class UserEntity extends BaseEntity{
     public UserEntity() {
     }

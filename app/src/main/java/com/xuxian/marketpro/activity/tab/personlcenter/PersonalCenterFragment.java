@@ -1,6 +1,8 @@
 package com.xuxian.marketpro.activity.tab.personlcenter;
 
+import android.content.ContentResolver;
 import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -18,6 +20,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.libraries.util.ActivityUtil;
+import com.xuxian.marketpro.libraries.util.monitor.UserMonitor;
 import com.xuxian.marketpro.presentation.View.widght.CircleImageView;
 import com.xuxian.marketpro.presentation.View.widght.pop.OperationPopupWindow;
 import com.xuxian.marketpro.presentation.application.MyApplication;
@@ -62,7 +65,10 @@ public class PersonalCenterFragment extends SuperFragment {
     }
 
     private void getUserInfo() {
-
+        UserEntity userEntity = userDb.queryData();
+        if (userEntity != null) {
+            setData(userEntity);
+        }
     }
 
     private void initMenu(View topView) {
@@ -87,7 +93,7 @@ public class PersonalCenterFragment extends SuperFragment {
         tv_point = (TextView) topView.findViewById(R.id.tv_point);
         ll_user_information.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                UserEntity userEntity = PersonalCenterFragment.this.userDb.queryData();
+                UserEntity userEntity = userDb.queryData();
                 if (userEntity != null) {
                     ActivityUtil.startPersonalInformationActivity(PersonalCenterFragment.this.getActivity(), userEntity);
                 } else {
@@ -122,7 +128,11 @@ public class PersonalCenterFragment extends SuperFragment {
         }
         this.tv_user_name.setText("点击登录");
         this.tv_point.setText(" 许鲜币  0");
-        ImageLoader.getInstance().displayImage("drawable://2130838130", this.iv_head_icon);
+//        Uri uri =  Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://"
+//                + getResources().getResourcePackageName(R.drawable.ic_launcher) + "/"
+//                + getResources().getResourceTypeName(R.drawable.ic_launcher) + "/"
+//                + getResources().getResourceEntryName(R.drawable.ic_launcher));
+        ImageLoader.getInstance().displayImage("", this.iv_head_icon);
     }
 
     @Override
@@ -160,11 +170,12 @@ public class PersonalCenterFragment extends SuperFragment {
         BarOnClickListener barOnClickListener = new BarOnClickListener();
         getTitleLeftClick().setOnClickListener(barOnClickListener);
         getTitleRightClick().setOnClickListener(barOnClickListener);
-//        UserMonitor.getInstance().register(new UserMonitorCallback() {
-//            public void AppOperation(UserEntity userEntity) {
-//                PersonalCenterFragment.this.setData(userEntity);
-//            }
-//        }, PersonalCenterFragment.class.getName());
+        UserMonitor.getInstance().registerUserMonitorCallback(PersonalCenterFragment.class.getSimpleName(), new UserMonitor.UserMonitorCallback() {
+            @Override
+            public void appOperation(UserEntity userEntity) {
+                setData(userEntity);
+            }
+        });
 //        RefreshCardMonitor.getInstance().register(new RefreshCardMonitorCallback() {
 //            public void AppOperation(boolean is) {
 //                if (!is) {

@@ -70,10 +70,7 @@ public class UserDb extends AbDBDaoImpl<UserEntity>{
     }
 
     public boolean isLogin() {
-        if (queryData() != null) {
-            return true;
-        }
-        return false;
+      return queryData()!=null;
     }
 
 }

@@ -1,11 +1,13 @@
 package com.xuxian.marketpro.presentation.db;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 
 import com.ab.db.orm.AbDBHelper;
+import com.xuxian.marketpro.presentation.entity.AddressEntity;
+import com.xuxian.marketpro.presentation.entity.GoodsListEntity;
 import com.xuxian.marketpro.presentation.entity.ShoppingCartGoodsEntity;
 import com.xuxian.marketpro.presentation.entity.StoreEntity;
+import com.xuxian.marketpro.presentation.entity.UserEntity;
 
 /**
  * Created by youarenotin on 16/7/29.
@@ -13,15 +15,15 @@ import com.xuxian.marketpro.presentation.entity.StoreEntity;
 public class DBInsideHelper extends AbDBHelper {
     private static final String DBNAME="xuxian.db";
     private static final int VERSION=25;
-    private static final Class<?>[]  clazzs=new Class[]{
-//            GoodsListEntity.class,
-//            UserEntity.class,
+    private static final Class<?>[] clazzs = new Class[]{
+            GoodsListEntity.class,
+            UserEntity.class,
             ShoppingCartGoodsEntity.class,
 //            CouponEntity.class,
             StoreEntity.class,
 //            CompaniesEntity.class,
 //            ImageItemEntity.class,
-//            AddressEntity.class
+            AddressEntity.class
     };
 
 

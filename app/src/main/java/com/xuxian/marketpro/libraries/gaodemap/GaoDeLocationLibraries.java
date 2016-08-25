@@ -69,7 +69,7 @@ public class GaoDeLocationLibraries implements AMapLocationListener,Runnable{
 
     @Override
     public void onLocationChanged(AMapLocation aMapLocation) {
-        Log.d("gaode","11");
+        Log.d("高德--------","高德返回定位aMaplocation");
         if (aMapLocation!=null){
             if (aMapLocation.getErrorCode()==0){
 //                aMapLocation.getAddress();
@@ -82,5 +82,8 @@ public class GaoDeLocationLibraries implements AMapLocationListener,Runnable{
             }
 
         }
+    }
+    public void unRegisterGaoDeMonitorCallback(String name){
+
     }
 }

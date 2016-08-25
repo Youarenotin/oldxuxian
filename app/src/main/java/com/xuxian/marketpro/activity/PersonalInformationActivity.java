@@ -1,16 +1,13 @@
 package com.xuxian.marketpro.activity;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
-import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputType;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -111,7 +108,8 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
      * 修改职业
      */
     private RelativeLayout rl_update_professional;
-    /**'
+    /**
+     * '
      * 修改学校
      */
     private RelativeLayout rl_update_school;
@@ -162,7 +160,7 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
      */
     private TextView tv_update_sex;
     private String type;
-//    private NetworkAsyncTask updateAsyncTask;
+    //    private NetworkAsyncTask updateAsyncTask;
 //    private NetworkAsyncTask updateSystemImageAsyncTask;
 //    private NetworkAsyncTask updatemodifyPwdOrUnameAsyncTask;
     private UserDb userDb;
@@ -185,6 +183,7 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
     }
 
     private void initPicPopWindow() {
+        this.popView = View.inflate(getActivity(), R.layout.choose_picture_dialog, null);
 
     }
 
@@ -195,8 +194,8 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
 
     @Override
     protected void init() {
-        userDb=new UserDb(getActivity());
-        userEntity= (UserEntity) getIntent().getBundleExtra(SuperSherlockActivity.INTENT_BUNDLE).get(SuperSherlockActivity.INTENT_OBJECT);
+        userDb = new UserDb(getActivity());
+        userEntity = (UserEntity) getIntent().getBundleExtra(SuperSherlockActivity.INTENT_BUNDLE).get(SuperSherlockActivity.INTENT_OBJECT);
         if (this.userEntity != null) {
             this.tv_update_name.setText(this.userEntity.getUsername());
             this.tv_data_point.setText(this.userEntity.getPoint() + "");
@@ -238,7 +237,7 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
                     } else {
                         sex = PersonalInformationActivity.TO_UPLOAD_FILE;
                     }
-                    if (!(userEntity.getPhone().equals(tv_update_phone.getText().toString()) &&userEntity.getSex() == sex && userEntity.getBirthday().equals(tv_birthday.getText().toString()) && userEntity.getOccupation().equals(tv_update_professional.getText().toString()) && userEntity.getSchool().equals(tv_update_school.getText().toString()) && userEntity.getEmail().equals(tv_update_email.getText().toString()) && userEntity.getInterest().equals(tv_update_love.getText().toString()))) {
+                    if (!(userEntity.getPhone().equals(tv_update_phone.getText().toString()) && userEntity.getSex() == sex && userEntity.getBirthday().equals(tv_birthday.getText().toString()) && userEntity.getOccupation().equals(tv_update_professional.getText().toString()) && userEntity.getSchool().equals(tv_update_school.getText().toString()) && userEntity.getEmail().equals(tv_update_email.getText().toString()) && userEntity.getInterest().equals(tv_update_love.getText().toString()))) {
 //                       updateAsyncTask = new NetworkAsyncTask(getActivity(), null, 0);
 //                       updateAsyncTask.execute(new Object[]{userEntity.getUserid(), userEntity.getToken(), Integer.valueOf(sex), tv_update_email.getText().toString(), tv_birthday.getText().toString(), tv_update_professional.getText().toString(), tv_update_school.getText().toString(), tv_update_love.getText().toString()});
                     }
@@ -251,27 +250,27 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
 
     @Override
     protected void initFindViewById() {
-       iv_head_pic = (CircleImageView) findViewById(R.id.iv_head_pic);
-       tv_birthday = (TextView) findViewById(R.id.tv_birthday);
-       tv_update_name = (TextView) findViewById(R.id.tv_update_name);
-       tv_update_password = (TextView) findViewById(R.id.tv_update_password);
-       tv_data_point = (TextView) findViewById(R.id.tv_data_point);
-       tv_update_school = (TextView) findViewById(R.id.tv_update_school);
-       tv_update_professional = (TextView) findViewById(R.id.tv_update_professional);
-       tv_update_phone = (TextView) findViewById(R.id.tv_update_phone);
-       tv_update_love = (TextView) findViewById(R.id.tv_update_love);
-       tv_update_email = (TextView) findViewById(R.id.tv_update_email);
-       tv_update_sex = (TextView) findViewById(R.id.tv_update_sex);
-       rl_data_point = (RelativeLayout) findViewById(R.id.rl_data_point);
-       rl_update_phone = (RelativeLayout) findViewById(R.id.rl_update_phone);
-       rl_birthday = (RelativeLayout) findViewById(R.id.rl_birthday);
-       rl_update_sex = (RelativeLayout) findViewById(R.id.rl_update_sex);
-       rl_update_professional = (RelativeLayout) findViewById(R.id.rl_update_professional);
-       rl_update_email = (RelativeLayout) findViewById(R.id.rl_update_email);
-       rl_update_school = (RelativeLayout) findViewById(R.id.rl_update_school);
-       rl_update_love = (RelativeLayout) findViewById(R.id.rl_update_love);
-       rl_update_name = (RelativeLayout) findViewById(R.id.rl_update_name);
-       rl_update_password = (RelativeLayout) findViewById(R.id.rl_update_password);
+        iv_head_pic = (CircleImageView) findViewById(R.id.iv_head_pic);
+        tv_birthday = (TextView) findViewById(R.id.tv_birthday);
+        tv_update_name = (TextView) findViewById(R.id.tv_update_name);
+        tv_update_password = (TextView) findViewById(R.id.tv_update_password);
+        tv_data_point = (TextView) findViewById(R.id.tv_data_point);
+        tv_update_school = (TextView) findViewById(R.id.tv_update_school);
+        tv_update_professional = (TextView) findViewById(R.id.tv_update_professional);
+        tv_update_phone = (TextView) findViewById(R.id.tv_update_phone);
+        tv_update_love = (TextView) findViewById(R.id.tv_update_love);
+        tv_update_email = (TextView) findViewById(R.id.tv_update_email);
+        tv_update_sex = (TextView) findViewById(R.id.tv_update_sex);
+        rl_data_point = (RelativeLayout) findViewById(R.id.rl_data_point);
+        rl_update_phone = (RelativeLayout) findViewById(R.id.rl_update_phone);
+        rl_birthday = (RelativeLayout) findViewById(R.id.rl_birthday);
+        rl_update_sex = (RelativeLayout) findViewById(R.id.rl_update_sex);
+        rl_update_professional = (RelativeLayout) findViewById(R.id.rl_update_professional);
+        rl_update_email = (RelativeLayout) findViewById(R.id.rl_update_email);
+        rl_update_school = (RelativeLayout) findViewById(R.id.rl_update_school);
+        rl_update_love = (RelativeLayout) findViewById(R.id.rl_update_love);
+        rl_update_name = (RelativeLayout) findViewById(R.id.rl_update_name);
+        rl_update_password = (RelativeLayout) findViewById(R.id.rl_update_password);
     }
 
     @Override
@@ -297,19 +296,19 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
         this.rl_update_love.setBackgroundResource(R.drawable.light_yellow_selector);
         this.rl_update_name.setBackgroundResource(R.drawable.light_yellow_selector);
         this.rl_update_password.setBackgroundResource(R.drawable.light_yellow_selector);
-        PhoneMonitor.getInstance().register(PersonalInformationActivity.class.getName(),new PhoneMonitor.PhoneMonitorCallback() {
+        PhoneMonitor.getInstance().register(PersonalInformationActivity.class.getName(), new PhoneMonitor.PhoneMonitorCallback() {
             @Override
             public void appOperation(String phone) {
-               tv_update_phone.setText(phone);
+                tv_update_phone.setText(phone);
             }
         });
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.iv_head_pic:
-                popWindow.showAtLocation(findViewById(R.id.personal_information), 81,0,0);
+                popWindow.showAtLocation(findViewById(R.id.personal_information), 81, 0, 0);
                 break;
             case R.id.rl_update_name:
                 initNameDialog();
@@ -353,8 +352,8 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
         this.ed_new_paw.setHint("请输入新密码");
         this.ed_old_paw.setSingleLine(true);
         this.ed_new_paw.setSingleLine(true);
-        this.ed_old_paw.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD|InputType.TYPE_CLASS_TEXT);
-        this.ed_new_paw.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD|InputType.TYPE_CLASS_TEXT);
+        this.ed_old_paw.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD | InputType.TYPE_CLASS_TEXT);
+        this.ed_new_paw.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD | InputType.TYPE_CLASS_TEXT);
         linearLayout.addView(this.ed_old_paw, params_editText);
         linearLayout.addView(this.ed_new_paw, params_editText);
         builder.setTitle("修改密码");

@@ -19,6 +19,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -59,6 +60,7 @@ public class AbDBHelper extends SQLiteOpenHelper{
      * @see com.ab.db.orm.AbSDSQLiteOpenHelper#onCreate(SQLiteDatabase)
      */
     public void onCreate(SQLiteDatabase db) {
+		Log.d("dbbbb", "onCreate(): ");
 		AbTableHelper.createTablesByClasses(db, this.modelClasses);
 	}
 

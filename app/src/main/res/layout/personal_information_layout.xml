@@ -37,7 +37,7 @@
                     android:layout_centerVertical="true"
                     android:src="@drawable/jiantou" />
 
-                <com.xuxian.market.presentation.view.widgets.CircleImageView
+                <com.xuxian.marketpro.presentation.View.widght.CircleImageView
                     android:id="@+id/iv_head_pic"
                     android:layout_width="60.0dip"
                     android:layout_height="60.0dip"
