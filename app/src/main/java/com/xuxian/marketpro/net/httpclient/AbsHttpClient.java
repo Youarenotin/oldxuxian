@@ -61,11 +61,11 @@ public abstract class AbsHttpClient {
                 httpMethod.numTries++;
             }
         }
+        return null;
     }
 
     protected HttpResponse execute(HttpMethod httpMethod) throws HttpRequestException {
-        return execute(httpMethod, new BasicRequestHandler() {
-        });
+        return execute(httpMethod, new BasicRequestHandler(){});
     }
 
     private HttpResponse execute(HttpMethod httpMethod, BasicRequestHandler handler) throws HttpRequestException {
@@ -105,11 +105,12 @@ public abstract class AbsHttpClient {
             }
             httpMethod.isConnected = false;
         }
+        return null;
     }
 
     public void setMaxRetries(int maxRetries){
         if (maxRetries<1 || maxRetries>18){
-            throw new IllegalArgumentException("Maximum retries must be between 1 and 18")
+            throw new IllegalArgumentException("Maximum retries must be between 1 and 18");
         }
         this.maxRetries=maxRetries;
     }
