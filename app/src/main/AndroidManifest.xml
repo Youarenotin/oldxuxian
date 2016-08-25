@@ -127,6 +127,10 @@
         <activity
             android:name=".activity.XianPinPopupActivity"
             android:theme="@style/transparent_activity" />
+        <!--附近-详情业务-->
+        <activity
+            android:name=".activity.tab.forums.activity.ForumListActivity"
+            android:screenOrientation="portrait" />
         <!--高德-->
         <service android:name="com.amap.api.location.APSService" />
     </application>

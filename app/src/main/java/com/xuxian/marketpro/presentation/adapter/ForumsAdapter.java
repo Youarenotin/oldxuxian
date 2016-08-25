@@ -123,7 +123,7 @@ public class ForumsAdapter extends BaseAdapter{
         @Override
         public void onClick(View v) {
             if (ForumsAdapter.this.userDb.queryData() != null) {
-               ActivityUtil.startForumListActivity(ForumsAdapter.this.mContext, this.entity);
+               ActivityUtil.startForumListActivity(mContext, this.entity);
             } else {
                 ActivityUtil.startLoginActivity(mContext);
             }

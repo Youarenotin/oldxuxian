@@ -11,6 +11,7 @@ import com.ab.http.AbRequestParams;
 import com.ab.view.slide.AbSlidingTabView;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
+import com.xuxian.marketpro.net.AnimeAsyncTask;
 import com.xuxian.marketpro.net.httpclient.ParameterList;
 import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
 import com.xuxian.marketpro.presentation.db.UserDb;
@@ -52,7 +53,8 @@ public class ForumListActivity extends SuperSherlockActivity{
         }
         setTitle(this.forums.getName());
         AbRequestParams params=new AbRequestParams();
-//        params.put("fid",);
+        params.put("fid",forums.getFid());
+
 //        AbHttpUtil.getInstance(getActivity()).postAndParse();
     }
 
@@ -87,6 +89,25 @@ public class ForumListActivity extends SuperSherlockActivity{
                     }
                 default:
             }
+        }
+    }
+
+    class NetWorkAsyncTask extends AnimeAsyncTask<Object,Void,String>{
+
+        public NetWorkAsyncTask(String loadingText, Activity mContext) {
+            super(loadingText, mContext);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            emptyview_state.setVisibility(View.VISIBLE);
+            emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_LOADING);
+        }
+
+        @Override
+        protected String doInBackground(Object... params) {
+            return null;
         }
     }
 }
