@@ -73,16 +73,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f46f1c2f-a2ce-40bf-bb40-f676042d028b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/AbsHttpClient.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/BasicRequestHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/MethodType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/interfaces/RequestHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/forums/activity/ForumListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/forums/activity/ForumListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/HttpMethod.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/HttpMethod.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/NormalHttpClient.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/NormalHttpClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/ForumsAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/ForumsAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/AbsHttpClient.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/AbsHttpClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/BasicRequestHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/BasicRequestHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/interfaces/RequestHandler.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/interfaces/RequestHandler.java" />
     </list>
     <ignored path="xuxian.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -162,15 +156,15 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/AbsHttpClient.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="46" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
+              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2905#2906#0" expanded="true" />
-                <element signature="e#2947#2948#0" expanded="true" />
-                <element signature="e#3625#3626#0" expanded="true" />
-                <element signature="e#3671#3672#0" expanded="true" />
-                <element signature="e#3729#3730#0" expanded="true" />
-                <element signature="e#3767#3768#0" expanded="true" />
+                <element signature="e#4737#4738#0" expanded="true" />
+                <element signature="e#4779#4780#0" expanded="true" />
+                <element signature="e#5457#5458#0" expanded="true" />
+                <element signature="e#5503#5504#0" expanded="true" />
+                <element signature="e#5561#5562#0" expanded="true" />
+                <element signature="e#5599#5600#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -179,21 +173,11 @@
       <file leaf-file-name="BasicRequestHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/BasicRequestHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5642202">
-              <caret line="57" column="12" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.3975535">
+              <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnimeAsyncTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/AnimeAsyncTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="19" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -2715,9 +2699,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/NormalHttpClient.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/MethodType.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/HttpMethod.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/BasicRequestHandler.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/AbsHttpClient.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/interfaces/RequestHandler.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/BasicRequestHandler.java" />
       </list>
     </option>
   </component>
@@ -3413,12 +3397,6 @@
       <option name="number" value="Default" />
       <updated>1469188779978</updated>
     </task>
-    <task id="LOCAL-00069" summary="1.16.2">
-      <created>1471048463010</created>
-      <option name="number" value="00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1471048463010</updated>
-    </task>
     <task id="LOCAL-00070" summary="1.17.1 解决section和item中holder问题">
       <created>1471088438033</created>
       <option name="number" value="00070" />
@@ -3707,7 +3685,13 @@
       <option name="project" value="LOCAL" />
       <updated>1472130060142</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="1.24.8 完善自己的httpclient">
+      <created>1472137267009</created>
+      <option name="number" value="00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1472137267009</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3800,7 +3784,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.20.3" />
     <MESSAGE value="msg" />
     <MESSAGE value="1.21.1" />
     <MESSAGE value="1.21.2" />
@@ -3825,7 +3808,8 @@
     <MESSAGE value="1.24.5" />
     <MESSAGE value="1.24.6 forums 网络失败后添加点击重试" />
     <MESSAGE value="1.24.7 修改ActivityUtil 把activity入参改成context否则在adapter无法调用" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.24.7 修改ActivityUtil 把activity入参改成context否则在adapter无法调用" />
+    <MESSAGE value="1.24.8 完善自己的httpclient" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.24.8 完善自己的httpclient" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.8418605" />
   </component>
   <component name="XDebuggerManager">
@@ -3877,25 +3861,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/db/StoreDb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="28" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-          <folding>
-            <element signature="e#386#387#0" expanded="false" />
-            <element signature="e#450#451#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-22/android/database/sqlite/SQLiteOpenHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/22.2.0/support-v4-22.2.0-sources.jar!/android/support/v4/app/Fragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
@@ -4312,6 +4277,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/MethodType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76311606">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding>
+            <element signature="e#457#458#0" expanded="false" />
+            <element signature="e#492#493#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/HttpMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9682035">
+          <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+          <folding>
+            <element signature="e#958#959#0" expanded="true" />
+            <element signature="e#987#988#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/ParameterList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.5755167">
+          <caret line="98" column="19" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/XianPinPopupActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4320,58 +4315,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/HttpRequestException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3058104">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/AbsHttpClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="46" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2905#2906#0" expanded="true" />
-            <element signature="e#2947#2948#0" expanded="true" />
-            <element signature="e#3625#3626#0" expanded="true" />
-            <element signature="e#3671#3672#0" expanded="true" />
-            <element signature="e#3729#3730#0" expanded="true" />
-            <element signature="e#3767#3768#0" expanded="true" />
+            <element signature="e#4737#4738#0" expanded="true" />
+            <element signature="e#4779#4780#0" expanded="true" />
+            <element signature="e#5457#5458#0" expanded="true" />
+            <element signature="e#5503#5504#0" expanded="true" />
+            <element signature="e#5561#5562#0" expanded="true" />
+            <element signature="e#5599#5600#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/interfaces/RequestHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.618442">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6024465">
+          <caret line="35" column="11" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/MethodType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.76311606">
-          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
-          <folding>
-            <element signature="e#457#458#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/HttpMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33227345">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-          <folding>
-            <element signature="e#749#750#0" expanded="true" />
-            <element signature="e#782#783#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/BasicRequestHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5642202">
-          <caret line="57" column="12" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.3975535">
+          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

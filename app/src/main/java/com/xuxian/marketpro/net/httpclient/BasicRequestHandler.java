@@ -1,13 +1,18 @@
 package com.xuxian.marketpro.net.httpclient;
 
+import com.xuxian.marketpro.activity.tab.forums.activity.ForumListActivity;
 import com.xuxian.marketpro.net.httpclient.interfaces.RequestHandler;
 
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Iterator;
 
 /**
  * Created by youarenotin on 16/8/25.
@@ -53,20 +58,71 @@ public abstract class BasicRequestHandler implements RequestHandler {
     public HttpResponse readInputStream(HttpURLConnection httpURLConnection) throws IOException {
         InputStream inputStream = openInput(httpURLConnection);
         byte[] result=null;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
         if (inputStream!=null){
-            byte[] buffer = new byte[1024*8];//一次读8kb的输入流数据
+            try {
+                byte[] buffer = new byte[1024*8];//一次读8kb的输入流数据
+                while (true){
+                    int count = inputStream.read(buffer);
+                    if (count==-1)
+                        break;
+                    baos.write(buffer,0,count);
+                }
+                baos.flush();
+                result=baos.toByteArray();
+            } finally {
+                baos.close();
+                inputStream.close();
 
+            }
         }
-        return null;
+        return new HttpResponse(httpURLConnection,result);
     }
 
     @Override
     public void writeHeaders(HttpURLConnection httpURLConnection, HttpMethod httpMethod) {
-
+        ParameterList params = httpMethod.getParams();
+        if (params!=null){
+            Iterator<ParameterList.Parameter> iterator = params.iterator();
+            while (iterator.hasNext()){
+                ParameterList.HeaderParameter param = (ParameterList.HeaderParameter) iterator.next();
+                httpURLConnection.setRequestProperty(param.name,param.value);
+            }
+        }
     }
 
     @Override
     public void writeStream(HttpURLConnection httpURLConnection, HttpMethod httpMethod) throws IOException {
+        OutputStream outputStream=null;
+        InputStream inputStream=null;
+        ParameterList.InputStreamParameter inputStreamParameter;
+        try {
+            outputStream=openOutput(httpURLConnection);
+            ParameterList params = httpMethod.getParams();
+            if (params!=null){
+                if (params.hasMultiPart()){
+                    DataOutputStream dos =new DataOutputStream(outputStream);
+                    Iterator iterator=params.iterator();
+                    while (iterator.hasNext()){
+                        byte[] buffer;
+                        int count ;
+                        ParameterList.Parameter param = (ParameterList.Parameter) iterator.next();
+                        if (param instanceof ParameterList.StringParameter){
 
+                        }
+                        if (param instanceof ParameterList.FileParameter){
+
+                        }
+                        if (param instanceof ParameterList.InputStreamParameter){
+
+                        }
+                        dos.writeBytes("--------issmobile--------\r\n");
+                        outputStream.flush();
+                    }
+                }
+            }
+        }finally {
+
+        }
     }
 }

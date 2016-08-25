@@ -3,6 +3,9 @@ package com.xuxian.marketpro.net.httpclient;
 import android.os.SystemClock;
 import android.util.Log;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+
 /**
  * Created by youarenotin on 16/8/25.
  */
@@ -63,6 +66,45 @@ public abstract class AbsHttpClient {
     protected HttpResponse execute(HttpMethod httpMethod) throws HttpRequestException {
         return execute(httpMethod, new BasicRequestHandler() {
         });
+    }
+
+    private HttpResponse execute(HttpMethod httpMethod, BasicRequestHandler handler) throws HttpRequestException {
+        HttpURLConnection httpURLConnection = null;
+        long startTime = System.currentTimeMillis();
+        try {
+            HttpResponse response;
+            httpMethod.isConnected=false;
+            httpURLConnection = handler.openConnection(httpMethod.getRequestUrl());
+            httpURLConnection.setConnectTimeout(this.connectionTimeout);
+            httpURLConnection.setReadTimeout(this.readTimeout);
+            handler.prepareConnection(httpURLConnection,httpMethod);
+            handler.writeHeaders(httpURLConnection,httpMethod);
+            httpURLConnection.connect();
+            httpMethod.isConnected=true;
+            if (httpURLConnection.getDoOutput()){
+                handler.writeStream(httpURLConnection,httpMethod);
+            }
+            if (httpURLConnection.getDoInput()){
+                response=handler.readInputStream(httpURLConnection);
+            }else {
+                response=new HttpResponse(httpURLConnection,null);
+            }
+            if (httpURLConnection!=null){
+                httpURLConnection.disconnect();
+            }
+            httpMethod.isConnected=false;
+            return response;
+        } catch (Exception e) {
+            if (isTimeoutException(startTime, httpMethod.isConnected)) {
+                throw new HttpRequestException(e, HttpRequestException.TIME_OUT_EXCEPTION);
+            }
+            throw new HttpRequestException(e, HttpRequestException.OTHER_EXCEPTION);
+        }catch (Throwable th) {
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+            }
+            httpMethod.isConnected = false;
+        }
     }
 
     public void setMaxRetries(int maxRetries){

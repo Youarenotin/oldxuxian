@@ -16,10 +16,28 @@ public interface RequestHandler {
 
     HttpURLConnection openConnection(String str) throws IOException;
 
+    /**
+     * 获取httpurlconnection 输入流
+     * @param httpURLConnection
+     * @return
+     * @throws IOException
+     */
     InputStream openInput(HttpURLConnection httpURLConnection) throws IOException;
 
+    /**
+     * 获取httpURLconnection 输出流
+     * @param httpURLConnection
+     * @return
+     * @throws IOException
+     */
     OutputStream openOutput(HttpURLConnection httpURLConnection) throws IOException;
 
+    /**
+     * 连接之前
+     * @param httpURLConnection
+     * @param httpMethod
+     * @throws IOException
+     */
     void prepareConnection(HttpURLConnection httpURLConnection, HttpMethod httpMethod) throws IOException;
 
     HttpResponse readInputStream(HttpURLConnection httpURLConnection) throws IOException;
