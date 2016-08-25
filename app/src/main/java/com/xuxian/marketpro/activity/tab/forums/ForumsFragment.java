@@ -70,6 +70,15 @@ public class ForumsFragment extends SuperFragment implements XuXianRefreshLayout
                     public void FailedParseBean(String str) {
                         emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_NETWORK_ERROR);
                         emptyview_state.setState(VISIBLE);
+                        emptyview_state.setNetErrorText("点击重试");
+                        emptyview_state.setClickable(true);
+                        emptyview_state.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                emptyview_state.setClickable(false);
+                                request(111);
+                            }
+                        });
                     }
 
                     @Override
