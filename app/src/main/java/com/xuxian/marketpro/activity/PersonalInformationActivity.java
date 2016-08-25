@@ -2,6 +2,7 @@ package com.xuxian.marketpro.activity;
 
 import android.app.Activity;
 import android.app.AlertDialog.Builder;
+import android.app.DatePickerDialog;
 import android.app.DatePickerDialog.OnDateSetListener;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
@@ -18,6 +19,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -180,8 +182,8 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
     private UserEntity userEntity;
 
     public PersonalInformationActivity() {
-        sexItems = new String[0];
-        professionalItems = new String[0];
+        sexItems = new String[]{"男", "女"};
+        professionalItems = new String[]{"学生", "在职", "退休", "自由职业"};
     }
 
     @Override
@@ -270,6 +272,7 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
             AbToastUtil.showToast(getActivity(), "未找到系统相机程序");
         }
     }
+
     @Override
     protected Activity getActivity() {
         return this;
@@ -387,11 +390,13 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
         });
     }
 
+    private DatePickerDialog dialog;
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_head_pic:
-                popWindow.showAtLocation(findViewById(R.id.personal_information), Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL, 0, 0);
+                popWindow.showAtLocation(findViewById(R.id.personal_information), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
                 break;
             case R.id.rl_update_name:
                 initNameDialog();
@@ -406,7 +411,20 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
                 initSexDialog();
                 break;
             case R.id.rl_birthday:
-                showDialog(1);
+                Calendar calendar = Calendar.getInstance();
+                dialog = new DatePickerDialog(getActivity(),
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+                                tv_birthday.setText(year + "/" + monthOfYear + "/"
+                                        + dayOfMonth);
+                            }
+                        }, calendar.get(Calendar.YEAR), calendar
+                        .get(Calendar.MONTH), calendar
+                        .get(Calendar.DAY_OF_MONTH));
+                dialog.show();
                 break;
             case R.id.rl_update_professional:
                 initPrefessionalDialog();
@@ -466,15 +484,48 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
     }
 
     private void initSexDialog() {
-
+        Builder builder = new Builder(getActivity());
+        builder.setTitle("性别选择");
+        builder.setItems(this.sexItems, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                PersonalInformationActivity.this.tv_update_sex.setText(PersonalInformationActivity.this.sexItems[which]);
+            }
+        });
+        builder.create().show();
     }
 
     private void initPrefessionalDialog() {
-
+        Builder builder = new Builder(getActivity());
+        builder.setTitle("职业选择");
+        builder.setItems(this.professionalItems, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                PersonalInformationActivity.this.tv_update_professional.setText(PersonalInformationActivity.this.professionalItems[which]);
+            }
+        });
+        builder.create().show();
     }
 
     private void initEmailDialog() {
-
+        Builder builder = new Builder(getActivity());
+        LinearLayout.LayoutParams params_editText = new LinearLayout.LayoutParams(-1, -2);
+        LinearLayout linearLayout = new LinearLayout(getActivity());
+        linearLayout.setOrientation(0);
+        this.ed_email = new EditText(getActivity());
+        this.ed_email.setText(this.tv_update_email.getText().toString());
+        linearLayout.addView(this.ed_email, params_editText);
+        builder.setTitle("修改邮箱");
+        builder.setView(linearLayout);
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                PersonalInformationActivity.this.tv_update_email.setText(PersonalInformationActivity.this.ed_email.getText().toString());
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+        builder.create().show();
     }
 
     private void initNameDialog() {
