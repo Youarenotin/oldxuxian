@@ -97,6 +97,7 @@
         <!--tab main-->
         <activity
             android:name=".activity.tab.TabMainFragmentActivity"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <!--分类-->
         <activity
