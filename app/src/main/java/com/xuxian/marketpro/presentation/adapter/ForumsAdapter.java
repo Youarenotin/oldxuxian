@@ -125,7 +125,7 @@ public class ForumsAdapter extends BaseAdapter{
             if (ForumsAdapter.this.userDb.queryData() != null) {
                ActivityUtil.startForumListActivity(ForumsAdapter.this.mContext, this.entity);
             } else {
-//                ActivityUtil.startLoginActivity(ForumsAdapter.this.mContext);
+                ActivityUtil.startLoginActivity(mContext);
             }
         }
     }

@@ -99,7 +99,7 @@ public class ActivityUtil {
     /**
      * 附近Activity
      * @param mContext
-     * @param entity
+     * @param forums
      */
     public static void startForumListActivity(Context mContext, ForumsEntity forums) {
         Intent in = new Intent(mContext, ForumListActivity.class);
@@ -111,83 +111,83 @@ public class ActivityUtil {
 
     /**
      * 登录Activity
-     * @param activity
+     * @param mContext
      */
-    public static void startLoginActivity(FragmentActivity activity) {
-        Intent intent = new Intent(activity, LoginActivity.class);
-        activity.startActivity(intent);
+    public static void startLoginActivity(Context mContext) {
+        Intent intent = new Intent(mContext, LoginActivity.class);
+        mContext.startActivity(intent);
     }
 
     /**
      * 找回Activity
-     * @param activity
+     * @param mContext
      */
-    public static void startFindActivity(Activity activity) {
-        activity.startActivity(new Intent(activity,FindActivity.class));
+    public static void startFindActivity(Context mContext) {
+        mContext.startActivity(new Intent(mContext,FindActivity.class));
     }
 
     /**
      * 注册Activity
-     * @param activity
+     * @param mContext
      */
-    public static void startRegisterActivity(Activity activity) {
-        activity.startActivity(new Intent(activity,RegisteredPhoneCodeActivity.class));
+    public static void startRegisterActivity(Context mContext) {
+        mContext.startActivity(new Intent(mContext,RegisteredPhoneCodeActivity.class));
     }
 
     /**
      * 查看注册时服务条款webview
-     * @param activity
+     * @param mContext
      * @param url
      * @param title
-     * @param b
+     * @param share
      */
-    public static void startMessageWebViewActivity(Activity activity, String url, String title, boolean share) {
-        Intent intent = new Intent(activity,MessageWebViewActivity.class);
+    public static void startMessageWebViewActivity(Context mContext, String url, String title, boolean share) {
+        Intent intent = new Intent(mContext,MessageWebViewActivity.class);
         intent.putExtra(MessageWebViewActivity.INTENT_SHARE,share);
         intent.putExtra(MessageWebViewActivity.INTENT_TITLE,title);
         intent.putExtra(MessageWebViewActivity.INTENT_URL,url);
-        activity.startActivity(intent);
+        mContext.startActivity(intent);
     }
 
     /**
      * 浏览器
-     * @param activity
+     * @param mContext
      * @param message
      */
-    public static void startActionView(Activity activity, String message) {
+    public static void startActionView(Context mContext, String message) {
         Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(message));
-        activity.startActivity(intent);
+        mContext.startActivity(intent);
     }
 
 
-    public static void startPersonalInformationActivity(FragmentActivity activity, UserEntity userEntity) {
-        Intent intent = new Intent(activity,PersonalInformationActivity.class);
+    public static void startPersonalInformationActivity(Context mContext, UserEntity userEntity) {
+        Intent intent = new Intent(mContext,PersonalInformationActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable(SuperSherlockActivity.INTENT_OBJECT,userEntity);
         intent.putExtra(SuperSherlockActivity.INTENT_BUNDLE,bundle);
-        activity.startActivity(intent);
+        mContext.startActivity(intent);
     }
 
-    public static void startLoveActivity(Activity activity, String s) {
+    public static void startLoveActivity(Context mContext, String s) {
     }
 
-    public static void startSchoolCityActivity(Activity activity) {
-
-    }
-
-    public static void startVerificationActivity(Activity activity) {
+    public static void startSchoolCityActivity(Context mContext) {
 
     }
 
-    public static void StartXianPinPopupActivity(FragmentActivity activity) {
-        activity.startActivity(new Intent(activity,XianPinPopupActivity.class));
+    public static void startVerificationActivity(Context mContext) {
+
+    }
+
+    public static void StartXianPinPopupActivity(Context mContext) {
+        mContext.startActivity(new Intent(mContext,XianPinPopupActivity.class));
     }
 
     /**
      * 系统相册图片选择
-     * @param activity
+     * @param mContext
      */
-    public static void startSystemImageActivity(Activity activity) {
+    public static void startSystemImageActivity(Context mContext) {
 
     }
 }
