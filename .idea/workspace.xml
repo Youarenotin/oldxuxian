@@ -72,10 +72,9 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f46f1c2f-a2ce-40bf-bb40-f676042d028b" name="Default" comment="">
+    <list default="true" id="f46f1c2f-a2ce-40bf-bb40-f676042d028b" name="Default" comment="nnd&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/CityListActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/CityListActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/AbsHttpClient.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/AbsHttpClient.java" />
     </list>
     <ignored path="xuxian.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -119,13 +118,15 @@
       <file leaf-file-name="CityListActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/CityListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.29969418">
-              <caret line="122" column="92" selection-start-line="122" selection-start-column="92" selection-end-line="122" selection-end-column="92" />
+            <state vertical-scroll-proportion="0.80733943">
+              <caret line="300" column="1" selection-start-line="300" selection-start-column="1" selection-end-line="300" selection-end-column="1" />
               <folding>
                 <element signature="e#2458#2459#0" expanded="true" />
                 <element signature="e#2483#2484#0" expanded="true" />
                 <element signature="e#3372#3656#0" expanded="true" />
                 <element signature="e#3655#3656#0" expanded="true" />
+                <element signature="e#6261#6503#0" expanded="true" />
+                <element signature="e#6502#6503#0" expanded="true" />
                 <element signature="method#fillData#0;class#CityListActivity#0" expanded="false" />
               </folding>
             </state>
@@ -135,8 +136,8 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5517242">
-              <caret line="75" column="40" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
+            <state vertical-scroll-proportion="-2.3793104">
+              <caret line="86" column="44" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -2971,7 +2972,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="device.picker.selection" value="TA00403SDH" />
@@ -3357,12 +3358,6 @@
       <option name="number" value="Default" />
       <updated>1469188779978</updated>
     </task>
-    <task id="LOCAL-00071" summary="1.17.1 解决pinned问题  viewtype:1 固定 0 固定">
-      <created>1471139688784</created>
-      <option name="number" value="00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1471139688785</updated>
-    </task>
     <task id="LOCAL-00072" summary="1.17.2 classifyactivity">
       <created>1471140213799</created>
       <option name="number" value="00072" />
@@ -3651,7 +3646,13 @@
       <option name="project" value="LOCAL" />
       <updated>1472143776864</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="1.26.1 &#10;">
+      <created>1472145901076</created>
+      <option name="number" value="00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1472145901076</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3744,10 +3745,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.21.1" />
-    <MESSAGE value="1.21.2" />
-    <MESSAGE value="1.21.3" />
-    <MESSAGE value="1.21.4" />
     <MESSAGE value="1.21.5" />
     <MESSAGE value="1.21.6" />
     <MESSAGE value="1.22.1" />
@@ -3769,7 +3766,11 @@
     <MESSAGE value="1.24.7 修改ActivityUtil 把activity入参改成context否则在adapter无法调用" />
     <MESSAGE value="1.24.8 完善自己的httpclient" />
     <MESSAGE value="1.25.1完善自己的httpclient" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.25.1完善自己的httpclient" />
+    <MESSAGE value="1.26.1 &#10;" />
+    <MESSAGE value="&#10;" />
+    <MESSAGE value=".&#10;" />
+    <MESSAGE value="nnd&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="nnd&#10;" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.8418605" />
   </component>
   <component name="XDebuggerManager">
@@ -4302,21 +4303,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5517242">
-          <caret line="75" column="40" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
+        <state vertical-scroll-proportion="-2.3793104">
+          <caret line="86" column="44" selection-start-line="86" selection-start-column="44" selection-end-line="86" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/CityListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29969418">
-          <caret line="122" column="92" selection-start-line="122" selection-start-column="92" selection-end-line="122" selection-end-column="92" />
+        <state vertical-scroll-proportion="0.80733943">
+          <caret line="300" column="1" selection-start-line="300" selection-start-column="1" selection-end-line="300" selection-end-column="1" />
           <folding>
             <element signature="e#2458#2459#0" expanded="true" />
             <element signature="e#2483#2484#0" expanded="true" />
             <element signature="e#3372#3656#0" expanded="true" />
             <element signature="e#3655#3656#0" expanded="true" />
+            <element signature="e#6261#6503#0" expanded="true" />
+            <element signature="e#6502#6503#0" expanded="true" />
             <element signature="method#fillData#0;class#CityListActivity#0" expanded="false" />
           </folding>
         </state>
