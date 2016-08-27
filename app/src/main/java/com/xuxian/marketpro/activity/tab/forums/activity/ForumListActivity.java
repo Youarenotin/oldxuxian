@@ -8,13 +8,19 @@ import android.view.View;
 
 import com.ab.http.AbHttpUtil;
 import com.ab.http.AbRequestParams;
+import com.ab.util.AbStrUtil;
+import com.ab.util.AbTokenUtil;
 import com.ab.view.slide.AbSlidingTabView;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
 import com.xuxian.marketpro.net.AnimeAsyncTask;
+import com.xuxian.marketpro.net.NewIssNetLib;
+import com.xuxian.marketpro.net.NewIssRequest;
+import com.xuxian.marketpro.net.httpclient.HttpRequestException;
 import com.xuxian.marketpro.net.httpclient.ParameterList;
 import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
 import com.xuxian.marketpro.presentation.db.UserDb;
+import com.xuxian.marketpro.presentation.entity.ForumsEntity;
 import com.xuxian.marketpro.presentation.entity.ForumsInfoEntity;
 import com.xuxian.marketpro.presentation.entity.UserEntity;
 
@@ -23,12 +29,12 @@ import com.xuxian.marketpro.presentation.entity.UserEntity;
  */
 public class ForumListActivity extends SuperSherlockActivity{
     private ActivityStateView emptyview_state;
-    private ForumsInfoEntity.DataEntity.ForumsEntity forums;
+    private NetworkAsyncTask forumListAsyncTask;
+    private ForumsEntity forums;
     private AbSlidingTabView mAbSlidingTabView;
     private UserDb userDb;
     private UserEntity userDto;
     private String user_id;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,9 +98,9 @@ public class ForumListActivity extends SuperSherlockActivity{
         }
     }
 
-    class NetWorkAsyncTask extends AnimeAsyncTask<Object,Void,String>{
+    class NetworkAsyncTask extends AnimeAsyncTask<Object,Void,String>{
 
-        public NetWorkAsyncTask(String loadingText, Activity mContext) {
+        public NetworkAsyncTask(String loadingText, Activity mContext) {
             super(loadingText, mContext);
         }
 
@@ -107,7 +113,37 @@ public class ForumListActivity extends SuperSherlockActivity{
 
         @Override
         protected String doInBackground(Object... params) {
+            try {
+               return  NewIssNetLib.getInstance(getActivity()).getForumList(params[0].toString(), (int) params[1],params[2].toString());
+            } catch (HttpRequestException e) {
+                e.printStackTrace();
+            }
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            if (AbStrUtil.isEmpty(result)){//如果响应为空
+                emptyview_state.setVisibility(View.VISIBLE);
+                emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_NODATA);
+                emptyview_state.setClickable(true);
+                emptyview_state.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        emptyview_state.setClickable(false);
+                        forumListAsyncTask = new NetworkAsyncTask(null,getActivity());
+                        forumListAsyncTask.execute(forums.getFid(),forums, 1, AbTokenUtil.getToken(user_id));
+                    }
+                });
+            }
+            else{
+                emptyview_state.setVisibility(View.GONE);
+
+            }
+            ///
+
+
         }
     }
 }
