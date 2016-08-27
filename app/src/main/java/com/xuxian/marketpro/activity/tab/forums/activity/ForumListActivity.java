@@ -102,7 +102,7 @@ public class ForumListActivity extends SuperSherlockActivity{
         }
     }
 
-   public  class NetworkAsyncTask extends AnimeAsyncTask<Object,Void,String>{
+   public  static  class NetworkAsyncTask extends AnimeAsyncTask<Object,Void,String>{
 
         public NetworkAsyncTask(String loadingText, Activity mContext) {
             super(loadingText, mContext);

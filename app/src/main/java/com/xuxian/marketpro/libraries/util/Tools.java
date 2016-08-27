@@ -1,7 +1,20 @@
 package com.xuxian.marketpro.libraries.util;
 
-import com.ab.util.AbDateUtil;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.view.ViewGroup;
 
+import com.ab.util.AbDateUtil;
+import com.ab.util.AbStrUtil;
+import com.xuxian.marketpro.presentation.View.widght.custom.PullToRefreshView;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.LineNumberReader;
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -118,7 +131,7 @@ public class Tools {
     }
 
     public static void adaptWh(View view, int width, int height) {
-        LayoutParams lp1 = view.getLayoutParams();
+        ViewGroup.LayoutParams lp1 = view.getLayoutParams();
         lp1.width = width;
         lp1.height = height;
         view.setLayoutParams(lp1);
