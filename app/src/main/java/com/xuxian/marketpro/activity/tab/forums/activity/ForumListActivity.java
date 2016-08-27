@@ -8,9 +8,13 @@ import android.view.View;
 
 import com.ab.http.AbHttpUtil;
 import com.ab.http.AbRequestParams;
+import com.ab.util.AbDialogUtil;
 import com.ab.util.AbStrUtil;
 import com.ab.util.AbTokenUtil;
 import com.ab.view.slide.AbSlidingTabView;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
 import com.xuxian.marketpro.net.AnimeAsyncTask;
@@ -98,7 +102,7 @@ public class ForumListActivity extends SuperSherlockActivity{
         }
     }
 
-    class NetworkAsyncTask extends AnimeAsyncTask<Object,Void,String>{
+   public  class NetworkAsyncTask extends AnimeAsyncTask<Object,Void,String>{
 
         public NetworkAsyncTask(String loadingText, Activity mContext) {
             super(loadingText, mContext);
@@ -139,7 +143,31 @@ public class ForumListActivity extends SuperSherlockActivity{
             }
             else{
                 emptyview_state.setVisibility(View.GONE);
-
+                JSONObject object = JSON.parseObject(result);
+                int ret = object.getInteger("ret");
+                int sub = object.getInteger("sub");
+                String msg = object.getString("msg");
+                if (ret != 0) {
+                    AbDialogUtil.showDialog(getActivity(), msg, true);
+                    return;
+                }
+                JSONObject data = object.getJSONObject("data");
+                int postNeedLogin = data.getIntValue("postNeedLogin");
+                int page = data.getIntValue("page");
+                int perpage = data.getIntValue("perpage");
+                int count = data.getIntValue("count");
+                int totalpage = data.getIntValue("totalpage");
+                JSONArray child = data.getJSONArray("child");
+                int length_child = child.size();
+                if (child == null || child.isEmpty()) {
+                    ForumListActivity.this.mAbSlidingTabView.gonemTabLayout();
+                    if (forums != null) {
+                        fragmentLoad = new FragmentLoad(ForumListActivity.this.forums.getFid(), length_child);
+                        ForumListActivity.this.mAbSlidingTabView.addItemView(ForumListActivity.this.forums.getName(), fragmentLoad);
+                        return;
+                    }
+                    return;
+                }
             }
             ///
 

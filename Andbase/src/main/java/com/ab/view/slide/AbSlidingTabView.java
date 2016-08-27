@@ -412,6 +412,20 @@ public class AbSlidingTabView extends LinearLayout {
     }
 
 	/**
+	 * 设置tab gone
+	 */
+	public void gonemTabLayout() {
+		this.mTabLayout.setVisibility(GONE);
+	}
+
+	/**
+	 * 设置tab visible
+	 */
+	public void visiblemTabLayout() {
+		this.mTabLayout.setVisibility(VISIBLE);
+	}
+
+	/**
 	 * 描述：设置tab文字的颜色.
 	 *
 	 * @param tabColor the new tab text color
