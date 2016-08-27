@@ -36,7 +36,7 @@ public class PullToRefreshView extends LinearLayout implements View.OnTouchListe
     private int hideHeaderHeight;
     private int lastStatus;
     private long lastUpdateTime;
-    private StickyGridHeadersGridView listView;
+//    private StickyGridHeadersGridView listView;
     private ImageView load;
     private boolean loadOnce;
     private int mId;

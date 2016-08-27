@@ -33,5 +33,5 @@ public class NewIssNetLib {
         mRequest.putParams(NewIssRequest.TOKEN, token);
         return mRequest.get(NewIssRequest.FORUM_LIST);
     }
-}
+
 }

@@ -1,8 +1,9 @@
 package com.xuxian.marketpro.activity.tab.forums.activity;
 
-import android.animation.ObjectAnimator;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.libraries.util.Tools;
 import com.xuxian.marketpro.libraries.util.monitor.ForumListMonitor;
+import com.xuxian.marketpro.net.NewIssNetLib;
 import com.xuxian.marketpro.presentation.View.adapter.ForumsListAdapter;
 import com.xuxian.marketpro.presentation.View.adapter.ForumsViewPagerAdapter;
 import com.xuxian.marketpro.presentation.View.refreshlayout.XuXianNormalRefreshViewHolder;
@@ -21,7 +23,6 @@ import com.xuxian.marketpro.presentation.View.viewpage.BannerViewPager;
 import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
 import com.xuxian.marketpro.presentation.db.UserDb;
 import com.xuxian.marketpro.presentation.entity.ForumListEntity;
-import com.xuxian.marketpro.presentation.entity.ForumsEntity;
 import com.xuxian.marketpro.presentation.entity.UserEntity;
 
 import java.util.List;
@@ -36,7 +37,7 @@ public class FragmentLoad extends SuperFragment implements XuXianRefreshLayout.X
     private int currentPage;
     private ActivityStateView emptyview_state;
     private String fid;
-    private ForumListActivity.NetworkAsyncTask forumListAsyncTask=null;
+    private NetworkAsyncTask forumListAsyncTask=null;
     private ForumsListAdapter forumsListAdapter;
     private ForumsViewPagerAdapter forumsViewPagerAdapter;
     private ViewGroup group;
@@ -153,5 +154,17 @@ public class FragmentLoad extends SuperFragment implements XuXianRefreshLayout.X
             i++;
         }
         return  data;
+    }
+
+    private class NetworkAsyncTask extends AsyncTask<Object,Void,String> {
+        public NetworkAsyncTask(Object params, FragmentActivity activity) {
+            super();
+        }
+
+        @Override
+        protected String doInBackground(Object... params) {
+            String str = NewIssNetLib.getInstance(getActivity()).getForumList(params[0], ((Integer) params[1], params[2]);
+            return str;
+        }
     }
 }

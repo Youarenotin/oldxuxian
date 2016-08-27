@@ -3,10 +3,8 @@ package com.xuxian.marketpro.activity.tab.forums.activity;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.view.ViewCompat;
 import android.view.View;
 
-import com.ab.http.AbHttpUtil;
 import com.ab.http.AbRequestParams;
 import com.ab.util.AbDialogUtil;
 import com.ab.util.AbStrUtil;
@@ -19,19 +17,16 @@ import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
 import com.xuxian.marketpro.net.AnimeAsyncTask;
 import com.xuxian.marketpro.net.NewIssNetLib;
-import com.xuxian.marketpro.net.NewIssRequest;
 import com.xuxian.marketpro.net.httpclient.HttpRequestException;
-import com.xuxian.marketpro.net.httpclient.ParameterList;
 import com.xuxian.marketpro.presentation.View.widght.ActivityStateView;
 import com.xuxian.marketpro.presentation.db.UserDb;
 import com.xuxian.marketpro.presentation.entity.ForumsEntity;
-import com.xuxian.marketpro.presentation.entity.ForumsInfoEntity;
 import com.xuxian.marketpro.presentation.entity.UserEntity;
 
 /**
  * Created by youarenotin on 16/8/16.
  */
-public class ForumListActivity extends SuperSherlockActivity{
+public class ForumListActivity extends SuperSherlockActivity {
     private ActivityStateView emptyview_state;
     private NetworkAsyncTask forumListAsyncTask;
     private ForumsEntity forums;
@@ -39,6 +34,7 @@ public class ForumListActivity extends SuperSherlockActivity{
     private UserDb userDb;
     private UserEntity userDto;
     private String user_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +58,8 @@ public class ForumListActivity extends SuperSherlockActivity{
             this.user_id = this.userDto.getUserid();
         }
         setTitle(this.forums.getName());
-        AbRequestParams params=new AbRequestParams();
-        params.put("fid",forums.getFid());
+        AbRequestParams params = new AbRequestParams();
+        params.put("fid", forums.getFid());
 
 //        AbHttpUtil.getInstance(getActivity()).postAndParse();
     }
@@ -102,7 +98,7 @@ public class ForumListActivity extends SuperSherlockActivity{
         }
     }
 
-   public  static  class NetworkAsyncTask extends AnimeAsyncTask<Object,Void,String>{
+    private class NetworkAsyncTask extends AnimeAsyncTask<Object, Void, String> {
 
         public NetworkAsyncTask(String loadingText, Activity mContext) {
             super(loadingText, mContext);
@@ -118,7 +114,7 @@ public class ForumListActivity extends SuperSherlockActivity{
         @Override
         protected String doInBackground(Object... params) {
             try {
-               return  NewIssNetLib.getInstance(getActivity()).getForumList(params[0].toString(), (int) params[1],params[2].toString());
+                return NewIssNetLib.getInstance(getActivity()).getForumList(params[0].toString(), (int) params[1], params[2].toString());
             } catch (HttpRequestException e) {
                 e.printStackTrace();
             }
@@ -128,7 +124,7 @@ public class ForumListActivity extends SuperSherlockActivity{
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            if (AbStrUtil.isEmpty(result)){//如果响应为空
+            if (AbStrUtil.isEmpty(result)) {//如果响应为空
                 emptyview_state.setVisibility(View.VISIBLE);
                 emptyview_state.setState(ActivityStateView.ACTIVITY_STATE_NODATA);
                 emptyview_state.setClickable(true);
@@ -136,12 +132,11 @@ public class ForumListActivity extends SuperSherlockActivity{
                     @Override
                     public void onClick(View v) {
                         emptyview_state.setClickable(false);
-                        forumListAsyncTask = new NetworkAsyncTask(null,getActivity());
-                        forumListAsyncTask.execute(forums.getFid(),forums, 1, AbTokenUtil.getToken(user_id));
+                        forumListAsyncTask = new NetworkAsyncTask(null, getActivity());
+                        forumListAsyncTask.execute(forums.getFid(), forums, 1, AbTokenUtil.getToken(user_id));
                     }
                 });
-            }
-            else{
+            } else {
                 emptyview_state.setVisibility(View.GONE);
                 JSONObject object = JSON.parseObject(result);
                 int ret = object.getInteger("ret");
@@ -160,7 +155,7 @@ public class ForumListActivity extends SuperSherlockActivity{
                 JSONArray child = data.getJSONArray("child");
                 int length_child = child.size();
                 if (child == null || child.isEmpty()) {
-                    ForumListActivity.this.mAbSlidingTabView.gonemTabLayout();
+                    mAbSlidingTabView.gonemTabLayout();
                     if (forums != null) {
                         fragmentLoad = new FragmentLoad(ForumListActivity.this.forums.getFid(), length_child);
                         ForumListActivity.this.mAbSlidingTabView.addItemView(ForumListActivity.this.forums.getName(), fragmentLoad);
