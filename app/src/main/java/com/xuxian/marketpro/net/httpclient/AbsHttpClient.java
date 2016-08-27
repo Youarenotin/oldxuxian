@@ -40,6 +40,12 @@ public abstract class AbsHttpClient {
         this.readTimeout = 8000;
     }
 
+    /**
+     * 基于httpurlconnection进行访问网络
+     * @param httpMethod
+     * @return
+     * @throws HttpRequestException
+     */
     public HttpResponse tryMany(HttpMethod httpMethod) throws HttpRequestException {
         while (httpMethod.numTries < this.maxRetries) {
             try {

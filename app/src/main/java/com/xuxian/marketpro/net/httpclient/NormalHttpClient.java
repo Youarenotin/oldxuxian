@@ -12,7 +12,7 @@ public class   NormalHttpClient extends AbsHttpClient {
 
     @Override
     public HttpResponse get(String url, ParameterList parameterList) throws HttpRequestException {
-        return null;
+        return tryMany(new HttpGet(url,parameterList));
     }
 
     @Override
@@ -22,12 +22,12 @@ public class   NormalHttpClient extends AbsHttpClient {
 
     @Override
     public HttpResponse post(String url, ParameterList parameterList) throws HttpRequestException {
-        return tryMany(new ht);
+        return tryMany(new HttpPost(url,parameterList));
     }
 
     @Override
-    public HttpResponse post(String url, String str2, byte[] bArr) throws HttpRequestException {
-        return null;
+    public HttpResponse post(String url, String contentType, byte[] bArr) throws HttpRequestException {
+        return tryMany(new HttpPost(url,null,contentType,bArr));
     }
 
     @Override
