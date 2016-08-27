@@ -190,4 +190,8 @@ public class ActivityUtil {
     public static void startSystemImageActivity(Context mContext) {
 
     }
+
+    public static void startForumListDetailsActivity(Context mContext, String tid, String fid) {
+
+    }
 }

@@ -12,6 +12,9 @@ import com.ab.util.AbTokenUtil;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.libraries.util.Tools;
+import com.xuxian.marketpro.libraries.util.monitor.ForumListMonitor;
+import com.xuxian.marketpro.presentation.View.adapter.ForumsListAdapter;
+import com.xuxian.marketpro.presentation.View.adapter.ForumsViewPagerAdapter;
 import com.xuxian.marketpro.presentation.View.refreshlayout.XuXianNormalRefreshViewHolder;
 import com.xuxian.marketpro.presentation.View.refreshlayout.XuXianRefreshLayout;
 import com.xuxian.marketpro.presentation.View.viewpage.BannerViewPager;
@@ -98,14 +101,16 @@ public class FragmentLoad extends SuperFragment implements XuXianRefreshLayout.X
     protected void setListener() {
         this.bla_forum_list.setDelegate(this);
         this.bla_forum_list.setRefreshViewHolder(new XuXianNormalRefreshViewHolder(getActivity(), true));
-        ForumListMonitor.getInstance().register(new ForumListMonitorCallback() {
-            public void AppOperation(boolean isforumList) {
+        ForumListMonitor.getInstance().register(new ForumListMonitor.ForumListMonitorCallback() {
+            @Override
+            public void appOperation(boolean isforumList) {
                 if (FragmentLoad.this.userDto != null) {
                     FragmentLoad.this.setLoadingStatus(Tools.TYPE_IS_FROM_PULL);
-                    FragmentLoad.this.forumListAsyncTask = new NetworkAsyncTask(FragmentLoad.this.getActivity(), null);
+                    FragmentLoad.this.forumListAsyncTask = new NetworkAsyncTask(null,getActivity());
                     FragmentLoad.this.forumListAsyncTask.execute(new Object[]{FragmentLoad.this.fid, Integer.valueOf(FragmentLoad.this.currentPage), AbTokenUtil.getToken(FragmentLoad.this.userDto.getUserid())});
                 }
             }
+
         }, ForumListActivity.class.getName());
     }
 
