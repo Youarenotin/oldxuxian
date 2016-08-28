@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.ab.util.AbScreenUtils;
 import com.ab.util.AbTokenUtil;
+import com.ab.util.AbViewUtil;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.libraries.util.Tools;
@@ -81,7 +83,14 @@ public class FragmentLoad extends SuperFragment implements XuXianRefreshLayout.X
     }
 
     private void initViewPage() {
-
+        View headView = LayoutInflater.from(getActivity()).inflate(R.layout.headerview_goods_fragment, null);
+        this.vp_headimage = (BannerViewPager) headView.findViewById(R.id.vp_headerview_goods_banner);
+        int screenWidth = AbScreenUtils.getScreenWidth(getActivity());
+        AbViewUtil.setViewWH(this.vp_headimage, screenWidth, (int) (((double) screenWidth) * 0.4d));
+        this.group = (ViewGroup) headView.findViewById(R.id.ll_headerview_goods_group);
+        this.forumsViewPagerAdapter = new ForumsViewPagerAdapter(getActivity());
+        this.vp_headimage.setAdapter(this.forumsViewPagerAdapter);
+        this.lv_forum_list.addHeaderView(headView);
     }
 
     @Override
@@ -120,7 +129,7 @@ public class FragmentLoad extends SuperFragment implements XuXianRefreshLayout.X
         setLoadingStatus(Tools.TYPE_IS_FROM_PULL);
         currentPage=1;
         forumListAsyncTask = new NetworkAsyncTask(null,getActivity());
-        forumListAsyncTask.execute(new Object[]{fid,currentPage,AbTokenUtil.getToken(user_id)});
+        forumListAsyncTask.execute(fid,currentPage,AbTokenUtil.getToken(user_id));
     }
 
     @Override
@@ -129,7 +138,7 @@ public class FragmentLoad extends SuperFragment implements XuXianRefreshLayout.X
         if (this.currentPage<=this.totalpage){//如果当前页不大于等于总页数
             setLoadingStatus(Tools.TYPE_IS_FROM_PULLUP);
             forumListAsyncTask = new NetworkAsyncTask(null,getActivity());
-            forumListAsyncTask.execute(new Object[]{fid,currentPage, AbTokenUtil.getToken(user_id)});
+            forumListAsyncTask.execute(fid,currentPage, AbTokenUtil.getToken(user_id));
             return true;
         }
         endLoad();

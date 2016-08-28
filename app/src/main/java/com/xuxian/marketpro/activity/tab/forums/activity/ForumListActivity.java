@@ -42,6 +42,12 @@ public class ForumListActivity extends SuperSherlockActivity {
         initTitleBar();
         initFindViewById();
         setListener();
+        if (savedInstanceState!=null){
+            this.forums= (ForumsEntity) savedInstanceState.getSerializable("forums");
+        }
+        else{
+            this.forums= (ForumsEntity) getIntent().getBundleExtra(INTENT_BUNDLE).getSerializable(INTENT_OBJECT);
+        }
         init();
     }
 
@@ -154,6 +160,7 @@ public class ForumListActivity extends SuperSherlockActivity {
                 int totalpage = data.getIntValue("totalpage");
                 JSONArray child = data.getJSONArray("child");
                 int length_child = child.size();
+                FragmentLoad fragmentLoad;
                 if (child == null || child.isEmpty()) {
                     mAbSlidingTabView.gonemTabLayout();
                     if (forums != null) {
