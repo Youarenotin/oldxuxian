@@ -16,6 +16,7 @@ import com.xuxian.marketpro.activity.LoginActivity;
 import com.xuxian.marketpro.activity.MessageWebViewActivity;
 import com.xuxian.marketpro.activity.PersonalInformationActivity;
 import com.xuxian.marketpro.activity.RegisteredPhoneCodeActivity;
+import com.xuxian.marketpro.activity.SchoolCityActivity;
 import com.xuxian.marketpro.activity.StoreDetailsActivity;
 import com.xuxian.marketpro.activity.XianPinPopupActivity;
 import com.xuxian.marketpro.activity.store.StoreFragmentActivity;
@@ -159,7 +160,11 @@ public class ActivityUtil {
         mContext.startActivity(intent);
     }
 
-
+    /**
+     * 启动个人信息Activity
+     * @param mContext
+     * @param userEntity
+     */
     public static void startPersonalInformationActivity(Context mContext, UserEntity userEntity) {
         Intent intent = new Intent(mContext,PersonalInformationActivity.class);
         Bundle bundle = new Bundle();
@@ -168,17 +173,30 @@ public class ActivityUtil {
         mContext.startActivity(intent);
     }
 
+    /**
+     * 启动爱好选择Activity
+     * @param mContext
+     * @param s
+     */
     public static void startLoveActivity(Context mContext, String s) {
     }
 
+    /**
+     * 启动学校选择Activity
+     * @param mContext
+     */
     public static void startSchoolCityActivity(Context mContext) {
-
+        mContext.startActivity(new Intent(mContext,SchoolCityActivity.class));
     }
 
     public static void startVerificationActivity(Context mContext) {
 
     }
 
+    /**
+     * 鲜拼 引导Activity
+     * @param mContext
+     */
     public static void StartXianPinPopupActivity(Context mContext) {
         mContext.startActivity(new Intent(mContext,XianPinPopupActivity.class));
     }

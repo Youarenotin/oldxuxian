@@ -170,6 +170,9 @@ public class ForumListActivity extends SuperSherlockActivity {
                     }
                     return;
                 }
+                else{
+
+                }
             }
             ///
 
