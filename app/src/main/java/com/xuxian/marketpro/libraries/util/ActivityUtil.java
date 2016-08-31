@@ -186,7 +186,7 @@ public class ActivityUtil {
      * @param mContext
      */
     public static void startSchoolCityActivity(Context mContext) {
-        mContext.startActivity(new Intent(mContext,SchoolCityActivity.class));
+        ((Activity)mContext).startActivityForResult(new Intent(mContext,SchoolCityActivity.class),PersonalInformationActivity.CITY);
     }
 
     public static void startVerificationActivity(Context mContext) {

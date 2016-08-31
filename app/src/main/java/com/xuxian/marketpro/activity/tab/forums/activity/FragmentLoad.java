@@ -17,6 +17,7 @@ import com.xuxian.marketpro.activity.supers.SuperFragment;
 import com.xuxian.marketpro.libraries.util.Tools;
 import com.xuxian.marketpro.libraries.util.monitor.ForumListMonitor;
 import com.xuxian.marketpro.net.NewIssNetLib;
+import com.xuxian.marketpro.net.httpclient.HttpRequestException;
 import com.xuxian.marketpro.presentation.View.adapter.ForumsListAdapter;
 import com.xuxian.marketpro.presentation.View.adapter.ForumsViewPagerAdapter;
 import com.xuxian.marketpro.presentation.View.refreshlayout.XuXianNormalRefreshViewHolder;
@@ -172,7 +173,12 @@ public class FragmentLoad extends SuperFragment implements XuXianRefreshLayout.X
 
         @Override
         protected String doInBackground(Object... params) {
-            String str = NewIssNetLib.getInstance(getActivity()).getForumList(params[0], ((Integer) params[1], params[2]);
+            String str = null;
+            try {
+                str = NewIssNetLib.getInstance(getActivity()).getForumList((String) params[0],(int)params[1], (String) params[2]);
+            } catch (HttpRequestException e) {
+                e.printStackTrace();
+            }
             return str;
         }
     }

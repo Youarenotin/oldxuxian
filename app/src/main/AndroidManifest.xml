@@ -131,6 +131,8 @@
         <activity
             android:name=".activity.tab.forums.activity.ForumListActivity"
             android:screenOrientation="portrait" />
+        <!--学校选择-->
+        <activity android:name=".activity.SchoolCityActivity" android:screenOrientation="portrait"/>
         <!--高德-->
         <service android:name="com.amap.api.location.APSService" />
     </application>
