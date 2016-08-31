@@ -3,6 +3,7 @@ package com.xuxian.marketpro.activity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -144,13 +145,16 @@ public class SchoolCityActivity extends SuperSherlockActivity {
         });
     }
 
-    private void schoolDialog(String[] schools) {
+    private void schoolDialog(final String[] schools) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("学校选择");
         builder.setItems(schools, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                Intent intent = new Intent();
+                intent.putExtra("SCHOOL",schools[which]);
+                setResult(-1,intent);
+                finish();
             }
         });
         builder.create().show();

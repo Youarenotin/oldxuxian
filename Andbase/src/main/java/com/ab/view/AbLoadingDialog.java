@@ -58,7 +58,9 @@ public class AbLoadingDialog extends Dialog {
     }
 
     public AbLoadingDialog(Context context) {
-        super(context);
+        super(context, R.style.Dialog_bocop1);
+//        super(context);
+
         this.cancelable = true;
         this.handler = new MyHandler();
         this.mContext = context;
@@ -89,9 +91,9 @@ public class AbLoadingDialog extends Dialog {
 
     @Override
     public void show(){
+        super.show();
         iv_route.startAnimation(mAnim);
         handler.sendEmptyMessage(CHANGE_TITLE_WHAT);
-        super.show();
     }
 
     @Override

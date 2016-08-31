@@ -610,7 +610,7 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
                     Intent intent2 = new Intent(this, CropImageActivity.class);
                     intent2.putExtra("PATH", AbPreferenceUtils.loadPrefString(getActivity(), "path"));
                     startActivityForResult(intent2, CAMERA_CROP_DATA);
-                case CITY /*3024*/://城市选择
+                case CITY /*3024*/://学校选择
                     this.tv_update_school.setText(mIntent.getStringExtra("SCHOOL"));
                 case LOVE /*3025*/://爱好选择
                     this.love = mIntent.getStringExtra("LOVE");
