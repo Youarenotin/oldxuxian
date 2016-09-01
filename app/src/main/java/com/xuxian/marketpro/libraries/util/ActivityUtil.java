@@ -27,6 +27,7 @@ import com.xuxian.marketpro.activity.tab.forums.activity.ForumListActivity;
 import com.xuxian.marketpro.presentation.entity.CityEntity;
 import com.xuxian.marketpro.presentation.entity.ForumsInfoEntity;
 import com.xuxian.marketpro.presentation.entity.ForumsInfoEntity.DataEntity.ForumsEntity;
+import com.xuxian.marketpro.presentation.entity.OrderEntity;
 import com.xuxian.marketpro.presentation.entity.StoreEntity;
 import com.xuxian.marketpro.presentation.entity.UserEntity;
 
@@ -235,6 +236,15 @@ public class ActivityUtil {
      * @param context
      */
     public static void startMyCouponsActivity(Context context) {
+
+    }
+
+    /**
+     * 订单详情
+     * @param mContext
+     * @param orderEntity
+     */
+    public static void startOrderDetailsActivity(Context mContext, OrderEntity orderEntity) {
 
     }
 }

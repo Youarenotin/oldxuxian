@@ -78,34 +78,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f46f1c2f-a2ce-40bf-bb40-f676042d028b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/shimmer_0_1_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/MyOrderActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/monitor/OrderMonitor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/OrderAdapter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/GetHistoryInfoEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/OrderEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_order_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/anniu.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/ic_app_start_background.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/shopping_button.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/splash_03.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/time_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/Splash.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/filled_circle_express_gray.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/filled_circle_express_green.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_order_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/splash.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/AMap_2DMap_V2_9_0_20160525.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/AMap_Location_V2_6_0_20160628.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/EasyAndroidAnimations_0_8.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/actionbarsherlock.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/fastjson_1_2_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_22_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/shimmer_0_1_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_22_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v13_22_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_22_2_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/universal_image_loader_1_9_3.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_Andbase_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_Andbase_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_Andbase_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_Andbase_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_Andbase_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_Andbase_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/tasks/_Andbase_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/tasks/_Andbase_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Andbase/Andbase.iml" afterPath="$PROJECT_DIR$/Andbase/Andbase.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/PersonalInformationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/PersonalInformationActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/MyOrderActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/MyOrderActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/supers/SuperSherlockActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/supers/SuperSherlockActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/ActivityUtil.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/ActivityUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/monitor/monitor.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/monitor/monitor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/NewIssNetLib.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/NewIssNetLib.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/OrderAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/OrderAdapter.java" />
     </list>
     <ignored path="xuxian.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -149,7 +155,7 @@
       <file leaf-file-name="PersonalCenterFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.740741">
+            <state vertical-scroll-proportion="0.0">
               <caret line="214" column="59" selection-start-line="214" selection-start-column="59" selection-end-line="214" selection-end-column="59" />
               <folding />
             </state>
@@ -159,8 +165,8 @@
       <file leaf-file-name="ActivityUtil.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/ActivityUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.1481482">
-              <caret line="210" column="5" selection-start-line="210" selection-start-column="5" selection-end-line="210" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="247" column="0" selection-start-line="247" selection-start-column="0" selection-end-line="247" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -169,23 +175,37 @@
       <file leaf-file-name="MyOrderActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/MyOrderActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.444445">
-              <caret line="69" column="57" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="37" column="20" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1684#1685#0" expanded="true" />
-                <element signature="e#1711#1712#0" expanded="true" />
-                <element signature="e#1812#1813#0" expanded="true" />
-                <element signature="e#1844#1845#0" expanded="true" />
+                <element signature="e#2221#2453#0" expanded="true" />
+                <element signature="e#2452#2453#0" expanded="true" />
+                <element signature="e#5335#5336#0" expanded="true" />
+                <element signature="e#5362#5363#0" expanded="true" />
+                <element signature="e#5463#5464#0" expanded="true" />
+                <element signature="e#5495#5496#0" expanded="true" />
+                <element signature="e#6131#6377#0" expanded="true" />
+                <element signature="e#6376#6377#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderMonitor.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PersonalInformationActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/PersonalInformationActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="716" column="37" selection-start-line="716" selection-start-column="37" selection-end-line="716" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderMonitor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/monitor/OrderMonitor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.113744">
+            <state vertical-scroll-proportion="0.0">
               <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -194,63 +214,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="attrs.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/attrs.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.5925926">
-              <caret line="226" column="18" selection-start-line="226" selection-start-column="18" selection-end-line="226" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="OrderAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/OrderAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="20" />
+              <caret line="84" column="4" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#277#278#0" expanded="true" />
-                <element signature="e#301#302#0" expanded="true" />
-                <element signature="e#358#359#0" expanded="true" />
-                <element signature="e#385#386#0" expanded="true" />
-                <element signature="e#442#443#0" expanded="true" />
-                <element signature="e#466#467#0" expanded="true" />
-                <element signature="e#557#558#0" expanded="true" />
-                <element signature="e#584#585#0" expanded="true" />
+                <element signature="e#807#808#0" expanded="true" />
+                <element signature="e#845#846#0" expanded="true" />
+                <element signature="e#1056#1057#0" expanded="true" />
+                <element signature="e#1102#1103#0" expanded="true" />
+                <element signature="e#1159#1160#0" expanded="true" />
+                <element signature="e#1190#1191#0" expanded="true" />
+                <element signature="e#4679#4766#0" expanded="true" />
+                <element signature="e#10963#11058#0" expanded="true" />
+                <element signature="e#12033#12269#0" expanded="true" />
+                <element signature="e#12268#12269#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Andbase/src/main/AndroidManifest.xml">
+      <file leaf-file-name="Splash.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/Splash.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.26732674">
+              <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <file leaf-file-name="splash.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/splash.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.3333335">
-              <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
+            <state vertical-scroll-proportion="-2.892857">
+              <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
               <folding />
             </state>
           </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <file leaf-file-name="item_order_layout.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_order_layout.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+            <state vertical-scroll-proportion="-83.25">
+              <caret line="259" column="24" selection-start-line="259" selection-start-column="24" selection-end-line="259" selection-end-column="24" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
           </provider>
         </entry>
       </file>
@@ -259,10 +279,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="layoutResourceFile_vertical" />
         <option value="valueResourceFile" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="layoutResourceFile_vertical" />
       </list>
     </option>
   </component>
@@ -2734,10 +2754,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/HttpGet.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/NormalHttpClient.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/NewIssRequest.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/NewIssLib.java" />
         <option value="$PROJECT_DIR$/Andbase/src/main/java/com/ab/util/AbTokenUtil.java" />
         <option value="$PROJECT_DIR$/Andbase/src/main/java/com/ab/view/slide/AbSlidingTabView.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/widght/custom/EatProgressBar.java" />
@@ -2774,22 +2790,26 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/widght/ShimmerFramelayout.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/ActivityUtil.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_order_layout.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/OrderAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/OrderEntity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/GetHistoryInfoEntity.java" />
         <option value="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/MyOrderActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/monitor/monitor.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/monitor/OrderMonitor.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/supers/SuperSherlockActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/MyOrderActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_order_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/ActivityUtil.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/OrderAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/splash.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/Splash.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
+    <option name="x" value="2" />
     <option name="y" value="23" />
     <option name="width" value="1276" />
     <option name="height" value="777" />
@@ -2870,7 +2890,7 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2880,29 +2900,15 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xuxian" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="marketpro" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="presentation" />
@@ -2916,15 +2922,15 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="marketpro" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="presentation" />
@@ -2942,15 +2948,15 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="marketpro" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="presentation" />
@@ -2968,15 +2974,15 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="marketpro" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2986,15 +2992,15 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="marketpro" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="libraries" />
@@ -3012,15 +3018,15 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="marketpro" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="libraries" />
@@ -3042,15 +3048,15 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="marketpro" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="libraries" />
@@ -3076,15 +3082,15 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="marketpro" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="libraries" />
@@ -3098,15 +3104,15 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="marketpro" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="activity" />
@@ -3119,8 +3125,22 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="xuxian" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Andbase" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -3191,12 +3211,15 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="898" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="full.screen.before.presentation.mode" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="cityac&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.CityListActivity&#10;persi&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.PersonalInformationActivity&#10;goods&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java&#10;goodsfra&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.tab.goods.GoodsFragment&#10;newiss&#9;PSI&#9;JAVA://com.xuxian.marketpro.net.NewIssRequest&#10;an&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/AndroidManifest.xml&#10;citylist&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.CityListActivity&#10;norma&#9;PSI&#9;JAVA://com.xuxian.marketpro.net.httpclient.NormalHttpClient&#10;abhttpcl&#9;PSI&#9;JAVA://com.ab.http.AbHttpClient&#10;andr&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/AndroidManifest.xml&#10;login&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/LoginActivity.java&#10;pers&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFragment.java&#10;listac&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.CityListActivity&#10;fest&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/AndroidManifest.xml&#10;style&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/res/values/styles.xml&#10;xianpinp&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/XianPinPopupActivity.java&#10;loginac&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/LoginActivity.java&#10;shoppfrag&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.tab.shoppingcar.ShoppingCartFragment&#10;shoppingcahr&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/View/refreshlayout/XuXianRefreshLayout.java&#10;tabmain&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.tab.TabMainFragmentActivity&#10;goodsfr&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.tab.goods.GoodsFragment&#10;person&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFregment.java&#10;entity&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/CityEntity.java&#10;entit&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/UserEntity.java&#10;acutil&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/libraries/util/ActivityUtil.java&#10;moni&#9;PSI&#9;JAVA://com.xuxian.marketpro.libraries.util.monitor.CityMonitor&#10;color&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/res/values/colors.xml&#10;userdb&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.db.UserDb&#10;pinned&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.View.listview.PinnedSectionListView&#10;attr&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/res/values/attrs.xml&#10;grid&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/res/layout/gridview_item_listview02.xml&#10;mg&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/appbase/view/MGridView.java&#10;viewholderti&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.View.adapter.SimpleAdapterListView02.ViewHolderTitle&#10;PageEntity&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/PageEntity.java&#10;StatusEntity&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/StatusEntity.java&#10;sim&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java&#10;simp&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.View.adapter.SimpleAdapterListView02&#10;activi&#9;PSI&#9;JAVA://com.xuxian.marketpro.libraries.util.ActivityUtil&#10;activitystat&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/View/widght/ActivityStateView.java&#10;citylis&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/CityListActivity.java&#10;city&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/CityListActivity.java" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/AndroidManifest.xml&#10;cityac&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.CityListActivity&#10;persi&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.PersonalInformationActivity&#10;goods&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java&#10;goodsfra&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.tab.goods.GoodsFragment&#10;newiss&#9;PSI&#9;JAVA://com.xuxian.marketpro.net.NewIssRequest&#10;an&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/AndroidManifest.xml&#10;citylist&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.CityListActivity&#10;norma&#9;PSI&#9;JAVA://com.xuxian.marketpro.net.httpclient.NormalHttpClient&#10;abhttpcl&#9;PSI&#9;JAVA://com.ab.http.AbHttpClient&#10;andr&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/AndroidManifest.xml&#10;login&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/LoginActivity.java&#10;pers&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFragment.java&#10;listac&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.CityListActivity&#10;fest&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/AndroidManifest.xml&#10;style&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/res/values/styles.xml&#10;xianpinp&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/XianPinPopupActivity.java&#10;loginac&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/LoginActivity.java&#10;shoppfrag&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.tab.shoppingcar.ShoppingCartFragment&#10;shoppingcahr&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/View/refreshlayout/XuXianRefreshLayout.java&#10;tabmain&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.tab.TabMainFragmentActivity&#10;goodsfr&#9;PSI&#9;JAVA://com.xuxian.marketpro.activity.tab.goods.GoodsFragment&#10;person&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFregment.java&#10;entity&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/CityEntity.java&#10;entit&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/UserEntity.java&#10;acutil&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/libraries/util/ActivityUtil.java&#10;moni&#9;PSI&#9;JAVA://com.xuxian.marketpro.libraries.util.monitor.CityMonitor&#10;color&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/res/values/colors.xml&#10;userdb&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.db.UserDb&#10;pinned&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.View.listview.PinnedSectionListView&#10;attr&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/res/values/attrs.xml&#10;grid&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/res/layout/gridview_item_listview02.xml&#10;mg&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/appbase/view/MGridView.java&#10;viewholderti&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.View.adapter.SimpleAdapterListView02.ViewHolderTitle&#10;PageEntity&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/PageEntity.java&#10;StatusEntity&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/entity/StatusEntity.java&#10;sim&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/View/adapter/SimpleAdapterListView02.java&#10;simp&#9;PSI&#9;JAVA://com.xuxian.marketpro.presentation.View.adapter.SimpleAdapterListView02&#10;activi&#9;PSI&#9;JAVA://com.xuxian.marketpro.libraries.util.ActivityUtil&#10;activitystat&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/presentation/View/widght/ActivityStateView.java&#10;citylis&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/CityListActivity.java&#10;city&#9;FILE&#9;file:///Users/youarenotin/Documents/Repositories/xuxian/app/src/main/java/com/xuxian/marketpro/activity/CityListActivity.java" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable-hdpi" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="287" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="597" />
     <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
+    <key name="android.template.packageName">
+      <recent name="com.xuxian.marketpro.activity" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.xuxian.marketpro.appbase" />
       <recent name="com.xuxian.marketpro.libraries.util" />
@@ -3205,11 +3228,11 @@
       <recent name="com.xuxian.market.libraries" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-hdpi" />
+      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/View/widght" />
       <recent name="$PROJECT_DIR$/app/src/main/assets" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable-hdpi" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.xuxian.marketpro.libraries.util.monitor" />
@@ -3552,12 +3575,6 @@
       <option name="number" value="Default" />
       <updated>1469188779978</updated>
     </task>
-    <task id="LOCAL-00088" summary="1.19.12 论坛init">
-      <created>1471353472958</created>
-      <option name="number" value="00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1471353472958</updated>
-    </task>
     <task id="LOCAL-00089" summary="1.19.13">
       <created>1471357893851</created>
       <option name="number" value="00089" />
@@ -3846,7 +3863,13 @@
       <option name="project" value="LOCAL" />
       <updated>1472633684095</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="orderactivity">
+      <created>1472698778783</created>
+      <option name="number" value="00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1472698778783</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3859,7 +3882,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="23" width="1276" height="777" extended-state="6" />
+    <frame x="2" y="23" width="1276" height="777" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -3939,7 +3962,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1.24.2" />
     <MESSAGE value="1.24.3 个人信息设置Activity" />
     <MESSAGE value="1.24.4" />
     <MESSAGE value="1.24.5" />
@@ -3964,7 +3986,8 @@
     <MESSAGE value="1.27.11" />
     <MESSAGE value="new day" />
     <MESSAGE value="xuexiaoxueanze" />
-    <option name="LAST_COMMIT_MESSAGE" value="xuexiaoxueanze" />
+    <MESSAGE value="orderactivity" />
+    <option name="LAST_COMMIT_MESSAGE" value="orderactivity" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.8418605" />
   </component>
   <component name="XDebuggerManager">
@@ -4022,82 +4045,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-22/android/widget/ListView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_goods.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/net/httpclient/NormalHttpClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="95" selection-start-line="13" selection-start-column="95" selection-end-line="13" selection-end-column="95" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/forums/activity/ForumListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/goods/GoodsFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="260" column="24" selection-start-line="260" selection-start-column="24" selection-end-line="260" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#20940#20941#0" expanded="false" />
-            <element signature="e#20980#20981#0" expanded="false" />
-            <element signature="e#24718#24719#0" expanded="false" />
-            <element signature="e#24781#24782#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Andbase/src/main/java/com/ab/util/AbViewUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="559" column="49" selection-start-line="559" selection-start-column="49" selection-end-line="559" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/bar_main_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/ForumsAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="125" column="42" selection-start-line="125" selection-start-column="42" selection-end-line="125" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/forums/ForumsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4293,14 +4240,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/supers/SuperSherlockActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1721959">
-          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-22/android/os/AsyncTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.025276462">
@@ -4324,27 +4263,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/PersonalInformationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="716" column="37" selection-start-line="716" selection-start-column="37" selection-end-line="716" selection-end-column="37" />
-          <folding>
-            <element signature="e#21000#21188#0" expanded="true" />
-            <element signature="e#21187#21188#0" expanded="true" />
-            <element signature="e#21412#21618#0" expanded="true" />
-            <element signature="e#21617#21618#0" expanded="true" />
-            <element signature="e#22254#22464#0" expanded="true" />
-            <element signature="e#22463#22464#0" expanded="true" />
-            <element signature="e#22507#22679#0" expanded="true" />
-            <element signature="e#22678#22679#0" expanded="true" />
-            <element signature="e#23486#24617#0" expanded="true" />
-            <element signature="e#24616#24617#0" expanded="true" />
-            <element signature="e#24660#24832#0" expanded="true" />
-            <element signature="e#24831#24832#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -4374,7 +4292,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/tab/personlcenter/PersonalCenterFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.740741">
+        <state vertical-scroll-proportion="0.0">
           <caret line="214" column="59" selection-start-line="214" selection-start-column="59" selection-end-line="214" selection-end-column="59" />
           <folding />
         </state>
@@ -4384,14 +4302,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.3333335">
-          <caret line="61" column="34" selection-start-line="61" selection-start-column="34" selection-end-line="61" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -4407,119 +4317,101 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/OrderAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#358#359#0" expanded="true" />
-            <element signature="e#385#386#0" expanded="true" />
-            <element signature="e#442#443#0" expanded="true" />
-            <element signature="e#466#467#0" expanded="true" />
-            <element signature="e#557#558#0" expanded="true" />
-            <element signature="e#584#585#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/entity/OrderEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1421801">
           <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
           <folding>
-            <element signature="e#946#947#0" expanded="true" />
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1036#1037#0" expanded="true" />
-            <element signature="e#1082#1083#0" expanded="true" />
-            <element signature="e#1111#1112#0" expanded="true" />
-            <element signature="e#1141#1142#0" expanded="true" />
-            <element signature="e#1177#1178#0" expanded="true" />
-            <element signature="e#1205#1206#0" expanded="true" />
-            <element signature="e#1240#1241#0" expanded="true" />
-            <element signature="e#1276#1277#0" expanded="true" />
-            <element signature="e#1324#1325#0" expanded="true" />
-            <element signature="e#1364#1365#0" expanded="true" />
-            <element signature="e#1396#1397#0" expanded="true" />
-            <element signature="e#1429#1430#0" expanded="true" />
-            <element signature="e#1471#1472#0" expanded="true" />
-            <element signature="e#1505#1506#0" expanded="true" />
-            <element signature="e#1537#1538#0" expanded="true" />
-            <element signature="e#1573#1574#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1658#1659#0" expanded="true" />
-            <element signature="e#1693#1694#0" expanded="true" />
-            <element signature="e#1732#1733#0" expanded="true" />
-            <element signature="e#1783#1784#0" expanded="true" />
-            <element signature="e#1829#1830#0" expanded="true" />
-            <element signature="e#1863#1864#0" expanded="true" />
-            <element signature="e#1901#1902#0" expanded="true" />
-            <element signature="e#1950#1951#0" expanded="true" />
-            <element signature="e#1994#1995#0" expanded="true" />
-            <element signature="e#2032#2033#0" expanded="true" />
-            <element signature="e#2071#2072#0" expanded="true" />
-            <element signature="e#2125#2126#0" expanded="true" />
-            <element signature="e#2171#2172#0" expanded="true" />
-            <element signature="e#2209#2210#0" expanded="true" />
-            <element signature="e#2248#2249#0" expanded="true" />
-            <element signature="e#2302#2303#0" expanded="true" />
-            <element signature="e#2348#2349#0" expanded="true" />
-            <element signature="e#2390#2391#0" expanded="true" />
-            <element signature="e#2433#2434#0" expanded="true" />
-            <element signature="e#2587#2588#0" expanded="true" />
-            <element signature="e#2626#2627#0" expanded="true" />
-            <element signature="e#2680#2681#0" expanded="true" />
-            <element signature="e#2726#2727#0" expanded="true" />
-            <element signature="e#2757#2758#0" expanded="true" />
-            <element signature="e#2789#2790#0" expanded="true" />
-            <element signature="e#2829#2830#0" expanded="true" />
-            <element signature="e#2861#2862#0" expanded="true" />
-            <element signature="e#2895#2896#0" expanded="true" />
-            <element signature="e#2930#2931#0" expanded="true" />
-            <element signature="e#2976#2977#0" expanded="true" />
-            <element signature="e#3014#3015#0" expanded="true" />
-            <element signature="e#3051#3052#0" expanded="true" />
-            <element signature="e#3089#3090#0" expanded="true" />
-            <element signature="e#3141#3142#0" expanded="true" />
-            <element signature="e#3185#3186#0" expanded="true" />
-            <element signature="e#3220#3221#0" expanded="true" />
-            <element signature="e#3256#3257#0" expanded="true" />
-            <element signature="e#3304#3305#0" expanded="true" />
-            <element signature="e#3344#3345#0" expanded="true" />
-            <element signature="e#3379#3380#0" expanded="true" />
-            <element signature="e#3415#3416#0" expanded="true" />
-            <element signature="e#3463#3464#0" expanded="true" />
-            <element signature="e#3503#3504#0" expanded="true" />
-            <element signature="e#3546#3547#0" expanded="true" />
-            <element signature="e#3593#3594#0" expanded="true" />
-            <element signature="e#3758#3759#0" expanded="true" />
-            <element signature="e#3795#3796#0" expanded="true" />
-            <element signature="e#3845#3846#0" expanded="true" />
-            <element signature="e#3887#3888#0" expanded="true" />
-            <element signature="e#3926#3927#0" expanded="true" />
-            <element signature="e#3966#3967#0" expanded="true" />
-            <element signature="e#4022#4023#0" expanded="true" />
-            <element signature="e#4070#4071#0" expanded="true" />
-            <element signature="e#4104#4105#0" expanded="true" />
-            <element signature="e#4139#4140#0" expanded="true" />
-            <element signature="e#4185#4186#0" expanded="true" />
-            <element signature="e#4223#4224#0" expanded="true" />
-            <element signature="e#4262#4263#0" expanded="true" />
-            <element signature="e#4302#4303#0" expanded="true" />
-            <element signature="e#4358#4359#0" expanded="true" />
-            <element signature="e#4406#4407#0" expanded="true" />
-            <element signature="e#4452#4453#0" expanded="true" />
-            <element signature="e#4499#4500#0" expanded="true" />
-            <element signature="e#4676#4677#0" expanded="true" />
-            <element signature="e#4722#4723#0" expanded="true" />
-            <element signature="e#4897#4898#0" expanded="true" />
-            <element signature="e#4945#4946#0" expanded="true" />
-            <element signature="e#5114#5115#0" expanded="true" />
-            <element signature="e#5148#5149#0" expanded="true" />
-            <element signature="e#5192#5193#0" expanded="true" />
-            <element signature="e#5228#5229#0" expanded="true" />
+            <element signature="e#946#947#0" expanded="false" />
+            <element signature="e#985#986#0" expanded="false" />
+            <element signature="e#1036#1037#0" expanded="false" />
+            <element signature="e#1082#1083#0" expanded="false" />
+            <element signature="e#1111#1112#0" expanded="false" />
+            <element signature="e#1141#1142#0" expanded="false" />
+            <element signature="e#1177#1178#0" expanded="false" />
+            <element signature="e#1205#1206#0" expanded="false" />
+            <element signature="e#1240#1241#0" expanded="false" />
+            <element signature="e#1276#1277#0" expanded="false" />
+            <element signature="e#1324#1325#0" expanded="false" />
+            <element signature="e#1364#1365#0" expanded="false" />
+            <element signature="e#1396#1397#0" expanded="false" />
+            <element signature="e#1429#1430#0" expanded="false" />
+            <element signature="e#1471#1472#0" expanded="false" />
+            <element signature="e#1505#1506#0" expanded="false" />
+            <element signature="e#1537#1538#0" expanded="false" />
+            <element signature="e#1573#1574#0" expanded="false" />
+            <element signature="e#1618#1619#0" expanded="false" />
+            <element signature="e#1658#1659#0" expanded="false" />
+            <element signature="e#1693#1694#0" expanded="false" />
+            <element signature="e#1732#1733#0" expanded="false" />
+            <element signature="e#1783#1784#0" expanded="false" />
+            <element signature="e#1829#1830#0" expanded="false" />
+            <element signature="e#1863#1864#0" expanded="false" />
+            <element signature="e#1901#1902#0" expanded="false" />
+            <element signature="e#1950#1951#0" expanded="false" />
+            <element signature="e#1994#1995#0" expanded="false" />
+            <element signature="e#2032#2033#0" expanded="false" />
+            <element signature="e#2071#2072#0" expanded="false" />
+            <element signature="e#2125#2126#0" expanded="false" />
+            <element signature="e#2171#2172#0" expanded="false" />
+            <element signature="e#2209#2210#0" expanded="false" />
+            <element signature="e#2248#2249#0" expanded="false" />
+            <element signature="e#2302#2303#0" expanded="false" />
+            <element signature="e#2348#2349#0" expanded="false" />
+            <element signature="e#2390#2391#0" expanded="false" />
+            <element signature="e#2433#2434#0" expanded="false" />
+            <element signature="e#2587#2588#0" expanded="false" />
+            <element signature="e#2626#2627#0" expanded="false" />
+            <element signature="e#2680#2681#0" expanded="false" />
+            <element signature="e#2726#2727#0" expanded="false" />
+            <element signature="e#2757#2758#0" expanded="false" />
+            <element signature="e#2789#2790#0" expanded="false" />
+            <element signature="e#2829#2830#0" expanded="false" />
+            <element signature="e#2861#2862#0" expanded="false" />
+            <element signature="e#2895#2896#0" expanded="false" />
+            <element signature="e#2930#2931#0" expanded="false" />
+            <element signature="e#2976#2977#0" expanded="false" />
+            <element signature="e#3014#3015#0" expanded="false" />
+            <element signature="e#3051#3052#0" expanded="false" />
+            <element signature="e#3089#3090#0" expanded="false" />
+            <element signature="e#3141#3142#0" expanded="false" />
+            <element signature="e#3185#3186#0" expanded="false" />
+            <element signature="e#3220#3221#0" expanded="false" />
+            <element signature="e#3256#3257#0" expanded="false" />
+            <element signature="e#3304#3305#0" expanded="false" />
+            <element signature="e#3344#3345#0" expanded="false" />
+            <element signature="e#3379#3380#0" expanded="false" />
+            <element signature="e#3415#3416#0" expanded="false" />
+            <element signature="e#3463#3464#0" expanded="false" />
+            <element signature="e#3503#3504#0" expanded="false" />
+            <element signature="e#3546#3547#0" expanded="false" />
+            <element signature="e#3593#3594#0" expanded="false" />
+            <element signature="e#3758#3759#0" expanded="false" />
+            <element signature="e#3795#3796#0" expanded="false" />
+            <element signature="e#3845#3846#0" expanded="false" />
+            <element signature="e#3887#3888#0" expanded="false" />
+            <element signature="e#3926#3927#0" expanded="false" />
+            <element signature="e#3966#3967#0" expanded="false" />
+            <element signature="e#4022#4023#0" expanded="false" />
+            <element signature="e#4070#4071#0" expanded="false" />
+            <element signature="e#4104#4105#0" expanded="false" />
+            <element signature="e#4139#4140#0" expanded="false" />
+            <element signature="e#4185#4186#0" expanded="false" />
+            <element signature="e#4223#4224#0" expanded="false" />
+            <element signature="e#4262#4263#0" expanded="false" />
+            <element signature="e#4302#4303#0" expanded="false" />
+            <element signature="e#4358#4359#0" expanded="false" />
+            <element signature="e#4406#4407#0" expanded="false" />
+            <element signature="e#4452#4453#0" expanded="false" />
+            <element signature="e#4499#4500#0" expanded="false" />
+            <element signature="e#4676#4677#0" expanded="false" />
+            <element signature="e#4722#4723#0" expanded="false" />
+            <element signature="e#4897#4898#0" expanded="false" />
+            <element signature="e#4945#4946#0" expanded="false" />
+            <element signature="e#5114#5115#0" expanded="false" />
+            <element signature="e#5148#5149#0" expanded="false" />
+            <element signature="e#5192#5193#0" expanded="false" />
+            <element signature="e#5228#5229#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4529,14 +4421,14 @@
         <state vertical-scroll-proportion="0.22748815">
           <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
           <folding>
-            <element signature="e#291#292#0" expanded="true" />
-            <element signature="e#327#328#0" expanded="true" />
-            <element signature="e#378#379#0" expanded="true" />
-            <element signature="e#410#411#0" expanded="true" />
-            <element signature="e#449#450#0" expanded="true" />
-            <element signature="e#483#484#0" expanded="true" />
-            <element signature="e#525#526#0" expanded="true" />
-            <element signature="e#557#558#0" expanded="true" />
+            <element signature="e#291#292#0" expanded="false" />
+            <element signature="e#327#328#0" expanded="false" />
+            <element signature="e#378#379#0" expanded="false" />
+            <element signature="e#410#411#0" expanded="false" />
+            <element signature="e#449#450#0" expanded="false" />
+            <element signature="e#483#484#0" expanded="false" />
+            <element signature="e#525#526#0" expanded="false" />
+            <element signature="e#557#558#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -4557,28 +4449,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/MyOrderActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.444445">
-          <caret line="69" column="57" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1684#1685#0" expanded="true" />
-            <element signature="e#1711#1712#0" expanded="true" />
-            <element signature="e#1812#1813#0" expanded="true" />
-            <element signature="e#1844#1845#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/ActivityUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1481482">
-          <caret line="210" column="5" selection-start-line="210" selection-start-column="5" selection-end-line="210" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/monitor/monitor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14851485">
@@ -4587,10 +4457,152 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/supers/SuperSherlockActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.4170616">
+          <caret line="246" column="4" selection-start-line="246" selection-start-column="4" selection-end-line="246" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/monitor/OrderMonitor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.113744">
+        <state vertical-scroll-proportion="0.0">
           <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/PersonalInformationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="716" column="37" selection-start-line="716" selection-start-column="37" selection-end-line="716" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7326733">
+          <caret line="139" column="97" selection-start-line="139" selection-start-column="97" selection-end-line="139" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/filled_circle_express_gray.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.089108914">
+          <caret line="3" column="39" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/libraries/util/ActivityUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="247" column="0" selection-start-line="247" selection-start-column="0" selection-end-line="247" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/MyOrderActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="20" selection-start-line="37" selection-start-column="20" selection-end-line="37" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2221#2453#0" expanded="true" />
+            <element signature="e#2452#2453#0" expanded="true" />
+            <element signature="e#5335#5336#0" expanded="true" />
+            <element signature="e#5362#5363#0" expanded="true" />
+            <element signature="e#5463#5464#0" expanded="true" />
+            <element signature="e#5495#5496#0" expanded="true" />
+            <element signature="e#6131#6377#0" expanded="true" />
+            <element signature="e#6376#6377#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Andbase/src/main/java/com/ab/util/AbDateUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build/generated/source/r/debug/com/xuxian/marketpro/R.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.814815">
+          <caret line="2298" column="32" selection-start-line="2298" selection-start-column="32" selection-end-line="2298" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.5740743">
+          <caret line="71" column="18" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/presentation/adapter/OrderAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="84" column="4" selection-start-line="84" selection-start-column="4" selection-end-line="84" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#807#808#0" expanded="true" />
+            <element signature="e#845#846#0" expanded="true" />
+            <element signature="e#1056#1057#0" expanded="true" />
+            <element signature="e#1102#1103#0" expanded="true" />
+            <element signature="e#1159#1160#0" expanded="true" />
+            <element signature="e#1190#1191#0" expanded="true" />
+            <element signature="e#4679#4766#0" expanded="true" />
+            <element signature="e#10963#11058#0" expanded="true" />
+            <element signature="e#12033#12269#0" expanded="true" />
+            <element signature="e#12268#12269#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.facebook.shimmer/shimmer/0.1.0/594e6d2fddad066bd3fbb29bb2a4988a72cf64de/shimmer-0.1.0-sources.jar!/com/facebook/shimmer/ShimmerFrameLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.341232">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_order_layout.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-83.25">
+          <caret line="259" column="24" selection-start-line="259" selection-start-column="24" selection-end-line="259" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/splash.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.892857">
+          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/xuxian/marketpro/activity/Splash.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26732674">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
