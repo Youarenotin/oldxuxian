@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -27,6 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ab.util.AbDateUtil;
+import com.ab.util.AbDialogUtil;
 import com.ab.util.AbFileUtil;
 import com.ab.util.AbPreferenceUtils;
 import com.ab.util.AbStrUtil;
@@ -38,6 +40,10 @@ import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
 import com.xuxian.marketpro.libraries.util.ActivityUtil;
 import com.xuxian.marketpro.libraries.util.AddPhoto;
 import com.xuxian.marketpro.libraries.util.monitor.PhoneMonitor;
+import com.xuxian.marketpro.libraries.util.monitor.UserMonitor;
+import com.xuxian.marketpro.net.AnimeAsyncTask;
+import com.xuxian.marketpro.net.NewIssNetLib;
+import com.xuxian.marketpro.net.entity.ResultDataEntity;
 import com.xuxian.marketpro.presentation.View.widght.CircleImageView;
 import com.xuxian.marketpro.presentation.View.widght.pop.OperationPopupWindow;
 import com.xuxian.marketpro.presentation.application.MyApplication;
@@ -488,7 +494,7 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
         builder.setTitle("性别选择");
         builder.setItems(this.sexItems, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                PersonalInformationActivity.this.tv_update_sex.setText(PersonalInformationActivity.this.sexItems[which]);
+                tv_update_sex.setText(sexItems[which]);
             }
         });
         builder.create().show();
@@ -499,7 +505,7 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
         builder.setTitle("职业选择");
         builder.setItems(this.professionalItems, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                PersonalInformationActivity.this.tv_update_professional.setText(PersonalInformationActivity.this.professionalItems[which]);
+                tv_update_professional.setText(professionalItems[which]);
             }
         });
         builder.create().show();
@@ -517,7 +523,7 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
         builder.setView(linearLayout);
         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                PersonalInformationActivity.this.tv_update_email.setText(PersonalInformationActivity.this.ed_email.getText().toString());
+                tv_update_email.setText(ed_email.getText().toString());
             }
         });
         builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -616,6 +622,114 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
                     this.love = mIntent.getStringExtra("LOVE");
                     this.tv_update_love.setText(this.love);
                 default:
+            }
+        }
+    }
+
+    private class NetWorkAsyncTask extends AnimeAsyncTask<Object,Void,Object> {
+        private int IssNetLibType;
+
+        public  NetWorkAsyncTask(Activity activity, String loadingText, int IssNetLibType) {
+            super(loadingText,activity);
+            this.IssNetLibType = 0;
+            this.IssNetLibType = IssNetLibType;
+        }
+
+        public NetWorkAsyncTask(Activity activity, String loadingText) {
+            super(loadingText,activity);
+            this.IssNetLibType = 0;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            if (this.IssNetLibType == PersonalInformationActivity.UPLOAD_FILE_DONE || this.IssNetLibType == PersonalInformationActivity.TO_UPLOAD_FILE) {
+                showLoadingDialog(null);
+            }
+        }
+
+        @Override
+        protected Object doInBackground(Object... params) {
+            if (this.IssNetLibType == 0) {//更新生日
+                return NewIssNetLib.getInstance(getActivity()).updateu(params[0], params[PersonalInformationActivity.TO_UPLOAD_FILE], ((Integer) params[PersonalInformationActivity.UPLOAD_FILE_DONE]).intValue(), params[PersonalInformationActivity.TO_SELECT_PHOTO], params[PersonalInformationActivity.UPLOAD_INIT_PROCESS], params[PersonalInformationActivity.UPLOAD_IN_PROCESS], params[6], params[7]);
+            } else if (this.IssNetLibType == PersonalInformationActivity.TO_UPLOAD_FILE) {
+                //上传头像
+                return NewIssNetLib.getInstance(getActivity()).upheader((String) params[0], ((Integer) params[PersonalInformationActivity.TO_UPLOAD_FILE]).intValue(), (String) params[PersonalInformationActivity.UPLOAD_FILE_DONE], params[PersonalInformationActivity.TO_SELECT_PHOTO], params[PersonalInformationActivity.UPLOAD_INIT_PROCESS]);
+            } else if (this.IssNetLibType != PersonalInformationActivity.UPLOAD_FILE_DONE) {
+                return null;
+            } else {//修改密码或名字
+                return NewIssNetLib.getInstance(getActivity()).modifyPwdOrUname((String) params[0], params[PersonalInformationActivity.TO_UPLOAD_FILE], params[PersonalInformationActivity.UPLOAD_FILE_DONE], params[PersonalInformationActivity.TO_SELECT_PHOTO], ((Long) params[PersonalInformationActivity.UPLOAD_INIT_PROCESS]).longValue());
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Object result) {
+            super.onPostExecute(result);
+            ResultDataEntity<Object> resultData;
+            if (this.IssNetLibType==0){
+
+                if (result != null) {
+                    resultData = (ResultDataEntity) result;
+                    if (resultData != null && resultData.getStatus() != null) {
+                        if (resultData.getStatus().getCode() == PersonalInformationActivity.TO_UPLOAD_FILE) {
+                            AbToastUtil.showToast(getActivity(), resultData.getStatus().getMessage());
+                            return;
+                        }
+                        int sex;
+                        if (tv_update_sex.getText().toString().equals("女")) {
+                            sex = 0;
+                        } else {
+                            sex = PersonalInformationActivity.TO_UPLOAD_FILE;
+                        }
+                        if (userEntity != null) {
+                            userEntity.setSex(sex);
+                            userEntity.setBirthday(tv_birthday.getText().toString());
+                            userEntity.setOccupation(tv_update_professional.getText().toString());
+                            userEntity.setSchool(tv_update_school.getText().toString());
+                            userEntity.setInterest(tv_update_love.getText().toString());
+                            userEntity.setEmail(tv_update_email.getText().toString());
+                            userDb.updateData(userEntity);
+                            UserMonitor.getInstance().issueMonitor(userEntity);
+                        }
+                    }//头像上传回调
+                    else if (this.IssNetLibType == PersonalInformationActivity.TO_UPLOAD_FILE) {
+                        dismissLoadingDialog();
+                        if (result != null) {
+                            resultData = (ResultDataEntity) result;
+                            if (resultData != null && resultData.getStatus() != null) {
+                                if (resultData.getStatus().getCode() == 0) {
+                                    AbToastUtil.showToast(getActivity(), "上传成功");
+                                    userEntity.setHead_ico(image);
+                                    userDb.updateData(userEntity);
+                                    UserMonitor.getInstance().issueMonitor(userEntity);
+                                    return;
+                                }
+                                AbToastUtil.showToast(getActivity(), "上传失败");
+                                return;
+                            }
+                            return;
+                        }
+                        AbToastUtil.showToast(getActivity(), "上传失败");
+                    }
+                    else if (this.IssNetLibType == PersonalInformationActivity.UPLOAD_FILE_DONE) {
+                        dismissLoadingDialog();
+                        if (result != null) {
+                            resultData = (ResultDataEntity) result;
+                            if (resultData.getStatus() != null) {
+                                if (resultData.getStatus().getCode() == 0 && "username".equals(type) && ed_name != null && userEntity != null) {
+                                    tv_update_name.setText(ed_name.getText().toString());
+                                    userEntity.setUsername(ed_name.getText().toString());
+                                    userDb.updateData(userEntity);
+                                    UserMonitor.getInstance().issueMonitor(userEntity);
+                                }
+                                AbDialogUtil.showDialog(getActivity(), resultData.getStatus().getMessage(), true);
+                                return;
+                            }
+                            return;
+                        }
+                        AbToastUtil.showToast(getActivity(), "修改失败");
+                    }
+                }
             }
         }
     }

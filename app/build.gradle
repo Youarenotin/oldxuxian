@@ -48,4 +48,5 @@ dependencies {
     compile files('libs/AMap_2DMap_V2.9.0_20160525.jar')
     compile 'com.android.support:recyclerview-v7:22.2.0'
     compile 'com.github.2359media:EasyAndroidAnimations:0.8'
+    compile 'com.facebook.shimmer:shimmer:0.1.0@aar'
 }

@@ -211,14 +211,14 @@ public class PersonalCenterFragment extends SuperFragment {
                     if (PersonalCenterFragment.this.userDb.isLogin()) {
                         //已经登录⬇️
                         switch (v.getId()) {
-                            case 0:
-//                                ActivityUtil.startMyOrderActivity(PersonalCenterFragment.this.getActivity());
+                            case 0://我的订单
+                                ActivityUtil.startMyOrderActivity(PersonalCenterFragment.this.getActivity());
                                 return;
-                            case 1:
-//                                ActivityUtil.startXuXianMemberActivity(PersonalCenterFragment.this.getActivity());
+                            case 1://我的会员
+                                ActivityUtil.startXuXianMemberActivity(PersonalCenterFragment.this.getActivity());
                                 return;
-                            case 2:
-//                                ActivityUtil.startMyCouponsActivity(PersonalCenterFragment.this.getActivity());
+                            case 2://我的优惠券
+                                ActivityUtil.startMyCouponsActivity(PersonalCenterFragment.this.getActivity());
                                 return;
                             case 3:
 //                                ActivityUtil.startUserCardsActivity(PersonalCenterFragment.this.getActivity());

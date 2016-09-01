@@ -55,6 +55,8 @@
     <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
+    <uses-sdk tools:overrideLibrary="com.facebook.shimmer"/>
+
     <application
         android:name="com.xuxian.marketpro.presentation.application.MyApplication"
         android:allowBackup="true"
@@ -62,7 +64,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppThemeAnimation"
-        tools:replace="android:icon,android:theme">
+        tools:replace="android:icon,android:theme"
+        >
 
         <meta-data
             android:name="com.amap.api.v2.apikey"

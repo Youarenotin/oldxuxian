@@ -14,6 +14,7 @@ import com.xuxian.marketpro.activity.ClassifyDetailsActivity;
 import com.xuxian.marketpro.activity.FindActivity;
 import com.xuxian.marketpro.activity.LoginActivity;
 import com.xuxian.marketpro.activity.MessageWebViewActivity;
+import com.xuxian.marketpro.activity.MyOrderActivity;
 import com.xuxian.marketpro.activity.PersonalInformationActivity;
 import com.xuxian.marketpro.activity.RegisteredPhoneCodeActivity;
 import com.xuxian.marketpro.activity.SchoolCityActivity;
@@ -210,6 +211,30 @@ public class ActivityUtil {
     }
 
     public static void startForumListDetailsActivity(Context mContext, String tid, String fid) {
+
+    }
+
+    /**
+     * 我的订单
+     * @param context
+     */
+    public static void startMyOrderActivity(Context context) {
+        context.startActivity(new Intent(context,MyOrderActivity.class));
+    }
+
+    /**
+     * 会员
+     * @param context
+     */
+    public static void startXuXianMemberActivity(Context context) {
+
+    }
+
+    /**
+     * 优惠券
+     * @param context
+     */
+    public static void startMyCouponsActivity(Context context) {
 
     }
 }
