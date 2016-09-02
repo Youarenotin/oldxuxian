@@ -13,7 +13,7 @@ import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
 import com.xuxian.marketpro.libraries.util.Tools;
 import com.xuxian.marketpro.libraries.util.monitor.OrderMonitor;
-import com.xuxian.marketpro.libraries.util.monitor.OrderMonitormonitor;
+import com.xuxian.marketpro.libraries.util.monitor.monitor;
 import com.xuxian.marketpro.net.NewIssRequest;
 import com.xuxian.marketpro.net.RequestParamsNet;
 import com.xuxian.marketpro.presentation.View.refreshlayout.XuXianNormalRefreshViewHolder;
@@ -157,11 +157,10 @@ public class MyOrderActivity extends SuperSherlockActivity implements XuXianRefr
         this.bla_my_order.setRefreshViewHolder(new XuXianNormalRefreshViewHolder(getActivity(), true));
         OrderMonitor.getInstance().registerMonitor(MyOrderActivity.class.getName(),new OrderMonitor.OrderMonitorCallback() {
             @Override
-            public void appOperation(OrderMonitormonitor.OrderEnum orderEnum) {
+            public void appOperation(monitor.OrderEnum orderEnum) {
                 currentPage = 1;
                 getHistoryInfo(currentPage);
             }
-
         });
     }
 

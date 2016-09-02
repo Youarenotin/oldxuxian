@@ -27,7 +27,7 @@ public class OrderAdapter extends BaseAdapter{
     Context mContext;
 
     public OrderAdapter(Context context) {
-        this.context = context;
+        this.mContext = context;
     }
 
     @Override
@@ -102,17 +102,17 @@ public class OrderAdapter extends BaseAdapter{
             holder.order_number_title.setTextColor(this.mContext.getResources().getColorStateList(R.color.green));
         } else {//配送
             if (orderEntity.getPay_status() == 1) {
-                holder.rl_orderDetail_expressStatus.setVisibility(0);
+                holder.rl_orderDetail_expressStatus.setVisibility(0);//配送rl显示
             } else if (orderEntity.getPay_status() == 2) {
-                holder.rl_orderDetail_expressStatus.setVisibility(8);
+                holder.rl_orderDetail_expressStatus.setVisibility(8);//配送rl不显示
             } else {
-                holder.rl_orderDetail_expressStatus.setVisibility(8);
+                holder.rl_orderDetail_expressStatus.setVisibility(8);//配送rl不显示
             }
-            holder.phone_number_title.setText("\u914d\u9001\u65b9\u5f0f:" + orderEntity.getDistribution_company());
+            holder.phone_number_title.setText("配送方式:" + orderEntity.getDistribution_company());
             if (AbStrUtil.isEmpty(orderEntity.getCode())) {
-                holder.tv_order_status.setText("\u914d\u9001\u72b6\u6001: \u672a\u652f\u4ed8");
+                holder.tv_order_status.setText("配送状态: 未支付");
             } else {
-                holder.tv_order_status.setText("\u914d\u9001\u72b6\u6001: ");
+                holder.tv_order_status.setText("配送状态: ");
             }
             holder.ll_orderAdapter_express.setVisibility(0);
             holder.tv_distribution_status.setVisibility(8);
@@ -168,7 +168,8 @@ public class OrderAdapter extends BaseAdapter{
         holder.time_title.setText(orderEntity.getCreate_time());
         holder.indent_price_text.setText(this.mContext.getString(R.string.indent_price_text, new Object[]{orderEntity.getReal_amount()}));
         try {
-            boolean isOutOfDate = AbDateUtil.isOlderOutOfDate(AbDateUtil.orderTime(orderEntity.getCreate_time()));
+            boolean isOutOfDate =false;
+                    //= AbDateUtil.isOlderOutOfDate(AbDateUtil.orderTime(orderEntity.getCreate_time()));
             if (orderEntity.getPay_status() > 0) {
                 if (orderEntity.getPay_status() == 1 && orderEntity.getOrderstatus() == 5 && !isOutOfDate) {
                     holder.indent_price_text.setAlpha(1.0f);
@@ -233,8 +234,5 @@ public class OrderAdapter extends BaseAdapter{
         View view_orderDetail_pickUp;
         View view_orderDetail_pickUp1;
         View view_orderDetail_unDistribution;
-
-        ViewHolder() {
-        }
     }
 }

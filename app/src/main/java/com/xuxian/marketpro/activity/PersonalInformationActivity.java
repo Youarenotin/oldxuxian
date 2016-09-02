@@ -651,14 +651,17 @@ public class PersonalInformationActivity extends SuperSherlockActivity implement
         @Override
         protected Object doInBackground(Object... params) {
             if (this.IssNetLibType == 0) {//更新生日
-                return NewIssNetLib.getInstance(getActivity()).updateu(params[0], params[PersonalInformationActivity.TO_UPLOAD_FILE], ((Integer) params[PersonalInformationActivity.UPLOAD_FILE_DONE]).intValue(), params[PersonalInformationActivity.TO_SELECT_PHOTO], params[PersonalInformationActivity.UPLOAD_INIT_PROCESS], params[PersonalInformationActivity.UPLOAD_IN_PROCESS], params[6], params[7]);
+                return null;
+//                return NewIssNetLib.getInstance(getActivity()).updateu(params[0], params[PersonalInformationActivity.TO_UPLOAD_FILE], ((Integer) params[PersonalInformationActivity.UPLOAD_FILE_DONE]).intValue(), params[PersonalInformationActivity.TO_SELECT_PHOTO], params[PersonalInformationActivity.UPLOAD_INIT_PROCESS], params[PersonalInformationActivity.UPLOAD_IN_PROCESS], params[6], params[7]);
             } else if (this.IssNetLibType == PersonalInformationActivity.TO_UPLOAD_FILE) {
                 //上传头像
-                return NewIssNetLib.getInstance(getActivity()).upheader((String) params[0], ((Integer) params[PersonalInformationActivity.TO_UPLOAD_FILE]).intValue(), (String) params[PersonalInformationActivity.UPLOAD_FILE_DONE], params[PersonalInformationActivity.TO_SELECT_PHOTO], params[PersonalInformationActivity.UPLOAD_INIT_PROCESS]);
+                return null;
+//                return NewIssNetLib.getInstance(getActivity()).upheader((String) params[0], ((Integer) params[PersonalInformationActivity.TO_UPLOAD_FILE]).intValue(), (String) params[PersonalInformationActivity.UPLOAD_FILE_DONE], params[PersonalInformationActivity.TO_SELECT_PHOTO], params[PersonalInformationActivity.UPLOAD_INIT_PROCESS]);
             } else if (this.IssNetLibType != PersonalInformationActivity.UPLOAD_FILE_DONE) {
                 return null;
             } else {//修改密码或名字
-                return NewIssNetLib.getInstance(getActivity()).modifyPwdOrUname((String) params[0], params[PersonalInformationActivity.TO_UPLOAD_FILE], params[PersonalInformationActivity.UPLOAD_FILE_DONE], params[PersonalInformationActivity.TO_SELECT_PHOTO], ((Long) params[PersonalInformationActivity.UPLOAD_INIT_PROCESS]).longValue());
+                return null;
+//                return NewIssNetLib.getInstance(getActivity()).modifyPwdOrUname((String) params[0], params[PersonalInformationActivity.TO_UPLOAD_FILE], params[PersonalInformationActivity.UPLOAD_FILE_DONE], params[PersonalInformationActivity.TO_SELECT_PHOTO], ((Long) params[PersonalInformationActivity.UPLOAD_INIT_PROCESS]).longValue());
             }
         }
 

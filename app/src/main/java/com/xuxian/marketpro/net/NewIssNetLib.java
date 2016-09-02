@@ -41,20 +41,20 @@ public class NewIssNetLib {
         this.mRequest.newParams();
         this.mRequest.putParams("userId", userId);
         this.mRequest.putParams("type", type);
-        if (IceUdpTransportPacketExtension.PWD_ATTR_NAME.equals(type)) {
-            this.mRequest.putParams("oldPwdOrUname", AbMd5.MD5(oldPwdOrUname));
-        } else {
-            this.mRequest.putParams("oldPwdOrUname", oldPwdOrUname);
-        }
-        this.mRequest.putParams("newPwdOrUname", newPwdOrUname);
-        this.mRequest.putParams("dateTime", dateTime + CoinPacketExtension.NAMESPACE);
-        this.mRequest.putParams(NewIssRequest.TOKEN, urlEncode(this.mRequest.getParameterList()));
-        String json = this.mRequest.post(NewIssRequest.MODIFYPWDORUNAME);
+//        if (IceUdpTransportPacketExtension.PWD_ATTR_NAME.equals(type)) {
+//            this.mRequest.putParams("oldPwdOrUname", AbMd5.MD5(oldPwdOrUname));
+//        } else {
+//            this.mRequest.putParams("oldPwdOrUname", oldPwdOrUname);
+//        }
+//        this.mRequest.putParams("newPwdOrUname", newPwdOrUname);
+//        this.mRequest.putParams("dateTime", dateTime + CoinPacketExtension.NAMESPACE);
+//        this.mRequest.putParams(NewIssRequest.TOKEN, urlEncode(this.mRequest.getParameterList()));
+//        String json = this.mRequest.post(NewIssRequest.MODIFYPWDORUNAME);
         ResultDataEntity<Object> resultData = new ResultDataEntity();
-        JSONObject object = JSON.parseObject(json);
-        if (object.containsKey(InviteMessgeDao.COLUMN_NAME_STATUS)) {
-            resultData.setStatus((StatusEntity) JSON.parseObject(object.get(InviteMessgeDao.COLUMN_NAME_STATUS).toString(), StatusEntity.class));
-        }
+//        JSONObject object = JSON.parseObject(json);
+//        if (object.containsKey(InviteMessgeDao.COLUMN_NAME_STATUS)) {
+//            resultData.setStatus((StatusEntity) JSON.parseObject(object.get(InviteMessgeDao.COLUMN_NAME_STATUS).toString(), StatusEntity.class));
+//        }
         return resultData;
     }
 }

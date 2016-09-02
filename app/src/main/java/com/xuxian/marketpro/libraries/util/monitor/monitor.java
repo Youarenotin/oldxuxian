@@ -3,7 +3,7 @@ package com.xuxian.marketpro.libraries.util.monitor;
 /**
  * Created by youarenotin on 16/7/24.
  */
-public class OrderMonitormonitor {
+public class monitor {
     public enum AddressCartEnum {
         QUERY_ALL_ADDRESSES,
         MODIFY_THE_ADDRESS,
