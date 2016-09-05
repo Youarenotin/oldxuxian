@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.concurrent.locks.ReentrantLock;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -135,7 +136,10 @@ public class AbDBDaoImpl<T> extends AbBasicDBDao implements AbDBDao<T> {
 		this(dbHelper, null);
 	}
 
-	
+	public AbDBDaoImpl(Context context) {
+	}
+
+
 	/**
 	 * 描述：TODO.
 	 *

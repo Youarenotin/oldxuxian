@@ -1,5 +1,6 @@
 package com.xuxian.marketpro.presentation.db;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -14,6 +15,10 @@ import java.util.List;
 public class GoodsListDb extends AbDBDaoImpl<GoodsListEntity> {
     public GoodsListDb(Context context, Class<GoodsListEntity> clazz) {
         super(new DBInsideHelper(context), clazz);
+    }
+
+    public GoodsListDb(Context context) {
+        super(context);
     }
 
     public void saveData(GoodsListEntity goodsListEntity){

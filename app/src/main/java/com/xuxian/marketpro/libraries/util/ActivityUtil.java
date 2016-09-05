@@ -19,6 +19,7 @@ import com.xuxian.marketpro.activity.PersonalInformationActivity;
 import com.xuxian.marketpro.activity.RegisteredPhoneCodeActivity;
 import com.xuxian.marketpro.activity.SchoolCityActivity;
 import com.xuxian.marketpro.activity.StoreDetailsActivity;
+import com.xuxian.marketpro.activity.UserCouponsActivity;
 import com.xuxian.marketpro.activity.XianPinPopupActivity;
 import com.xuxian.marketpro.activity.store.StoreFragmentActivity;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
@@ -236,7 +237,7 @@ public class ActivityUtil {
      * @param context
      */
     public static void startMyCouponsActivity(Context context) {
-
+        context.startActivity(new Intent(context,UserCouponsActivity.class));
     }
 
     /**
