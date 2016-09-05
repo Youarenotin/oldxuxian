@@ -80,14 +80,14 @@ public class MyOrderActivity extends SuperSherlockActivity implements XuXianRefr
                     emptyview_state.setVisibility(View.GONE);
                 }
                 lv_my_order.setVisibility(View.VISIBLE);
-                onLoad();
+                onLoad();//停止刷新和下拉加载更多
                 if (t == null) {
                     return;
                 }
-                if (t.getStatus() == null || t.getStatus().getCode() != 1) {
+                if (t.getStatus() != null || t.getStatus().getCode() != 1) {
                     List<OrderEntity> orderEntities = t.getData();
                     if (orderEntities == null || orderEntities.isEmpty()) {
-                        //新页加载失败后 页数恢复
+                        //订单数据为空 新页加载失败后 页数恢复
                         currentPage = currentPage - 1;
                         return;
                     } else if (getLoadingStatus() == Tools.TYPE_IS_FROM_NET) {

@@ -15,12 +15,16 @@
  */
 package com.ab.util;
 
+import java.lang.reflect.Array;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 import java.util.Locale;
 
 // TODO: Auto-generated Javadoc
@@ -630,4 +634,60 @@ public class AbDateUtil {
 		System.out.println(formatDateStr2Desc("2012-3-2 12:2:20","MM月dd日  HH:mm"));
 	}
 
+	private static List<String> list_big= Arrays.asList("1","3","5","7","8","10","12");
+ 	private static List<String> list_little = Arrays.asList("4","6","9","11");
+
+	/**
+	 * 时间加一天
+	 * @param orderCreateTime
+	 * @return
+     */
+	public static String orderTime(String orderCreateTime) {
+		try {
+			int month;
+			String[] datas = orderCreateTime.split("-");
+			int year = Integer.parseInt(datas[0]);
+			if (datas[1].charAt(0) == ' ') {
+				month = datas[1].charAt(1);
+			} else {
+				month = Integer.parseInt(datas[1]);
+			}
+			int day = Integer.parseInt(datas[2].split(" ")[0]);
+			if (day == 30) {
+				if (list_big.contains(String.valueOf(month))) {
+					day = 31;
+				}
+				if (list_little.contains(String.valueOf(month))) {
+					day = 1;
+					if (month == 12) {
+						year++;
+						month = 1;
+					} else {
+						month++;
+					}
+				}
+			} else if (day == 31) {
+				day = 1;
+				if (month == 12) {
+					year++;
+					month = 1;
+				} else {
+					month++;
+				}
+			} else if (!datas[2].split(" ")[1].split(":")[0].contains("00")) {
+				day++;
+			}
+			return year + "-" + month + "-" + day + " " + "01:00";
+		} catch (Exception e) {
+			return orderCreateTime;
+		}
+	}
+
+	public static boolean isOlderOutOfDate(String oldDate) throws Exception {
+		Date olddate = new Date();
+		if (new SimpleDateFormat(dateFormatYMDHM).parse(oldDate).getTime() >= new Date().getTime()) {
+			return false;
+		}
+		return true;
+	}
 }
