@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.ab.util.AbDateUtil;
 import com.ab.util.AbStrUtil;
 import com.ab.view.holder.AbBaseHolder;
-import com.amap.api.maps2d.model.BitmapDescriptorFactory;
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.libraries.util.Tools;
 import com.xuxian.marketpro.presentation.entity.CouponEntity;
@@ -81,16 +80,14 @@ public class CouponAdapter extends BaseAdapter {
     }
 
     class CouponsHolder extends AbBaseHolder{
-        ImageView iv_coupon_select;
         ImageView iv_coupon_state;
         LinearLayout ll_coupon_bg;
         TextView tv_conpon_typename;
         TextView tv_coupon_endtime;
+        TextView tv_coupon_introduction;
         TextView tv_coupon_showname;
         TextView tv_coupon_use_one;
         TextView tv_money_icon;
-        TextView tv_mycoupon_cname;
-        TextView tv_mycoupon_typename;
 
         public CouponsHolder(Context context) {
             super(context);
@@ -114,20 +111,23 @@ public class CouponAdapter extends BaseAdapter {
 
         @Override
         protected void refreshView() {
-            if (!AbStrUtil.isEmpty(((CouponEntity) this.data).getShowname())) {
-                if (!Tools.isNumeric(((CouponEntity) this.data).getShowname()) || ((CouponEntity) this.data).getPay_value().doubleValue() <= 0.0d) {
+            if (!AbStrUtil.isEmpty(((CouponEntity) this.data).getShowname())) {//如果名称不为空
+                if (!Tools.isNumeric(((CouponEntity) this.data).getShowname()) || ((CouponEntity) this.data).getPay_value() <= 0.0d) {
+                   //如果名称是数字或者支付金额<=0
                     this.tv_money_icon.setVisibility(4);
                     this.tv_conpon_typename.setVisibility(4);
                     this.tv_coupon_showname.setText(((CouponEntity) this.data).getShowname());
                     this.tv_coupon_showname.setTextSize(30);
                 } else {
+                    //正常
                     this.tv_coupon_showname.setText(((CouponEntity) this.data).getShowname());
                     this.tv_money_icon.setTextSize(10.0f);
-                    this.tv_coupon_showname.setTextSize(BitmapDescriptorFactory.HUE_ORANGE);
+                    this.tv_coupon_showname.setTextSize(30);
                     this.tv_money_icon.setVisibility(0);
                     this.tv_conpon_typename.setVisibility(0);
                 }
             }
+            //优惠券类型
             this.tv_coupon_introduction.setText(((CouponEntity) this.data).getTypename());
             if (((CouponEntity) this.data).getCtype() == 1 || ((CouponEntity) this.data).getCtype() == 5) {
                 this.ll_coupon_bg.setBackgroundResource(R.drawable.coupon_yellow_bg);
@@ -137,10 +137,10 @@ public class CouponAdapter extends BaseAdapter {
                 this.ll_coupon_bg.setBackgroundResource(R.drawable.coupon_red_bg);
             } else if (((CouponEntity) this.data).getCtype() == 7) {
                 this.ll_coupon_bg.setBackgroundResource(R.drawable.coupon_green_bg);
-                ((CouponEntity) this.data).setPay_value(Double.valueOf(0.0d));
+                ((CouponEntity) this.data).setPay_value(0.0d);
             }
-            if (CouponAdapter.this.type == 2) {
-                if (((CouponEntity) this.data).getId().intValue() != CouponAdapter.this.coupon_id) {
+            if (type == 2) {
+                if (((CouponEntity) this.data).getId() != CouponAdapter.this.coupon_id) {
                     getConvertView().setBackgroundColor(Color.parseColor(this.context.getString(R.color.white)));
                 } else if (((CouponEntity) this.data).getCtype() == 1 || ((CouponEntity) this.data).getCtype() == 5) {
                     getConvertView().setBackgroundColor(Color.parseColor("#E0E354"));
@@ -165,7 +165,7 @@ public class CouponAdapter extends BaseAdapter {
                 this.iv_coupon_state.setImageResource(R.drawable.yiguoqi);
                     this.tv_coupon_use_one.setText("已过期");
             } else {
-                this.iv_coupon_state.setVisibility(4);
+                this.iv_coupon_state.setVisibility(View.INVISIBLE);
                 this.tv_coupon_use_one.setText("未使用");
             }
             this.tv_coupon_endtime.setText("有效期至 " + AbDateUtil.getStringByFormat(time, AbDateUtil.dateFormatYMD));

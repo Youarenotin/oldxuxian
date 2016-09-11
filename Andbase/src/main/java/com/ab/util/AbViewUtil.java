@@ -23,6 +23,7 @@ import android.os.Build.VERSION;
 import android.text.TextPaint;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.ViewGroup;
@@ -621,5 +622,7 @@ public class AbViewUtil {
         }
 		
 	}
+
+
 
 }

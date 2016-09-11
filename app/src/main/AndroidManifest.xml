@@ -141,6 +141,8 @@
         <activity android:name=".activity.MyOrderActivity" android:screenOrientation="portrait"/>
         <!--splash-->
         <activity android:name=".activity.CityListActivity" android:screenOrientation="portrait"/>
+        <!--设置-->
+        <activity android:name=".activity.SetActivity" android:screenOrientation="portrait"/>
         <!--高德-->
         <service android:name="com.amap.api.location.APSService" />
     </application>

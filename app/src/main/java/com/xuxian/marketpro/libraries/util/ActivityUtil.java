@@ -18,6 +18,7 @@ import com.xuxian.marketpro.activity.MyOrderActivity;
 import com.xuxian.marketpro.activity.PersonalInformationActivity;
 import com.xuxian.marketpro.activity.RegisteredPhoneCodeActivity;
 import com.xuxian.marketpro.activity.SchoolCityActivity;
+import com.xuxian.marketpro.activity.SetActivity;
 import com.xuxian.marketpro.activity.StoreDetailsActivity;
 import com.xuxian.marketpro.activity.UserCouponsActivity;
 import com.xuxian.marketpro.activity.XianPinPopupActivity;
@@ -247,5 +248,16 @@ public class ActivityUtil {
      */
     public static void startOrderDetailsActivity(Context mContext, OrderEntity orderEntity) {
 
+    }
+
+    public static void startMessagerActivity(Context mContext) {
+    }
+
+    /**
+     * 设置
+     * @param context
+     */
+    public static void startSetActivity(Context context) {
+        context.startActivity(new Intent(context,SetActivity.class));
     }
 }

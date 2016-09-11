@@ -139,14 +139,27 @@ public class PersonalCenterFragment extends SuperFragment {
     protected void initTitleBar() {
         if (getTitle_bar() == null) {
             titleBar();
-            setTitle(R.string.account);
+            setTitle(getString(R.string.account));
             setTitleLeftText("");
             int statusHeight = AbScreenUtils.getStatusHeight(getActivity());
             setTitleLeftIcon(R.drawable.set, statusHeight - 10, statusHeight - 10);
             setTitleRightIcon(R.drawable.tab_near_icon_grey, statusHeight - 10, statusHeight - 10);
-            setTitleLeftViewShow(true);
-            setTitleRightViewShow(true);
-            getSherlockActivity().getActionBar().setCustomView(getTitle_bar());
+//            setTitleLeftViewShow(true);
+//            setTitleRightViewShow(true);
+            getTitleLeftClick().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ActivityUtil.startSetActivity(getActivity());
+
+                }
+            });
+            getTitleRightClick().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ActivityUtil.startMessagerActivity(getActivity());
+                }
+            });
+            getSherlockActivity().getSupportActionBar().setCustomView(getTitle_bar());
             return;
         }
         getSherlockActivity().getActionBar().setCustomView(getTitle_bar());

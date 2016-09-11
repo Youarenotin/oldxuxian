@@ -52,6 +52,7 @@ public abstract class SuperFragment extends SherlockFragment {
         this.ll_title_bar_right_click = (LinearLayout) this.title_bar.findViewById(R.id.ll_title_bar_right_click);
         this.iv_title_bar_right_icon = (ImageView) this.title_bar.findViewById(R.id.iv_title_bar_right_icon);
         this.tv_title_bar_right_text = (TextView) this.title_bar.findViewById(R.id.tv_title_bar_right_text);
+        this.ll_title_bar_left_click.setClickable(true);
         this.ll_title_bar_left_click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

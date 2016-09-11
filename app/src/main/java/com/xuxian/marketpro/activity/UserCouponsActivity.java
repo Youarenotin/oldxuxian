@@ -3,6 +3,7 @@ package com.xuxian.marketpro.activity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -10,8 +11,10 @@ import android.widget.TextView;
 
 import com.xuxian.marketpro.R;
 import com.xuxian.marketpro.activity.supers.SuperSherlockActivity;
+import com.xuxian.marketpro.libraries.util.monitor.UseCouponMonitor;
 import com.xuxian.marketpro.presentation.View.widght.pop.OperationPopupWindow;
 import com.xuxian.marketpro.presentation.adapter.CouponAdapter;
+import com.xuxian.marketpro.presentation.adapter.CouponGoodsAdapter;
 import com.xuxian.marketpro.presentation.db.GoodsListDb;
 import com.xuxian.marketpro.presentation.entity.CouponEntity;
 
@@ -20,7 +23,7 @@ import java.util.List;
 /**
  * Created by youarenotin on 16/9/5.
  */
-public class UserCouponsActivity extends SuperSherlockActivity{
+public class UserCouponsActivity extends SuperSherlockActivity {
     public static final String COUPON_ID = "coupon_id";
     public static final String INTENT_COUPON_ID = "coupon_id";
     public static final String INTENT_COUPON_LIST = "COUPON_LIST";
@@ -83,8 +86,8 @@ public class UserCouponsActivity extends SuperSherlockActivity{
 
     @Override
     protected void initFindViewById() {
-        lv_coupons= (ListView) findViewById(R.id.lv_coupons);
-        tv_using_coupons= (TextView) findViewById(R.id.tv_using_coupons);
+        lv_coupons = (ListView) findViewById(R.id.lv_coupons);
+        tv_using_coupons = (TextView) findViewById(R.id.tv_using_coupons);
         tv_using_coupons.setVisibility(View.GONE);
     }
 
@@ -111,8 +114,8 @@ public class UserCouponsActivity extends SuperSherlockActivity{
                         UseCouponMonitor.getInstance().IssuedMonitor(null);
                         couponAdapter.setCoupon_id(0);
                         couponAdapter.notifyDataSetChanged();
-                    } else {
-                        initPopupWindow(((CouponEntity) couponAdapter.getData().get(position)).getGoods(), position);
+                    } else {//查看该优惠券里包含的商品
+                        initPopupWindow(couponAdapter.getData().get(position).getGoods(), position);
                         if (mWindow != null && !mWindow.isShowing()) {
                             mWindow.showAtLocation(view, Gravity.CENTER, 10, 10);
                         }
@@ -121,4 +124,56 @@ public class UserCouponsActivity extends SuperSherlockActivity{
             }
         });
     }
+
+    private void initPopupWindow(List<CouponEntity.GoodsEntity> goods, int position) {
+        View view = View.inflate(this, R.layout.pop_coupons_goods_layout, null);
+        ListView lv_coupons_goods = (ListView) view.findViewById(R.id.lv_coupons_goods);
+        lv_coupons_goods.setAdapter(new CouponGoodsAdapter(goods, getActivity()));
+        lv_coupons_goods.setOnItemClickListener(new CouponsGoodsOnClickListener(goods, position));
+        this.mWindow = new OperationPopupWindow(view, getActivity(), -1, -1, true);
+        view.setOnTouchListener(new CouponsPopOnClickListener(view));
+
+    }
+
+    private class CouponsPopOnClickListener implements View.OnTouchListener {
+        private View view;
+
+        public CouponsPopOnClickListener(View view) {
+            this.view = view;
+        }
+
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            int top = view.getTop();
+            int bottom = view.getBottom();
+            if (event.getAction() == MotionEvent.ACTION_UP) {
+                if (event.getY() < top || event.getY() > bottom)
+                    mWindow.dismiss();//popupWindow消失
+            }
+            return true;
+        }
+    }
+
+    private class CouponsGoodsOnClickListener implements AdapterView.OnItemClickListener {
+        private List<CouponEntity.GoodsEntity> goods;
+        private int position;
+
+        public CouponsGoodsOnClickListener(List<CouponEntity.GoodsEntity> goods, int position) {
+            this.goods = goods;
+            this.position = position;
+        }
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            CouponEntity couponEntity = (CouponEntity) couponAdapter.getItem(this.position);//获得该优惠券实体内容
+            couponEntity.setGoods_id(this.goods.get(position).getId());
+            couponAdapter.setCoupon_id(couponEntity.getId());
+            couponAdapter.notifyDataSetChanged();
+            index = this.position;
+            if (mWindow != null && mWindow.isShowing()) {
+                mWindow.dismiss();
+            }
+        }
+    }
+
 }
