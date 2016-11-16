@@ -20,7 +20,7 @@ public class CityEntity {
         public void setCity_info(List<CityInfoEntity> city_info) {
             this.city_info = city_info;
         }
-        public static class     CityInfoEntity implements Comparable<CityInfoEntity> ,Serializable{
+        public static class    CityInfoEntity implements Comparable<CityInfoEntity> ,Serializable{
             private static final long serialVersionUID = 1;
             private String PinYinName;
             private String city_id;

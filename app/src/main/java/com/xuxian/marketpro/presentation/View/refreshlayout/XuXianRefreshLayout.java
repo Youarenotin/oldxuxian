@@ -867,6 +867,14 @@ public class XuXianRefreshLayout extends LinearLayout {
         if (mRecyclerView!=null){
             RecyclerView.LayoutManager layoutManager = mRecyclerView.getLayoutManager();
 
+            if (mRecyclerView.getAdapter() != null && mRecyclerView.getAdapter().getItemCount() > 0) {
+                mRecyclerView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mRecyclerView.smoothScrollToPosition(mRecyclerView.getAdapter().getItemCount() - 1);
+                    }
+                });
+            }
         }
 //        BGARefreshScrollingUtil.scrollToBottom(mAbsListView);
 //        if (mStickyNavLayout != null) {

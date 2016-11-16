@@ -6,11 +6,30 @@
     android:orientation="horizontal">
 
     <LinearLayout
+        android:id="@+id/ll_bar_main_classification"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:src="@drawable/classification_white_icon" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/ll_bar_main_store"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:orientation="horizontal">
+        android:layout_alignParentStart="true">
 
         <ImageView
             android:id="@+id/iv_bar_main_store_icon"
@@ -65,22 +84,5 @@
                 android:textColor="@color/white"
                 android:textSize="14.0sp" />
         </RelativeLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_bar_main_classification"
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10.0dip"
-            android:paddingRight="10.0dip"
-            android:src="@drawable/classification_white_icon" />
     </LinearLayout>
 </RelativeLayout>

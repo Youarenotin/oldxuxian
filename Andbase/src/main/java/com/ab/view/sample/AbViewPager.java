@@ -31,7 +31,7 @@ import android.view.MotionEvent;
  * @version v1.0
  * @date：2013-05-17 下午6:46:29
  */
-public class AbViewPager extends ViewPager {
+public class 	AbViewPager extends ViewPager {
 
 	/** The enabled. */
 	private boolean enabled;

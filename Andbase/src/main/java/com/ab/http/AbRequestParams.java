@@ -278,8 +278,8 @@ public class AbRequestParams {
 		Collections.sort(list);
 		for (int i = 0; i < list.size(); i++) {
 			String key = (String) list.get(i);
-			sb.append(key + "=" + map.get(key) + "&");
-		}
+			sb.append(key + "=" + map.get(key) + "&");//sectionlistId=186&page=1&storeId=645&userId=1609759&key=SU9TX09T
+		}											//lng=&lat=&cityid=&key=SU9TX09T
 		String md5 = AbMd5.MD5(sb.toString() + "key=SU9TX09T").toLowerCase();
 		list.clear();
 		map.clear();
